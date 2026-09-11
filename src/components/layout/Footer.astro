@@ -1,0 +1,65 @@
+---
+import { useTranslations, getLocalizedPath, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<!-- Top accent separator -->
+<div class="h-[2px] bg-jade/30"></div>
+
+<footer class="bg-slate text-white/70 mt-24">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Brand -->
+    <div>
+      <span class="eyebrow" style="color: rgba(196, 169, 109, 0.6)">Relocation Guide</span>
+      <p class="font-serif text-lg font-semibold text-white mb-2">Beyond Panama Relocation</p>
+      <p class="text-sm text-white/40 leading-relaxed max-w-[200px]">{t('footer.tagline')}</p>
+    </div>
+
+    <!-- Nav links -->
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
+        {lang === 'es' ? 'Explorar' : 'Explore'}
+      </p>
+      <ul class="space-y-2 text-sm">
+        <li><a href={getLocalizedPath('/zonas', lang)} class="hover:text-white transition-colors">{t('nav.zonas')}</a></li>
+        <li><a href={getLocalizedPath('/visas', lang)} class="hover:text-white transition-colors">{t('nav.visas')}</a></li>
+        <li><a href={getLocalizedPath(lang === 'es' ? '/costo-de-vida' : '/cost-of-living', lang)} class="hover:text-white transition-colors">{t('nav.costo')}</a></li>
+        <li><a href={getLocalizedPath('/blog', lang)} class="hover:text-white transition-colors">{t('nav.blog')}</a></li>
+        <li><a href={getLocalizedPath(lang === 'es' ? '/sobre-nosotros' : '/about', lang)} class="hover:text-white transition-colors">{t('nav.sobre')}</a></li>
+      </ul>
+    </div>
+
+    <!-- Quiz CTA -->
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
+        {lang === 'es' ? '¿Por dónde empiezo?' : 'Where do I start?'}
+      </p>
+      <a
+        href={getLocalizedPath('/quiz', lang)}
+        class="inline-flex items-center px-5 py-2.5 rounded-sm bg-gold text-slate text-sm font-medium hover:bg-gold-light transition-colors"
+      >
+        {t('cta.empezar')} →
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/40">
+      <span>© {year} Beyond Panama Relocation <span class="text-white/20">· Built for expats, by expats</span></span>
+      <div class="flex gap-4">
+        <a href={getLocalizedPath(lang === 'es' ? '/privacidad' : '/privacy', lang)} class="hover:text-white/70 transition-colors">{t('footer.privacidad')}</a>
+        <a href={getLocalizedPath(lang === 'es' ? '/terminos' : '/terms', lang)} class="hover:text-white/70 transition-colors">{t('footer.terminos')}</a>
+      </div>
+    </div>
+  </div>
+</footer>

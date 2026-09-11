@@ -1,0 +1,192 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const zonas = [
+  {
+    emoji: '🏙️',
+    title: 'Ciudad de Panamá',
+    clima: 'Tropical, 27–32 °C todo el año',
+    alquiler: '$800 – $3,000+/mes',
+    perfil: 'Profesionales, inversores, nómadas digitales',
+    desc: 'El hub financiero de Latinoamérica. Punta Pacífica, Costa del Este, Casco Viejo — cada barrio tiene un perfil y un precio muy distinto.',
+    href: '/es/zonas/ciudad-de-panama',
+  },
+  {
+    emoji: '⛰️',
+    title: 'Boquete y Chiriquí',
+    clima: 'Fresco de montaña, 15–24 °C',
+    alquiler: '$500 – $1,500/mes',
+    perfil: 'Jubilados, amantes de la naturaleza, comunidad expat',
+    desc: 'Clima de primavera todo el año, comunidad expat consolidada y costo de vida entre los más bajos de Panamá. El favorito de jubilados norteamericanos.',
+    href: '/es/zonas/boquete',
+  },
+  {
+    emoji: '🌅',
+    title: 'Coronado y Pacífico Central',
+    clima: 'Seco pacífico, 28–35 °C',
+    alquiler: '$600 – $2,000/mes',
+    perfil: 'Amantes de playa, segunda residencia',
+    desc: 'A 80 km de la Ciudad. Playa, golf, condominios con acceso directo al mar — opción popular para quienes trabajan en la capital pero viven fuera.',
+    href: '/es/zonas/coronado',
+  },
+  {
+    emoji: '🌊',
+    title: 'Bocas del Toro',
+    clima: 'Caribeño, 26–30 °C',
+    alquiler: '$400 – $1,200/mes',
+    perfil: 'Aventureros, artistas, vida fuera de la red',
+    desc: 'Archipiélago caribeño de otro mundo. Bajo costo, naturaleza extrema, comunidad pequeña y bohemia. No es para todos — pero para quien encaja, es difícil salir.',
+    href: '/es/zonas/bocas-del-toro',
+  },
+  {
+    emoji: '🐋',
+    title: 'Pedasí y la Península de Azuero',
+    clima: 'Tropical seco, 26–35 °C',
+    alquiler: '$400 – $1,000/mes',
+    perfil: 'Surfistas, vida auténtica sin desarrollo masivo',
+    desc: 'Playa auténtica sin el desarrollo de Coronado. Avistamiento de ballenas, surf en Playa Venao, y un ritmo de vida que no tiene prisa.',
+    href: '/es/zonas/pedasi',
+  },
+  {
+    emoji: '🌺',
+    title: 'San Carlos y Santa Clara',
+    clima: 'Pacífico, 27–33 °C',
+    alquiler: '$450 – $1,400/mes',
+    perfil: 'Familias y residentes de fin de semana cerca de la capital',
+    desc: 'Las playas del Pacífico más cercanas a la capital. A menos de una hora, con precios más accesibles que Coronado y buena mezcla de comunidades.',
+    href: '/es/zonas/san-carlos',
+  },
+];
+---
+
+<Layout
+  title="Zonas para Vivir en Panamá"
+  description="Compara las zonas principales para vivir en Panamá: Ciudad de Panamá, Boquete, Coronado, Bocas del Toro, Pedasí y San Carlos. Precios, perfil de comunidad y estilo de vida."
+  lang="es"
+>
+  <section class="max-w-4xl mx-auto px-4 py-16">
+
+    <!-- Hero -->
+    <div class="mb-12">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Zonas para Vivir en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panamá es un país pequeño con una variedad notable de climas, estilos de vida y
+        rangos de precio. No todas las zonas son para todos — aquí comparamos las principales
+        para que elijas con información real, no con folletos.
+      </p>
+    </div>
+
+    <!-- Tabla comparativa rápida -->
+    <div class="overflow-x-auto mb-12 rounded-2xl border border-jade/10 bg-white">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-jade/10 text-left bg-fog">
+            <th class="px-5 py-4 font-semibold text-slate">Zona</th>
+            <th class="px-5 py-4 font-semibold text-slate">Clima</th>
+            <th class="px-5 py-4 font-semibold text-slate">Alquiler típico</th>
+            <th class="px-5 py-4 font-semibold text-slate">Perfil principal</th>
+            <th class="px-5 py-4 font-semibold text-slate">Internet</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/5">
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">🏙️ Ciudad de Panamá</td>
+            <td class="px-5 py-4 text-slate-mid">Tropical, 27–32 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$800 – $3,000+</td>
+            <td class="px-5 py-4 text-slate-mid">Profesionales, inversores</td>
+            <td class="px-5 py-4 text-jade font-medium">Excelente</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">⛰️ Boquete / Chiriquí</td>
+            <td class="px-5 py-4 text-slate-mid">Fresco, 15–24 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$500 – $1,500</td>
+            <td class="px-5 py-4 text-slate-mid">Jubilados, naturaleza</td>
+            <td class="px-5 py-4 text-slate-mid">Bueno</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">🌅 Coronado / Pacífico</td>
+            <td class="px-5 py-4 text-slate-mid">Seco, 28–35 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$600 – $2,000</td>
+            <td class="px-5 py-4 text-slate-mid">Playa, segunda residencia</td>
+            <td class="px-5 py-4 text-slate-mid">Aceptable</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">🌊 Bocas del Toro</td>
+            <td class="px-5 py-4 text-slate-mid">Caribeño, 26–30 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$400 – $1,200</td>
+            <td class="px-5 py-4 text-slate-mid">Aventureros, artistas</td>
+            <td class="px-5 py-4 text-coral font-medium">Limitado</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">🐋 Pedasí / Azuero</td>
+            <td class="px-5 py-4 text-slate-mid">Tropical seco, 26–35 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$400 – $1,000</td>
+            <td class="px-5 py-4 text-slate-mid">Surf, vida auténtica</td>
+            <td class="px-5 py-4 text-coral font-medium">Básico</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4 font-medium text-slate">🌺 San Carlos / Santa Clara</td>
+            <td class="px-5 py-4 text-slate-mid">Pacífico, 27–33 °C</td>
+            <td class="px-5 py-4 text-slate-mid">$450 – $1,400</td>
+            <td class="px-5 py-4 text-slate-mid">Playa cercana a capital</td>
+            <td class="px-5 py-4 text-slate-mid">Aceptable</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="px-5 py-3 text-xs text-slate-mid border-t border-jade/5">
+        Rangos de alquiler para apartamento de 1–2 hab. Referencias de mercado 2025–2026. Fuente: investigación interna Beyond Panama.
+      </p>
+    </div>
+
+    <!-- Cards individuales -->
+    <h2 class="font-serif text-2xl text-slate mb-6">Explora cada zona</h2>
+    <div class="grid md:grid-cols-2 gap-5 mb-12">
+      {zonas.map(zona => (
+        <a
+          href={zona.href}
+          class="group p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/30 hover:shadow-md transition-all"
+        >
+          <div class="text-3xl mb-3">{zona.emoji}</div>
+          <h2 class="font-serif text-xl font-semibold text-slate mb-2 group-hover:text-jade transition-colors">
+            {zona.title}
+          </h2>
+          <dl class="text-sm text-slate-mid space-y-1 mb-3">
+            <div class="flex gap-1.5">
+              <dt class="font-medium text-slate shrink-0">Clima:</dt>
+              <dd>{zona.clima}</dd>
+            </div>
+            <div class="flex gap-1.5">
+              <dt class="font-medium text-slate shrink-0">Alquiler:</dt>
+              <dd>{zona.alquiler}</dd>
+            </div>
+            <div class="flex gap-1.5">
+              <dt class="font-medium text-slate shrink-0">Perfil:</dt>
+              <dd>{zona.perfil}</dd>
+            </div>
+          </dl>
+          <p class="text-sm text-slate-mid leading-relaxed mb-4">{zona.desc}</p>
+          <span class="text-jade text-sm font-medium">Ver guía completa →</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿No sabes qué zona elegir?</p>
+      <p class="text-slate-mid text-sm mb-5 max-w-md mx-auto">
+        Encuentra tu ruta para recibir una recomendación según tu estilo de vida y presupuesto,
+        o usa la calculadora de costo para estimar los gastos mensuales en cada zona.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/es/calculadora" class="px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
+          Calculadora de costo →
+        </a>
+        <a href="/es/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+          Encontrar tu ruta →
+        </a>
+      </div>
+    </div>
+
+  </section>
+</Layout>

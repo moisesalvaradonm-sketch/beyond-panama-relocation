@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Brand palette — Beyond Panama Relocation */
+  --color-jade:       #1A6B9E;   /* primary — azul océano Pacífico */
+  --color-jade-dark:  #115680;
+  --color-jade-light: #3B92C4;
+  --color-gold:       #C4A96D;   /* secondary — arena tropical */
+  --color-gold-light: #D4BB8A;   /* gold más claro para hover */
+  --color-coral:      #E8714A;   /* accent — calidez panameña */
+  --color-slate:      #1C2B2E;   /* text principal */
+  --color-slate-mid:  #4A5E63;   /* text secundario */
+  --color-slate-deep: #141E21;   /* fondos más oscuros en hover */
+  --color-fog:        #F8F5F0;   /* fondo cálido */
+  --color-cream:      #FAF8F4;   /* alternativa sutil a fog */
+  --color-white:      #FFFFFF;
+
+  /* Tipografía */
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+
+  /* Espaciado */
+  --spacing-section: 7rem;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-slate);
+  background-color: var(--color-fog);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-slate);
+}
+
+a {
+  transition: color 0.15s ease;
+}
+
+hr {
+  border-color: color-mix(in srgb, var(--color-jade) 15%, transparent);
+}
+
+/* Editorial utilities */
+.eyebrow {
+  display: block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.divider-editorial {
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--color-jade) 12%, transparent);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-slate);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Scroll-triggered animation system */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-animate][data-delay="1"] { transition-delay: 0.08s; }
+[data-animate][data-delay="2"] { transition-delay: 0.16s; }
+[data-animate][data-delay="3"] { transition-delay: 0.24s; }
+[data-animate][data-delay="4"] { transition-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Legacy .fade-up */
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

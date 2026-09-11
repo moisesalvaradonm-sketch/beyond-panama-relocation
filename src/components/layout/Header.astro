@@ -1,0 +1,246 @@
+---
+import { useTranslations, getLocalizedPath, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
+const pathname = Astro.url.pathname;
+
+// Helper: returns true if the given href matches the current page
+function isActive(href: string): boolean {
+  const normalized = pathname.replace(/\/$/, '') || '/';
+  const hrefNorm = href.replace(/\/$/, '') || '/';
+  return normalized === hrefNorm;
+}
+
+const costPath = lang === 'es' ? '/costo-de-vida' : lang === 'fr' ? '/cout-de-la-vie' : '/cost-of-living';
+const zonaPath = lang === 'es' ? '/zonas' : lang === 'fr' ? '/regions' : '/areas';
+
+const navLinks = [
+  { href: getLocalizedPath(zonaPath, lang),  label: t('nav.zonas') },
+  { href: getLocalizedPath('/visas', lang),  label: t('nav.visas') },
+  { href: getLocalizedPath(costPath, lang),  label: t('nav.costo') },
+  { href: getLocalizedPath('/blog', lang),   label: t('nav.blog') },
+];
+
+// Language options for the switcher
+const langOptions = [
+  { code: 'es' as Lang, label: 'ES', flag: '🇵🇦', full: 'Español' },
+  { code: 'en' as Lang, label: 'EN', flag: '🇺🇸', full: 'English' },
+  { code: 'fr' as Lang, label: 'FR', flag: '🇫🇷', full: 'Français' },
+].filter(l => l.code !== lang);
+---
+
+<!-- Top accent bar -->
+<div class="h-[2px] bg-jade w-full"></div>
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-jade/8">
+  <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href={getLocalizedPath('/', lang)} class="flex items-center hover:opacity-80 transition-opacity">
+      <img
+        src="/img/logo-horizontal.png"
+        alt="Beyond Panama Relocation"
+        class="h-9 w-auto"
+        width="280"
+        height="70"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-mid">
+      {navLinks.map(({ href, label }) => {
+        const active = isActive(href);
+        return (
+          <li>
+            <a
+              href={href}
+              class={`relative transition-colors pb-0.5 tracking-[0.01em] ${
+                active
+                  ? 'text-jade font-semibold after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-[1px] after:bg-jade'
+                  : 'hover:text-jade'
+              }`}
+              aria-current={active ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <!-- CTA + lang switcher + hamburger -->
+    <div class="flex items-center gap-3">
+      <!-- Language switcher (desktop) — shows links to the other 2 languages -->
+      <div class="hidden md:flex items-center gap-1.5">
+        {langOptions.map(l => (
+          <a
+            href={`/${l.code}${currentPath}`}
+            class="text-xs font-medium text-slate-mid hover:text-jade transition-colors uppercase tracking-wide px-1.5 py-0.5 rounded hover:bg-jade/5"
+            aria-label={`Switch to ${l.full}`}
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Quiz CTA (desktop) -->
+      <a
+        href={getLocalizedPath('/quiz', lang)}
+        class="hidden sm:inline-flex items-center px-4 py-2 rounded-sm bg-jade text-white text-sm font-medium hover:bg-jade-dark transition-colors"
+      >
+        {t('cta.empezar')}
+      </a>
+
+      <!-- Hamburger button (mobile only) -->
+      <button
+        id="menu-toggle"
+        class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-md hover:bg-jade/10 transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line block h-[2px] w-5 bg-slate rounded-full transition-all duration-300"></span>
+        <span class="hamburger-line block h-[2px] w-5 bg-slate rounded-full transition-all duration-300"></span>
+        <span class="hamburger-line block h-[2px] w-5 bg-slate rounded-full transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-overlay"
+  class="fixed inset-0 z-40 bg-slate/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  aria-hidden="true"
+></div>
+
+<!-- Mobile menu panel -->
+<div
+  id="mobile-menu"
+  class="fixed top-[calc(2px+4rem)] left-0 right-0 z-40 bg-white border-b border-jade/10 shadow-lg translate-y-[-8px] opacity-0 pointer-events-none transition-all duration-300 md:hidden"
+  role="dialog"
+  aria-label="Menú de navegación"
+  aria-modal="true"
+>
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+
+    <!-- Nav links -->
+    {navLinks.map(({ href, label }) => {
+      const active = isActive(href);
+      return (
+        <a
+          href={href}
+          class={`mobile-nav-link px-3 py-3 rounded-lg text-base font-medium transition-colors flex items-center gap-2 ${
+            active
+              ? 'text-jade bg-jade/8 font-semibold'
+              : 'text-slate-mid hover:text-jade hover:bg-jade/5'
+          }`}
+          aria-current={active ? 'page' : undefined}
+        >
+          {active && (
+            <span class="w-1.5 h-1.5 rounded-full bg-jade flex-shrink-0"></span>
+          )}
+          {!active && (
+            <span class="w-1.5 h-1.5 flex-shrink-0"></span>
+          )}
+          {label}
+        </a>
+      );
+    })}
+
+    <!-- Divider -->
+    <hr class="my-2 border-jade/10" />
+
+    <!-- Bottom row: lang switcher + quiz CTA -->
+    <div class="flex items-center justify-between px-1 pt-1 pb-2">
+      <div class="flex items-center gap-1">
+        {langOptions.map(l => (
+          <a
+            href={`/${l.code}${currentPath}`}
+            class="text-sm font-medium text-slate-mid hover:text-jade transition-colors uppercase tracking-wide px-2 py-1 rounded-lg hover:bg-jade/5"
+          >
+            {l.flag} {l.full}
+          </a>
+        ))}
+      </div>
+      <a
+        href={getLocalizedPath('/quiz', lang)}
+        class="mobile-nav-link inline-flex items-center px-5 py-2.5 rounded-sm bg-jade text-white text-sm font-medium hover:bg-jade-dark transition-colors"
+      >
+        {t('cta.empezar')}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-overlay');
+
+  if (!toggle || !menu || !overlay) throw new Error('Mobile menu elements missing');
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-8px]');
+    menu.classList.add('opacity-100', 'translate-y-0');
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.classList.add('opacity-100');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Animate hamburger → X
+    const lines = toggle.querySelectorAll('.hamburger-line');
+    lines[0].classList.add('rotate-45', 'translate-y-[7px]');
+    lines[1].classList.add('opacity-0', 'scale-x-0');
+    lines[2].classList.add('-rotate-45', '-translate-y-[7px]');
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-8px]');
+    menu.classList.remove('opacity-100', 'translate-y-0');
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    overlay.classList.remove('opacity-100');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Animate X → hamburger
+    const lines = toggle.querySelectorAll('.hamburger-line');
+    lines[0].classList.remove('rotate-45', 'translate-y-[7px]');
+    lines[1].classList.remove('opacity-0', 'scale-x-0');
+    lines[2].classList.remove('-rotate-45', '-translate-y-[7px]');
+  }
+
+  toggle.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  // Close when any nav link is clicked
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+
+  // Close if viewport widens past md breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && isOpen) closeMenu();
+  });
+</script>

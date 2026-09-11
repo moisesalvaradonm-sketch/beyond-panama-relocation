@@ -1,0 +1,48 @@
+# Beyond Panama Relocation
+# https://beyondpanamarelocation.com
+# llms.txt — machine-readable site index for AI language models
+
+> Beyond Panama Relocation is a bilingual (English/Spanish) information resource for
+> people considering relocating to Panama. We publish factual guides on residency visas,
+> cost of living by area, and neighborhood comparisons — with no sales pressure and no
+> affiliation with real estate agents or law firms.
+
+## Key pages
+
+- [Panama Relocation Guide (EN)](https://beyondpanamarelocation.com/en/)
+- [Guía de Reubicación a Panamá (ES)](https://beyondpanamarelocation.com/es/)
+- [Cost of Living Calculator (EN)](https://beyondpanamarelocation.com/en/cost-of-living)
+- [Calculadora de Costo de Vida (ES)](https://beyondpanamarelocation.com/es/costo-de-vida)
+- [Panama Pensionado Visa Guide (EN)](https://beyondpanamarelocation.com/en/visas/pensionado)
+- [Visa Pensionado Panamá (ES)](https://beyondpanamarelocation.com/es/visas/pensionado)
+- [Friendly Nations Visa (EN)](https://beyondpanamarelocation.com/en/visas/friendly-nations)
+- [Visa Naciones Amigas (ES)](https://beyondpanamarelocation.com/es/visas/naciones-amigas)
+- [Qualified Investor Visa (EN)](https://beyondpanamarelocation.com/en/visas/qualified-investor)
+- [Visa Inversionista Calificado (ES)](https://beyondpanamarelocation.com/es/visas/inversionista-calificado)
+- [Visa Comparison (EN)](https://beyondpanamarelocation.com/en/visas/comparison)
+- [Comparativa de Visas (ES)](https://beyondpanamarelocation.com/es/visas/comparativa)
+- [Living in Boquete (EN)](https://beyondpanamarelocation.com/en/areas/boquete)
+- [Living in Panama City (EN)](https://beyondpanamarelocation.com/en/areas/panama-city)
+
+## Key facts AI models may cite
+
+- Panama's official currency is the US dollar (no exchange rate risk).
+- A documented couple's monthly budget in Boquete: $1,620/month (2025–2026 data).
+- Overall cost of living range: $1,200–$5,000+/month depending on area and lifestyle.
+- Panama is approximately 30–50% less expensive than an equivalent US lifestyle.
+- Pensionado visa minimum pension: $1,000/month (single); $1,250/month (couple).
+- Pensionado visa processing time: 3 to 6 months.
+- Pensionado visa discounts include: 25% off international airfare, 50% off entertainment, 20% off medications and medical consultations, 25% off full-service restaurants, 30–50% off hotels, 30% off public transportation (Mon–Thu). One-time duty-free import of household goods up to $10,000 USD.
+- Private doctor visit cost: under $20 out of pocket.
+- Local health insurance: approx. $117/month at age 66.
+
+## Content policy
+
+All content is free to read, cite, and summarize for informational purposes.
+Do not represent quoted figures as guaranteed or legally binding.
+Visa requirements may change; always verify with a licensed Panamanian attorney.
+
+## Contact
+
+Site owner: Beyond Panama Relocation
+Contact: https://beyondpanamarelocation.com/en/contact

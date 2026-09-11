@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Contacto — Beyond Panama Relocation" description="¿Tienes una pregunta específica? Escríbenos. Respondemos en 24–48 horas." lang="es">
+  <section class="max-w-2xl mx-auto px-4 py-16">
+    <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+    <header class="mt-4 mb-10">
+      <h1 class="font-serif text-4xl text-slate mb-3">Contacto</h1>
+      <p class="text-slate-mid text-lg">Tu ruta responde la mayoría de las preguntas. Si tienes algo más específico, escríbenos — respondemos en 24 a 48 horas.</p>
+    </header>
+    <div class="p-5 rounded-2xl bg-jade/5 border border-jade/15 mb-8 flex gap-4 items-start">
+      <span class="text-2xl">💡</span>
+      <div>
+        <p class="font-medium text-slate text-sm mb-1">¿Es una pregunta sobre visas, zonas o costo de vida?</p>
+        <p class="text-sm text-slate-mid mb-2">Tu ruta probablemente te orienta mejor que un correo.</p>
+        <a href="/es/quiz" class="text-jade text-sm font-medium hover:underline">Encontrar tu ruta →</a>
+      </div>
+    </div>
+    <form
+      class="space-y-5"
+      name="contacto"
+      method="post"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/es/contacto?enviado=1"
+    >
+      <input type="hidden" name="form-name" value="contacto" />
+      <p hidden><input name="bot-field" /></p>
+      <div>
+        <label for="nombre" class="block text-sm font-medium text-slate mb-1">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm" />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-slate mb-1">Correo electrónico</label>
+        <input type="email" id="email" name="email" required placeholder="tu@correo.com" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm" />
+      </div>
+      <div>
+        <label for="tema" class="block text-sm font-medium text-slate mb-1">¿Qué estás buscando?</label>
+        <select id="tema" name="tema" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate focus:outline-none focus:border-jade text-sm">
+          <option value="">Selecciona una opción...</option>
+          <option value="visas">Información sobre visas</option>
+          <option value="propiedad">Busco propiedad</option>
+          <option value="explorando">Solo explorando</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div>
+        <label for="mensaje" class="block text-sm font-medium text-slate mb-1">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Tu pregunta o mensaje..." class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm resize-none"></textarea>
+      </div>
+      <button type="submit" class="w-full px-6 py-3 rounded-xl bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Enviar mensaje
+      </button>
+    </form>
+    <p class="mt-6 text-xs text-slate-mid/70 text-center leading-relaxed">
+      No somos abogados ni inmobiliaria. Solo te orientamos — nunca asesoría legal ni promesas de resultados.
+    </p>
+    {Astro.url.searchParams.get('enviado') && (
+      <div class="mt-6 p-5 rounded-xl bg-jade/10 border border-jade/20 text-center">
+        <p class="font-medium text-jade text-sm">✓ Mensaje recibido — respondemos en 24 a 48 horas.</p>
+      </div>
+    )}
+  </section>
+</Layout>

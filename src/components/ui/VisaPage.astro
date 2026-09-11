@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  visaName: string;
+  tag: string;           // "Jubilados" / "Inversión" / etc.
+  tagColor?: string;     // css class
+  mainReq: string;       // requisito principal en 1 línea
+  income?: string;
+  investment?: string;
+  processingTime: string;
+  renewalNote: string;
+  intro: string;
+  requirements: string[];
+  benefits: string[];
+  notFor: string[];
+  faqs?: FAQ[];          // Additional human-readable Q&A for AI citability
+}
+
+const {
+  lang, title, description, visaName, tag, tagColor = 'bg-jade/10 text-jade',
+  mainReq, income, investment, processingTime, renewalNote,
+  intro, requirements, benefits, notFor, faqs = [],
+} = Astro.props;
+
+const backHref = lang === 'es' ? '/es/visas' : lang === 'fr' ? '/fr/visas' : '/en/visas';
+const compHref = lang === 'es' ? '/es/visas/comparativa' : lang === 'fr' ? '/fr/visas/comparaison' : '/en/visas/comparison';
+const quizHref = `/${lang}/quiz`;
+
+// ── Schema: FAQPage ───────────────────────────────────────────────────────────
+// NOTE (2026-09-08): Google retired FAQ rich results for all sites on
+// 2026-05-07. This schema no longer triggers a SERP feature on Google.
+// It is kept for potential AI / GEO visibility — benefit unconfirmed.
+//
+// Three canonical FAQ questions are built from the structured prop data.
+// Beyond Panama Relocation is an information service only — questions and
+// answers deliberately avoid characterising the service as a law firm or
+// visa provider.
+
+const isEs = lang === 'es';
+const isFr = lang === 'fr';
+
+function listToAnswer(items: string[]): string {
+  return items.map((item, i) => `${i + 1}. ${item}`).join(' ');
+}
+
+// Merge structured-prop FAQs + custom prose FAQs into a single schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: isEs
+        ? `¿Cuáles son los requisitos principales de la ${visaName}?`
+        : isFr
+        ? `Quelles sont les conditions principales du ${visaName} ?`
+        : `What are the main requirements for the ${visaName}?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: listToAnswer(requirements),
+      },
+    },
+    {
+      '@type': 'Question',
+      name: isEs
+        ? `¿Qué incluye la ${visaName}?`
+        : isFr
+        ? `Qu'inclut le ${visaName} ?`
+        : `What does the ${visaName} include?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: listToAnswer(benefits),
+      },
+    },
+    {
+      '@type': 'Question',
+      name: isEs
+        ? `¿Para quién probablemente no es adecuada la ${visaName}?`
+        : isFr
+        ? `Pour qui le ${visaName} ne convient-il probablement pas ?`
+        : `Who is the ${visaName} probably not suitable for?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: listToAnswer(notFor),
+      },
+    },
+    ...faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  ],
+};
+---
+
+<Layout {title} {description} {lang}>
+  <article class="max-w-3xl mx-auto px-4 py-16">
+
+    <a href={backHref} class="text-jade text-sm hover:underline">
+      {lang === 'es' ? '← Todas las visas' : lang === 'fr' ? '← Tous les visas' : '← All visas'}
+    </a>
+
+    <header class="mt-4 mb-10">
+      <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-3 ${tagColor}`}>{tag}</span>
+      <h1 class="font-serif text-4xl text-slate mb-3">{visaName}</h1>
+      <p class="text-slate-mid text-lg leading-relaxed">{intro}</p>
+    </header>
+
+    <!-- Stats rápidos -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
+      <div class="p-4 rounded-xl bg-white border border-jade/10">
+        <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
+          {lang === 'es' ? 'Requisito clave' : lang === 'fr' ? 'Condition clé' : 'Key requirement'}
+        </p>
+        <p class="font-semibold text-slate text-sm">{mainReq}</p>
+      </div>
+      {income && (
+        <div class="p-4 rounded-xl bg-white border border-jade/10">
+          <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
+            {lang === 'es' ? 'Ingreso mínimo' : lang === 'fr' ? 'Revenu min.' : 'Min. income'}
+          </p>
+          <p class="font-semibold text-slate text-sm">{income}</p>
+        </div>
+      )}
+      {investment && (
+        <div class="p-4 rounded-xl bg-white border border-jade/10">
+          <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
+            {lang === 'es' ? 'Inversión mínima' : lang === 'fr' ? 'Investissement min.' : 'Min. investment'}
+          </p>
+          <p class="font-semibold text-slate text-sm">{investment}</p>
+        </div>
+      )}
+      <div class="p-4 rounded-xl bg-white border border-jade/10">
+        <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
+          {lang === 'es' ? 'Tiempo de proceso' : lang === 'fr' ? 'Délai de traitement' : 'Processing time'}
+        </p>
+        <p class="font-semibold text-slate text-sm">{processingTime}</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10 col-span-2 md:col-span-1">
+        <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
+          {lang === 'es' ? 'Renovación' : lang === 'fr' ? 'Renouvellement' : 'Renewal'}
+        </p>
+        <p class="font-semibold text-slate text-sm">{renewalNote}</p>
+      </div>
+    </div>
+
+    <!-- Requisitos -->
+    <section class="mb-10">
+      <h2 class="font-serif text-2xl text-slate mb-4">
+        {lang === 'es' ? 'Requisitos principales' : lang === 'fr' ? 'Conditions requises' : 'Main requirements'}
+      </h2>
+      <ul class="space-y-3">
+        {requirements.map(r => (
+          <li class="flex gap-3 items-start">
+            <span class="text-jade mt-0.5 flex-shrink-0">•</span>
+            <span class="text-slate-mid">{r}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="mb-10">
+      <h2 class="font-serif text-2xl text-slate mb-4">
+        {lang === 'es' ? 'Qué incluye' : lang === 'fr' ? 'Ce qui est inclus' : 'What it includes'}
+      </h2>
+      <ul class="space-y-3">
+        {benefits.map(b => (
+          <li class="flex gap-3 items-start">
+            <span class="text-jade mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-slate-mid">{b}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Cómo aplicar / How to Apply -->
+    <section class="mb-10">
+      <h2 class="font-serif text-2xl text-slate mb-6">
+        {lang === 'es' ? 'Cómo es el proceso paso a paso' : lang === 'fr' ? 'Comment faire — étape par étape' : 'How to apply — step by step'}
+      </h2>
+      <ol class="space-y-4">
+        {[
+          isEs
+            ? { n: 1, title: 'Verifica que cumples los requisitos', body: 'Revisa los requisitos indicados arriba con tus documentos actuales. Si tienes dudas sobre tu elegibilidad, consulta con un abogado de migración antes de iniciar.' }
+            : isFr
+            ? { n: 1, title: 'Vérifiez votre éligibilité', body: 'Vérifiez les conditions ci-dessus avec vos documents actuels. En cas de doute sur votre éligibilité, consultez un avocat en droit de l\'immigration avant de commencer.' }
+            : { n: 1, title: 'Confirm you meet the requirements', body: 'Review the requirements above against your current documents. If you are unsure about your eligibility, consult a licensed immigration attorney before proceeding.' },
+          isEs
+            ? { n: 2, title: 'Reúne tu documentación', body: 'Necesitarás: pasaporte vigente con copias apostilladas, certificado de antecedentes penales apostillado, acta de nacimiento apostillada, comprobantes de ingresos o inversión según la visa, y fotos de carnet. Los apostilles emitidos fuera de Panamá deben ser autenticados.' }
+            : isFr
+            ? { n: 2, title: 'Rassemblez vos documents', body: 'Vous aurez besoin de : passeport en cours de validité avec copies apostillées, extrait de casier judiciaire apostillé, acte de naissance apostillé, justificatifs de revenus ou d\'investissement selon le visa, et photos d\'identité. Les apostilles délivrées hors du Panama doivent être authentifiées.' }
+            : { n: 2, title: 'Gather your documents', body: 'You will need: valid passport with apostilled copies, apostilled criminal background check, apostilled birth certificate, proof of income or investment depending on the visa, and passport photos. Apostilles issued outside Panama must be authenticated.' },
+          isEs
+            ? { n: 3, title: 'Contrata un abogado de migración', body: 'La ley panameña exige que la solicitud formal sea presentada por un abogado con cédula vigente. El abogado prepara el expediente, verifica que esté completo y presenta la petición en el Servicio Nacional de Migración.' }
+            : isFr
+            ? { n: 3, title: 'Engagez un avocat en immigration', body: 'La loi panaméenne exige que la demande formelle soit déposée par un avocat agréé en exercice. Votre avocat prépare le dossier, vérifie qu\'il est complet et soumet la requête au Servicio Nacional de Migración.' }
+            : { n: 3, title: 'Engage a licensed immigration attorney', body: 'Panama law requires the formal petition to be filed by a licensed attorney. Your attorney prepares the file, verifies it is complete, and submits the petition to the Servicio Nacional de Migración.' },
+          isEs
+            ? { n: 4, title: 'Presentación ante Migración', body: 'Tu abogado presenta el expediente. Dependiendo de la visa, es posible que debas aparecer en persona para firma de declaraciones juradas. Migración emite un comprobante de radicación.' }
+            : isFr
+            ? { n: 4, title: 'Dépôt du dossier auprès de l\'immigration', body: 'Votre avocat soumet le dossier. Selon le visa, vous devrez peut-être vous présenter en personne pour signer des déclarations sous serment. L\'immigration délivre un récépissé de dépôt.' }
+            : { n: 4, title: 'File with Immigration (Migración)', body: 'Your attorney submits the file. Depending on the visa, you may need to appear in person to sign declarations. Immigration issues a receipt of filing.' },
+          isEs
+            ? { n: 5, title: 'Recibe tu carnet provisional', body: 'Mientras el expediente es revisado — típicamente entre 3 y 9 meses — recibirás un carnet provisional que acredita tu estatus migratorio y te permite residir y viajar normalmente.' }
+            : isFr
+            ? { n: 5, title: 'Recevez votre carnet provisoire', body: 'Pendant l\'examen de votre dossier — généralement entre 3 et 9 mois — vous recevez une carte provisoire qui confirme votre statut migratoire et vous permet de résider et de voyager au Panama normalement.' }
+            : { n: 5, title: 'Receive your provisional ID (carnet)', body: 'While your file is reviewed — typically 3 to 9 months — you receive a provisional ID card that confirms your immigration status and allows you to live in and travel through Panama normally.' },
+          isEs
+            ? { n: 6, title: 'Obtén tu cédula de residencia permanente', body: 'Una vez aprobada la solicitud, recibirás tu cédula de residente permanente. En algunos trámites también podrás solicitar una cédula de identidad panameña (carnet de residente).' }
+            : isFr
+            ? { n: 6, title: 'Recevez votre carte de résident permanent', body: 'Une fois approuvée, vous recevez votre carte de résident permanent. Selon le type de visa, vous pourrez également faire une demande de carte d\'identité de résident panaméen (cédula de identidad).' }
+            : { n: 6, title: 'Receive your permanent resident card', body: 'Once approved, you receive your permanent resident ID. Depending on the visa type, you may also be eligible to apply for a Panama resident identity card (cédula de identidad).' },
+        ].map(({ n, title, body }) => (
+          <li class="flex gap-4 items-start">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-jade text-white text-xs font-bold flex items-center justify-center mt-0.5">{n}</span>
+            <div>
+              <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+              <p class="text-slate-mid text-sm leading-relaxed">{body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- No es para -->
+    <section class="mb-10 p-6 rounded-2xl bg-slate/5 border border-slate/10">
+      <h2 class="font-serif text-xl text-slate mb-3">
+        {lang === 'es' ? 'Esta visa probablemente no es para ti si…' : lang === 'fr' ? 'Ce visa ne vous convient probablement pas si…' : 'This visa is probably not for you if…'}
+      </h2>
+      <ul class="space-y-2">
+        {notFor.map(n => (
+          <li class="flex gap-3 items-start text-sm">
+            <span class="text-coral mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-slate-mid">{n}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- FAQ prose section — optimised for AI citation -->
+    {faqs.length > 0 && (
+      <section class="mb-10">
+        <h2 class="font-serif text-2xl text-slate mb-6">
+          {lang === 'es' ? 'Preguntas frecuentes' : lang === 'fr' ? 'Questions fréquentes' : 'Frequently Asked Questions'}
+        </h2>
+        <dl class="space-y-6">
+          {faqs.map(({ q, a }) => (
+            <div class="border-b border-jade/10 pb-6 last:border-0 last:pb-0">
+              <dt class="font-serif text-lg font-semibold text-slate mb-2">{q}</dt>
+              <dd class="text-slate-mid leading-relaxed">{a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )}
+
+    <!-- Disclaimer legal -->
+    <p class="text-xs text-slate-mid border-t border-jade/10 pt-6 mb-10">
+      {lang === 'es'
+        ? 'Esta información es orientativa y se actualiza periódicamente. Los requisitos legales pueden cambiar. Beyond Panama Relocation no presta servicios legales — para gestionar tu proceso, te orientamos hacia profesionales calificados.'
+        : lang === 'fr'
+        ? 'Ces informations sont fournies à titre indicatif et sont mises à jour régulièrement. Les exigences légales peuvent changer. Beyond Panama Relocation ne fournit pas de services juridiques — pour votre démarche spécifique, nous vous orientons vers des professionnels qualifiés.'
+        : 'This information is for guidance only and is updated periodically. Legal requirements may change. Beyond Panama Relocation does not provide legal services — for your specific process, we connect you with qualified professionals.'}
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href={compHref} class="flex-1 text-center px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
+        {lang === 'es' ? 'Comparar todas las visas →' : lang === 'fr' ? 'Comparer tous les visas →' : 'Compare all visas →'}
+      </a>
+      <a href={quizHref} class="flex-1 text-center px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        {lang === 'es' ? 'Encontrar tu ruta →' : lang === 'fr' ? 'Trouver votre route →' : 'Find your route →'}
+      </a>
+    </div>
+
+    <!-- JSON-LD: FAQPage (body placement — valid per spec) -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  </article>
+</Layout>

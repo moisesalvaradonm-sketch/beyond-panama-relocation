@@ -1,0 +1,35 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Allow: /
+
+# AI search crawlers — explicitly allowed for index and citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+# Training-only crawlers — blocked (not search-visible)
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+Sitemap: https://beyondpanamarelocation.com/sitemap.xml

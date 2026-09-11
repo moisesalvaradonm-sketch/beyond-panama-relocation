@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CostCalculator from '../../components/ui/CostCalculator';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuánto necesita una pareja para vivir en Boquete, Panamá?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Según gastos documentados de 2025–2026, una pareja que vive en Boquete puede manejarse con aproximadamente $1,620/mes. Esto incluye una casa amoblada de 2 habitaciones ($750), supermercado y alimentación ($300), electricidad ($25 — el clima fresco de montaña de Boquete elimina el uso de A/C), seguro médico para dos personas ($175), copagos médicos y dentales ($10), medicamentos ($10), servicios de streaming ($10), internet y TV por cable ($60), ropa y calzado ($30), entretenimiento y salidas ($50), viajes ($100), ayuda doméstica ($50) y seguro y mantenimiento de vehículo ($50). Este es un presupuesto real documentado, no una estimación promocional.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Es Panamá más barato que Estados Unidos?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Panamá es típicamente un 30–50% más barato que un estilo de vida equivalente en Estados Unidos. El país usa el dólar estadounidense como moneda oficial, eliminando el riesgo cambiario. La vivienda, la atención médica y los gastos cotidianos cuestan significativamente menos que en ciudades comparables de EE.UU., mientras que los productos importados — especialmente marcas estadounidenses en supermercados — pueden costar similar o más que allá.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta el seguro médico en Panamá?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Un plan de salud local panameño cuesta aproximadamente $117/mes a los 66 años. Los planes internacionales arrancan en alrededor de $85/mes a los 50 años. Para atención rutinaria, una visita a una clínica privada cuesta menos de $20 de bolsillo — lo que significa que muchos expatriados cubren gastos menores sin presentar reclamaciones. El sector médico privado de Panamá se considera de alta calidad en relación con su costo.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta el alquiler en Ciudad de Panamá?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "El alquiler en Ciudad de Panamá varía enormemente según el barrio. La diferencia entre una zona económica como Calidonia y un barrio premium como Punta Pacífica puede superar los $2,000/mes por un apartamento comparable. Siempre investiga el barrio concreto en lugar de depender de promedios de la ciudad. Fuera de Ciudad de Panamá, una casa amoblada de 2 habitaciones en Boquete se alquila por aproximadamente $750/mes según datos de mercado de 2025–2026.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuáles son los costos del primer año al mudarse a Panamá?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Además de los gastos mensuales, el primer año de reubicación en Panamá generalmente requiere costos adicionales puntuales: depósito de alquiler de $800–$4,000 (1–2 meses de renta), trámites de visa y residencia de $1,500–$5,000 (tasas gubernamentales más honorarios de abogado), muebles y equipamiento de $2,000–$8,000, viajes de exploración de $1,000–$3,000 y alta de seguro médico de $200–$800. Un colchón conservador de $5,000–$10,000 por encima del presupuesto mensual es un punto de partida razonable para el primer año.",
+      },
+    },
+  ],
+};
+---
+
+<Layout title="Calculadora de Costo de Vida en Panamá" description="Calcula el costo real de vivir en Panamá según la zona y tu estilo de vida. Herramienta interactiva, sin registro." lang="es">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Costo de Vida en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl">
+        El número real de vivir en Panamá — no el número del folleto. Elige tu zona y estilo de vida, y ajusta cada categoría a tu caso.
+      </p>
+    </div>
+
+    <!-- Contexto introductorio -->
+    <div class="mb-12 space-y-5 text-slate-mid leading-relaxed">
+      <h2 class="font-serif text-2xl text-slate">¿Cuánto cuesta realmente vivir en Panamá?</h2>
+
+      <p>
+        Panamá usa el dólar estadounidense como moneda oficial — lo que significa cero sorpresas cambiarias y presupuestos sencillos para quienes ganan en USD. Esta ventaja práctica es una de las razones por las que el país atrae constantemente a jubilados, trabajadores remotos e inversores.
+      </p>
+
+      <p>
+        El rango honesto es <strong class="text-slate">$1,200 a $5,000+ al mes</strong>, dependiendo casi enteramente de dónde vives y qué estilo de vida traes. Una pareja que vive con sencillez en Boquete puede manejarse con $1,500. Una familia que alquila un apartamento grande en Punta Pacífica y lleva a sus hijos a una escuela internacional supera fácilmente los $6,000.
+      </p>
+
+      <p>
+        Para contexto: Panamá es típicamente <strong class="text-slate">un 30–50% más barato que un nivel de vida equivalente en EE.UU.</strong>, y comparable en términos generales con Costa Rica — aunque con infraestructura notablemente mejor en Ciudad de Panamá. Colombia sale más económica en sus ciudades principales, pero la economía dolarizada de Panamá, su posición logística y su sistema médico atraen un perfil de expatriado diferente.
+      </p>
+
+      <p>
+        La calculadora a continuación está construida sobre datos reales de mercado, no promedios de blogs de expatriados desactualizados. Úsala para construir tu propio punto de partida — y ajusta cada línea según cómo vives tú realmente.
+      </p>
+    </div>
+
+    <!-- Presupuesto real documentado -->
+    <div class="mb-10 rounded-2xl border border-jade/15 overflow-hidden">
+      <div class="bg-jade px-5 py-4">
+        <p class="font-serif text-white font-semibold text-lg">Presupuesto real — una pareja en Boquete</p>
+        <p class="text-white/70 text-sm mt-0.5">Gastos mensuales documentados, 2025–2026</p>
+      </div>
+      <div class="bg-white divide-y divide-jade/8">
+        {[
+          ["Alquiler (casa amoblada 2 habitaciones)", "$750"],
+          ["Supermercado y alimentación", "$300"],
+          ["Electricidad (clima fresco, sin A/C)", "$25"],
+          ["Seguro médico (2 personas)", "$175"],
+          ["Copagos médicos y dentales", "$10"],
+          ["Medicamentos", "$10"],
+          ["Servicios de streaming", "$10"],
+          ["Internet + TV por cable", "$60"],
+          ["Ropa y calzado", "$30"],
+          ["Entretenimiento y salidas a comer", "$50"],
+          ["Viajes nacionales e internacionales", "$100"],
+          ["Jardinero y ayuda doméstica", "$50"],
+          ["Seguro y mantenimiento de vehículo", "$50"],
+        ].map(([label, amount]) => (
+          <div class="flex justify-between items-center px-5 py-3 text-sm">
+            <span class="text-slate-mid">{label}</span>
+            <span class="font-semibold text-slate">{amount}</span>
+          </div>
+        ))}
+        <div class="flex justify-between items-center px-5 py-4 bg-jade/5">
+          <span class="font-semibold text-slate">Total mensual aproximado</span>
+          <span class="font-serif text-2xl font-bold text-jade">$1,620</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid px-5 py-3 bg-fog border-t border-jade/10">Nota: La electricidad se multiplica 4–5× en zonas costeras cálidas por el uso de A/C. Los costos en Ciudad de Panamá o Coronado serán considerablemente más altos.</p>
+    </div>
+
+    <CostCalculator lang="es" client:load />
+
+    <!-- Notas sobre los rangos — cards visuales -->
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-6">Notas sobre los rangos</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🏠</span>
+            <strong class="text-slate text-sm">Alquiler</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Varía enormemente según el barrio. En Ciudad de Panamá, la diferencia entre Calidonia y Punta Pacífica puede superar los $2,000 al mes por un apartamento similar. Siempre investiga el barrio concreto, no solo la ciudad.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">⚡</span>
+            <strong class="text-slate text-sm">Servicios</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            La electricidad en un apartamento con aire acondicionado llega a $150–$300 al mes — Panamá es cálida. El agua es barata. El internet de fibra está ampliamente disponible en la ciudad; la calidad baja en zonas de playa y montaña.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🏥</span>
+            <strong class="text-slate text-sm">Salud y Seguro</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Panamá tiene atención médica privada de calidad a una fracción del costo de EE.UU. Un plan de salud local cuesta ~$117/mes a los 66 años; los planes internacionales arrancan en ~$85/mes a los 50. Una consulta médica privada sale por menos de $20 — sin necesidad de seguro.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🛒</span>
+            <strong class="text-slate text-sm">Alimentación</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Supermercados como Rey y El Machetazo tienen productos locales e importados. Comer local es muy asequible; los productos importados de EE.UU. cuestan similar o más que allá. Salir a comer va de $5 en una fondita local a $40+ en un restaurante de Casco Viejo.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Gastos del primer año -->
+    <div class="mt-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Gastos Extra del Primer Año</h2>
+      <p class="text-slate-mid text-sm mb-5 leading-relaxed">
+        El primer año siempre cuesta más. Presupuesta estos gastos puntuales o de instalación además de tu estimado mensual:
+      </p>
+      <div class="space-y-3">
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Depósito de alquiler</p>
+            <p class="text-slate-mid text-xs mt-0.5">Generalmente 1–2 meses de alquiler por adelantado</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$800 – $4,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Trámites de visa / residencia</p>
+            <p class="text-slate-mid text-xs mt-0.5">Tasas de gobierno + honorarios de abogado — varía según el tipo de visa</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$1,500 – $5,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Muebles y equipamiento</p>
+            <p class="text-slate-mid text-xs mt-0.5">Si llegas sin pertenencias o sin envío de mudanza</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$2,000 – $8,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Viajes de exploración</p>
+            <p class="text-slate-mid text-xs mt-0.5">Visitas de reconocimiento antes de firmar un contrato</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$1,000 – $3,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Alta de seguro médico</p>
+            <p class="text-slate-mid text-xs mt-0.5">Primera prima + examen médico si se requiere</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$200 – $800</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-5">
+        Un colchón conservador de <strong>$5,000–$10,000</strong> por encima de tu presupuesto mensual es un punto de partida razonable para el primer año.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Quieres saber qué zona encaja con tu presupuesto?</p>
+      <p class="text-slate-mid text-sm mb-5">Tu ruta te orienta en 2 minutos.</p>
+      <a href="/es/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Encontrar tu ruta →
+      </a>
+    </div>
+
+    <!-- Sección FAQ — optimizada para citación por IA y Preguntas Frecuentes -->
+    <div class="mt-16">
+      <h2 class="font-serif text-2xl text-slate mb-8">Preguntas frecuentes</h2>
+      <dl class="space-y-8">
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Cuánto necesita una pareja para vivir en Boquete, Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Según gastos documentados de 2025–2026, una pareja que vive en Boquete puede manejarse con
+            aproximadamente $1,620/mes. Esto incluye una casa amoblada de 2 habitaciones ($750),
+            supermercado y alimentación ($300), electricidad ($25 — el clima fresco de montaña de Boquete
+            elimina el uso de A/C), seguro médico para dos personas ($175), copagos médicos y dentales
+            ($10), medicamentos ($10), streaming ($10), internet y TV por cable ($60), ropa y calzado
+            ($30), entretenimiento y salidas ($50), viajes ($100), ayuda doméstica ($50) y seguro y
+            mantenimiento de vehículo ($50). Este es un presupuesto real documentado, no una estimación
+            promocional.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Es Panamá más barato que Estados Unidos?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Panamá es típicamente un 30–50% más barato que un estilo de vida equivalente en Estados Unidos.
+            El país usa el dólar estadounidense como moneda oficial, eliminando el riesgo cambiario. La
+            vivienda, la atención médica y los gastos cotidianos cuestan significativamente menos que en
+            ciudades comparables de EE.UU., mientras que los productos importados — especialmente marcas
+            estadounidenses en supermercados — pueden costar similar o más que allá.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Cuánto cuesta el seguro médico en Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Un plan de salud local panameño cuesta aproximadamente $117/mes a los 66 años. Los planes
+            internacionales arrancan en alrededor de $85/mes a los 50 años. Para atención rutinaria, una
+            visita a una clínica privada cuesta menos de $20 de bolsillo — lo que significa que muchos
+            expatriados cubren gastos menores sin presentar reclamaciones. El sector médico privado de
+            Panamá se considera de alta calidad en relación con su costo.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Cuánto cuesta el alquiler en Ciudad de Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            El alquiler en Ciudad de Panamá varía enormemente según el barrio. La diferencia entre una
+            zona económica como Calidonia y un barrio premium como Punta Pacífica puede superar los
+            $2,000/mes por un apartamento comparable. Siempre investiga el barrio concreto en lugar de
+            depender de promedios de la ciudad. Fuera de Ciudad de Panamá, una casa amoblada de 2
+            habitaciones en Boquete se alquila por aproximadamente $750/mes según datos de mercado
+            de 2025–2026.
+          </dd>
+        </div>
+
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Cuáles son los costos del primer año al mudarse a Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Además de los gastos mensuales, el primer año de reubicación en Panamá generalmente requiere
+            costos adicionales puntuales: depósito de alquiler de $800–$4,000 (1–2 meses de renta),
+            trámites de visa y residencia de $1,500–$5,000 (tasas gubernamentales más honorarios de
+            abogado), muebles y equipamiento de $2,000–$8,000, viajes de exploración de $1,000–$3,000
+            y alta de seguro médico de $200–$800. Un colchón conservador de $5,000–$10,000 por encima
+            del presupuesto mensual es un punto de partida razonable para el primer año.
+          </dd>
+        </div>
+
+      </dl>
+    </div>
+
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

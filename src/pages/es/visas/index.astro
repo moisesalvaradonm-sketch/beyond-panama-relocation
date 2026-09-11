@@ -1,0 +1,199 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const visas = [
+  {
+    emoji: '🌴',
+    title: 'Visa Pensionado',
+    tag: 'Jubilados',
+    requirement: '$1,000/mes de pensión vitalicia',
+    idealFor: 'Jubilados con pensión de cualquier país',
+    desc: 'La más popular de Panamá. Si tienes una pensión de jubilación, muy probablemente calificas. Incluye descuentos permanentes en salud, entretenimiento y transporte.',
+    href: '/es/visas/pensionado',
+  },
+  {
+    emoji: '🌐',
+    title: 'Naciones Amigas',
+    tag: '~50 países',
+    requirement: 'Vínculos económicos o profesionales con Panamá',
+    idealFor: 'Profesionales y trabajadores remotos de ~50 naciones',
+    desc: 'Para nacionales de países con relaciones especiales con Panamá (EE.UU., Canadá, España, Colombia y ~47 más). No requiere monto mínimo de inversión fija.',
+    href: '/es/visas/naciones-amigas',
+  },
+  {
+    emoji: '💻',
+    title: 'Nómada Digital',
+    tag: 'Trabajo remoto',
+    requirement: '$3,000+/mes de ingreso en el extranjero',
+    idealFor: 'Trabajadores remotos para empresas fuera de Panamá',
+    desc: 'Para quienes trabajan de forma remota para empresas fuera de Panamá. Proceso rápido y menor costo. Ideal como primer paso antes de una residencia permanente.',
+    href: '/es/visas/nomada-digital',
+  },
+  {
+    emoji: '📈',
+    title: 'Inversionista Calificado',
+    tag: 'Inversión',
+    requirement: 'Mín. $300,000 de inversión en Panamá',
+    idealFor: 'Inversores que buscan residencia permanente inmediata',
+    desc: 'La "Golden Visa" panameña. Da residencia permanente inmediata. El umbral en bienes raíces sube en octubre de 2026 — aún hay tiempo para aplicar con los requisitos actuales.',
+    href: '/es/visas/inversionista-calificado',
+    alert: '⚡ cambio oct. 2026',
+  },
+  {
+    emoji: '🏦',
+    title: 'Rentista Retirado',
+    tag: 'Plazo fijo',
+    requirement: 'Plazo fijo que genere $850+/mes en banco estatal',
+    idealFor: 'Personas con capital que desean el Pasaporte Especial',
+    desc: 'Residencia temporal de 5 años mediante un plazo fijo en el Banco Nacional o Caja de Ahorros. Sin requisito de edad. Otorga directamente el Pasaporte Especial Panameño (+140 países).',
+    href: '/es/visas/rentista-retirado',
+  },
+  {
+    emoji: '🌳',
+    title: 'Reforestación',
+    tag: 'Inversión forestal',
+    requirement: 'Mín. $100,000 en proyecto forestal certificado',
+    idealFor: 'Inversores con enfoque ambiental o capital moderado',
+    desc: 'Para quienes invierten en proyectos forestales o agropecuarios certificados. Umbral mucho más bajo que bienes raíces urbanos.',
+    href: '/es/visas/reforestacion',
+  },
+];
+---
+
+<Layout
+  title="Visas y Residencia en Panamá"
+  description="Compara las 6 principales vías de residencia en Panamá: Pensionado, Naciones Amigas, Inversionista Calificado, Rentista Retirado, Reforestación y Nómada Digital."
+  lang="es"
+>
+  <section class="max-w-4xl mx-auto px-4 py-16">
+
+    <!-- Hero -->
+    <div class="mb-12">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <div class="flex flex-col md:flex-row items-start gap-10 mt-4">
+        <div class="flex-1">
+          <h1 class="font-serif text-4xl text-slate mb-3">Visas y Residencia en Panamá</h1>
+          <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+            Panamá tiene más de 50 categorías migratorias. Las 5 que importan para la mayoría
+            de los extranjeros que quieren vivir aquí — explicadas con claridad, sin tecnicismos
+            legales ni presión para decidir rápido.
+          </p>
+        </div>
+        <div class="flex-shrink-0 w-48 md:w-56">
+          <img
+            src="/img/panama-hero.png"
+            alt="Persona con residencia provisional de Panamá"
+            class="w-full rounded-xl shadow-md object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de visa -->
+    <div class="grid md:grid-cols-2 gap-5 mb-12">
+      {visas.map(visa => (
+        <a
+          href={visa.href}
+          class="group relative p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/30 hover:shadow-md transition-all"
+        >
+          {visa.alert && (
+            <div class="absolute top-4 right-4 text-xs font-bold text-coral bg-coral/10 px-2 py-0.5 rounded-full">
+              {visa.alert}
+            </div>
+          )}
+          <div class="text-3xl mb-3">{visa.emoji}</div>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-jade/10 text-jade">
+            {visa.tag}
+          </span>
+          <h2 class="font-serif text-xl font-semibold text-slate mt-3 mb-2 group-hover:text-jade transition-colors">
+            {visa.title}
+          </h2>
+          <dl class="text-sm text-slate-mid space-y-1 mb-3">
+            <div class="flex gap-1.5">
+              <dt class="font-medium text-slate shrink-0">Requisito:</dt>
+              <dd>{visa.requirement}</dd>
+            </div>
+            <div class="flex gap-1.5">
+              <dt class="font-medium text-slate shrink-0">Ideal para:</dt>
+              <dd>{visa.idealFor}</dd>
+            </div>
+          </dl>
+          <p class="text-sm text-slate-mid leading-relaxed mb-4">{visa.desc}</p>
+          <span class="text-jade text-sm font-medium">Ver requisitos →</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Tabla comparativa rápida -->
+    <h2 class="font-serif text-2xl text-slate mb-4">Comparativa rápida</h2>
+    <div class="overflow-x-auto mb-12 rounded-2xl border border-jade/10 bg-white">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-jade/10 text-left bg-fog">
+            <th class="px-5 py-4 font-semibold text-slate">Visa</th>
+            <th class="px-5 py-4 font-semibold text-slate">Para quién</th>
+            <th class="px-5 py-4 font-semibold text-slate">Requisito clave</th>
+            <th class="px-5 py-4 font-semibold text-slate">Proceso</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/5">
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4"><a href="/es/visas/pensionado" class="font-semibold text-jade hover:underline">Pensionado</a></td>
+            <td class="px-5 py-4 text-slate-mid">Jubilados con pensión</td>
+            <td class="px-5 py-4 text-slate-mid">$1,000/mes de pensión</td>
+            <td class="px-5 py-4 text-slate-mid">3–6 meses</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4"><a href="/es/visas/naciones-amigas" class="font-semibold text-jade hover:underline">Naciones Amigas</a></td>
+            <td class="px-5 py-4 text-slate-mid">Nacionales de ~50 países</td>
+            <td class="px-5 py-4 text-slate-mid">Actividad económica lícita</td>
+            <td class="px-5 py-4 text-slate-mid">3–6 meses</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4"><a href="/es/visas/nomada-digital" class="font-semibold text-jade hover:underline">Nómada Digital</a></td>
+            <td class="px-5 py-4 text-slate-mid">Trabajadores remotos</td>
+            <td class="px-5 py-4 text-slate-mid">$36K/año ingreso remoto</td>
+            <td class="px-5 py-4 text-slate-mid">1–2 meses</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors bg-gold/3">
+            <td class="px-5 py-4">
+              <a href="/es/visas/inversionista-calificado" class="font-semibold text-jade hover:underline">Inversionista Cal.</a>
+              <span class="ml-1 text-xs font-bold text-coral">⚡ oct. 2026</span>
+            </td>
+            <td class="px-5 py-4 text-slate-mid">Inversión en Panamá</td>
+            <td class="px-5 py-4 text-slate-mid">$300K en bienes raíces</td>
+            <td class="px-5 py-4 text-slate-mid">2–4 meses</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-5 py-4"><a href="/es/visas/reforestacion" class="font-semibold text-jade hover:underline">Reforestación</a></td>
+            <td class="px-5 py-4 text-slate-mid">Inversión en fincas</td>
+            <td class="px-5 py-4 text-slate-mid">$100K en proyecto forestal</td>
+            <td class="px-5 py-4 text-slate-mid">4–8 meses</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="px-5 py-3 text-xs text-slate-mid border-t border-jade/5">
+        Referencias de 2025–2026. Los requisitos pueden cambiar — verifica siempre con un abogado de inmigración.
+      </p>
+    </div>
+
+    <!-- CTA: ¿No sé cuál me aplica? -->
+    <div class="p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿No sabes cuál te aplica?</p>
+      <p class="text-slate-mid text-sm mb-5 max-w-md mx-auto">
+        Compara las 5 visas en detalle o sigue tu ruta de 2 minutos para recibir una
+        recomendación neutral según tu situación.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/es/visas/comparativa" class="px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
+          Ver comparativa completa →
+        </a>
+        <a href="/es/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+          Encontrar tu ruta →
+        </a>
+      </div>
+    </div>
+
+  </section>
+</Layout>

@@ -1,0 +1,296 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CostCalculator from '../../components/ui/CostCalculator';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much does a couple need to live in Boquete, Panama?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Based on documented 2025–2026 expenses, a couple living in Boquete can manage on approximately $1,620/month. This covers a furnished 2-bedroom house ($750), groceries ($300), electricity ($25 — Boquete's cool mountain climate means no air conditioning), health insurance for two people ($175), medical copays ($10), medications ($10), streaming ($10), internet and cable TV ($60), clothing ($30), dining and entertainment ($50), travel ($100), household help ($50), and car insurance and maintenance ($50). This is a real documented budget, not a promotional estimate.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Panama cheaper than the US?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Panama is typically 30–50% less expensive than an equivalent lifestyle in the United States. The country uses the US dollar as its official currency, eliminating exchange rate risk. Housing, medical care, and day-to-day expenses cost significantly less than comparable US cities, while imported goods — particularly US-brand products found in supermarkets — may cost similar to or more than at home.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does health insurance cost in Panama?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "A local Panamanian health insurance plan runs approximately $117/month at age 66. International health plans start around $85/month at age 50. For routine care, a visit to a private clinic costs under $20 out of pocket — meaning many expats cover minor expenses without filing a claim. Panama's private medical sector is considered high quality relative to its cost.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much is rent in Panama City?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Rent in Panama City varies dramatically by neighborhood. The difference between a budget area like Calidonia and a premium neighborhood like Punta Pacifica can exceed $2,000/month for a comparable apartment. Always research the specific neighborhood rather than relying on citywide averages. Outside Panama City, a furnished 2-bedroom house in Boquete rents for approximately $750/month based on 2025–2026 market data.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the first-year costs of relocating to Panama?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Beyond monthly living expenses, the first year of relocation in Panama typically requires additional one-time costs: a rental deposit of $800–$4,000 (1–2 months' rent), visa and residency fees of $1,500–$5,000 (government fees plus attorney), furniture and setup costs of $2,000–$8,000, exploratory scouting trips of $1,000–$3,000, and health insurance setup of $200–$800. A conservative first-year buffer of $5,000–$10,000 above your monthly budget is a reasonable starting point.",
+      },
+    },
+  ],
+};
+---
+
+<Layout title="Panama Cost of Living Calculator" description="Calculate the real cost of living in Panama based on area and your lifestyle. Interactive tool, no registration required." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Panama Cost of Living</h1>
+      <p class="text-slate-mid text-lg max-w-2xl">
+        The real number for living in Panama — not the brochure number. Pick your area and lifestyle, then adjust each category to your situation.
+      </p>
+    </div>
+
+    <!-- Introductory context -->
+    <div class="mb-12 space-y-5 text-slate-mid leading-relaxed">
+      <h2 class="font-serif text-2xl text-slate">What does it really cost to live in Panama?</h2>
+
+      <p>
+        Panama uses the US dollar as its official currency — which means no exchange rate surprises and straightforward budgeting for Americans and anyone earning in USD. This practical advantage is one reason the country consistently attracts retirees, remote workers, and investors.
+      </p>
+
+      <p>
+        The honest range is <strong class="text-slate">$1,200 to $5,000+ per month</strong>, depending almost entirely on where you live and what lifestyle you bring. A couple living simply in Boquete can manage on $1,500. A family renting a large apartment in Punta Pacifica and sending children to an international school will easily exceed $6,000.
+      </p>
+
+      <p>
+        For context: Panama is typically <strong class="text-slate">30–50% less expensive than equivalent living in the U.S.</strong>, and roughly comparable to Costa Rica — though with notably better infrastructure in Panama City. Colombia's main cities run cheaper, but Panama's location, dollarized economy, and medical system attract a different profile of expat.
+      </p>
+
+      <p>
+        The calculator below is built on real market data, not averages from outdated expat blogs. Use it to build your own baseline — then adjust each line to reflect how you actually live.
+      </p>
+    </div>
+
+    <!-- Real documented budget -->
+    <div class="mb-10 rounded-2xl border border-jade/15 overflow-hidden">
+      <div class="bg-jade px-5 py-4">
+        <p class="font-serif text-white font-semibold text-lg">Real budget — a couple in Boquete</p>
+        <p class="text-white/70 text-sm mt-0.5">Documented monthly expenses, 2025–2026</p>
+      </div>
+      <div class="bg-white divide-y divide-jade/8">
+        {[
+          ["Rent (2-bed furnished house)", "$750"],
+          ["Groceries & supermarket", "$300"],
+          ["Electricity (cool climate, no A/C)", "$25"],
+          ["Health insurance (2 people)", "$175"],
+          ["Doctor & dentist copays", "$10"],
+          ["Medications", "$10"],
+          ["Streaming services", "$10"],
+          ["Internet + Cable TV", "$60"],
+          ["Clothing & footwear", "$30"],
+          ["Entertainment & dining out", "$50"],
+          ["Domestic & international travel", "$100"],
+          ["Gardener & house help", "$50"],
+          ["Car insurance & maintenance", "$50"],
+        ].map(([label, amount]) => (
+          <div class="flex justify-between items-center px-5 py-3 text-sm">
+            <span class="text-slate-mid">{label}</span>
+            <span class="font-semibold text-slate">{amount}</span>
+          </div>
+        ))}
+        <div class="flex justify-between items-center px-5 py-4 bg-jade/5">
+          <span class="font-semibold text-slate">Approximate monthly total</span>
+          <span class="font-serif text-2xl font-bold text-jade">$1,620</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid px-5 py-3 bg-fog border-t border-jade/10">Note: Electricity increases 4–5× in hot coastal areas due to A/C use. Costs in Panama City or Coronado will be substantially higher.</p>
+    </div>
+
+    <CostCalculator lang="en" client:load />
+
+    <!-- Notes on ranges — visual cards -->
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-6">Notes on the ranges</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🏠</span>
+            <strong class="text-slate text-sm">Rent</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Varies dramatically by neighborhood. In Panama City, the gap between Calidonia and Punta Pacifica can exceed $2,000/month for a similar apartment. Always research the specific barrio — not just the city.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">⚡</span>
+            <strong class="text-slate text-sm">Utilities</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Electricity in an air-conditioned apartment runs $150–$300/month — Panama is hot. Water is cheap. Fiber internet is widely available in the city; quality drops in beach and mountain areas.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🏥</span>
+            <strong class="text-slate text-sm">Health &amp; Insurance</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Panama has quality private medical care at a fraction of US costs. A local health plan runs ~$117/month for age 66; international plans start around $85/month at 50. A doctor visit at a private clinic runs under $20 out of pocket — no insurance needed.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl">🛒</span>
+            <strong class="text-slate text-sm">Food &amp; Groceries</strong>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">
+            Supermarkets like Rey and El Machetazo carry both local and imported goods. Eating local is very affordable; US-imported products cost similar to or more than at home. Dining out ranges from $5 at a local fondita to $40+ at a Casco Viejo restaurant.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- First Year Costs -->
+    <div class="mt-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">First-Year Extra Costs</h2>
+      <p class="text-slate-mid text-sm mb-5 leading-relaxed">
+        The first year always costs more. Budget for these one-time or setup expenses on top of your monthly estimate:
+      </p>
+      <div class="space-y-3">
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Rental deposit</p>
+            <p class="text-slate-mid text-xs mt-0.5">Typically 1–2 months' rent, paid upfront</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$800 – $4,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Residency / visa fees</p>
+            <p class="text-slate-mid text-xs mt-0.5">Government fees + attorney — varies by visa type</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$1,500 – $5,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Furniture &amp; setup</p>
+            <p class="text-slate-mid text-xs mt-0.5">If arriving without belongings or shipping costs</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$2,000 – $8,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Exploratory trips</p>
+            <p class="text-slate-mid text-xs mt-0.5">Scouting visits before committing to a lease</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$1,000 – $3,000</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div>
+            <p class="font-medium text-slate">Health insurance setup</p>
+            <p class="text-slate-mid text-xs mt-0.5">First premium + medical exam if required</p>
+          </div>
+          <span class="text-slate-mid whitespace-nowrap">$200 – $800</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-5">
+        A conservative first-year buffer of <strong>$5,000–$10,000</strong> above your monthly budget is a reasonable starting point.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Want to know which area fits your budget?</p>
+      <p class="text-slate-mid text-sm mb-5">The quiz guides you in 2 minutes.</p>
+      <a href="/en/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Take the quiz →
+      </a>
+    </div>
+
+    <!-- FAQ section — optimised for AI citation and People Also Ask -->
+    <div class="mt-16">
+      <h2 class="font-serif text-2xl text-slate mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">How much does a couple need to live in Boquete, Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Based on documented 2025–2026 expenses, a couple living in Boquete can manage on approximately
+            $1,620/month. This covers a furnished 2-bedroom house ($750), groceries ($300), electricity
+            ($25 — Boquete's cool mountain climate means no air conditioning), health insurance for two
+            people ($175), medical copays ($10), medications ($10), streaming ($10), internet and cable TV
+            ($60), clothing ($30), dining and entertainment ($50), travel ($100), household help ($50),
+            and car insurance and maintenance ($50). This is a real documented budget, not a promotional estimate.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Is Panama cheaper than the US?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Panama is typically 30–50% less expensive than an equivalent lifestyle in the United States.
+            The country uses the US dollar as its official currency, eliminating exchange rate risk.
+            Housing, medical care, and day-to-day expenses cost significantly less than comparable US
+            cities, while imported goods — particularly US-brand products found in supermarkets — may
+            cost similar to or more than at home.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">How much does health insurance cost in Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            A local Panamanian health insurance plan runs approximately $117/month at age 66. International
+            health plans start around $85/month at age 50. For routine care, a visit to a private clinic
+            costs under $20 out of pocket — meaning many expats cover minor expenses without filing a
+            claim. Panama's private medical sector is considered high quality relative to its cost.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">How much is rent in Panama City?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Rent in Panama City varies dramatically by neighborhood. The difference between a budget area
+            like Calidonia and a premium neighborhood like Punta Pacifica can exceed $2,000/month for a
+            comparable apartment. Always research the specific neighborhood rather than relying on citywide
+            averages. Outside Panama City, a furnished 2-bedroom house in Boquete rents for approximately
+            $750/month based on 2025–2026 market data.
+          </dd>
+        </div>
+
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">What are the first-year costs of relocating to Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Beyond monthly living expenses, the first year of relocation in Panama typically requires
+            additional one-time costs: a rental deposit of $800–$4,000 (1–2 months' rent), visa and
+            residency fees of $1,500–$5,000 (government fees plus attorney), furniture and setup costs
+            of $2,000–$8,000, exploratory scouting trips of $1,000–$3,000, and health insurance setup
+            of $200–$800. A conservative first-year buffer of $5,000–$10,000 above your monthly budget
+            is a reasonable starting point.
+          </dd>
+        </div>
+
+      </dl>
+    </div>
+
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

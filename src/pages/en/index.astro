@@ -1,0 +1,304 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('blog', ({ data, id }) =>
+  !data.draft && data.lang === 'en' && id.startsWith('en/')
+))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const categoryLabel: Record<string, string> = {
+  zonas: 'Areas & Lifestyle',
+  visas: 'Visas & Residency',
+  'costo-de-vida': 'Cost of Living',
+  proceso: 'Moving Process',
+  lifestyle: 'Lifestyle',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Does Panama use the US dollar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Yes. Panama's official currency is the US dollar — there is no local exchange rate and no currency conversion risk. This makes budgeting straightforward for anyone earning in USD and is one of the main reasons the country consistently attracts retirees, remote workers, and investors from North America and Europe.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What residency visas does Panama offer for foreigners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Panama offers several residency pathways depending on your situation. The Pensionado visa is designed for retirees with a lifetime pension of at least $1,000/month — it grants permanent residency and a wide catalog of discounts. The Friendly Nations visa targets citizens of specific countries with economic ties to Panama. The Qualified Investor visa requires a qualifying financial investment. The Digital Nomad visa is available for remote workers earning income outside of Panama. Beyond Panama Relocation covers each visa with requirements, processing times, and a side-by-side comparison.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to live in Panama per month?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Living costs in Panama range from $1,200 to over $5,000 per month, depending on location and lifestyle. A couple living simply in Boquete — a popular highland town — can manage on approximately $1,620/month, covering rent, groceries, utilities, health insurance, internet, and transportation. Costs in Panama City will be substantially higher. Panama is typically 30–50% less expensive than an equivalent lifestyle in the United States.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the most popular areas for expats in Panama?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "The most popular areas for foreign residents in Panama are Panama City (the capital, with the broadest range of services and price points), Boquete (a mountain town with a cool climate and a well-established expat community), Coronado (a Pacific beach area popular with retirees), and Bocas del Toro (a Caribbean archipelago with a laid-back lifestyle). Each area has a distinct profile in terms of cost, community, and infrastructure. Beyond Panama Relocation's area guides cover real price comparisons and lifestyle breakdowns for each location.",
+      },
+    },
+  ],
+};
+---
+
+<Layout
+  title="Panama Relocation Guide"
+  description="Honest information about visas, areas to live, and cost of living in Panama. For expats who want to make a well-informed decision."
+  lang="en"
+>
+
+  <!-- Hero -->
+  <section class="relative text-white overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Background photo -->
+    <img
+      src="/img/areas/panama-city-aerial.jpg"
+      alt="Aerial view of Panama City's Cinta Costera and Pacific Ocean"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      width="3964"
+      height="4955"
+      fetchpriority="high"
+    />
+    <!-- Gradient overlay: dark top-left + gradient to right -->
+    <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/70 to-slate/30"></div>
+    <!-- Bottom fade for smooth transition -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-fog/30 to-transparent"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-28 md:py-40 w-full">
+      <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">
+        Beyond Panama Relocation
+      </span>
+      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] max-w-3xl mb-8">
+        Move to Panama,<br />
+        <span class="text-coral">without guessing.</span>
+      </h1>
+      <p class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10">
+        Real information about visas, neighborhoods and cost of living — no sales pressure,
+        no empty promises. Like a friend who already did it telling you how it really is.
+      </p>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <a
+          href="/en/quiz"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors shadow-lg"
+        >
+          Find your route to Panama →
+        </a>
+        <a
+          href="/en/visas"
+          class="text-white/60 hover:text-white text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-colors"
+        >
+          See visa options
+        </a>
+      </div>
+      <div class="mt-16 pt-6 border-t border-white/15">
+        <p class="text-white/40 text-xs tracking-wide">
+          30–50% below US costs &nbsp;·&nbsp; 4 visa pathways &nbsp;·&nbsp; Bilingual EN + ES
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keyword H2 — below hero, before pillars -->
+  <section class="max-w-3xl mx-auto px-6 md:px-8 pt-16 pb-2">
+    <h2 class="font-serif text-2xl md:text-3xl text-slate leading-snug">
+      Your complete guide to Panama relocation — visas, areas to live, and cost of living
+    </h2>
+  </section>
+
+  <!-- 3 pillars -->
+  <section class="max-w-6xl mx-auto px-6 md:px-8 py-20">
+    <h2 class="font-serif text-3xl text-slate mb-14">
+      Everything you need to make the right decision
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <a href="/en/areas" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+        <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">01</p>
+        <h3 class="font-serif text-xl font-semibold text-slate mb-3">Areas to Live</h3>
+        <p class="text-slate-mid text-sm leading-relaxed mb-5">
+          Panama City, Boquete, Coronado, Bocas del Toro — real price comparisons,
+          expat community profile and lifestyle breakdown.
+        </p>
+        <span class="text-jade text-sm font-medium group-hover:underline underline-offset-4">
+          Explore areas →
+        </span>
+      </a>
+
+      <a href="/en/visas" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+        <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">02</p>
+        <h3 class="font-serif text-xl font-semibold text-slate mb-3">Visas &amp; Residency</h3>
+        <p class="text-slate-mid text-sm leading-relaxed mb-5">
+          Pensionado, Friendly Nations, Qualified Investor, Digital Nomad — which one fits
+          your situation, explained without legal jargon.
+        </p>
+        <span class="text-jade text-sm font-medium group-hover:underline underline-offset-4">
+          See comparison →
+        </span>
+      </a>
+
+      <a href="/en/cost-of-living" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+        <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">03</p>
+        <h3 class="font-serif text-xl font-semibold text-slate mb-3">Real Cost Calculator</h3>
+        <p class="text-slate-mid text-sm leading-relaxed mb-5">
+          Visa cost + housing + daily life by area — all in one tool.
+          The real number, not the brochure number.
+        </p>
+        <span class="text-jade text-sm font-medium group-hover:underline underline-offset-4">
+          Calculate my cost →
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Trust signals — editorial stats -->
+  <div class="border-t border-b border-jade/15 py-12">
+    <div class="max-w-5xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-jade/15">
+      <div class="py-8 md:py-0 md:px-10 first:pl-0 last:pr-0">
+        <p class="font-serif text-3xl font-semibold text-slate mb-1">$1,200–$5,000</p>
+        <p class="text-xs text-slate-mid uppercase tracking-widest">Monthly cost of living</p>
+      </div>
+      <div class="py-8 md:py-0 md:px-10">
+        <p class="font-serif text-3xl font-semibold text-slate mb-1">4 visa types</p>
+        <p class="text-xs text-slate-mid uppercase tracking-widest">Permanent residency options</p>
+      </div>
+      <div class="py-8 md:py-0 md:px-10 last:pr-0">
+        <p class="font-serif text-3xl font-semibold text-slate mb-1">EN + ES</p>
+        <p class="text-xs text-slate-mid uppercase tracking-widest">All guides bilingual</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz CTA banner -->
+  <section class="bg-slate">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-20 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl text-white font-semibold leading-tight mb-5">
+        Not sure where to start?<br />
+        <span class="text-white/50">That's normal.</span>
+      </h2>
+      <p class="text-white/50 text-base md:text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+        Your route guides you in 2 minutes based on what you're actually looking for —
+        no commitment required.
+      </p>
+      <a
+        href="/en/quiz"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors"
+      >
+        Start your route →
+      </a>
+      <p class="mt-4 text-white/25 text-xs tracking-wide">Free · 2 minutes · no registration required</p>
+    </div>
+  </section>
+
+  <!-- Latest from the Blog -->
+  {recentPosts.length > 0 && (
+    <section class="max-w-6xl mx-auto px-6 md:px-8 py-20">
+      <div class="flex items-end justify-between mb-12">
+        <h2 class="font-serif text-3xl text-slate">From the blog</h2>
+        <a href="/en/blog" class="text-jade text-sm font-medium hover:underline underline-offset-4">
+          All articles →
+        </a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {recentPosts.map(post => (
+          <a
+            href={`/en/blog/${post.id.replace('en/', '')}`}
+            class="group flex flex-col p-6 bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
+          >
+            <span class="text-xs font-semibold text-jade uppercase tracking-wide mb-3">
+              {categoryLabel[post.data.category] ?? post.data.category}
+            </span>
+            <h3 class="font-serif text-lg font-semibold text-slate mb-3 leading-snug group-hover:text-jade transition-colors flex-1">
+              {post.data.title}
+            </h3>
+            <p class="text-sm text-slate-mid mb-4 line-clamp-2 leading-relaxed">
+              {post.data.description}
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-xs text-slate-mid">{post.data.readTime} min read</span>
+              <span class="text-jade text-sm font-medium group-hover:underline underline-offset-4">Read →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ section — optimised for AI citation and People Also Ask -->
+  <section class="max-w-3xl mx-auto px-6 md:px-8 py-20">
+    <h2 class="font-serif text-3xl text-slate mb-10">Frequently Asked Questions</h2>
+    <dl class="space-y-0">
+
+      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-xl font-semibold text-slate mb-3">Does Panama use the US dollar?</dt>
+        <dd class="text-slate-mid leading-relaxed">
+          Yes. Panama's official currency is the US dollar — there is no local exchange rate
+          and no currency conversion risk. This makes budgeting straightforward for anyone
+          earning in USD and is one of the main reasons the country consistently attracts
+          retirees, remote workers, and investors from North America and Europe.
+        </dd>
+      </div>
+
+      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-xl font-semibold text-slate mb-3">What residency visas does Panama offer for foreigners?</dt>
+        <dd class="text-slate-mid leading-relaxed">
+          Panama offers several residency pathways depending on your situation. The
+          <a href="/en/visas/pensionado" class="text-jade hover:underline">Pensionado visa</a> is
+          designed for retirees with a lifetime pension of at least $1,000/month — it grants
+          permanent residency and a wide catalog of discounts. The
+          <a href="/en/visas/friendly-nations" class="text-jade hover:underline">Friendly Nations visa</a> targets
+          citizens of specific countries with economic ties to Panama. The
+          <a href="/en/visas/qualified-investor" class="text-jade hover:underline">Qualified Investor visa</a> requires
+          a qualifying financial investment. The Digital Nomad visa is available for remote
+          workers earning income outside of Panama. Beyond Panama Relocation covers each visa
+          with requirements, processing times, and a
+          <a href="/en/visas/comparison" class="text-jade hover:underline">side-by-side comparison</a>.
+        </dd>
+      </div>
+
+      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-xl font-semibold text-slate mb-3">How much does it cost to live in Panama per month?</dt>
+        <dd class="text-slate-mid leading-relaxed">
+          Living costs in Panama range from $1,200 to over $5,000 per month, depending on
+          location and lifestyle. A couple living simply in Boquete — a popular highland town —
+          can manage on approximately $1,620/month, covering rent, groceries, utilities,
+          health insurance, internet, and transportation. Costs in Panama City will be
+          substantially higher. Panama is typically
+          <a href="/en/cost-of-living" class="text-jade hover:underline">30–50% less expensive</a>
+          than an equivalent lifestyle in the United States.
+        </dd>
+      </div>
+
+      <div class="py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-xl font-semibold text-slate mb-3">What are the most popular areas for expats in Panama?</dt>
+        <dd class="text-slate-mid leading-relaxed">
+          The most popular areas for foreign residents in Panama are Panama City (the capital,
+          with the broadest range of services and price points),
+          <a href="/en/areas/boquete" class="text-jade hover:underline">Boquete</a> (a mountain
+          town with a cool climate and a well-established expat community), Coronado (a Pacific
+          beach area popular with retirees), and Bocas del Toro (a Caribbean archipelago with
+          a laid-back lifestyle). Each area has a distinct profile in terms of cost, community,
+          and infrastructure.
+        </dd>
+      </div>
+
+    </dl>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+</Layout>

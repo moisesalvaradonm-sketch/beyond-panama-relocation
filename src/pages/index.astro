@@ -1,0 +1,22 @@
+---
+// Auto-detect browser language and redirect to /es/ or /en/
+// Falls back to Spanish (default)
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="https://beyondpanamarelocation.com/es" />
+    <title>Beyond Panama Relocation</title>
+  </head>
+  <body>
+    <script>
+      const lang = navigator.language?.startsWith('en') ? 'en' : 'es';
+      window.location.replace(`/${lang}/`);
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/es/" />
+    </noscript>
+  </body>
+</html>

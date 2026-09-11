@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Quiz from '../../components/quiz/Quiz';
+---
+
+<Layout
+  title="Your Route to Panama"
+  description="Find your route in 2 minutes based on what you're really looking for in Panama."
+  lang="en"
+>
+  <!-- Hidden form for Netlify to detect at build time -->
+  <form name="quiz-subscribe-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="hidden" name="clima" />
+    <input type="hidden" name="comunidad" />
+    <input type="hidden" name="actividades" />
+    <input type="hidden" name="presupuesto_prop" />
+    <input type="hidden" name="tipo_prop" />
+    <input type="hidden" name="espanol" />
+    <input type="hidden" name="plazo" />
+    <input type="hidden" name="origen" />
+    <input type="hidden" name="etapa" />
+    <input type="hidden" name="proposito" />
+    <input type="hidden" name="trabajo" />
+    <input type="hidden" name="acompanantes" />
+    <input type="hidden" name="visita" />
+    <input type="hidden" name="notas" />
+    <input type="hidden" name="contacto" />
+    <input name="bot-field" />
+  </form>
+
+  <section class="max-w-2xl mx-auto px-4 py-16">
+    <div class="text-center mb-10">
+      <span class="text-jade text-sm font-medium uppercase tracking-widest">Your personalized route</span>
+      <h1 class="font-serif text-3xl md:text-4xl text-slate mt-2 mb-3">
+        What are you looking for in Panama?
+      </h1>
+      <p class="text-slate-mid">
+        2 minutes · no registration · no commitment
+      </p>
+    </div>
+    <Quiz lang="en" client:load />
+  </section>
+</Layout>
