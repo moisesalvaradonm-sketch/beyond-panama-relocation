@@ -5,7 +5,7 @@ pubDate: 2026-09-01
 category: costo-de-vida
 readTime: 10
 lang: es
-image: /img/blog/boquete-01.jpg
+image: /img/blog/boquete-01.webp
 imageAlt: "Boquete, Chiriquí — uno de los pueblos más populares entre expats en Panamá"
 ---
 

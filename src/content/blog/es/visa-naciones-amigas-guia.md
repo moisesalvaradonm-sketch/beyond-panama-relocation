@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: es
 draft: false
-image: /img/blog/panama-passport.png
+image: /img/blog/panama-passport.webp
 imageAlt: "Visa de Naciones Amigas Panamá — residencia permanente para nacionalidades calificadas"
 ---
 

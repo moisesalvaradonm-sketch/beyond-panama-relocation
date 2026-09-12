@@ -19,7 +19,7 @@ function isActive(href: string): boolean {
 }
 
 const costPath = lang === 'es' ? '/costo-de-vida' : lang === 'fr' ? '/cout-de-la-vie' : '/cost-of-living';
-const zonaPath = lang === 'es' ? '/zonas' : lang === 'fr' ? '/regions' : '/areas';
+const zonaPath = lang === 'es' ? '/zonas' : lang === 'fr' ? '/zones' : '/areas';
 
 const navLinks = [
   { href: getLocalizedPath(zonaPath, lang),  label: t('nav.zonas') },
@@ -45,7 +45,7 @@ const langOptions = [
     <!-- Logo -->
     <a href={getLocalizedPath('/', lang)} class="flex items-center hover:opacity-80 transition-opacity">
       <img
-        src="/img/logo-horizontal.png"
+        src="/img/logo-horizontal.webp"
         alt="Beyond Panama Relocation"
         class="h-9 w-auto"
         width="280"

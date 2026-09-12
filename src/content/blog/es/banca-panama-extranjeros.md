@@ -6,7 +6,7 @@ category: proceso
 readTime: 9
 lang: es
 draft: false
-image: /img/blog/panama-city-02.jpg
+image: /img/blog/panama-city-02.webp
 imageAlt: "Centro financiero de Ciudad de Panamá — hub bancario de Centroamérica"
 ---
 

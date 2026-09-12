@@ -6,7 +6,7 @@ category: zonas
 readTime: 7
 lang: es
 draft: false
-image: /img/blog/panama-city-skyline.png
+image: /img/blog/panama-city-skyline.webp
 imageAlt: "Skyline de Ciudad de Panamá con la Torre F&F"
 ---
 

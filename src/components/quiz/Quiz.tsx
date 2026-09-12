@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type Lang = 'es' | 'en' | 'fr';
 type StepType = 'radio' | 'multiselect' | 'textarea' | 'contact' | 'form' | 'tip';
@@ -492,43 +492,175 @@ function buildSteps(lang: Lang, tips: { icon: string; label: string; text: strin
 
 // ── Result engine ─────────────────────────────────────────────────────────────
 
+interface ZoneRec { emoji: string; name: string; why: string }
+
 interface ResultData {
   heading: string;
   body: string;
   cta: string;
   ctaHref: string;
+  zoneHeading: string;
+  zoneSub: string;
+  zones: ZoneRec[];
+}
+
+const ZONE_POOL = {
+  panama_city: {
+    emoji: '🏙️',
+    name: { es: 'Ciudad de Panamá', en: 'Panama City', fr: 'Panama City' },
+    why: {
+      es: 'Hub financiero y cultural. Restaurantes, hospitales de primer nivel y vuelos a más de 90 destinos — ideal si quieres todo cerca.',
+      en: 'Financial and cultural hub. World-class restaurants, hospitals, and flights to 90+ destinations — best if you want everything within reach.',
+      fr: 'Hub financier et culturel. Restaurants, hôpitaux de premier niveau et vols vers 90+ destinations — idéal si vous voulez tout à portée.',
+    },
+  },
+  boquete: {
+    emoji: '⛰️',
+    name: { es: 'Boquete', en: 'Boquete', fr: 'Boquete' },
+    why: {
+      es: 'Montañas frescas a 1.200 m, café de especialidad y una de las comunidades expat más activas del país. Costo de vida moderado.',
+      en: 'Cool highlands at 1,200 m, specialty coffee, and one of the most active expat communities in the country. Moderate cost of living.',
+      fr: 'Highlands frais à 1 200 m, café de spécialité et l\'une des communautés expats les plus actives du pays. Coût de vie modéré.',
+    },
+  },
+  coronado: {
+    emoji: '🌅',
+    name: { es: 'Coronado / Playa Farallón', en: 'Coronado / Playa Farallón', fr: 'Coronado / Playa Farallón' },
+    why: {
+      es: 'Costa Pacífica a solo 90 min de la capital. Comunidades consolidadas, golf, playa y servicios para expatriados.',
+      en: 'Pacific coast just 90 min from the capital. Established communities, golf, beach, and full expat services.',
+      fr: 'Côte Pacifique à 90 min de la capitale. Communautés établies, golf, plage et services pour expatriés.',
+    },
+  },
+  bocas: {
+    emoji: '🏝️',
+    name: { es: 'Bocas del Toro', en: 'Bocas del Toro', fr: 'Bocas del Toro' },
+    why: {
+      es: 'Islas del Caribe con ambiente bohemio, surf y vida tropical relajada. Favorita entre nómadas digitales y amantes de la playa.',
+      en: 'Caribbean islands with bohemian vibes, surfing, and a laid-back tropical lifestyle. A favorite among digital nomads and beach lovers.',
+      fr: 'Îles des Caraïbes, ambiance bohème, surf et vie tropicale détendue. Favorite des nomades digitaux et des amateurs de plage.',
+    },
+  },
+  valle_anton: {
+    emoji: '🌿',
+    name: { es: 'Valle de Antón', en: 'Valle de Antón', fr: 'Valle de Antón' },
+    why: {
+      es: 'Pueblo tranquilo dentro de un cráter volcánico. Naturaleza exuberante, clima agradable y ambiente de comunidad pequeña.',
+      en: 'Quiet town inside a volcanic crater. Lush nature, pleasant climate, and small-community feel.',
+      fr: 'Village paisible dans un cratère volcanique. Nature luxuriante, climat agréable et ambiance de petite communauté.',
+    },
+  },
+  pedasí: {
+    emoji: '🐠',
+    name: { es: 'Pedasí / Azuero', en: 'Pedasí / Azuero', fr: 'Pedasí / Azuero' },
+    why: {
+      es: 'Pueblo costero auténtico en la Península de Azuero, con playa, pesca y una comunidad expat en crecimiento.',
+      en: 'Authentic coastal town on the Azuero Peninsula — beach, fishing, and a growing expat community.',
+      fr: 'Ville côtière authentique sur la péninsule d\'Azuero — plage, pêche et communauté expat en croissance.',
+    },
+  },
+  david: {
+    emoji: '🏘️',
+    name: { es: 'David, Chiriquí', en: 'David, Chiriquí', fr: 'David, Chiriquí' },
+    why: {
+      es: 'Ciudad práctica y asequible en el oeste del país. Buena base para explorar Boquete y las playas del Pacífico chiriquiano.',
+      en: 'Practical and affordable city in western Panama — a solid base for exploring Boquete and Chiriquí\'s Pacific beaches.',
+      fr: 'Ville pratique et abordable dans l\'ouest du Panama — bonne base pour explorer Boquete et les plages du Pacifique chiricain.',
+    },
+  },
+} as const;
+
+type ZoneKey = keyof typeof ZONE_POOL;
+
+function recommendZones(answers: Record<string, string | string[]>, lang: Lang): ZoneRec[] {
+  const destino   = (answers['destino']          as string) || '';
+  const ubicacion = (answers['ubicacion']        as string) || '';
+  const ritmo     = (answers['ritmo']            as string) || '';
+  const presupuesto = (answers['presupuesto_vida'] as string) || '';
+  const proposito = (answers['proposito']        as string) || '';
+
+  const wantsBeach    = ['oceano', 'tropical'].includes(destino) || ubicacion === 'mar';
+  const wantsMountain = destino === 'montanas' || ubicacion === 'montana';
+  const wantsCity     = destino === 'ciudad'   || ubicacion === 'ciudad' || ritmo === 'urbano';
+  const wantsTranquil = ['tranquilo', 'playa_tranquila'].includes(ritmo);
+  const wantsPueblo   = destino === 'pueblo'   || ubicacion === 'pueblo';
+  const wantsNature   = ubicacion === 'naturaleza';
+  const wantsIslands  = destino === 'tropical';
+  const highBudget    = ['4000_6000', 'mas_6000'].includes(presupuesto);
+  const lowBudget     = ['menos_1500', '1500_2500'].includes(presupuesto);
+  const isInvestor    = proposito === 'inversion';
+
+  const picks: ZoneKey[] = [];
+
+  if (wantsCity || isInvestor || highBudget)         picks.push('panama_city');
+  if (wantsMountain || (wantsNature && !wantsBeach)) picks.push('boquete');
+  if (wantsIslands)                                  picks.push('bocas');
+  if (wantsBeach && !wantsIslands)                   picks.push('coronado');
+  if (wantsPueblo && !wantsBeach)                    picks.push('valle_anton');
+  if (wantsTranquil && wantsBeach && !wantsIslands)  picks.push('pedasí');
+  if (lowBudget && !wantsCity)                       picks.push('david');
+
+  // Deduplicate
+  const seen = new Set<ZoneKey>();
+  const deduped: ZoneKey[] = [];
+  for (const k of picks) { if (!seen.has(k)) { seen.add(k); deduped.push(k); } }
+
+  // Fallback
+  if (deduped.length === 0) deduped.push('panama_city', 'boquete', 'coronado');
+  if (deduped.length === 1) { deduped.push('boquete'); if (deduped[0] !== 'coronado') deduped.push('coronado'); }
+
+  return deduped.slice(0, 3).map(k => ({
+    emoji: ZONE_POOL[k].emoji,
+    name:  ZONE_POOL[k].name[lang],
+    why:   ZONE_POOL[k].why[lang],
+  }));
 }
 
 function buildResult(answers: Record<string, string | string[]>, lang: Lang): ResultData {
-  const ingresos = answers['ingresos'] as string;
-  const trabajo = answers['trabajo'] as string;
+  const ingresos  = answers['ingresos'] as string;
+  const trabajo   = answers['trabajo']  as string;
   const presupuesto = answers['presupuesto_vida'] as string;
   const proposito = answers['proposito'] as string;
-  const compra = answers['compra_alquiler'] as string;
+  const compra    = answers['compra_alquiler'] as string;
 
-  const isRetired = ingresos === 'pension' || trabajo === 'no_trabajo';
-  const isRemote = ingresos === 'remoto' || trabajo === 'remoto';
+  const isRetired  = ingresos === 'pension' || trabajo === 'no_trabajo';
+  const isRemote   = ingresos === 'remoto'  || trabajo === 'remoto';
   const isInvestor = proposito === 'inversion' || compra === 'comprar_inversion' ||
     presupuesto === '4000_6000' || presupuesto === 'mas_6000';
 
+  const zones = recommendZones(answers, lang);
+
+  const zoneHeading = lang === 'es' ? 'Zonas a considerar según tu perfil'
+    : lang === 'fr' ? 'Zones à considérer selon votre profil'
+    : 'Areas to consider based on your profile';
+  const zoneSub = lang === 'es' ? 'Estas son las zonas que mejor encajan con tus respuestas. Hay muchas más — te ayudamos a explorarlas.'
+    : lang === 'fr' ? 'Voici les zones qui correspondent le mieux à vos réponses. Il y en a bien d\'autres — nous vous aidons à les explorer.'
+    : 'These are the areas that best match your answers. There are many more — we help you explore them.';
+
   if (lang === 'en') {
-    if (isRetired) return { heading: 'The Pensionado visa looks like the strongest fit.', body: 'As a retiree planning a full or part-time move, the Pensionado route offers permanent residency, 20% off medications, and dozens of legal discounts on everything from restaurants to flights.', cta: 'See Pensionado visa →', ctaHref: '/en/visas/pensionado' };
-    if (isRemote) return { heading: 'Friendly Nations or Digital Nomad — depending on your passport.', body: 'Remote workers have two key routes: Friendly Nations (for residents of 50 countries with an economic tie to Panama) and Digital Nomad ($36,000/yr in foreign income, 9-month stay).', cta: 'Compare visas →', ctaHref: '/en/visas/comparison' };
-    if (isInvestor) return { heading: 'Qualified Investor — fast-track permanent residency.', body: 'With an investment goal or higher budget, the Qualified Investor visa delivers permanent residency in 30–45 days via real estate, stocks, or a fixed deposit.', cta: 'See Qualified Investor →', ctaHref: '/en/visas/qualified-investor' };
-    return { heading: 'A few routes could work for you.', body: "Based on your profile, we recommend comparing all residency routes side by side — exact requirements, timelines, and real costs for each situation.", cta: 'Compare all visas →', ctaHref: '/en/visas' };
+    let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
+    if (isRetired)  visa = { heading: 'The Pensionado visa looks like the strongest fit.', body: 'As a retiree planning a full or part-time move, the Pensionado route offers permanent residency, 20% off medications, and dozens of legal discounts on everything from restaurants to flights.', cta: 'See Pensionado visa →', ctaHref: '/en/visas/pensionado' };
+    else if (isRemote)   visa = { heading: 'Friendly Nations or Digital Nomad — depending on your passport.', body: 'Remote workers have two key routes: Friendly Nations (for residents of 50 countries with an economic tie to Panama) and Digital Nomad ($36,000/yr in foreign income, 9-month stay).', cta: 'Compare visas →', ctaHref: '/en/visas/comparison' };
+    else if (isInvestor) visa = { heading: 'Qualified Investor — fast-track permanent residency.', body: 'With an investment goal or higher budget, the Qualified Investor visa delivers permanent residency in 30–45 days via real estate, stocks, or a fixed deposit.', cta: 'See Qualified Investor →', ctaHref: '/en/visas/qualified-investor' };
+    else                 visa = { heading: 'A few routes could work for you.', body: 'Based on your profile, we recommend comparing all residency routes side by side — exact requirements, timelines, and real costs for each situation.', cta: 'Compare all visas →', ctaHref: '/en/visas' };
+    return { ...visa, zoneHeading, zoneSub, zones };
   }
 
   if (lang === 'fr') {
-    if (isRetired) return { heading: 'Le visa Pensionado est probablement le plus adapté.', body: "En tant que retraité(e) avec une pension régulière, la voie Pensionado offre la résidence permanente, 20 % de réduction sur les médicaments et des dizaines d'avantages légaux.", cta: 'Voir le visa Pensionado →', ctaHref: '/fr/visas/pensionado' };
-    if (isRemote) return { heading: 'Nations Amies ou Nomade Digital — selon votre passeport.', body: "Les travailleurs à distance ont deux voies clés : Nations Amies (résidents de 50 pays avec lien économique au Panama) et Nomade Digital (36 000 $/an de revenus étrangers).", cta: 'Comparer les visas →', ctaHref: '/fr/visas/comparaison' };
-    if (isInvestor) return { heading: "L'Investisseur Qualifié — résidence permanente rapide.", body: "Avec un budget élevé ou un objectif d'investissement, le visa Investisseur Qualifié offre la résidence permanente en 30 à 45 jours.", cta: "Voir l'Investisseur Qualifié →", ctaHref: '/fr/visas/investisseur-qualifie' };
-    return { heading: 'Plusieurs voies pourraient vous convenir.', body: 'Sur la base de votre profil, nous vous recommandons de comparer toutes les voies de résidence côte à côte.', cta: 'Comparer tous les visas →', ctaHref: '/fr/visas' };
+    let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
+    if (isRetired)  visa = { heading: 'Le visa Pensionado est probablement le plus adapté.', body: "En tant que retraité(e) avec une pension régulière, la voie Pensionado offre la résidence permanente, 20 % de réduction sur les médicaments et des dizaines d'avantages légaux.", cta: 'Voir le visa Pensionado →', ctaHref: '/fr/visas/pensionado' };
+    else if (isRemote)   visa = { heading: 'Nations Amies ou Nomade Digital — selon votre passeport.', body: "Les travailleurs à distance ont deux voies clés : Nations Amies (résidents de 50 pays avec lien économique au Panama) et Nomade Digital (36 000 $/an de revenus étrangers).", cta: 'Comparer les visas →', ctaHref: '/fr/visas/comparaison' };
+    else if (isInvestor) visa = { heading: "L'Investisseur Qualifié — résidence permanente rapide.", body: "Avec un budget élevé ou un objectif d'investissement, le visa Investisseur Qualifié offre la résidence permanente en 30 à 45 jours.", cta: "Voir l'Investisseur Qualifié →", ctaHref: '/fr/visas/investisseur-qualifie' };
+    else                 visa = { heading: 'Plusieurs voies pourraient vous convenir.', body: 'Sur la base de votre profil, nous vous recommandons de comparer toutes les voies de résidence côte à côte.', cta: 'Comparer tous les visas →', ctaHref: '/fr/visas' };
+    return { ...visa, zoneHeading, zoneSub, zones };
   }
 
-  if (isRetired) return { heading: 'La Visa Pensionado parece la más adecuada para tu perfil.', body: 'Como jubilado o persona con ingresos recurrentes, la ruta Pensionado ofrece residencia permanente, 20% de descuento en medicamentos y docenas de beneficios legales.', cta: 'Ver visa Pensionado →', ctaHref: '/es/visas/pensionado' };
-  if (isRemote) return { heading: 'Naciones Amigas o Nómada Digital — según tu pasaporte.', body: 'Los trabajadores remotos tienen dos rutas clave: Naciones Amigas y Nómada Digital (ingresos de $36,000/año del exterior, estadía 9 meses). Compáralas.', cta: 'Comparar visas →', ctaHref: '/es/visas/comparativa' };
-  if (isInvestor) return { heading: 'Inversionista Calificado — residencia permanente acelerada.', body: 'Con un presupuesto alto o meta de inversión, la Visa Inversionista Calificado otorga residencia permanente en 30-45 días vía bienes raíces, acciones o depósito a plazo.', cta: 'Ver Inversionista Calificado →', ctaHref: '/es/visas/inversionista-calificado' };
-  return { heading: 'Varias rutas podrían funcionar para ti.', body: 'Con base en tu perfil, te recomendamos comparar todas las rutas de residencia una al lado de la otra — requisitos exactos, tiempos y costos reales para cada situación.', cta: 'Comparar todas las visas →', ctaHref: '/es/visas' };
+  let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
+  if (isRetired)  visa = { heading: 'La Visa Pensionado parece la más adecuada para tu perfil.', body: 'Como jubilado o persona con ingresos recurrentes, la ruta Pensionado ofrece residencia permanente, 20% de descuento en medicamentos y docenas de beneficios legales.', cta: 'Ver visa Pensionado →', ctaHref: '/es/visas/pensionado' };
+  else if (isRemote)   visa = { heading: 'Naciones Amigas o Nómada Digital — según tu pasaporte.', body: 'Los trabajadores remotos tienen dos rutas clave: Naciones Amigas y Nómada Digital (ingresos de $36,000/año del exterior, estadía 9 meses). Compáralas.', cta: 'Comparar visas →', ctaHref: '/es/visas/comparativa' };
+  else if (isInvestor) visa = { heading: 'Inversionista Calificado — residencia permanente acelerada.', body: 'Con un presupuesto alto o meta de inversión, la Visa Inversionista Calificado otorga residencia permanente en 30-45 días vía bienes raíces, acciones o depósito a plazo.', cta: 'Ver Inversionista Calificado →', ctaHref: '/es/visas/inversionista-calificado' };
+  else                 visa = { heading: 'Varias rutas podrían funcionar para ti.', body: 'Con base en tu perfil, te recomendamos comparar todas las rutas de residencia una al lado de la otra — requisitos exactos, tiempos y costos reales para cada situación.', cta: 'Comparar todas las visas →', ctaHref: '/es/visas' };
+  return { ...visa, zoneHeading, zoneSub, zones };
 }
 
 // ── UI labels ─────────────────────────────────────────────────────────────────
@@ -546,6 +678,11 @@ const uiLabels = {
     whatsapp: '¿Prefieres WhatsApp?',
     whatsappMsg: '¡Hola! Completé Tu Ruta de Beyond Panama Relocation y quiero más información sobre mudarme a Panamá.',
     tipContinue: 'Continuar →',
+    guideHeading: 'Descarga la guía de Panamá',
+    guideSubtext: 'Una guía práctica para empezar a planificar tu traslado a Panamá.',
+    guideLangEN: '🇺🇸 Descargar en inglés',
+    guideLangES: '🇵🇦 Descargar en español',
+    guideLangFR: '🇫🇷 Descargar en francés',
   },
   en: {
     back: '← Back', next: 'Continue →',
@@ -559,6 +696,11 @@ const uiLabels = {
     whatsapp: 'Prefer WhatsApp?',
     whatsappMsg: "Hi! I just completed the Beyond Panama Relocation route finder and would like more information about moving to Panama.",
     tipContinue: 'Continue →',
+    guideHeading: 'Download the Panama Guide',
+    guideSubtext: 'A practical guide to start planning your move to Panama.',
+    guideLangEN: '🇺🇸 Download in English',
+    guideLangES: '🇵🇦 Download in Spanish',
+    guideLangFR: '🇫🇷 Download in French',
   },
   fr: {
     back: '← Retour', next: 'Continuer →',
@@ -572,8 +714,15 @@ const uiLabels = {
     whatsapp: 'Vous préférez WhatsApp ?',
     whatsappMsg: "Bonjour ! Je viens de compléter le guide Beyond Panama Relocation et j'aimerais plus d'informations sur l'installation au Panama.",
     tipContinue: 'Continuer →',
+    guideHeading: 'Télécharger le guide Panama',
+    guideSubtext: 'Un guide pratique pour commencer à planifier votre installation au Panama.',
+    guideLangEN: '🇺🇸 Télécharger en anglais',
+    guideLangES: '🇵🇦 Télécharger en espagnol',
+    guideLangFR: '🇫🇷 Télécharger en français',
   },
 };
+
+const TIP_DURATION = 6000; // ms
 
 const fadeInStyle = `
 @keyframes quizFadeIn {
@@ -581,6 +730,14 @@ const fadeInStyle = `
   to   { opacity: 1; transform: translateY(0); }
 }
 .quiz-fade-in { animation: quizFadeIn 0.3s ease both; }
+
+@keyframes tipProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.tip-progress-bar {
+  animation: tipProgress ${TIP_DURATION}ms linear forwards;
+}
 `;
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -600,9 +757,18 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [submitted, setSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const tipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const currentStep = steps[stepIndex];
   const isTip = currentStep.type === 'tip';
+
+  useEffect(() => {
+    if (!isTip) return;
+    tipTimerRef.current = setTimeout(() => {
+      if (stepIndex < steps.length - 1) setStepIndex(i => i + 1);
+    }, TIP_DURATION);
+    return () => { if (tipTimerRef.current) clearTimeout(tipTimerRef.current); };
+  }, [stepIndex, isTip]);
 
   const questionsDone = steps.slice(0, stepIndex).filter(s => s.type !== 'tip').length;
   const progress = (questionsDone / totalQuestions) * 100;
@@ -653,15 +819,24 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
     if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
     setFormErrors({});
 
-    const serialized: Record<string, string> = { 'form-name': `quiz-subscribe-${lang}`, ...formData };
-    for (const [k, v] of Object.entries(answers)) {
-      serialized[k] = Array.isArray(v) ? v.join(',') : v;
-    }
+    const quizAnswers = Object.entries(answers)
+      .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`)
+      .join('\n');
+
     try {
-      await fetch('/', {
+      await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(serialized).toString(),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY || 'e5abb278-073f-446e-8ff3-a87ecdba7105',
+          subject: `Nuevo lead del quiz — ${formData.name} [${lang.toUpperCase()}]`,
+          from_name: 'Beyond Panama Relocation',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || '—',
+          quiz_lang: lang,
+          answers: quizAnswers,
+        }),
       });
     } catch (_) { /* fail silently */ }
     setSubmitted(true);
@@ -669,7 +844,9 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
 
   const result = submitted ? buildResult(answers, lang) : null;
   const whatsappMsg = encodeURIComponent(labels.whatsappMsg);
-  const whatsappHref = `https://wa.me/?text=${whatsappMsg}`;
+  // TODO: set PUBLIC_WA_NUMBER in .env (e.g. 50761234567) before launch
+  const waNumber = import.meta.env.PUBLIC_WA_NUMBER || '';
+  const whatsappHref = `https://wa.me/${waNumber}?text=${whatsappMsg}`;
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -693,7 +870,17 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
 
           {/* ── TIP ── */}
           {isTip && (
-            <div className="rounded-2xl overflow-hidden border border-jade/15 bg-gradient-to-br from-jade/5 to-gold/5">
+            <div
+              className="rounded-2xl overflow-hidden border border-jade/15 bg-gradient-to-br from-jade/5 to-gold/5 cursor-pointer"
+              onClick={() => {
+                if (tipTimerRef.current) clearTimeout(tipTimerRef.current);
+                advance();
+              }}
+            >
+              {/* barra de progreso animada */}
+              <div className="h-0.5 bg-jade/10">
+                <div key={currentStep.id} className="tip-progress-bar h-full bg-jade rounded-full" />
+              </div>
               <div className="px-6 py-5 border-b border-jade/10 flex items-center gap-3">
                 <span className="text-2xl">{currentStep.tipIcon}</span>
                 <span className="text-xs font-semibold text-jade uppercase tracking-widest">
@@ -702,14 +889,6 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
               </div>
               <div className="px-6 py-6">
                 <p className="text-slate leading-relaxed text-base">{currentStep.tipText}</p>
-              </div>
-              <div className="px-6 pb-6">
-                <button
-                  onClick={() => advance()}
-                  className="w-full py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors"
-                >
-                  {labels.tipContinue}
-                </button>
               </div>
             </div>
           )}
@@ -861,9 +1040,9 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
           )}
 
           {isTip && stepIndex > 0 && (
-            <button onClick={goBack} className="mt-3 text-sm text-slate-mid hover:text-jade transition-colors block mx-auto">
-              {labels.back}
-            </button>
+            <p className="mt-3 text-xs text-slate-mid/50 text-center">
+              {lang === 'es' ? 'Toca para continuar' : lang === 'en' ? 'Tap to continue' : 'Appuyez pour continuer'}
+            </p>
           )}
         </div>
       )}
@@ -883,6 +1062,51 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
               {result.cta}
             </a>
           </div>
+          {/* Zone recommendations */}
+          <div className="p-6 rounded-2xl border border-jade/15 bg-white">
+            <p className="text-xs font-semibold text-jade uppercase tracking-widest mb-1">
+              {result.zoneHeading}
+            </p>
+            <p className="text-slate-mid text-xs mb-5">{result.zoneSub}</p>
+            <div className="space-y-4">
+              {result.zones.map(z => (
+                <div key={z.name} className="flex gap-4 items-start">
+                  <span className="text-2xl flex-shrink-0 mt-0.5">{z.emoji}</span>
+                  <div>
+                    <p className="font-semibold text-slate text-sm">{z.name}</p>
+                    <p className="text-slate-mid text-xs leading-relaxed mt-0.5">{z.why}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Guide download */}
+          <div className="p-6 rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/5 to-jade/5">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="text-2xl">📘</span>
+              <h3 className="font-serif text-lg text-slate">{labels.guideHeading}</h3>
+            </div>
+            <p className="text-slate-mid text-sm mb-5 ml-9">{labels.guideSubtext}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* EN guide pending — file not yet available */}
+              <a
+                href="/downloads/panama-guide-es.pdf"
+                download
+                className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-jade/30 bg-white text-slate font-medium text-sm hover:border-jade hover:bg-jade/5 transition-all"
+              >
+                {labels.guideLangES}
+              </a>
+              <a
+                href="/downloads/panama-guide-fr.pdf"
+                download
+                className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-jade/30 bg-white text-slate font-medium text-sm hover:border-jade hover:bg-jade/5 transition-all"
+              >
+                {labels.guideLangFR}
+              </a>
+            </div>
+          </div>
+
           <div className="text-center">
             <a
               href={whatsappHref}

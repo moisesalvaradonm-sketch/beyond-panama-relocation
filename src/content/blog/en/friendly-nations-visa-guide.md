@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: en
 draft: false
-image: /img/blog/friendly-nations-visa.png
+image: /img/blog/friendly-nations-visa.webp
 imageAlt: "Friendly Nations Visa Panama — permanent residency for qualifying nationalities"
 ---
 

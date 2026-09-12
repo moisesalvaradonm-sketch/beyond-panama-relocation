@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ReviewsCarousel from '../../components/ui/ReviewsCarousel.astro';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('blog', ({ data, id }) =>
@@ -66,7 +67,7 @@ const faqSchema = {
   <section class="relative text-white overflow-hidden min-h-[90vh] flex items-center">
     <!-- Background photo -->
     <img
-      src="/img/areas/panama-city-aerial.jpg"
+      src="/img/panama-hero.webp"
       alt="Vue aérienne de la Cinta Costera de Panama City et l'océan Pacifique"
       class="absolute inset-0 w-full h-full object-cover object-center"
       width="3964"
@@ -84,9 +85,9 @@ const faqSchema = {
       </span>
       <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] max-w-3xl mb-8">
         S'installer au Panama,<br />
-        <span class="text-coral">sans se tromper.</span>
+        <span id="hero-accent" class="text-coral transition-opacity duration-500">sans se tromper.</span>
       </h1>
-      <p class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10">
+      <p id="hero-sub" class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
         Informations réelles sur les visas, les quartiers et le coût de la vie — sans pression
         commerciale, sans promesses vides. Comme un ami qui l'a déjà fait vous expliquerait les choses.
       </p>
@@ -126,7 +127,7 @@ const faqSchema = {
     </h2>
     <div class="grid md:grid-cols-3 gap-8">
 
-      <a href="/fr/regions" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+      <a href="/fr/zones" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
         <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">01</p>
         <h3 class="font-serif text-xl font-semibold text-slate mb-3">Régions pour Vivre</h3>
         <p class="text-slate-mid text-sm leading-relaxed mb-5">
@@ -286,9 +287,9 @@ const faqSchema = {
         <dd class="text-slate-mid leading-relaxed">
           Les régions les plus prisées sont Panama City (la capitale, avec la plus grande
           diversité de services et de prix),
-          <a href="/fr/regions/boquete" class="text-jade hover:underline">Boquete</a> (ville de
+          <a href="/fr/zones/boquete" class="text-jade hover:underline">Boquete</a> (ville de
           montagne au climat frais, communauté d'expatriés bien établie),
-          <a href="/fr/regions/coronado" class="text-jade hover:underline">Coronado</a> (station
+          <a href="/fr/zones/coronado" class="text-jade hover:underline">Coronado</a> (station
           balnéaire du Pacifique appréciée des retraités) et Bocas del Toro (archipel caribéen
           au style de vie détendu). Chaque région a un profil distinct en termes de coût,
           de communauté et d'infrastructure.
@@ -299,5 +300,43 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Carrousel d'avis Google — bas de page -->
+  <ReviewsCarousel lang="fr" />
+
+  <!-- Rotation du héros — toutes les 5 s -->
+  <script>
+    const accents = [
+      'sans se tromper.',
+      'avec le bon visa.',
+      'en connaissant vos coûts.',
+      'dans la bonne région.',
+      'à votre rythme.',
+    ];
+    const subs = [
+      "Informations réelles sur les visas, les quartiers et le coût de la vie — sans pression commerciale, sans promesses vides. Comme un ami qui l'a déjà fait.",
+      "Pensionado, Nations Amies, Nomade Digital, Investisseur Qualifié — quel visa correspond à votre situation, expliqué sans jargon juridique.",
+      "Coût de vie mensuel réel : à partir de 1 200 $/mois à Boquete jusqu'à 5 000 $+ à Panama City. Des outils pour calculer votre budget exact.",
+      "Panama City, Boquete, Coronado, Bocas del Toro — comparatifs réels de prix, profils de communautés d'expatriés et style de vie.",
+      "Pour retraités, télétravailleurs, nomades digitaux et investisseurs — tout ce qu'il faut pour prendre la bonne décision sur la vie au Panama.",
+    ];
+
+    const accentEl = document.getElementById('hero-accent');
+    const subEl    = document.getElementById('hero-sub');
+    if (accentEl && subEl) {
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % accents.length;
+        accentEl.style.opacity = '0';
+        subEl.style.opacity    = '0';
+        setTimeout(() => {
+          accentEl.textContent = accents[idx];
+          subEl.textContent    = subs[idx];
+          accentEl.style.opacity = '1';
+          subEl.style.opacity    = '1';
+        }, 500);
+      }, 5000);
+    }
+  </script>
 
 </Layout>

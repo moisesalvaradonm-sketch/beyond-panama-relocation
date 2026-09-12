@@ -1,0 +1,170 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Quel visa vous convient ? — Comparaison objective"
+  description="Comparaison complète des 5 principaux visas du Panama : conditions, investissement minimum, délai de traitement, résidence permanente et droit de travail. Sans biais vers aucune option."
+  lang="fr"
+>
+  <section class="max-w-4xl mx-auto px-4 py-16">
+
+    <div class="mb-10">
+      <a href="/fr/visas" class="text-jade text-sm hover:underline">← Tous les visas</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Quel visa vous convient ?</h1>
+      <p class="text-slate-mid text-lg max-w-2xl">
+        Comparaison objective selon votre profil — sans vous pousser vers aucune option.
+        Chaque situation est différente.
+      </p>
+    </div>
+
+    <!-- Tableau comparatif complet -->
+    <h2 class="font-serif text-2xl text-slate mb-4">Comparaison complète</h2>
+    <div class="overflow-x-auto rounded-2xl border border-jade/10 bg-white mb-12">
+      <table class="w-full text-sm min-w-[680px]">
+        <thead>
+          <tr class="text-left border-b border-jade/10" style="background-color: #2D7D6F;">
+            <th class="px-4 py-4 font-semibold text-white">Visa</th>
+            <th class="px-4 py-4 font-semibold text-white">Condition principale</th>
+            <th class="px-4 py-4 font-semibold text-white">Revenu / invest. min.</th>
+            <th class="px-4 py-4 font-semibold text-white">Délai de traitement</th>
+            <th class="px-4 py-4 font-semibold text-white">Permanent ?</th>
+            <th class="px-4 py-4 font-semibold text-white">Travail au Panama ?</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/5">
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-4 py-4 font-medium text-jade">
+              <a href="/fr/visas/pensionado" class="hover:underline">🌴 Pensionado</a>
+            </td>
+            <td class="px-4 py-4 text-slate-mid">Pension viagère de gouvernement ou source privée</td>
+            <td class="px-4 py-4 text-slate-mid">1 000 $/mois</td>
+            <td class="px-4 py-4 text-slate-mid">3–6 mois</td>
+            <td class="px-4 py-4 font-medium" style="color: #2D7D6F;">✓ Oui</td>
+            <td class="px-4 py-4 text-slate-mid">Non</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors bg-fog/50">
+            <td class="px-4 py-4 font-medium text-jade">
+              <a href="/fr/visas/nations-amies" class="hover:underline">🌐 Nations Amies</a>
+            </td>
+            <td class="px-4 py-4 text-slate-mid">Liens économiques ou professionnels avec le Panama (propriété, entreprise, emploi)</td>
+            <td class="px-4 py-4 text-slate-mid">Sans minimum fixe</td>
+            <td class="px-4 py-4 text-slate-mid">3–6 mois</td>
+            <td class="px-4 py-4 text-slate-mid">Après 5 ans</td>
+            <td class="px-4 py-4 text-slate-mid">Oui (avec permis de travail)</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors">
+            <td class="px-4 py-4 font-medium text-jade">
+              <a href="/fr/visas/nomade-digital" class="hover:underline">💻 Nomade Numérique</a>
+            </td>
+            <td class="px-4 py-4 text-slate-mid">Contrat de travail à distance avec une entreprise non panaméenne</td>
+            <td class="px-4 py-4 text-slate-mid">3 000 $/mois (36K$/an)</td>
+            <td class="px-4 py-4 text-slate-mid">1–2 mois</td>
+            <td class="px-4 py-4" style="color: #E8714A;">✗ Temporaire (9 mois)</td>
+            <td class="px-4 py-4 text-slate-mid">Non (employeurs étrangers seulement)</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors bg-gold/5">
+            <td class="px-4 py-4 font-medium text-jade">
+              <a href="/fr/visas/investisseur-qualifie" class="hover:underline">📈 Investisseur Qual.</a>
+            </td>
+            <td class="px-4 py-4 text-slate-mid">Investissement en immobilier, actions ou dépôts au Panama</td>
+            <td class="px-4 py-4 text-slate-mid">300 000 $ (immobilier)</td>
+            <td class="px-4 py-4 text-slate-mid">2–4 mois</td>
+            <td class="px-4 py-4 font-medium" style="color: #2D7D6F;">✓ Oui (immédiat)</td>
+            <td class="px-4 py-4 text-slate-mid">Non</td>
+          </tr>
+          <tr class="hover:bg-jade/3 transition-colors bg-fog/50">
+            <td class="px-4 py-4 font-medium text-jade">
+              <a href="/fr/visas/reboisement" class="hover:underline">🌳 Reboisement</a>
+            </td>
+            <td class="px-4 py-4 text-slate-mid">Investissement dans un projet forestier ou agro-reboisement certifié</td>
+            <td class="px-4 py-4 text-slate-mid">100 000 $</td>
+            <td class="px-4 py-4 text-slate-mid">4–8 mois</td>
+            <td class="px-4 py-4 font-medium" style="color: #2D7D6F;">✓ Oui*</td>
+            <td class="px-4 py-4 text-slate-mid">Non</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="px-4 py-3 text-xs text-slate-mid border-t border-jade/5">
+        * La résidence permanente en Reboisement est conditionnée au maintien de l'investissement. Références 2025–2026 — vérifiez toujours avec un avocat en immigration avant de postuler.
+      </p>
+    </div>
+
+    <!-- Arbre de décision -->
+    <h2 class="font-serif text-2xl text-slate mb-6">Trouvez votre chemin</h2>
+    <div class="space-y-6 mb-16">
+
+      <div class="p-6 rounded-2xl bg-white border border-jade/10">
+        <p class="font-semibold text-slate mb-4">Avez-vous une pension viagère d'au moins 1 000 $/mois ?</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-jade/5 border border-jade/15">
+            <p class="text-sm font-medium text-jade mb-1">Oui →</p>
+            <p class="text-sm text-slate-mid">Le <a href="/fr/visas/pensionado" class="text-jade hover:underline font-medium">Visa Pensionado</a> est presque certainement votre meilleure option. Permanent, avec des réductions uniques et un processus éprouvé.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-fog border border-slate/10">
+            <p class="text-sm font-medium text-slate-mid mb-1">Non → continuez la lecture</p>
+            <p class="text-sm text-slate-mid">Il existe d'autres voies selon votre capital, vos revenus et votre nationalité.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-jade/10">
+        <p class="font-semibold text-slate mb-4">Êtes-vous ressortissant des États-Unis, du Canada, de France, d'Espagne, d'Allemagne ou d'un autre pays parmi la liste d'environ 50 nations amies ?</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-jade/5 border border-jade/15">
+            <p class="text-sm font-medium text-jade mb-1">Oui →</p>
+            <p class="text-sm text-slate-mid">Le <a href="/fr/visas/nations-amies" class="text-jade hover:underline font-medium">Visa Nations Amies</a> est la voie la plus flexible : pas de montant minimum fixe et accepte de multiples sources de revenus (télétravail, loyers, entreprise).</p>
+          </div>
+          <div class="p-4 rounded-xl bg-fog border border-slate/10">
+            <p class="text-sm font-medium text-slate-mid mb-1">Non →</p>
+            <p class="text-sm text-slate-mid">Votre voie passe par l'investissement : Investisseur Qualifié, Reboisement, ou si vous télétravaillez, le Nomade Numérique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-jade/10">
+        <p class="font-semibold text-slate mb-4">Avez-vous 300 000 $+ à investir dans l'immobilier au Panama ?</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-jade/5 border border-jade/15">
+            <p class="text-sm font-medium text-jade mb-1">Oui →</p>
+            <p class="text-sm text-slate-mid">Le <a href="/fr/visas/investisseur-qualifie" class="text-jade hover:underline font-medium">Visa Investisseur Qualifié</a> donne la résidence permanente immédiate. Vérifiez les montants en vigueur — vérifiez les montants en vigueur avec un conseiller.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-fog border border-slate/10">
+            <p class="text-sm font-medium text-slate-mid mb-1">Non / préfère ne pas immobiliser ce capital →</p>
+            <p class="text-sm text-slate-mid">Avec 80 000 $ dans un projet forestier vous pouvez opter pour le <a href="/fr/visas/reboisement" class="text-jade hover:underline font-medium">Visa Reboisement</a>. Ou si vous télétravaillez, commencez par le <a href="/fr/visas/nomade-digital" class="text-jade hover:underline font-medium">Nomade Numérique</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white border border-jade/10">
+        <p class="font-semibold text-slate mb-4">Travaillez-vous à distance pour une entreprise étrangère avec des revenus de 3 000 $/mois ou plus ?</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-jade/5 border border-jade/15">
+            <p class="text-sm font-medium text-jade mb-1">Oui →</p>
+            <p class="text-sm text-slate-mid">Le <a href="/fr/visas/nomade-digital" class="text-jade hover:underline font-medium">Visa Nomade Numérique</a> est votre point d'entrée le plus rapide. Temporaire (9 mois), mais idéal pour découvrir le pays d'abord.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-fog border border-slate/10">
+            <p class="text-sm font-medium text-slate-mid mb-1">Non →</p>
+            <p class="text-sm text-slate-mid">Votre cas mérite une révision spécifique. Le quiz vous aide à vous orienter ou nous pouvons vous mettre en relation avec un professionnel.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTAs -->
+    <div class="p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Ce n'est pas encore clair ?</p>
+      <p class="text-slate-mid text-sm mb-5">Le quiz vous pose les questions clés et vous oriente en 2 minutes.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/fr/visas" class="px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
+          ← Voir tous les visas
+        </a>
+        <a href="/fr/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+          Faire le quiz →
+        </a>
+      </div>
+    </div>
+
+  </section>
+</Layout>

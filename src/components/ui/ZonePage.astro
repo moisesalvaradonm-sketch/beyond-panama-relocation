@@ -27,10 +27,10 @@ const {
   heroImage,
 } = Astro.props;
 
-const backHref = lang === 'es' ? '/es/zonas' : '/en/areas';
-const backLabel = lang === 'es' ? '← Todas las zonas' : '← All areas';
+const backHref = lang === 'es' ? '/es/zonas' : lang === 'fr' ? '/fr/zones' : '/en/areas';
+const backLabel = lang === 'es' ? '← Todas las zonas' : lang === 'fr' ? '← Toutes les zones' : '← All areas';
 const quizHref = `/${lang}/quiz`;
-const quizLabel = lang === 'es' ? 'Encontrar tu ruta →' : 'Find your route →';
+const quizLabel = lang === 'es' ? 'Encontrar tu ruta →' : lang === 'fr' ? 'Trouver ma route →' : 'Find your route →';
 
 const stats = [
   { label: lang === 'es' ? 'Clima' : 'Climate', value: climate },
@@ -64,7 +64,7 @@ const stats = [
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         {backLabel}
       </a>
-      <span class="eyebrow" data-animate>{lang === 'es' ? 'Guía de zona' : 'Area guide'}</span>
+      <span class="eyebrow" data-animate>{lang === 'es' ? 'Guía de zona' : lang === 'fr' ? 'Guide de zone' : 'Area guide'}</span>
       <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-5 max-w-2xl" data-animate data-delay="1">
         {title}
       </h1>
@@ -94,7 +94,7 @@ const stats = [
     <!-- Highlights -->
     <section class="mb-16" data-animate>
       <h2 class="font-serif text-2xl md:text-3xl text-slate mb-8">
-        {lang === 'es' ? `Por qué los expats eligen ${locationName}` : `Why Expats Choose ${locationName}`}
+        {lang === 'es' ? `Por qué los expats eligen ${locationName}` : lang === 'fr' ? `Pourquoi les expats choisissent ${locationName}` : `Why Expats Choose ${locationName}`}
       </h2>
       <ul class="space-y-4">
         {highlights.map((h, i) => (
@@ -113,7 +113,7 @@ const stats = [
     <!-- Considerations -->
     <section class="mb-16" data-animate>
       <h2 class="font-serif text-2xl md:text-3xl text-slate mb-8">
-        {lang === 'es' ? `Qué considerar antes de mudarte a ${locationName}` : `What to Know Before Moving to ${locationName}`}
+        {lang === 'es' ? `Qué considerar antes de mudarte a ${locationName}` : lang === 'fr' ? `Ce qu'il faut savoir avant de s'installer à ${locationName}` : `What to Know Before Moving to ${locationName}`}
       </h2>
       <ul class="space-y-4">
         {considerations.map((c, i) => (
@@ -132,7 +132,7 @@ const stats = [
       <section class="mb-16" data-animate>
         <hr class="divider-editorial mb-16" />
         <h2 class="font-serif text-2xl md:text-3xl text-slate mb-8">
-          {lang === 'es' ? `Barrios y zonas de ${locationName}` : `${locationName} Neighborhoods`}
+          {lang === 'es' ? `Barrios y zonas de ${locationName}` : lang === 'fr' ? `Quartiers de ${locationName}` : `${locationName} Neighborhoods`}
         </h2>
         <div class="grid md:grid-cols-2 gap-4">
           {neighborhoods.map((n, i) => (
@@ -154,13 +154,15 @@ const stats = [
 
     <!-- CTA -->
     <div class="mt-16 bg-slate px-8 py-12 text-center" data-animate>
-      <span class="eyebrow" style="color: rgba(196,169,109,0.7)">{lang === 'es' ? 'Siguiente paso' : 'Next step'}</span>
+      <span class="eyebrow" style="color: rgba(196,169,109,0.7)">{lang === 'es' ? 'Siguiente paso' : lang === 'fr' ? 'Prochaine étape' : 'Next step'}</span>
       <h2 class="font-serif text-2xl md:text-3xl text-white mb-3">
-        {lang === 'es' ? `¿${locationName} es para ti?` : `Is ${locationName} right for you?`}
+        {lang === 'es' ? `¿${locationName} es para ti?` : lang === 'fr' ? `${locationName} est-il fait pour vous ?` : `Is ${locationName} right for you?`}
       </h2>
       <p class="text-white/50 text-sm mb-8 max-w-xs mx-auto leading-relaxed">
         {lang === 'es'
           ? 'Tu ruta te orienta en 2 minutos según tu presupuesto y estilo de vida.'
+          : lang === 'fr'
+          ? 'Votre route vous guide en 2 minutes selon votre budget et style de vie.'
           : 'Your route guides you in 2 minutes based on your budget and lifestyle.'}
       </p>
       <a

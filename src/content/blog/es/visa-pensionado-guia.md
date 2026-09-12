@@ -5,7 +5,7 @@ pubDate: 2026-09-01
 category: visas
 readTime: 9
 lang: es
-image: /img/blog/panama-passport.png
+image: /img/blog/panama-passport.webp
 imageAlt: "Pasaporte de Panamá — ciudadanía en aproximadamente 5 años"
 ---
 

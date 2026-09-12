@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ReviewsCarousel from '../../components/ui/ReviewsCarousel.astro';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('blog', ({ data, id }) =>
@@ -66,7 +67,7 @@ const faqSchema = {
   <section class="relative text-white overflow-hidden min-h-[90vh] flex items-center">
     <!-- Background photo -->
     <img
-      src="/img/areas/panama-city-aerial.jpg"
+      src="/img/panama-hero.webp"
       alt="Vista aérea de la Cinta Costera de Ciudad de Panamá y el Océano Pacífico"
       class="absolute inset-0 w-full h-full object-cover object-center"
       fetchpriority="high"
@@ -79,9 +80,9 @@ const faqSchema = {
       <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">Beyond Panama Relocation</span>
       <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] max-w-3xl mb-8">
         Múdate a Panamá,<br />
-        <span class="text-coral">sin adivinar.</span>
+        <span id="hero-accent" class="text-coral transition-opacity duration-500">sin adivinar.</span>
       </h1>
-      <p class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10">
+      <p id="hero-sub" class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
         Información real sobre visas, zonas y costo de vida — sin presión de venta,
         sin promesas vacías. Como si un amigo que ya lo vivió te lo explicara.
       </p>
@@ -302,5 +303,43 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Google Reviews carousel — al final de la página -->
+  <ReviewsCarousel lang="es" />
+
+  <!-- Hero rotation — rota la frase y el subtítulo cada 5 s -->
+  <script>
+    const accents = [
+      'sin adivinar.',
+      'con la visa correcta.',
+      'conociendo tus costos.',
+      'en la zona correcta.',
+      'a tu manera.',
+    ];
+    const subs = [
+      'Información real sobre visas, zonas y costo de vida — sin presión de venta, sin promesas vacías. Como si un amigo que ya lo vivió te lo explicara.',
+      'Visa Pensionado, Naciones Amigas, Nómada Digital, Inversionista Calificado — cuál encaja con tu situación, explicada sin jerga legal.',
+      'Costo de vida mensual real: desde $1,200 en Boquete hasta $5,000+ en Ciudad de Panamá. Herramientas para calcular tu número exacto.',
+      'Ciudad de Panamá, Boquete, Coronado, Bocas del Toro — comparativas reales de precio, comunidad expat y estilo de vida.',
+      'Para jubilados, trabajadores remotos, nómadas digitales e inversores — todo lo que necesitas para decidir bien sobre vivir en Panamá.',
+    ];
+
+    const accentEl = document.getElementById('hero-accent');
+    const subEl    = document.getElementById('hero-sub');
+    if (accentEl && subEl) {
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % accents.length;
+        accentEl.style.opacity = '0';
+        subEl.style.opacity    = '0';
+        setTimeout(() => {
+          accentEl.textContent = accents[idx];
+          subEl.textContent    = subs[idx];
+          accentEl.style.opacity = '1';
+          subEl.style.opacity    = '1';
+        }, 500);
+      }, 5000);
+    }
+  </script>
 
 </Layout>

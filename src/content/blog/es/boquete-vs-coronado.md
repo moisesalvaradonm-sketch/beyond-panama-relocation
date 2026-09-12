@@ -5,7 +5,7 @@ pubDate: 2026-09-01
 category: zonas
 readTime: 7
 lang: es
-image: /img/blog/panama-areas.png
+image: /img/blog/panama-areas.webp
 imageAlt: "Ciudad de Panamá, Boquete, Coronado y Bocas del Toro — los cuatro destinos principales para expats"
 ---
 

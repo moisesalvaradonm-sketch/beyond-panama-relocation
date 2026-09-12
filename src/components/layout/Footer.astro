@@ -8,6 +8,12 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+
+const zonaPath  = lang === 'es' ? '/zonas'         : lang === 'fr' ? '/zones'          : '/areas';
+const costPath  = lang === 'es' ? '/costo-de-vida' : lang === 'fr' ? '/cout-de-la-vie' : '/cost-of-living';
+const aboutPath = lang === 'es' ? '/sobre-nosotros': lang === 'fr' ? '/a-propos'       : '/about';
+const privPath  = lang === 'es' ? '/privacidad'    : lang === 'fr' ? '/confidentialite': '/privacy';
+const termsPath = lang === 'es' ? '/terminos'      : lang === 'fr' ? '/conditions'     : '/terms';
 ---
 
 <!-- Top accent separator -->
@@ -26,21 +32,21 @@ const year = new Date().getFullYear();
     <!-- Nav links -->
     <div>
       <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
-        {lang === 'es' ? 'Explorar' : 'Explore'}
+        {lang === 'es' ? 'Explorar' : lang === 'fr' ? 'Explorer' : 'Explore'}
       </p>
       <ul class="space-y-2 text-sm">
-        <li><a href={getLocalizedPath('/zonas', lang)} class="hover:text-white transition-colors">{t('nav.zonas')}</a></li>
+        <li><a href={getLocalizedPath(zonaPath, lang)} class="hover:text-white transition-colors">{t('nav.zonas')}</a></li>
         <li><a href={getLocalizedPath('/visas', lang)} class="hover:text-white transition-colors">{t('nav.visas')}</a></li>
-        <li><a href={getLocalizedPath(lang === 'es' ? '/costo-de-vida' : '/cost-of-living', lang)} class="hover:text-white transition-colors">{t('nav.costo')}</a></li>
+        <li><a href={getLocalizedPath(costPath, lang)} class="hover:text-white transition-colors">{t('nav.costo')}</a></li>
         <li><a href={getLocalizedPath('/blog', lang)} class="hover:text-white transition-colors">{t('nav.blog')}</a></li>
-        <li><a href={getLocalizedPath(lang === 'es' ? '/sobre-nosotros' : '/about', lang)} class="hover:text-white transition-colors">{t('nav.sobre')}</a></li>
+        <li><a href={getLocalizedPath(aboutPath, lang)} class="hover:text-white transition-colors">{t('nav.sobre')}</a></li>
       </ul>
     </div>
 
     <!-- Quiz CTA -->
     <div>
       <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
-        {lang === 'es' ? '¿Por dónde empiezo?' : 'Where do I start?'}
+        {lang === 'es' ? '¿Por dónde empiezo?' : lang === 'fr' ? 'Par où commencer ?' : 'Where do I start?'}
       </p>
       <a
         href={getLocalizedPath('/quiz', lang)}
@@ -57,8 +63,8 @@ const year = new Date().getFullYear();
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/40">
       <span>© {year} Beyond Panama Relocation <span class="text-white/20">· Built for expats, by expats</span></span>
       <div class="flex gap-4">
-        <a href={getLocalizedPath(lang === 'es' ? '/privacidad' : '/privacy', lang)} class="hover:text-white/70 transition-colors">{t('footer.privacidad')}</a>
-        <a href={getLocalizedPath(lang === 'es' ? '/terminos' : '/terms', lang)} class="hover:text-white/70 transition-colors">{t('footer.terminos')}</a>
+        <a href={getLocalizedPath(privPath, lang)} class="hover:text-white/70 transition-colors">{t('footer.privacidad')}</a>
+        <a href={getLocalizedPath(termsPath, lang)} class="hover:text-white/70 transition-colors">{t('footer.terminos')}</a>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@ pubDate: 2026-09-01
 category: visas
 readTime: 9
 lang: en
-image: /img/blog/panama-passport.png
+image: /img/blog/panama-passport.webp
 imageAlt: "Panama passport — citizenship in approximately 5 years"
 ---
 
