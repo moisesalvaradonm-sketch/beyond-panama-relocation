@@ -2,62 +2,135 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Contact — Beyond Panama Relocation" description="Have a specific question? Write to us. Response within 24–48 hours." lang="en">
-  <section class="max-w-2xl mx-auto px-4 py-16">
-    <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
-    <header class="mt-4 mb-10">
-      <h1 class="font-serif text-4xl text-slate mb-3">Contact</h1>
-      <p class="text-slate-mid text-lg">The quiz answers most questions. If you have something more specific, write to us — we respond within 24 to 48 hours.</p>
-    </header>
-    <div class="p-5 rounded-2xl bg-jade/5 border border-jade/15 mb-8 flex gap-4 items-start">
-      <span class="text-2xl">💡</span>
-      <div>
-        <p class="font-medium text-slate text-sm mb-1">Is it a question about visas, areas or cost of living?</p>
-        <p class="text-sm text-slate-mid mb-2">The quiz probably guides you better than an email.</p>
-        <a href="/en/quiz" class="text-jade text-sm font-medium hover:underline">Take the quiz →</a>
+<Layout
+  title="Contact — Beyond Panama Relocation"
+  description="Reach out to start planning your move to Panama. WhatsApp, email, or schedule a call — we respond within 24 hours."
+  lang="en"
+>
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Let's talk about your move to Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl">
+        No automated replies, no sales funnels. You'll hear from a real person who has lived through this process — usually within a day.
+      </p>
+    </div>
+
+    <!-- 3 ways to connect -->
+    <div class="space-y-6 mb-14">
+
+      <!-- WhatsApp — primary CTA -->
+      <div class="rounded-2xl bg-jade/5 border border-jade/25 p-8 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="flex-1">
+          <span class="text-xs font-semibold text-jade uppercase tracking-wide">Best way to reach us</span>
+          <h2 class="font-serif text-2xl text-slate mt-1 mb-2">WhatsApp</h2>
+          <p class="text-slate-mid text-sm max-w-md">
+            Send a quick message with your situation and questions. We'll respond the same day (Mon–Fri) and figure out if we're a good fit before anything else.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/50766060000"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-jade text-white font-medium text-base hover:bg-jade-dark transition-colors shrink-0"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Message us on WhatsApp
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="rounded-2xl bg-white border border-jade/10 p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="flex-1">
+          <span class="text-xs font-semibold text-jade uppercase tracking-wide">Email</span>
+          <h2 class="font-serif text-xl text-slate mt-1 mb-1">Prefer email?</h2>
+          <p class="text-slate-mid text-sm">Works great for longer questions or if you'd like to attach documents.</p>
+        </div>
+        <a
+          href="mailto:hola@beyondpanamarelocation.com"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-jade/25 text-jade font-medium text-sm hover:bg-jade/5 transition-colors shrink-0"
+        >
+          hola@beyondpanamarelocation.com
+        </a>
+      </div>
+
+      <!-- Schedule a call — coming soon -->
+      <div class="rounded-2xl bg-white border border-jade/10 p-6 flex flex-col sm:flex-row sm:items-center gap-4 opacity-70">
+        <div class="flex-1">
+          <span class="text-xs font-semibold text-jade uppercase tracking-wide">Video call</span>
+          <h2 class="font-serif text-xl text-slate mt-1 mb-1">Schedule a call</h2>
+          <p class="text-slate-mid text-sm">30-minute consultation via Zoom or Google Meet. Start with WhatsApp and we'll book a time from there.</p>
+        </div>
+        <span class="inline-flex items-center px-5 py-3 rounded-full border border-jade/15 text-slate-mid text-sm shrink-0">
+          Calendly coming soon
+        </span>
+      </div>
+
+    </div>
+
+    <!-- What to expect -->
+    <div class="mb-14 rounded-2xl bg-jade/5 border border-jade/15 p-8">
+      <h2 class="font-serif text-2xl text-slate mb-6">What happens after you reach out</h2>
+      <ul class="space-y-4">
+        <li class="flex gap-4">
+          <span class="text-jade font-serif text-xl leading-none mt-0.5">1</span>
+          <div>
+            <p class="text-slate font-medium">You'll hear back within 24 hours</p>
+            <p class="text-slate-mid text-sm mt-0.5">Usually much sooner. We read every message personally and reply the same day during the week.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-jade font-serif text-xl leading-none mt-0.5">2</span>
+          <div>
+            <p class="text-slate font-medium">First conversation is free — always</p>
+            <p class="text-slate-mid text-sm mt-0.5">We'll figure out your situation, answer your initial questions, and tell you honestly whether we can help.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-jade font-serif text-xl leading-none mt-0.5">3</span>
+          <div>
+            <p class="text-slate font-medium">No pressure, no hard sell</p>
+            <p class="text-slate-mid text-sm mt-0.5">If we're not the right fit for your situation, we'll say so and point you toward resources that are. That's it.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Things to think about before reaching out -->
+    <div class="mb-14">
+      <h2 class="font-serif text-2xl text-slate mb-3">Things worth thinking about first</h2>
+      <p class="text-slate-mid text-sm mb-6 max-w-2xl">
+        You don't need to have all the answers before writing. But these are the questions we'll ask early, so having a rough idea helps us give better guidance from the start.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-xl bg-white border border-jade/10 p-5">
+          <p class="text-xs font-semibold text-jade uppercase tracking-wide mb-1">Nationality / country of origin</p>
+          <p class="text-slate-mid text-sm">This shapes which visa options apply to you and what documents you'll need.</p>
+        </div>
+        <div class="rounded-xl bg-white border border-jade/10 p-5">
+          <p class="text-xs font-semibold text-jade uppercase tracking-wide mb-1">Target timeframe</p>
+          <p class="text-slate-mid text-sm">Are you thinking 3 months, 1 year, or just exploring? Even a rough horizon helps.</p>
+        </div>
+        <div class="rounded-xl bg-white border border-jade/10 p-5">
+          <p class="text-xs font-semibold text-jade uppercase tracking-wide mb-1">Main motivation</p>
+          <p class="text-slate-mid text-sm">Retirement, remote work, family, investment, lower cost of living — or a mix of several.</p>
+        </div>
+        <div class="rounded-xl bg-white border border-jade/10 p-5">
+          <p class="text-xs font-semibold text-jade uppercase tracking-wide mb-1">Your biggest question or concern</p>
+          <p class="text-slate-mid text-sm">Whatever is making you hesitate or keeping you up at night — that's where we'll start.</p>
+        </div>
       </div>
     </div>
-    <form
-      class="space-y-5"
-      name="contact"
-      method="post"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action="/en/contact?sent=1"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <p hidden><input name="bot-field" /></p>
-      <div>
-        <label for="name" class="block text-sm font-medium text-slate mb-1">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm" />
-      </div>
-      <div>
-        <label for="email" class="block text-sm font-medium text-slate mb-1">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@email.com" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm" />
-      </div>
-      <div>
-        <label for="topic" class="block text-sm font-medium text-slate mb-1">What are you looking for?</label>
-        <select id="topic" name="topic" class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate focus:outline-none focus:border-jade text-sm">
-          <option value="">Select an option...</option>
-          <option value="visas">Information about visas</option>
-          <option value="property">Looking for a property</option>
-          <option value="exploring">Just exploring</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div>
-        <label for="message" class="block text-sm font-medium text-slate mb-1">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Your question or message..." class="w-full px-4 py-3 rounded-xl border border-jade/20 bg-white text-slate placeholder-slate-mid/40 focus:outline-none focus:border-jade text-sm resize-none"></textarea>
-      </div>
-      <button type="submit" class="w-full px-6 py-3 rounded-xl bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Send message</button>
-    </form>
-    <p class="mt-6 text-xs text-slate-mid/70 text-center leading-relaxed">
-      We are not lawyers or a real estate agency. We only offer orientation — never legal advice or guaranteed results.
-    </p>
-    {Astro.url.searchParams.get('sent') && (
-      <div class="mt-6 p-5 rounded-xl bg-jade/10 border border-jade/20 text-center">
-        <p class="font-medium text-jade text-sm">✓ Message received — we'll respond within 24 to 48 hours.</p>
-      </div>
-    )}
+
+    <!-- Footer nudge -->
+    <div class="text-center p-8 rounded-2xl bg-jade/5 border border-jade/15">
+      <p class="font-serif text-xl text-slate mb-2">Not sure where to start?</p>
+      <p class="text-slate-mid text-sm mb-5">Take the quick quiz and we'll tell you which path fits your situation best.</p>
+      <a href="/en/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Take the quiz →
+      </a>
+    </div>
   </section>
 </Layout>

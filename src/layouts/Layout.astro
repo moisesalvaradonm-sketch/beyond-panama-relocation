@@ -34,7 +34,7 @@ const canonical = canonicalUrl ?? Astro.url.href;
 const ogLocale = currentLang === 'es' ? 'es_PA' : currentLang === 'fr' ? 'fr_FR' : 'en_US';
 const ogImageAbsolute = ogImage
   ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
-  : null;
+  : `${siteUrl}/img/og-default.png`;
 const fullTitle = `${title} — Beyond Panama Relocation`;
 const ogType = pubDate ? 'article' : 'website';
 
@@ -161,7 +161,7 @@ if (contentSegments.length > 0) {
     <meta property="og:site_name" content="Beyond Panama Relocation" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    {ogImageAbsolute && <meta property="og:image" content={ogImageAbsolute} />}
+    <meta property="og:image" content={ogImageAbsolute} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={ogLocale} />
 
@@ -172,10 +172,10 @@ if (contentSegments.length > 0) {
     {articleSection && <meta property="article:section" content={articleSection} />}
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content={ogImageAbsolute ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    {ogImageAbsolute && <meta name="twitter:image" content={ogImageAbsolute} />}
+    <meta name="twitter:image" content={ogImageAbsolute} />
 
     <!-- Fonts: dns-prefetch + preconnect + stylesheet -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
