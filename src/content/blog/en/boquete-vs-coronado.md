@@ -5,6 +5,8 @@ pubDate: 2026-09-01
 category: zonas
 readTime: 7
 lang: en
+image: /img/blog/panama-areas.png
+imageAlt: "Panama City, Boquete, Coronado and Bocas del Toro — the four main expat destinations"
 ---
 
 Panama has many places to live, but when people get serious about making the move, most end up choosing between two: **Boquete** or **Coronado**. They're the two most established expat communities outside the capital, with enough infrastructure to live comfortably.

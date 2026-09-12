@@ -5,6 +5,8 @@ pubDate: 2026-09-01
 category: visas
 readTime: 9
 lang: en
+image: /img/blog/panama-passport.png
+imageAlt: "Panama passport — citizenship in approximately 5 years"
 ---
 
 The **Panama Pensionado Visa** is, by a wide margin, the most sought-after retirement residence in Latin America. It's not by accident: the requirements are reasonable, the benefits are real, and the process — while bureaucratic — is predictable.

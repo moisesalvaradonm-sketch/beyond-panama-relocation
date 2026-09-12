@@ -5,6 +5,8 @@ pubDate: 2026-09-01
 category: costo-de-vida
 readTime: 10
 lang: en
+image: /img/blog/boquete-01.jpg
+imageAlt: "Boquete, Chiriquí — one of Panama's most popular expat towns"
 ---
 
 If you've searched "cost of living in Panama" before landing here, you probably found two types of results: optimistic blogs with headlines like "$800 a month is plenty" and expat forums full of complaints that everything costs more than expected.

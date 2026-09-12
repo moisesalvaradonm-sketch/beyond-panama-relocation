@@ -5,6 +5,8 @@ pubDate: 2026-09-01
 category: visas
 readTime: 9
 lang: es
+image: /img/blog/panama-passport.png
+imageAlt: "Pasaporte de Panamá — ciudadanía en aproximadamente 5 años"
 ---
 
 La **Visa Pensionado de Panamá** es, con diferencia, la residencia para jubilados más solicitada de Latinoamérica. No es un accidente: los requisitos son razonables, los beneficios son reales y el proceso —aunque burocrático— es predecible.

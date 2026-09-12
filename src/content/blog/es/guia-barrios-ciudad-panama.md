@@ -6,6 +6,8 @@ category: zonas
 readTime: 7
 lang: es
 draft: false
+image: /img/blog/panama-city-skyline.png
+imageAlt: "Skyline de Ciudad de Panamá con la Torre F&F"
 ---
 
 Si le preguntas a cinco extranjeros dónde vivir en Ciudad de Panamá, obtienes cinco respuestas distintas. No porque ninguno tenga razón — sino porque la ciudad tiene barrios genuinamente diferentes, que se adaptan a personalidades y presupuestos muy distintos.

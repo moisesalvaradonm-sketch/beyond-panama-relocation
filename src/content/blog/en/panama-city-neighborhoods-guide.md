@@ -6,6 +6,8 @@ category: zonas
 readTime: 7
 lang: en
 draft: false
+image: /img/blog/panama-city-skyline.png
+imageAlt: "Panama City skyline with the iconic F&F Tower"
 ---
 
 If you ask five expats where to live in Panama City, you'll get five different answers. That's not because any of them are wrong — it's because this city has genuinely distinct neighborhoods that suit very different personalities and budgets.
