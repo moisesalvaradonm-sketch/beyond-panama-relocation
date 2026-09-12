@@ -1089,7 +1089,13 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
             </div>
             <p className="text-slate-mid text-sm mb-5 ml-9">{labels.guideSubtext}</p>
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* EN guide pending — file not yet available */}
+              <a
+                href="/downloads/panama-guide-en.pdf"
+                download
+                className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-jade/30 bg-white text-slate font-medium text-sm hover:border-jade hover:bg-jade/5 transition-all"
+              >
+                {labels.guideLangEN}
+              </a>
               <a
                 href="/downloads/panama-guide-es.pdf"
                 download

@@ -18,14 +18,25 @@ interface Props {
   considerations: string[];
   neighborhoods?: { name: string; desc: string }[];
   heroImage?: string;
+  faqs?: { q: string; a: string }[];
 }
 
 const {
   lang, title, description, emoji, zone, locationName,
   climate, rentRange, profile, internet,
   intro, highlights, considerations, neighborhoods = [],
-  heroImage,
+  heroImage, faqs = [],
 } = Astro.props;
+
+const faqSchema = faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+} : null;
 
 const backHref = lang === 'es' ? '/es/zonas' : lang === 'fr' ? '/fr/zones' : '/en/areas';
 const backLabel = lang === 'es' ? '← Todas las zonas' : lang === 'fr' ? '← Toutes les zones' : '← All areas';
@@ -151,6 +162,27 @@ const stats = [
 
     <!-- Slot for extra content -->
     <slot />
+
+    <!-- FAQ Section -->
+    {faqs.length > 0 && (
+      <section class="mb-16" data-animate>
+        <hr class="divider-editorial mb-16" />
+        <h2 class="font-serif text-2xl md:text-3xl text-slate mb-10">
+          {lang === 'es' ? 'Preguntas frecuentes' : lang === 'fr' ? 'Questions fréquentes' : 'Frequently Asked Questions'}
+        </h2>
+        <div class="space-y-6">
+          {faqs.map(({ q, a }, i) => (
+            <div class="border-b border-jade/10 pb-6" data-animate data-delay={String((i % 4) + 1)}>
+              <p class="font-serif text-base font-semibold text-slate mb-3">{q}</p>
+              <p class="text-sm text-slate-mid leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- JSON-LD: FAQPage -->
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
     <!-- CTA -->
     <div class="mt-16 bg-slate px-8 py-12 text-center" data-animate>
