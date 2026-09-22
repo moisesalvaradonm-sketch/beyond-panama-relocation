@@ -6,8 +6,8 @@ category: proceso
 readTime: 9
 lang: es
 draft: false
-image: /img/blog/panama-city-01.webp
-imageAlt: "Skyline de Ciudad de Panamá con la bahía y edificios residenciales"
+image: /img/blog/blog-alquiler-panama-full.webp
+imageAlt: "Pareja en un balcón de Ciudad de Panamá con cédulas de residencia y el skyline de fondo"
 ---
 
 Alquilar en Panamá como extranjero no es complicado, pero funciona de forma diferente a lo que la mayoría espera. Los arrendadores tienen sus propias reglas informales, muchas transacciones ocurren fuera de las agencias formales y tu historial crediticio de tu país de origen no sirve de nada aquí. Esta guía cubre el proceso tal como funciona en la práctica.

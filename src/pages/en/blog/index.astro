@@ -1,11 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import NewsletterSignup from '../../../components/ui/NewsletterSignup.astro';
 
 const posts = await getCollection('blog', ({ data, id }) =>
   !data.draft && data.lang === 'en' && id.startsWith('en/')
 );
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const imagePositions: Record<string, string> = {
+  'panama-city-skyline.webp': 'center 28%',
+  'friendly-nations-visa.webp': 'center 22%',
+  'panama-areas.webp': 'center 42%',
+  'panama-passport.webp': 'center 32%',
+  'blog-investor-full.webp': 'center 20%',
+  'blog-inversionista-full.webp': 'center 20%',
+  'blog-investisseur-full.webp': 'center 20%',
+  'blog-friendly-full.webp': 'right 12%',
+  'blog-renting-panama-full.webp': 'center 30%',
+  'blog-alquiler-panama-full.webp': 'center 30%',
+};
+function imgPos(src?: string) {
+  const f = src?.split('/').pop() ?? '';
+  return imagePositions[f] ?? 'center';
+}
 
 const categoryLabel: Record<string, string> = {
   zonas: 'Areas & Lifestyle',
@@ -24,11 +42,21 @@ const categoryLabel: Record<string, string> = {
   <section class="max-w-4xl mx-auto px-4 py-16">
     <div class="mb-10">
       <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
-      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Blog</h1>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Panama Relocation Blog — Guides &amp; Resources</h1>
       <p class="text-slate-mid text-lg max-w-2xl">
         Practical guides, comparisons and resources to make informed decisions
         about living in Panama. No filler, no false urgency.
       </p>
+    </div>
+
+    <!-- Search -->
+    <div class="mb-8">
+      <input
+        id="blog-search"
+        type="search"
+        placeholder="Search articles…"
+        class="w-full sm:w-80 px-4 py-2.5 rounded-full border border-jade/25 bg-white text-slate text-sm placeholder:text-slate-mid/60 focus:outline-none focus:border-jade focus:ring-2 focus:ring-jade/20"
+      />
     </div>
 
     <div class="flex flex-wrap gap-2 mb-10">
@@ -40,7 +68,7 @@ const categoryLabel: Record<string, string> = {
     </div>
 
     {posts.length > 0 && (
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div id="blog-grid" class="grid md:grid-cols-2 gap-6 mb-12">
         {posts.map(post => (
           <a
             href={`/en/blog/${post.id.replace('en/', '')}`}
@@ -52,6 +80,7 @@ const categoryLabel: Record<string, string> = {
                   src={post.data.image}
                   alt={post.data.imageAlt ?? post.data.title}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  style={`object-position: ${imgPos(post.data.image)}`}
                 />
               </div>
             )}
@@ -73,6 +102,8 @@ const categoryLabel: Record<string, string> = {
       </div>
     )}
 
+    <NewsletterSignup lang="en" />
+
     <div class="text-center p-8 rounded-2xl bg-jade/5 border border-jade/15">
       <p class="font-serif text-xl text-slate mb-2">More guides coming</p>
       <p class="text-slate-mid text-sm mb-5">We publish regularly. Meanwhile, the quiz is the fastest way to get oriented.</p>
@@ -82,3 +113,17 @@ const categoryLabel: Record<string, string> = {
     </div>
   </section>
 </Layout>
+
+<script>
+  const input = document.getElementById('blog-search') as HTMLInputElement | null;
+  const grid = document.getElementById('blog-grid');
+  if (input && grid) {
+    input.addEventListener('input', () => {
+      const q = input.value.toLowerCase().trim();
+      grid.querySelectorAll<HTMLAnchorElement>('a').forEach(card => {
+        const text = card.textContent?.toLowerCase() ?? '';
+        card.style.display = !q || text.includes(q) ? '' : 'none';
+      });
+    });
+  }
+</script>

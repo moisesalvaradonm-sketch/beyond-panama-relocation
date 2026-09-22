@@ -15,6 +15,23 @@ export async function getStaticPaths() {
 const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
 
+const imagePositions: Record<string, string> = {
+  'panama-city-skyline.webp': 'center 28%',
+  'friendly-nations-visa.webp': 'center 22%',
+  'panama-areas.webp': 'center 42%',
+  'panama-passport.webp': 'center 32%',
+  'blog-investor-full.webp': 'center top',
+  'blog-inversionista-full.webp': 'center 20%',
+  'blog-investisseur-full.webp': 'top',
+  'blog-friendly-full.webp': 'center',
+  'blog-renting-panama-full.webp': 'center 30%',
+  'blog-alquiler-panama-full.webp': 'center 30%',
+};
+function imgPos(src?: string) {
+  const f = src?.split('/').pop() ?? '';
+  return imagePositions[f] ?? 'center';
+}
+
 const categoryLabel: Record<string, string> = {
   zonas: 'Zones et style de vie',
   visas: 'Visas et résidence',
@@ -45,14 +62,21 @@ const articleSchema = {
   '@type': 'BlogPosting',
   headline: post.data.title,
   description: post.data.description,
+  image: post.data.image ? {
+    '@type': 'ImageObject',
+    url: `${siteUrl}${post.data.image}`,
+    width: 1200,
+    height: 630,
+  } : undefined,
   datePublished: post.data.pubDate.toISOString(),
   dateModified: post.data.pubDate.toISOString(),
   url: pageUrl,
   inLanguage: 'fr',
   author: {
     '@type': 'Person',
+    '@id': `${siteUrl}/en/about/#author`,
     name: 'Moisés Alvarado',
-    url: `${siteUrl}/fr/a-propos`,
+    url: `${siteUrl}/fr/a-propos/`,
   },
   publisher: {
     '@type': 'Organization',
@@ -77,16 +101,35 @@ const articleSchema = {
       ← Retour au Blog
     </a>
 
+    {post.data.image && (
+      <div class="rounded-2xl overflow-hidden mb-10 -mx-4 sm:mx-0" style="aspect-ratio:16/9">
+        <img
+          src={post.data.image}
+          alt={post.data.imageAlt ?? post.data.title}
+          class="w-full h-full object-cover"
+          style={`object-position: ${imgPos(post.data.image)}`}
+          loading="eager"
+        />
+      </div>
+    )}
+
     <header class="mt-4 mb-10">
       <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold text-jade bg-jade/8 uppercase tracking-wide mb-3">
         {categoryLabel[post.data.category] ?? post.data.category}
       </span>
       <h1 class="font-serif text-4xl text-slate mt-2 mb-3 leading-snug">{post.data.title}</h1>
       <p class="text-slate-mid text-lg leading-relaxed mb-4">{post.data.description}</p>
-      <div class="flex flex-wrap gap-4 text-xs text-slate-mid">
-        <span>{post.data.pubDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-        <span>·</span>
-        <span>{post.data.readTime} min de lecture</span>
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <img src="/moises-alvarado.jpg" alt="Moisés Alvarado" class="w-8 h-8 rounded-full object-cover flex-shrink-0" width="32" height="32" />
+        <div class="flex flex-wrap gap-2 text-xs text-slate-mid">
+          <span>Par <a href="/fr/a-propos/" class="text-jade hover:underline font-medium">Moisés Alvarado</a></span>
+          <span>·</span>
+          <span>{post.data.pubDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>·</span>
+          <span>{post.data.readTime} min de lecture</span>
+          <span>·</span>
+          <span>Dernière révision : septembre 2026</span>
+        </div>
       </div>
     </header>
 

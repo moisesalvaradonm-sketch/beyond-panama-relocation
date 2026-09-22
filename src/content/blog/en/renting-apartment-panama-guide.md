@@ -6,8 +6,8 @@ category: proceso
 readTime: 9
 lang: en
 draft: false
-image: /img/blog/panama-city-01.webp
-imageAlt: "Panama City skyline with the bay, showing residential and commercial buildings"
+image: /img/blog/blog-renting-panama-full.webp
+imageAlt: "Couple on a Panama City balcony holding residency cards, with the city skyline and bay in the background"
 ---
 
 Finding an apartment in Panama is not complicated, but it works differently than what most foreigners expect. Landlords have their own informal rules, many rental transactions happen outside formal agencies, and your credit history from your home country means nothing here. This guide covers the process as it actually works.
