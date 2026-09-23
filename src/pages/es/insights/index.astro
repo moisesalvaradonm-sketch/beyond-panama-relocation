@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+const posts = await getCollection('insights', ({ data, id }) =>
+  !data.draft && data.lang === 'es' && id.startsWith('es/')
+);
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const categoryLabel: Record<string, string> = {
+  'real-estate': 'Pulso del Mercado',
+  legal: 'Consultorio Legal',
+  finance: 'Perspectiva Financiera',
+  lifestyle: 'Vivir en Panamá',
+  'client-story': 'Voces de Expats',
+  'moving-guide': 'Guía de Mudanza',
+};
+
+const categoryColor: Record<string, string> = {
+  'real-estate': 'bg-amber-50 text-amber-700 border-amber-200',
+  legal: 'bg-blue-50 text-blue-700 border-blue-200',
+  finance: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  lifestyle: 'bg-violet-50 text-violet-700 border-violet-200',
+  'client-story': 'bg-jade/8 text-jade border-jade/20',
+  'moving-guide': 'bg-sky-50 text-sky-700 border-sky-200',
+};
+---
+
+<Layout
+  title="Beyond Insights — Perspectivas expertas sobre vivir en Panamá"
+  description="Voces reales desde el terreno: agentes inmobiliarios, abogados, asesores y clientes comparten su experiencia directa con la reubicación en Panamá."
+  lang="es"
+  noindex={true}
+>
+  <section class="max-w-4xl mx-auto px-4 py-16">
+
+    <div class="mb-12">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <div class="mt-4 mb-6">
+        <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Beyond Insights</p>
+        <h1 class="font-serif text-4xl text-slate mb-3">Perspectivas Expertas sobre Panamá</h1>
+        <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+          Voces de primera mano de nuestra red: agentes inmobiliarios, abogados de inmigración, asesores financieros y clientes que ya hicieron el traslado. Curado, no patrocinado.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {Object.entries(categoryLabel).map(([key, label]) => (
+          <span class={`px-3 py-1 rounded-full text-xs font-medium border ${categoryColor[key] ?? 'bg-slate/5 text-slate-mid border-slate/10'}`}>
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Banner próximamente — siempre visible -->
+    <div class="mb-10 p-6 rounded-2xl border border-jade/15 bg-gradient-to-br from-jade/4 to-transparent flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div class="text-2xl">📬</div>
+      <div>
+        <p class="font-semibold text-slate text-sm mb-0.5">Mantente en sintonía — primeras publicaciones próximamente</p>
+        <p class="text-xs text-slate-mid leading-relaxed">Estamos seleccionando contribuciones de nuestra red de agentes, abogados, asesores y clientes que ya viven en Panamá. Experiencia real, sin relleno.</p>
+      </div>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="grid gap-8">
+        {posts.map(post => (
+          <a
+            href={`/es/insights/${post.id.replace('es/', '')}`}
+            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
+          >
+            {post.data.image && (
+              <div class="sm:w-48 h-36 sm:h-auto flex-shrink-0 rounded-xl overflow-hidden">
+                <img src={post.data.image} alt={post.data.imageAlt ?? post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            )}
+            <div class="flex flex-col flex-1 min-w-0">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${categoryColor[post.data.category] ?? 'bg-slate/5 text-slate-mid border-slate/10'}`}>
+                  {categoryLabel[post.data.category] ?? post.data.category}
+                </span>
+                <span class="text-xs text-slate-mid">{post.data.readTime} min de lectura</span>
+              </div>
+              <h2 class="font-serif text-xl font-semibold text-slate mb-2 leading-snug group-hover:text-jade transition-colors">{post.data.title}</h2>
+              <p class="text-sm text-slate-mid mb-4 line-clamp-2 flex-1">{post.data.description}</p>
+              <div class="flex items-center gap-3 mt-auto pt-3 border-t border-jade/8">
+                {post.data.authorAvatar ? (
+                  <img src={post.data.authorAvatar} alt={post.data.authorName} class="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+                ) : (
+                  <div class="w-8 h-8 rounded-full bg-jade/10 flex items-center justify-center flex-shrink-0">
+                    <span class="text-jade text-sm font-semibold">{post.data.authorName.charAt(0)}</span>
+                  </div>
+                )}
+                <div class="min-w-0">
+                  <p class="text-xs font-semibold text-slate truncate">{post.data.authorName}</p>
+                  <p class="text-xs text-slate-mid truncate">{post.data.authorRole}</p>
+                </div>
+                <span class="ml-auto text-jade text-sm font-medium flex-shrink-0">Leer →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16 text-slate-mid">
+        <p class="font-serif text-xl text-slate mb-2">Próximamente</p>
+        <p class="text-sm">Pronto publicaremos perspectivas de expertos aquí.</p>
+        <p class="text-sm mt-2">Por ahora, puedes leer los artículos disponibles en inglés.</p>
+        <a href="/en/insights" class="inline-flex mt-4 px-5 py-2 rounded-full border border-jade text-jade text-sm hover:bg-jade hover:text-white transition-colors">
+          Ver en inglés →
+        </a>
+      </div>
+    )}
+
+    <div class="mt-16 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Eres socio, asesor o cliente?</p>
+      <p class="text-slate-mid text-sm mb-5">Si tienes experiencia real con la reubicación en Panamá y quieres aportar una perspectiva, escríbenos.</p>
+      <a href="/es/contacto" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Contactar →
+      </a>
+    </div>
+
+  </section>
+</Layout>
