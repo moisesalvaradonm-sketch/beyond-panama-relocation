@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Blog categories whose articles belong to this hub. */
+  categories: Array<'zonas' | 'visas' | 'costo-de-vida' | 'proceso' | 'lifestyle'>;
+  /** Extra hand-picked article slugs (without the lang folder) to always include first. */
+  slugs?: string[];
+  max?: number;
+}
+const { lang, categories, slugs = [], max = 6 } = Astro.props;
+
+const posts = (await getCollection('blog', ({ data, id }) => !data.draft && id.startsWith(`${lang}/`)))
+  .filter(p => categories.includes(p.data.category) || slugs.includes(p.id.replace(`${lang}/`, '')));
+posts.sort((a, b) => {
+  const pa = slugs.indexOf(a.id.replace(`${lang}/`, ''));
+  const pb = slugs.indexOf(b.id.replace(`${lang}/`, ''));
+  if (pa !== pb) return (pa === -1 ? 99 : pa) - (pb === -1 ? 99 : pb);
+  return b.data.pubDate.getTime() - a.data.pubDate.getTime();
+});
+const shown = posts.slice(0, max);
+const heading = lang === 'es' ? 'Guías y análisis relacionados' : lang === 'fr' ? 'Guides et analyses associés' : 'Related guides & analysis';
+const cta = lang === 'es' ? 'Leer guía →' : lang === 'fr' ? 'Lire le guide →' : 'Read guide →';
+---
+{shown.length > 0 && (
+  <section class="max-w-4xl mx-auto px-4 py-12" aria-labelledby="related-guides-h">
+    <h2 id="related-guides-h" class="font-serif text-2xl text-slate mb-6">{heading}</h2>
+    <ul class="grid sm:grid-cols-2 gap-4">
+      {shown.map(p => (
+        <li>
+          <a href={`/${lang}/blog/${p.id.replace(`${lang}/`, '')}/`} class="group block h-full p-5 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 transition-colors">
+            <span class="font-serif text-base font-semibold text-slate group-hover:text-jade transition-colors leading-snug block">{p.data.title}</span>
+            <span class="text-xs text-slate-mid line-clamp-2 mt-2 block">{p.data.description}</span>
+            <span class="text-xs text-jade font-medium mt-3 block">{cta}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

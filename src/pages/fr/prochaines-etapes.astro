@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 ---
 <Layout title="Prochaines Étapes pour S'installer au Panama" description="Guide pratique étape par étape pour s'installer au Panama : visa, logement, banque, santé et tout ce qu'il faut faire avant et après l'arrivée." lang="fr">
   <section class="max-w-3xl mx-auto px-4 py-16">
@@ -92,4 +93,5 @@ import Layout from '../../layouts/Layout.astro';
       <a href="/fr/contact/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Nous contacter →</a>
     </div>
   </section>
+  <RelatedGuides lang="fr" categories={['proceso', 'visas']} />
 </Layout>

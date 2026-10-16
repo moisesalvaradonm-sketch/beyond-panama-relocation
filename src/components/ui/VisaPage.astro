@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from './RelatedGuides.astro';
 import type { Lang } from '../../i18n/ui';
 
 interface FAQ {
@@ -318,4 +319,5 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   </article>
+  <RelatedGuides lang={lang} categories={['visas']} max={4} />
 </Layout>

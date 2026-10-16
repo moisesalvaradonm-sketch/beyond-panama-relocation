@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 import CostCalculator from '../../components/ui/CostCalculator';
 
 const appSchema = {
@@ -112,4 +113,5 @@ const appSchema = {
 
   </section>
   <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+  <RelatedGuides lang="fr" categories={['costo-de-vida', 'lifestyle']} />
 </Layout>

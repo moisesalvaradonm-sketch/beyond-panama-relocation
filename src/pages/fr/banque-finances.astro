@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 ---
 <Layout title="Banque et Finances au Panama" description="Système bancaire du Panama, fiscalité territoriale, ouverture d'un compte bancaire et ce que signifie l'économie dollarisée pour les expatriés." lang="fr">
   <section class="max-w-3xl mx-auto px-4 py-16">
@@ -93,4 +94,5 @@ import Layout from '../../layouts/Layout.astro';
       <a href="/fr/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir les options de visa →</a>
     </div>
   </section>
+  <RelatedGuides lang="fr" categories={['proceso', 'visas']} />
 </Layout>

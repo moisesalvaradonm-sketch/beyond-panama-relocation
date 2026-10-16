@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 ---
 <Layout
   title="Banking in Panama — How to Open an Account, Taxes & the Dollar Economy"
@@ -217,4 +218,5 @@ import Layout from '../../layouts/Layout.astro';
       <a href="/en/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">See visa options →</a>
     </div>
   </section>
+  <RelatedGuides lang="en" categories={['proceso', 'visas']} />
 </Layout>
