@@ -13,6 +13,10 @@ Options -Indexes
   # 3. Fix misrouted cross-language blog URLs: /{lang1}/blog/{lang2}/{slug}/ → /{lang2}/blog/{slug}/
   RewriteRule ^(en|es|fr)/blog/(en|es|fr)/(.+?)/?$ /$2/blog/$3/ [R=301,L]
 
+  # 3b. Duplicados fusionados (Fase 2 SEO): "<slug> (1)" y "<slug>-2026-1" -> original
+  RewriteRule ^(en|es|fr)/(.+?)(%20|\ |\+)\(1\)/?$ /$1/$2/ [R=301,L,NE]
+  RewriteRule ^(en|es|fr)/blog/(.+-2026)-1/?$ /$1/blog/$2/ [R=301,L]
+
   # 4. Newsletter subscribe → property-inquiry.php?t=nl (bypasses stale LiteSpeed cache on subscribe.php)
   RewriteRule ^api/subscribe(\.php)?$ /api/property-inquiry.php?t=nl [L,QSA]
 
