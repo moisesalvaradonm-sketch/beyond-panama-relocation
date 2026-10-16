@@ -1,65 +1,95 @@
 ---
 import VisaPage from '../../../components/ui/VisaPage.astro';
 ---
-
+{/*
+  Mis à jour selon le Décret exécutif n° 17 de 2026 (en vigueur le 16 sept. 2026 ; remplace le Décret 722 de 2020),
+  d'après l'article /fr/blog/investisseur-qualifie-decret-2026/. Les points marqués [VERIFICAR] viennent de
+  l'ancienne version et NE sont PAS confirmés par le décret : à vérifier ou supprimer.
+*/}
 <VisaPage
   lang="fr"
-  title="Visa Investisseur Qualifié Panama"
-  description="Guide complet du visa Investisseur Qualifié Panama : 3 options d'investissement, traitement en 30-45 jours, demande à distance. Résidence permanente rapide."
+  title="Visa Investisseur Qualifié Panama (Décret 17 de 2026) — Golden Visa"
+  description="Résidence permanente Investisseur Qualifié au Panama selon le Décret 17 de 2026 : 300 000 $ (neuf), 500 000 $ (revente), valeurs mobilières, dépôts, délais et passeport spécial."
   visaName="Visa Investisseur Qualifié"
   tag="Golden Visa"
   tagColor="bg-gold/15 text-amber-800"
-  mainReq="Investissement qualifié minimum de 300 000 USD au Panama"
-  investment="À partir de 300 000 USD (selon la voie choisie)"
-  processingTime="30 à 45 jours (traitement accéléré)"
-  renewalNote="Résidence permanente · investissement maintenu 5 ans minimum"
-  intro="Le visa Investisseur Qualifié (Visa de Inversionista Calificado) offre la voie de résidence la plus rapide au Panama. Conçu pour les investisseurs, il accorde la résidence permanente en 30 à 45 jours via trois options : l'immobilier, les actions cotées ou le dépôt à terme fixe."
+  mainReq="Investissement qualifié au Panama (Décret 17 de 2026)"
+  investment="300 000 B/. (première vente) · 500 000 B/. (revente ou valeurs mobilières) · 750 000 B/. (dépôt à terme en banque privée)"
+  processingTime="Certificat MICI jusqu'à 15 jours ouvrables + résolution migratoire jusqu'à 30 jours ouvrables"
+  renewalNote="Résidence permanente · investissement maintenu pendant la période réglementaire (5 ans)"
+  quickAnswer="La catégorie Investisseur Qualifié du Panama donne la résidence permanente en échange d'un investissement qualifié. Depuis le Décret exécutif n° 17 de 2026 (en vigueur le 16 septembre 2026, qui remplace le Décret 722 de 2020), le minimum est de 300 000 B/. pour un bien en première vente (neuf, inoccupé) et de 500 000 B/. pour le marché secondaire ; 500 000 B/. en valeurs mobilières ; 750 000 B/. en dépôts à terme en banque privée, avec un seuil spécial de 500 000 B/. pour certains dépôts à la Banco Nacional ou à la Caja de Ahorros. Le décret fixe jusqu'à 15 jours ouvrables pour le certificat d'investissement du MICI et jusqu'à 30 jours ouvrables pour la résolution migratoire. L'origine et la traçabilité des fonds doivent être documentées."
+  intro="La résidence permanente en échange d'un investissement qualifié. Le Décret exécutif n° 17 de 2026 a remplacé l'ancien régime et introduit une distinction clé : tous les biens à 300 000 USD ne sont pas éligibles — la première vente (neuf, inoccupé) démarre à 300 000 B/., le marché secondaire à 500 000 B/. Lisez notre analyse complète du décret avant d'engager des fonds."
   requirements={[
-    "Investissement qualifié selon l'une des trois voies (voir ci-dessous)",
-    "Passeport en cours de validité (original + copies certifiées)",
-    "Extrait de casier judiciaire apostillé du pays d'origine",
-    "Acte de naissance apostillé",
-    "Photos d'identité récentes (format passeport)",
-    "Preuve de la source des fonds (relevés bancaires, acte de vente, attestation d'investissement)",
-    "L'investissement doit être maintenu pendant au moins 5 ans",
-    "La demande peut être soumise à distance via un pouvoir notarié — aucun déplacement au Panama requis avant approbation",
-    "Tous les documents étrangers doivent être apostillés ; traduction en espagnol requise",
+    "Immobilier, première vente : minimum 300 000 B/. pour un bien neuf et inoccupé, selon les conditions du décret",
+    "Immobilier, marché secondaire (déjà vendu, occupé, loué ou transféré) : minimum 500 000 B/.",
+    "Sur plan : les promesses d'achat de biens en construction peuvent soutenir l'investissement dès 300 000 B/., via un fideicomiso (fiducie) ou, dans certains cas, un paiement intégral au promoteur garanti par une garantie bancaire jusqu'à la livraison, l'enregistrement et le titre",
+    "Valeurs mobilières : minimum 500 000 B/. selon les instruments et conditions réglementaires",
+    "Dépôts à terme : minimum 750 000 B/. en banques privées ; seuil spécial de 500 000 B/. pour certains dépôts à la Banco Nacional de Panamá ou à la Caja de Ahorros",
+    "Origine, traçabilité et propriété des fonds documentées — préparez les justificatifs avant d'investir",
+    "Investissement maintenu pendant la période réglementaire (cinq ans), avec des mécanismes de vérification et de substitution/réinvestissement le cas échéant",
+    // [VERIFICAR] liste de documents héritée de l'ancienne page ; confirmer qu'elle s'applique sous le Décret 17 de 2026
+    "Passeport en cours de validité, casier judiciaire apostillé et actes d'état civil apostillés",
+    // [VERIFICAR] traduction officielle et apostille
+    "Documents étrangers apostillés et traduits en espagnol par un traducteur public autorisé",
   ]}
   benefits={[
-    "Résidence permanente en 30 à 45 jours — délai le plus court parmi toutes les voies panaméennes",
-    "Demande entièrement possible à distance via procuration (pouvoir notarié) — sans voyage préalable",
-    "Trois options d'investissement : immobilier (300 000 USD+), actions cotées en bourse (500 000 USD+) ou dépôt à terme fixe (750 000 USD+)",
-    "Option du Passeport Spécial panaméen : accès sans visa dans +140 pays, dont l'espace Schengen et le Royaume-Uni",
-    "Possibilité d'inclure le/la conjoint(e) et les enfants à charge",
-    "Le Panama n'impose pas sur les revenus de source étrangère",
-    "Après 5 ans, chemin vers la naturalisation panaméenne",
+    "Catégorie de résidence permanente — sans renouvellement périodique du statut",
+    "Délais définis : certificat MICI jusqu'à 15 jours ouvrables ; résolution migratoire jusqu'à 30 jours ouvrables",
+    "Accès au passeport spécial créé par la Loi 493 du 28 octobre 2025 pour les résidents permanents de cette catégorie et leurs personnes à charge, une fois les conditions remplies. Ce n'est pas la nationalité panaméenne et il ne remplace pas votre passeport",
+    // [VERIFICAR] qui compte comme personne à charge (conjoint, enfants, âge limite)
+    "Possibilité d'inclure des personnes à charge (à confirmer selon votre famille)",
+    // [VERIFICAR] formulation fiscale : à valider avec un conseiller fiscal
+    "Le système fiscal territorial du Panama n'impose en général que les revenus de source panaméenne — confirmez votre situation avec un conseiller fiscal",
   ]}
   notFor={[
-    "Vous ne disposez pas d'au moins 300 000 USD à investir au Panama",
-    "Vous ne pouvez pas maintenir l'investissement pendant 5 ans minimum",
-    "Vous avez besoin d'une autorisation de travail locale (ce visa n'en accorde pas automatiquement)",
-    "Vous êtes retraité avec une pension — le visa Pensionado offre des avantages spécifiques plus adaptés",
+    "Vous pensez que tout bien à 300 000 USD est éligible — le marché secondaire exige 500 000 B/.",
+    "Vous ne pouvez pas maintenir l'investissement pendant la période requise",
+    "Vous ne pouvez pas documenter l'origine et la traçabilité des fonds",
+    "Vous préférez ne pas immobiliser de capital — comparez le visa Nations Amies",
   ]}
   faqs={[
     {
-      q: "Quelles sont les 3 options d'investissement du visa Investisseur Qualifié ?",
-      a: "Option 1 — Immobilier : achat d'un bien immobilier au Panama d'une valeur minimale de 300 000 USD. Option 2 — Actions boursières : investissement d'au moins 500 000 USD en actions de sociétés cotées à la Bourse des Valeurs de Panama. Option 3 — Dépôt à terme fixe : dépôt bancaire d'au moins 750 000 USD dans une banque panaméenne agréée.",
+      q: "Qu'est-ce qui a changé avec le Décret exécutif n° 17 de 2026 ?",
+      a: "En vigueur depuis le 16 septembre 2026, il remplace entièrement le Décret 722 de 2020. Pour l'immobilier, il distingue la première vente (dès 300 000 B/.) du marché secondaire (dès 500 000 B/.), fixe des délais et renforce la preuve d'origine et de traçabilité des fonds.",
     },
     {
-      q: "Pourquoi le délai est-il de seulement 30 à 45 jours ?",
-      a: "Le visa Investisseur Qualifié bénéficie d'un circuit de traitement accéléré (via la loi de promotion des investissements). Le Servicio Nacional de Migración priorise ces dossiers, ce qui permet d'obtenir la résidence permanente en 30 à 45 jours avec un dossier complet — contre 3 à 6 mois pour d'autres voies.",
+      q: "Quelles sont les options d'investissement ?",
+      a: "Immobilier (300 000 B/. en première vente ; 500 000 B/. en marché secondaire), valeurs mobilières (500 000 B/.) et dépôts à terme (750 000 B/. en banque privée, avec un seuil spécial de 500 000 B/. pour certains dépôts à la Banco Nacional ou à la Caja de Ahorros). Les achats sur plan peuvent soutenir l'investissement dès 300 000 B/. sous conditions de fiducie ou de garantie bancaire.",
     },
     {
-      q: "Est-il vraiment possible de déposer la demande sans venir au Panama ?",
-      a: "Oui. L'ensemble du processus peut être géré à distance via un pouvoir notarié (procuration) donné à votre avocat panaméen. Votre avocat signe et soumet les documents en votre nom. Vous n'avez pas à vous déplacer avant l'approbation. Une fois la résidence accordée, vous pouvez venir récupérer votre carnet de résident.",
+      q: "Quels sont les délais ?",
+      a: "Le décret prévoit jusqu'à 15 jours ouvrables pour le certificat d'investissement du MICI et jusqu'à 30 jours ouvrables pour la résolution migratoire. Le délai total dépend aussi de la rapidité avec laquelle vos documents et fonds sont en ordre.",
     },
     {
-      q: "Qu'est-ce que le Passeport Spécial panaméen ?",
-      a: "Le Passeport Spécial (Pasaporte Especial) est un document de voyage panaméen accordé aux résidents permanents titulaires de certains visas, dont l'Investisseur Qualifié. Il permet l'accès sans visa dans plus de 140 pays, dont tous les pays de l'espace Schengen (Europe), le Royaume-Uni et le Japon — un avantage majeur pour les détenteurs de passeports à accès limité.",
+      q: "Le passeport spécial me donne-t-il la nationalité panaméenne ?",
+      a: "Non. Le passeport spécial, rendu possible par la Loi 493 du 28 octobre 2025, n'est pas la citoyenneté et ne remplace pas votre passeport ordinaire. Il est ouvert aux résidents permanents de la catégorie Investisseur Qualifié et à leurs personnes à charge une fois les conditions légales remplies.",
     },
     {
-      q: "Puis-je inclure ma famille dans la demande ?",
-      a: "Oui. Le/la conjoint(e) légal(e) et les enfants à charge (moins de 18 ans, ou 18-25 ans en études, ou tout âge en situation de handicap) peuvent être inclus comme dépendants. Chaque dépendant doit fournir ses propres documents d'état civil apostillés.",
+      q: "Puis-je déposer la demande à distance ou inclure ma famille ?",
+      a: "Des personnes à charge peuvent être incluses et de nombreuses démarches passent couramment par un avocat panaméen muni d'une procuration. Les règles exactes (qui est personne à charge, quelles étapes exigent votre présence) doivent être confirmées avec votre avocat pour votre cas.",
+      // [VERIFICAR] l'ancienne page affirmait un dépôt 100 % à distance et des règles détaillées pour les personnes à charge, non confirmés par le décret.
     },
   ]}
-/>
+>
+  <div class="my-8 p-5 rounded-2xl bg-coral/10 border border-coral/20">
+    <p class="font-semibold text-slate mb-2">Mis à jour selon le Décret 17 de 2026</p>
+    <p class="text-sm text-slate-mid">Cette page reflète le Décret exécutif n° 17 de 2026 tel que résumé dans <a href="/fr/blog/investisseur-qualifie-decret-2026/" class="text-jade underline">notre analyse du décret</a>. Information générale, pas un conseil juridique. Confirmez les exigences actuelles auprès des autorités compétentes ou d'un avocat panaméen avant d'investir.</p>
+  </div>
+  <div class="mt-2 p-5 rounded-2xl bg-fog border border-jade/15">
+    <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Guides associés</p>
+    <div class="space-y-2">
+      <a href="/fr/blog/investisseur-qualifie-decret-2026/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Le Décret 17 de 2026 expliqué — première vente vs marché secondaire</span>
+      </a>
+      <a href="/fr/immobilier/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Immobilier au Panama</span>
+      </a>
+      <a href="/fr/visas/nations-amies/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Visa Nations Amies — une alternative sans immobiliser de capital</span>
+      </a>
+    </div>
+  </div>
+</VisaPage>

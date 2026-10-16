@@ -6,8 +6,8 @@ category: visas
 readTime: 9
 lang: es
 draft: false
-image: /img/blog/panama-passport.webp
-imageAlt: "Pasaporte panameño y documentos de residencia sobre un escritorio de madera"
+image: /img/blog/ventajas-fiscales-panama-expatriados.webp
+imageAlt: "Documentos financieros y lentes sobre un escritorio con vista al skyline de Ciudad de Panamá"
 ---
 
 En foros de expatriados circula una afirmación frecuente: "Múdate a Panamá y no pagas impuestos." Como la mayoría de las generalizaciones de internet, simplifica en exceso y puede meter a la gente en problemas. La realidad es más interesante — y más útil.

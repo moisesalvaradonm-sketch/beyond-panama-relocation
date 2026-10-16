@@ -9,32 +9,48 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
   tag="Golden Visa"
   tagColor="bg-gold/30 text-slate font-bold"
   mainReq="Inversión mínima en Panamá"
-  investment="$300,000 (1ª venta) · $500,000 (mercado secundario)"
-  processingTime="2 a 4 meses"
+  investment="B/.300,000 (1ª venta) · B/.500,000 (mercado secundario o valores) · B/.750,000 (depósito a plazo en banca privada)"
+  processingTime="Certificado MICI hasta 15 días hábiles + resolución migratoria hasta 30 días hábiles"
   renewalNote="Permanente desde el primer trámite"
+  quickAnswer="La categoría de Inversionista Calificado da residencia permanente a cambio de una inversión calificada. Desde el Decreto Ejecutivo N.° 17 de 2026 (vigente desde el 16 de septiembre de 2026, sustituye al Decreto 722 de 2020), el mínimo es B/.300,000 para inmuebles de primera venta (nuevos, no ocupados) y B/.500,000 para el mercado secundario; B/.500,000 en valores; B/.750,000 en depósitos a plazo en banca privada, con un umbral especial de B/.500,000 para ciertos depósitos en el Banco Nacional o la Caja de Ahorros. El decreto fija hasta 15 días hábiles para el certificado de inversión del MICI y hasta 30 días hábiles para la resolución migratoria. Hay que documentar el origen y la trazabilidad de los fondos."
   intro="La 'Golden Visa' de Panamá — residencia permanente a cambio de inversión calificada en el país. La opción más directa para quien tiene capital y quiere residencia sin depender de una pensión ni de un empleador. El Decreto Ejecutivo N.° 17 de 2026 establece umbrales diferenciados: $300,000 para bienes raíces de primera venta y $500,000 para el mercado secundario. Ver análisis completo →"
   requirements={[
     "Inversión mínima de $300,000 USD en bienes raíces de primera venta en Panamá, o $500,000 USD en propiedades del mercado secundario — según Decreto Ejecutivo N.° 17 de 2026",
-    "O inversión de $500,000 USD en acciones de empresa registrada en la Bolsa de Valores de Panamá",
-    "O depósito a plazo fijo de $750,000 USD en banco panameño (modalidades adicionales — consultar)",
+    "Compras sobre planos: pueden respaldar la inversión desde B/.300,000 mediante fideicomiso o, en ciertos casos, pago total al promotor con garantía bancaria hasta la entrega, registro y titulación",
+    "Mercado de valores: mínimo B/.500,000 según los instrumentos y condiciones del reglamento",
+    "Depósitos a plazo: mínimo B/.750,000 en banca privada; umbral especial de B/.500,000 para ciertos depósitos en el Banco Nacional de Panamá o la Caja de Ahorros",
+    "Inversión mantenida durante el período reglamentario (cinco años)",
     "Pasaporte válido con al menos 6 meses de vigencia",
     "Certificado de antecedentes penales apostillado del país de origen",
+    // [VERIFICAR] examen médico y lista de documentos: heredados de la versión anterior; confirmar bajo el Decreto 17 de 2026
     "Examen médico en Panamá",
     "Declaración de origen lícito de los fondos",
     "Fotos de pasaporte y pago de tasas gubernamentales",
   ]}
   benefits={[
     "Residencia permanente desde el primer trámite — sin renovaciones ni plazos",
-    "Pasaporte Especial Panameño (Documento Especial de Viaje) — acceso sin visado a más de 140 países incluyendo Schengen y Reino Unido",
+    // [VERIFICAR] "más de 140 países, Schengen y Reino Unido": cifra heredada, no confirmada por el decreto ni la Ley 493
+    "Pasaporte especial creado por la Ley 493 del 28 de octubre de 2025, para residentes permanentes de esta categoría y sus dependientes cuando cumplan los requisitos. No es nacionalidad panameña ni reemplaza tu pasaporte",
     "Permite abrir empresa, cuenta bancaria y operar con total libertad",
-    "Cónyuge e hijos menores calificados como dependientes automáticos",
+    // [VERIFICAR] quién califica como dependiente (cónyuge, hijos, edad)
+    "Posibilidad de incluir dependientes (confirmar quién califica en tu caso)",
     "Panamá no grava renta extranjera — la inversión no genera impuesto sobre lo que ganas fuera del país",
+    // [VERIFICAR] naturalización a los 5 años y permiso de trabajo: la versión EN antigua decía "sin restricciones laborales"; esta decía lo contrario. Confirmar y alinear EN/ES/FR
     "Compatible con el proceso de naturalización después de 5 años",
-    "Nota: esta visa no incluye permiso de trabajo bajo relación de dependencia en Panamá",
   ]}
   notFor={[
-    "No cuentas con $300,000+ de capital disponible para invertir en bienes raíces panameños",
+    "Crees que cualquier inmueble de $300,000 califica — el mercado secundario exige B/.500,000",
+    "No puedes documentar el origen y la trazabilidad de los fondos",
     "Prefieres no inmovilizar capital en una propiedad — la Naciones Amigas puede ser más flexible",
   ]}
+  faqs={[
+    { q: "¿Qué cambió con el Decreto Ejecutivo N.° 17 de 2026?", a: "Vigente desde el 16 de septiembre de 2026, sustituye integralmente al Decreto 722 de 2020. En inmuebles distingue primera venta (desde B/.300,000) de mercado secundario (desde B/.500,000), fija plazos y refuerza la prueba de origen y trazabilidad de fondos." },
+    { q: "¿Cuánto tarda el trámite?", a: "El decreto establece hasta 15 días hábiles para el Certificado de Inversión del MICI y hasta 30 días hábiles para la resolución migratoria. El plazo total depende también de qué tan ordenados estén tus documentos y fondos." },
+    { q: "¿El pasaporte especial me hace panameño?", a: "No. El pasaporte especial (Ley 493 del 28 de octubre de 2025) no es nacionalidad ni sustituye tu pasaporte ordinario. Está previsto para residentes permanentes de esta categoría y sus dependientes cuando cumplan los requisitos." },
+  ]}
 >
+  <div class="my-8 p-5 rounded-2xl bg-coral/10 border border-coral/20">
+    <p class="font-semibold text-slate mb-2">Actualizado al Decreto 17 de 2026</p>
+    <p class="text-sm text-slate-mid">Esta página refleja el Decreto Ejecutivo N.° 17 de 2026 según nuestro <a href="/es/blog/inversionista-calificado-decreto-2026/" class="text-jade underline">análisis del decreto</a>. Es información general, no asesoría legal. Confirma los requisitos vigentes con las autoridades o un abogado migratorio panameño antes de invertir.</p>
+  </div>
 </VisaPage>

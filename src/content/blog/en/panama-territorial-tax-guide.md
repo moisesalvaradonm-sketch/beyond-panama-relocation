@@ -6,8 +6,8 @@ category: visas
 readTime: 9
 lang: en
 draft: false
-image: /img/blog/panama-passport.webp
-imageAlt: "Panamanian passport and residency documents on a wooden desk"
+image: /img/blog/panama-territorial-tax-guide.webp
+imageAlt: "Financial documents and glasses on a desk overlooking the Panama City skyline"
 ---
 
 There's a claim that circulates in expat forums: "Move to Panama and pay no taxes." Like most things on the internet, it's a simplification that gets people into trouble. The truth is more interesting — and more useful.
