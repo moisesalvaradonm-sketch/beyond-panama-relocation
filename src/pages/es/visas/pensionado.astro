@@ -73,4 +73,37 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
       a: "La Visa Pensionado no otorga autorización de trabajo irrestricta. Los titulares pueden trabajar en Panamá con autorización previa del Servicio Nacional de Migración, pero existen restricciones para el empleo formal bajo dependencia. La participación en negocios propios generalmente es posible. Para quienes necesitan autorización de trabajo sin restricciones, la Visa de Países Amigos con ruta laboral, o la Visa Inversionista Calificado, pueden ser más adecuadas según la situación."
     }
   ]}
-/>
+>
+  {/* [VERIFICAR] Pending, NOT published (no figure on the site yet): government fees, attorney fees, translation/apostille costs, medical exam cost.
+      [VERIFICAR] Already-published claims worth re-confirming: discount percentages, "visit Panama once every 2 years", "ability to work with Migración authorization",
+      Special Passport "140+ countries incl. Schengen/UK" (same claim flagged on the Qualified Investor page), $750 + $100,000 alternative threshold, dependents rule (+$250). */}
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl text-slate mb-4">Cifras clave de un vistazo</h2>
+    <dl class="grid sm:grid-cols-2 gap-3 text-sm">
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Pensión (individual)</dt><dd class="text-slate mt-1">$1,000 USD/mes, garantizada de por vida</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Pensión (pareja)</dt><dd class="text-slate mt-1">$1,250/mes combinados</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Cada dependiente adicional</dt><dd class="text-slate mt-1">+$250/mes sobre el umbral aplicable</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Ruta alternativa</dt><dd class="text-slate mt-1">Pensión de $750/mes + propiedad de $100,000 USD o más</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Plazo habitual</dt><dd class="text-slate mt-1">Aprox. 6 meses</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Residencia</dt><dd class="text-slate mt-1">Permanente · sin renovaciones · visitar Panamá 1 día cada 2 años</dd></div>
+    </dl>
+  </section>
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl text-slate mb-4">Errores comunes que conviene evitar</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-mid text-sm">
+      <li>Presentar una pensión que no es vitalicia: ahorros, dividendos, alquileres o ingresos por trabajo remoto no califican.</li>
+      <li>Usar un antecedente penal con más de 6 meses o documentos extranjeros sin apostilla/autenticación.</li>
+      <li>Entregar la carta de pensión sin apostilla ni traducción de un Traductor Público Autorizado en Panamá.</li>
+      <li>Asumir que $750/mes basta sin comprar la propiedad de $100,000+.</li>
+    </ul>
+  </section>
+  <section class="mt-10 p-5 rounded-2xl bg-fog border border-jade/15">
+    <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Compara con otras rutas</p>
+    <div class="space-y-2">
+      <a href="/es/visas/comparativa/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Comparar todas las visas de residencia</span></a>
+      <a href="/es/visas/naciones-amigas/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Visa Naciones Amigas — si no tienes pensión vitalicia</span></a>
+      <a href="/es/visas/inversionista-calificado/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Visa Inversionista Calificado — residencia permanente por inversión</span></a>
+      <a href="/es/blog/por-que-panama-atrae-jubilados/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Por qué Panamá sigue atrayendo jubilados</span></a>
+    </div>
+  </section>
+</VisaPage>

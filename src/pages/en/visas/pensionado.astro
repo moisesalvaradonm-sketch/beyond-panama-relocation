@@ -76,6 +76,48 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     }
   ]}
 >
+  {/* [VERIFICAR] Pending, NOT published (no figure on the site yet): government fees, attorney fees, translation/apostille costs, medical exam cost.
+      [VERIFICAR] Already-published claims worth re-confirming: discount percentages, "visit Panama once every 2 years", "ability to work with Migración authorization",
+      Special Passport "140+ countries incl. Schengen/UK" (same claim flagged on the Qualified Investor page), $750 + $100,000 alternative threshold, dependents rule (+$250). */}
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl text-slate mb-4">Key figures at a glance</h2>
+    <dl class="grid sm:grid-cols-2 gap-3 text-sm">
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Pension (single)</dt><dd class="text-slate mt-1">$1,000 USD/month, guaranteed for life</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Pension (couple)</dt><dd class="text-slate mt-1">$1,250/month combined</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Each additional dependent</dt><dd class="text-slate mt-1">+$250/month above the applicable threshold</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Alternative route</dt><dd class="text-slate mt-1">$750/month pension + real estate of $100,000 USD or more</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Typical processing time</dt><dd class="text-slate mt-1">Approx. 6 months</dd></div>
+      <div class="p-4 rounded-xl bg-white border border-jade/10"><dt class="text-xs font-semibold text-slate-mid uppercase tracking-wide">Residency</dt><dd class="text-slate mt-1">Permanent — no renewals · visit Panama at least once every 2 years</dd></div>
+    </dl>
+  </section>
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl text-slate mb-4">Timeline, month by month</h2>
+    <ol class="list-decimal pl-5 space-y-2 text-slate-mid text-sm">
+      <li>Month 1: gather documents and obtain apostilles in your home country.</li>
+      <li>Month 2: travel to Panama for medical exams and formal submission to the Servicio Nacional de Migración.</li>
+      <li>Months 3–5: government review, background checks and inter-ministerial audits.</li>
+      <li>Month 6: approval, permanent resident card (carné) and option to apply for a cédula.</li>
+    </ol>
+  </section>
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl text-slate mb-4">Common mistakes to avoid</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-mid text-sm">
+      <li>Presenting a pension that is not guaranteed for life — savings, dividends, rental or remote-work income do not qualify.</li>
+      <li>Using a criminal background check older than 6 months, or foreign documents that are not apostilled / authenticated.</li>
+      <li>Submitting the pension letter without an apostille and a translation by an Authorized Public Translator in Panama.</li>
+      <li>Assuming $750/month is enough without the $100,000+ real estate purchase.</li>
+      <li>Forgetting the dependents' extra income requirement when applying as a family.</li>
+    </ul>
+  </section>
+  <section class="mt-10 p-5 rounded-2xl bg-fog border border-jade/15">
+    <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Compare with other routes</p>
+    <div class="space-y-2">
+      <a href="/en/visas/comparison/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Compare all residency visas side by side</span></a>
+      <a href="/en/visas/friendly-nations/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Friendly Nations Visa — if you do not have a lifetime pension</span></a>
+      <a href="/en/visas/qualified-investor/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Qualified Investor Visa — permanent residency by investment</span></a>
+      <a href="/en/blog/why-panama-attracts-retirees/" class="flex items-center gap-2 text-jade text-sm hover:underline"><span>→</span><span>Why Panama keeps attracting retirees</span></a>
+    </div>
+  </section>
   <div class="mt-6 p-5 rounded-2xl bg-fog border border-jade/15">
     <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Related guides</p>
     <div class="space-y-2">
