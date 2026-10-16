@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import AuthorBox from '../../../components/ui/AuthorBox.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data, id }) =>
@@ -69,7 +70,7 @@ const articleSchema = {
     height: 630,
   } : undefined,
   datePublished: post.data.pubDate.toISOString(),
-  dateModified: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
   url: pageUrl,
   inLanguage: 'fr',
   author: {
@@ -82,7 +83,7 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'Beyond Panama Relocation',
     url: siteUrl,
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon-512.png` },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
 };
@@ -93,6 +94,7 @@ const articleSchema = {
   description={post.data.description}
   lang="fr"
   pubDate={post.data.pubDate}
+  modDate={post.data.updatedDate}
   articleAuthor="Moisés Alvarado"
   articleSection={categoryLabel[post.data.category] ?? post.data.category}
 >
@@ -127,8 +129,6 @@ const articleSchema = {
           <span>{post.data.pubDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
           <span>·</span>
           <span>{post.data.readTime} min de lecture</span>
-          <span>·</span>
-          <span>Dernière révision : septembre 2026</span>
         </div>
       </div>
     </header>
@@ -170,6 +170,8 @@ const articleSchema = {
     </div>
 
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+    <AuthorBox lang="fr" updated={post.data.updatedDate} />
 
     <!-- CTA Quiz -->
     <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">

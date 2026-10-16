@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import AuthorBox from '../../../components/ui/AuthorBox.astro';
 import NewsletterSignup from '../../../components/ui/NewsletterSignup.astro';
 
 export async function getStaticPaths() {
@@ -70,7 +71,7 @@ const articleSchema = {
     height: 630,
   } : undefined,
   datePublished: post.data.pubDate.toISOString(),
-  dateModified: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
   url: pageUrl,
   inLanguage: 'en',
   author: {
@@ -83,7 +84,7 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'Beyond Panama Relocation',
     url: siteUrl,
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon-512.png` },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
 };
@@ -95,6 +96,7 @@ const articleSchema = {
   lang="en"
   ogImage={post.data.image}
   pubDate={post.data.pubDate}
+  modDate={post.data.updatedDate}
   articleAuthor="Moisés Alvarado"
   articleSection={categoryLabel[post.data.category] ?? post.data.category}
 >
@@ -129,8 +131,6 @@ const articleSchema = {
           <span>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
           <span>·</span>
           <span>{post.data.readTime} min read</span>
-          <span>·</span>
-          <span>Last reviewed: September 2026</span>
         </div>
       </div>
     </header>
@@ -172,6 +172,8 @@ const articleSchema = {
     </div>
 
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+    <AuthorBox lang="en" updated={post.data.updatedDate} />
 
     <NewsletterSignup lang="en" />
 
