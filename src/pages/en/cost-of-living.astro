@@ -11,7 +11,7 @@ const faqSchema = {
       name: 'How much does a couple need to live in Boquete, Panama?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Based on documented 2025–2026 expenses, a couple living in Boquete can manage on approximately $1,620/month. This covers a furnished 2-bedroom house ($750), groceries ($300), electricity ($25 — Boquete's cool mountain climate means no air conditioning), health insurance for two people ($175), medical copays ($10), medications ($10), streaming ($10), internet and cable TV ($60), clothing ($30), dining and entertainment ($50), travel ($100), household help ($50), and car insurance and maintenance ($50). This is a real documented budget, not a promotional estimate.",
+        text: "Based on documented 2025–2026 expenses, a couple living in Boquete can manage on approximately $1,620/month. This covers a furnished 2-bedroom house ($750), groceries ($300), electricity ($50 — Boquete's cool mountain climate means no air conditioning), health insurance for two people ($175), medical copays ($20), medications ($10), streaming ($20), internet and cable TV ($60), clothing ($30), dining and entertainment ($60), travel ($50), household help ($40), and car insurance and maintenance ($65). This is a real documented budget, not a promotional estimate.",
       },
     },
     {
@@ -47,6 +47,18 @@ const faqSchema = {
       },
     },
   ],
+};
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Panama Cost of Living Calculator',
+  url: 'https://beyondpanamarelocation.com/en/cost-of-living/',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  description: 'Calculate the real cost of living in Panama by area and lifestyle. Interactive budget estimator, free, no registration required.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: 'en-US',
 };
 ---
 
@@ -91,17 +103,17 @@ const faqSchema = {
         {[
           ["Rent (2-bed furnished house)", "$750"],
           ["Groceries & supermarket", "$300"],
-          ["Electricity (cool climate, no A/C)", "$25"],
+          ["Electricity (cool climate, no A/C)", "$50"],
           ["Health insurance (2 people)", "$175"],
-          ["Doctor & dentist copays", "$10"],
+          ["Doctor & dentist copays", "$20"],
           ["Medications", "$10"],
-          ["Streaming services", "$10"],
+          ["Streaming services", "$20"],
           ["Internet + Cable TV", "$60"],
           ["Clothing & footwear", "$30"],
-          ["Entertainment & dining out", "$50"],
-          ["Domestic & international travel", "$100"],
-          ["Gardener & house help", "$50"],
-          ["Car insurance & maintenance", "$50"],
+          ["Entertainment & dining out", "$60"],
+          ["Domestic & international travel", "$50"],
+          ["Gardener & house help", "$40"],
+          ["Car insurance & maintenance", "$65"],
         ].map(([label, amount]) => (
           <div class="flex justify-between items-center px-5 py-3 text-sm">
             <span class="text-slate-mid">{label}</span>
@@ -114,6 +126,42 @@ const faqSchema = {
         </div>
       </div>
       <p class="text-xs text-slate-mid px-5 py-3 bg-fog border-t border-jade/10">Note: Electricity increases 4–5× in hot coastal areas due to A/C use. Costs in Panama City or Coronado will be substantially higher.</p>
+    </div>
+
+    <div class="mb-10 overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <caption class="text-left font-serif text-lg text-slate mb-3">Estimated monthly cost of living in Panama (2026)</caption>
+        <thead>
+          <tr class="bg-jade/10 text-left">
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Zone</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Basic budget</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Comfortable budget</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/10">
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Panama City (San Francisco, Miraflores)</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1,800/mo</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$3,200/mo</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Boquete</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1,200/mo</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2,200/mo</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Coronado</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1,400/mo</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2,500/mo</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Bocas del Toro</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1,100/mo</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2,000/mo</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-xs text-slate-mid mt-2">Basic = modest apartment, local market, no car. Comfortable = 2-bed apartment, imported groceries, car or frequent taxis.</p>
     </div>
 
     <CostCalculator lang="en" client:load />
@@ -129,7 +177,7 @@ const faqSchema = {
             <strong class="text-slate text-sm">Rent</strong>
           </div>
           <p class="text-slate-mid text-sm leading-relaxed">
-            Varies dramatically by neighborhood. In Panama City, the gap between Calidonia and Punta Pacifica can exceed $2,000/month for a similar apartment. Always research the specific barrio — not just the city.
+            Varies dramatically by neighborhood. In Panama City, the gap between Calidonia and Punta Pacifica can exceed $2,000/month for a similar apartment. Always research the specific barrio — not just the city. See area guides for <a href="/en/areas/panama-city" class="text-jade hover:underline">Panama City</a>, <a href="/en/areas/boquete" class="text-jade hover:underline">Boquete</a>, and <a href="/en/areas/coronado" class="text-jade hover:underline">Coronado</a>.
           </p>
         </div>
 
@@ -149,7 +197,7 @@ const faqSchema = {
             <strong class="text-slate text-sm">Health &amp; Insurance</strong>
           </div>
           <p class="text-slate-mid text-sm leading-relaxed">
-            Panama has quality private medical care at a fraction of US costs. A local health plan runs ~$117/month for age 66; international plans start around $85/month at 50. A doctor visit at a private clinic runs under $20 out of pocket — no insurance needed.
+            Panama has quality private medical care at a fraction of US costs. A local health plan runs ~$117/month for age 66; international plans start around $85/month at 50. A doctor visit at a private clinic runs under $20 out of pocket — no insurance needed. See <a href="/en/healthcare" class="text-jade hover:underline">full healthcare costs and hospital options</a>.
           </p>
         </div>
 
@@ -184,7 +232,7 @@ const faqSchema = {
         <div class="flex items-start justify-between gap-4 text-sm">
           <div>
             <p class="font-medium text-slate">Residency / visa fees</p>
-            <p class="text-slate-mid text-xs mt-0.5">Government fees + attorney — varies by visa type</p>
+            <p class="text-slate-mid text-xs mt-0.5">Government fees + attorney — varies by visa type. <a href="/en/visas/comparison" class="text-jade hover:underline">Compare all visa options</a>.</p>
           </div>
           <span class="text-slate-mid whitespace-nowrap">$1,500 – $5,000</span>
         </div>
@@ -236,10 +284,10 @@ const faqSchema = {
           <dd class="text-slate-mid leading-relaxed">
             Based on documented 2025–2026 expenses, a couple living in Boquete can manage on approximately
             $1,620/month. This covers a furnished 2-bedroom house ($750), groceries ($300), electricity
-            ($25 — Boquete's cool mountain climate means no air conditioning), health insurance for two
-            people ($175), medical copays ($10), medications ($10), streaming ($10), internet and cable TV
-            ($60), clothing ($30), dining and entertainment ($50), travel ($100), household help ($50),
-            and car insurance and maintenance ($50). This is a real documented budget, not a promotional estimate.
+            ($50 — Boquete's cool mountain climate means no air conditioning), health insurance for two
+            people ($175), medical copays ($20), medications ($10), streaming ($20), internet and cable TV
+            ($60), clothing ($30), dining and entertainment ($60), travel ($50), household help ($40),
+            and car insurance and maintenance ($65). This is a real documented budget, not a promotional estimate.
           </dd>
         </div>
 
@@ -293,4 +341,5 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
 </Layout>

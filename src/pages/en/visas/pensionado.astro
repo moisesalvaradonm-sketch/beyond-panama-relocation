@@ -3,14 +3,15 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
 ---
 <VisaPage
   lang="en"
-  title="Panama Pensionado Visa"
-  description="Complete guide to Panama's Pensionado visa: requirements, legally mandated discounts, processing timeline and who qualifies."
+  title="Panama Pensionado Visa — Requirements &amp; Benefits"
+  description="The Panama Pensionado Visa requires a guaranteed pension of $1,000/month. Permanent residency from day one, no renewals, and legally mandated discounts on healthcare, airfare, hotels and more."
   visaName="Panama Pensionado Visa"
   tag="Retirees with pension"
   mainReq="Lifetime pension of $1,000/month"
   income="$1,000 USD/month (single) · $1,250 combined (couple)"
   processingTime="Approx. 6 months"
   renewalNote="Permanent — no renewals · visit Panama 1 day every 2 years"
+  quickAnswer="The Panama Pensionado Visa requires a guaranteed lifetime pension of at least $1,000/month (single applicant) or $1,250/month (couple). It grants permanent residency from the very first application — no renewals ever. Benefits include 25% off international airfare, 50% off entertainment, 20% off medical consultations and surgeries, 10% off prescription medications, and duty-free import of one personal vehicle every two years. Processing takes approximately 6 months. The pension can be from any country — Social Security, military, government, or private company plan — as long as it is guaranteed for life."
   intro="Panama's most popular residency visa and one of the strongest retirement programs in the world. If you receive a guaranteed lifetime pension from any public or private source — government, military, Social Security, or company — you almost certainly qualify. Residency is permanent from day one, never expires, and comes with a legally mandated discount catalog that has no equivalent anywhere in Latin America."
   requirements={[
     "Guaranteed lifetime pension or retirement of at least $1,000 USD/month from any public or private source (government, military, Social Security, company pension) — from any country in the world",
@@ -46,6 +47,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
   faqs={[
     {
       q: "What types of pension qualify for the Panama Pensionado visa?",
+
       a: "Any guaranteed lifetime pension from any country qualifies: government pension, Social Security, military benefit, public sector retirement, or private company pension plan. The key requirement is that the income is guaranteed for life — not a savings account, investment dividend, or rental income. The pension can be in any currency, but the equivalent of $1,000 USD/month minimum must be demonstrable through official documentation."
     },
     {
@@ -73,4 +75,18 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
       a: "The Pensionado visa does not automatically grant unlimited work authorization. Holders can work in Panama with prior authorization from the Servicio Nacional de Migración, but there are restrictions on formal employment. Running or participating in a business is generally possible. For those who need unrestricted work authorization, the Friendly Nations visa with a labor route, or the Qualified Investor visa, may be more suitable depending on the situation."
     }
   ]}
-/>
+>
+  <div class="mt-6 p-5 rounded-2xl bg-fog border border-jade/15">
+    <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Related guides</p>
+    <div class="space-y-2">
+      <a href="/en/healthcare" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Healthcare costs and insurance options in Panama</span>
+      </a>
+      <a href="/en/pensionado-benefits" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Full Pensionado discount catalog — all 10 benefit categories</span>
+      </a>
+    </div>
+  </div>
+</VisaPage>

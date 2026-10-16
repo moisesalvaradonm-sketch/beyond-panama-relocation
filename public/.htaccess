@@ -1,0 +1,22 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. HTTPS redirect
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 2. www → non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # 3. Fix misrouted cross-language blog URLs: /{lang1}/blog/{lang2}/{slug}/ → /{lang2}/blog/{slug}/
+  RewriteRule ^(en|es|fr)/blog/(en|es|fr)/(.+?)/?$ /$2/blog/$3/ [R=301,L]
+
+  # 4. Newsletter subscribe → property-inquiry.php?t=nl (bypasses stale LiteSpeed cache on subscribe.php)
+  RewriteRule ^api/subscribe(\.php)?$ /api/property-inquiry.php?t=nl [L,QSA]
+
+  # 5. Route extensionless API calls to their PHP files
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^api/([a-z0-9_-]+)$ /api/$1.php [L]
+</IfModule>

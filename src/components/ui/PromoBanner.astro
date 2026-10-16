@@ -1,0 +1,309 @@
+---
+interface Props {
+  variant: 'visa' | 'property';
+  class?: string;
+  delayMs?: number;
+}
+
+const { variant, delayMs = 5000 } = Astro.props;
+const isVisa = variant === 'visa';
+const popupId = `promo-${variant}`;
+
+const waMessage = encodeURIComponent('Quiero el descuento de visa de residencia, ¿cuál es la mejor visa para aplicar para mí?');
+const waLink = `https://wa.me/50760844256?text=${waMessage}`;
+---
+
+{isVisa && (
+  <div id={popupId} role="dialog" aria-modal="true" aria-label="Residencia en Panamá"
+    style="display:none;position:fixed;bottom:24px;right:24px;z-index:9000;width:min(380px,calc(100vw - 32px));border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.28);">
+    <div style="background:#2D7D6F;padding:28px 24px 20px;position:relative;">
+      <button id={`${popupId}-close`} aria-label="Cerrar"
+        style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;color:white;font-size:17px;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+
+      <p style="font-family:Georgia,serif;font-size:1.15rem;color:white;margin:0 28px 6px 0;line-height:1.35;">
+        ¿Quieres hacer tu residencia en Panamá?
+      </p>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;margin:0 0 14px;">
+        ¡Ahorra hasta un 25 % si comienzas ahora!
+      </p>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.75);margin:0 0 12px;line-height:1.5;">
+        ¿Ya estás listo para mudarte a Panamá o apenas estás explorando tus opciones? Beyond Panama Relocation te conecta con profesionales especializados que pueden orientarte y ayudarte con tu proceso de residencia.
+      </p>
+      <ul style="list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:5px;">
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Conecta con el profesional adecuado</li>
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Conoce tus opciones de residencia</li>
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Empieza tu proceso con orientación profesional</li>
+      </ul>
+      <a href={waLink} target="_blank" rel="noopener"
+        style="display:block;text-align:center;background:white;color:#2D7D6F;font-size:0.82rem;font-weight:700;padding:12px 20px;border-radius:999px;text-decoration:none;letter-spacing:0.02em;">
+        QUIERO COMENZAR
+      </a>
+      <p style="font-size:0.67rem;color:rgba(255,255,255,0.5);margin:12px 0 0;line-height:1.4;">
+        Promoción sujeta a disponibilidad y condiciones aplicables. Los servicios profesionales son prestados directamente por los profesionales correspondientes.
+      </p>
+    </div>
+  </div>
+)}
+
+{!isVisa && (
+  <div id={popupId} role="dialog" aria-modal="true" aria-label="Propiedades en Panamá"
+    style="display:none;position:fixed;bottom:24px;right:24px;z-index:9000;width:min(380px,calc(100vw - 32px));border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.28);">
+    <div style="background:#1E3A4A;padding:28px 24px 20px;position:relative;">
+      <button id={`${popupId}-close`} aria-label="Cerrar"
+        style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;color:white;font-size:17px;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+
+      <p style="font-family:Georgia,serif;font-size:1.15rem;color:white;margin:0 28px 6px 0;line-height:1.35;">
+        ¿Buscando una propiedad en Panamá?
+      </p>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;margin:0 0 14px;">
+        Ahorra hasta un 10 % en propiedades seleccionadas
+      </p>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.75);margin:0 0 12px;line-height:1.5;">
+        ¿Estás pensando en comprar una casa, apartamento, terreno o propiedad de inversión? Beyond Panama Relocation te conecta con profesionales inmobiliarios y propiedades disponibles que pueden ajustarse a lo que estás buscando.
+      </p>
+      <ul style="list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:5px;">
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Compra o inversión</li>
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Diferentes zonas de Panamá</li>
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Opciones según tu presupuesto</li>
+        <li style="font-size:0.78rem;color:rgba(255,255,255,0.9);">✓ Descuentos en propiedades seleccionadas</li>
+      </ul>
+      <button id="promo-property-open-form"
+        style="display:block;width:100%;text-align:center;background:white;color:#1E3A4A;font-size:0.82rem;font-weight:700;padding:12px 20px;border-radius:999px;border:none;cursor:pointer;letter-spacing:0.02em;">
+        EXPLORAR OPORTUNIDADES
+      </button>
+      <p style="font-size:0.67rem;color:rgba(255,255,255,0.5);margin:12px 0 0;line-height:1.4;">
+        Descuentos sujetos a disponibilidad, propiedad y condiciones establecidas por el vendedor.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── FORMULARIO MODAL DE PROPIEDAD ──────────────────────── -->
+  <div id="property-form-modal"
+    style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);overflow-y:auto;padding:24px 16px;">
+    <div style="background:white;border-radius:16px;max-width:520px;margin:0 auto;overflow:hidden;">
+      <!-- Header -->
+      <div style="background:#1E3A4A;padding:24px 24px 20px;position:relative;">
+        <button id="property-form-close" aria-label="Cerrar"
+          style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;color:white;font-size:17px;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+        <p style="font-size:1.3rem;margin:0 0 4px;color:white;">🏡 Cuéntanos qué propiedad estás buscando</p>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;">
+          Completa este formulario y te conectaremos con un profesional inmobiliario que pueda mostrarte opciones según tus necesidades.
+        </p>
+      </div>
+
+      <!-- Form body -->
+      <div style="padding:24px;">
+        <form id="property-inquiry-form" style="display:flex;flex-direction:column;gap:20px;">
+
+          <!-- 1. Qué buscas -->
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend style="font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:10px;">1. ¿Qué estás buscando?</legend>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              {['Comprar una propiedad','Alquilar una propiedad','Invertir en una propiedad','Todavía no estoy seguro'].map(opt => (
+                <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;color:#334;cursor:pointer;">
+                  <input type="radio" name="objetivo" value={opt} style="accent-color:#2D7D6F;" /> {opt}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- 2. Tipo de propiedad -->
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend style="font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:10px;">2. ¿Qué tipo de propiedad te interesa?</legend>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
+              {['Casa','Apartamento','Terreno','Propiedad comercial','Proyecto nuevo','Otro'].map(opt => (
+                <label style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#334;cursor:pointer;">
+                  <input type="checkbox" name="tipo" value={opt} style="accent-color:#2D7D6F;" /> {opt}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- 3. Zona -->
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend style="font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:10px;">3. ¿En qué zona de Panamá estás interesado?</legend>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              {['Ciudad de Panamá','Boquete','Coronado / Riviera Pacífica','Bocas del Toro','David / Chiriquí','Otra zona','No estoy seguro'].map(opt => (
+                <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;color:#334;cursor:pointer;">
+                  <input type="radio" name="zona" value={opt} style="accent-color:#2D7D6F;" /> {opt}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- 4. Presupuesto -->
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend style="font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:10px;">4. ¿Cuál es tu presupuesto aproximado?</legend>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              {['Menos de $100,000','$100,000 – $250,000','$250,000 – $500,000','$500,000 – $1,000,000','Más de $1,000,000','Todavía no lo sé'].map(opt => (
+                <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;color:#334;cursor:pointer;">
+                  <input type="radio" name="presupuesto" value={opt} style="accent-color:#2D7D6F;" /> {opt}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- 5. Cuándo -->
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend style="font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:10px;">5. ¿Cuándo te gustaría comprar o alquilar?</legend>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              {['Ahora','En los próximos 3 meses','3–6 meses','6–12 meses','Solo estoy explorando'].map(opt => (
+                <label style="display:flex;align-items:center;gap:10px;font-size:0.82rem;color:#334;cursor:pointer;">
+                  <input type="radio" name="plazo" value={opt} style="accent-color:#2D7D6F;" /> {opt}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- 6-8. Contacto -->
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div>
+              <label for="pf-nombre" style="display:block;font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:5px;">6. Tu nombre</label>
+              <input id="pf-nombre" name="name" type="text" required placeholder="Nombre completo"
+                style="width:100%;padding:10px 12px;border:1px solid #d0d8e0;border-radius:8px;font-size:0.82rem;color:#334;box-sizing:border-box;" />
+            </div>
+            <div>
+              <label for="pf-wa" style="display:block;font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:5px;">7. WhatsApp</label>
+              <input id="pf-wa" name="whatsapp" type="tel" required placeholder="+1 555 000 0000"
+                style="width:100%;padding:10px 12px;border:1px solid #d0d8e0;border-radius:8px;font-size:0.82rem;color:#334;box-sizing:border-box;" />
+            </div>
+            <div>
+              <label for="pf-email" style="display:block;font-size:0.85rem;font-weight:700;color:#1E3A4A;margin-bottom:5px;">8. Email</label>
+              <input id="pf-email" name="email" type="email" required placeholder="tu@email.com"
+                style="width:100%;padding:10px 12px;border:1px solid #d0d8e0;border-radius:8px;font-size:0.82rem;color:#334;box-sizing:border-box;" />
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="pf-submit"
+            style="background:#2D7D6F;color:white;font-size:0.85rem;font-weight:700;padding:14px 20px;border-radius:999px;border:none;cursor:pointer;letter-spacing:0.03em;">
+            ENVIAR MI SOLICITUD
+          </button>
+
+          <!-- Success -->
+          <div id="pf-success" style="display:none;text-align:center;padding:20px;background:#f0faf7;border-radius:12px;">
+            <p style="font-size:1.1rem;margin:0 0 8px;">¡Listo!</p>
+            <p style="font-size:0.82rem;color:#334;margin:0;line-height:1.5;">Recibimos tu solicitud. Revisaremos lo que estás buscando y te conectaremos con un profesional inmobiliario que pueda ayudarte con las opciones disponibles.</p>
+          </div>
+
+          <!-- Error -->
+          <div id="pf-error" style="display:none;text-align:center;padding:12px;background:#fff0ee;border-radius:8px;">
+            <p style="font-size:0.8rem;color:#c0392b;margin:0;">Hubo un problema al enviar. Intenta escribirnos directamente por WhatsApp.</p>
+          </div>
+
+          <p style="font-size:0.67rem;color:#888;margin:0;line-height:1.5;text-align:center;">
+            Beyond Panama Relocation actúa como conector entre clientes y profesionales inmobiliarios. Las propiedades, precios, descuentos y servicios inmobiliarios son proporcionados directamente por los profesionales correspondientes.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+)}
+
+<script define:vars={{ popupId, isVisa, delayMs }}>
+(function () {
+  const storageKey = popupId + '-dismissed';
+  try {
+    const ts = parseInt(localStorage.getItem(storageKey) || '0', 10);
+    if (ts && Date.now() - ts < 3 * 24 * 60 * 60 * 1000) return;
+  } catch (e) {}
+
+  const popup = document.getElementById(popupId);
+  const closeBtn = document.getElementById(popupId + '-close');
+  if (!popup) return;
+
+  function animateIn(el) {
+    el.style.display = 'block';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }));
+  }
+
+  function animateOut(el, cb) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    setTimeout(() => { el.style.display = 'none'; if (cb) cb(); }, 350);
+  }
+
+  function dismiss() {
+    animateOut(popup);
+    try { localStorage.setItem(storageKey, Date.now().toString()); } catch (e) {}
+  }
+
+  setTimeout(() => animateIn(popup), delayMs);
+  if (closeBtn) closeBtn.addEventListener('click', dismiss);
+
+  // Property-only: open/close form modal
+  if (!isVisa) {
+    const openFormBtn = document.getElementById('promo-property-open-form');
+    const modal = document.getElementById('property-form-modal');
+    const formCloseBtn = document.getElementById('property-form-close');
+    const form = document.getElementById('property-inquiry-form');
+    const successEl = document.getElementById('pf-success');
+    const errorEl = document.getElementById('pf-error');
+    const submitBtn = document.getElementById('pf-submit');
+
+    if (openFormBtn && modal) {
+      openFormBtn.addEventListener('click', () => {
+        animateOut(popup, () => {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+    function closeModal() {
+      if (modal) { modal.style.display = 'none'; }
+      document.body.style.overflow = '';
+    }
+
+    if (formCloseBtn) formCloseBtn.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+
+        // Build message from all fields
+        const fd = new FormData(form);
+        const objetivo = fd.get('objetivo') || '';
+        const tipos = fd.getAll('tipo').join(', ');
+        const zona = fd.get('zona') || '';
+        const presupuesto = fd.get('presupuesto') || '';
+        const plazo = fd.get('plazo') || '';
+        const name = fd.get('name') || '';
+        const whatsapp = fd.get('whatsapp') || '';
+        const email = fd.get('email') || '';
+
+        const message = `Consulta de propiedad:\nObjetivo: ${objetivo}\nTipo: ${tipos}\nZona: ${zona}\nPresupuesto: ${presupuesto}\nPlazo: ${plazo}`;
+
+        const payload = new FormData();
+        payload.append('name', name);
+        payload.append('email', email);
+        payload.append('whatsapp', whatsapp);
+        payload.append('message', message);
+        payload.append('source', 'property-popup');
+
+        try {
+          const res = await fetch('/api/property-inquiry.php', { method: 'POST', body: payload });
+          if (res.ok) {
+            if (form) form.style.display = 'none';
+            if (successEl) successEl.style.display = 'block';
+            try { localStorage.setItem(storageKey, Date.now().toString()); } catch(e) {}
+          } else {
+            throw new Error('server error');
+          }
+        } catch (err) {
+          if (errorEl) errorEl.style.display = 'block';
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'ENVIAR MI SOLICITUD'; }
+        }
+      });
+    }
+  }
+})();
+</script>

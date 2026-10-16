@@ -20,6 +20,11 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Beyond Panama Lead Engine — never commit real credentials or runtime files
+public/api/bpr/config.php
+public/api/bpr/install.php.done
+public/api/bpr/logs/
+
 # jetbrains setting folder
 .idea/
 .claude/worktrees/

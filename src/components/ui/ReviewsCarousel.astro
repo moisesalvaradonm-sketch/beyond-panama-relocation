@@ -233,34 +233,60 @@ const reviews = ALL_REVIEWS;
   const nextBtn = document.getElementById('reviews-next')   as HTMLButtonElement | null;
   if (!track || !prevBtn || !nextBtn) throw new Error('ReviewsCarousel: missing elements');
 
-  const CARD_W = 340 + 20; // card width + gap
-  let offset = 0;
+  const CARD_W       = 340 + 20; // card width + gap
+  const AUTO_DELAY   = 4000;     // ms between auto-advances
+  let offset         = 0;
+  let autoTimer: ReturnType<typeof setInterval> | null = null;
 
-  function clampedOffset(raw: number) {
-    const maxOffset = Math.max(0, track.scrollWidth - track.parentElement!.clientWidth);
-    return Math.max(0, Math.min(raw, maxOffset));
+  function maxOffset() {
+    return Math.max(0, track!.scrollWidth - track!.parentElement!.clientWidth);
   }
 
-  nextBtn.addEventListener('click', () => {
-    offset = clampedOffset(offset + CARD_W * 2);
-    track.style.transform = `translateX(-${offset}px)`;
-  });
+  function applyOffset() {
+    track!.style.transform = `translateX(-${offset}px)`;
+  }
 
-  prevBtn.addEventListener('click', () => {
-    offset = clampedOffset(offset - CARD_W * 2);
-    track.style.transform = `translateX(-${offset}px)`;
-  });
+  function move(dir: 1 | -1) {
+    const max = maxOffset();
+    const next = offset + dir * CARD_W;
+    offset = next > max ? 0 : next < 0 ? max : next;
+    applyOffset();
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => move(1), AUTO_DELAY);
+  }
+
+  function stopAuto() {
+    if (autoTimer !== null) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  nextBtn.addEventListener('click', () => { move(1);  startAuto(); });
+  prevBtn.addEventListener('click', () => { move(-1); startAuto(); });
+
+  // Pause on hover so users can read comfortably
+  track.addEventListener('mouseenter', stopAuto);
+  track.addEventListener('mouseleave', startAuto);
 
   // Touch / swipe support
   let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener('touchend',   e => {
     const delta = startX - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 50) {
-      offset = clampedOffset(offset + (delta > 0 ? CARD_W : -CARD_W));
-      track.style.transform = `translateX(-${offset}px)`;
-    }
+    if (Math.abs(delta) > 50) move(delta > 0 ? 1 : -1);
+    startAuto();
   }, { passive: true });
+
+  // Start only when carousel is in view; pause when scrolled away
+  const section = track.closest('section');
+  if (section && 'IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      entries[0].isIntersecting ? startAuto() : stopAuto();
+    }, { threshold: 0.2 }).observe(section);
+  } else {
+    startAuto();
+  }
 </script>
 
 <style>

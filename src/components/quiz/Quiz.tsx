@@ -839,6 +839,93 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
         }),
       });
     } catch (_) { /* fail silently */ }
+
+    // Send personalized roadmap email to client
+    fetch('/api/quiz-roadmap.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        lang,
+        answers,
+      }),
+    }).catch(() => { /* fail silently */ });
+
+    // Beyond Panama Lead Engine — creates contact, scores quiz, triggers automation
+    try {
+      // Map the existing quiz answer keys to the BPR scorer's normalized shape
+      const dest = (answers['destino'] as string) || '';
+      const ubi  = (answers['ubicacion'] as string) || '';
+      const ritm = (answers['ritmo'] as string) || '';
+      const prop = (answers['proposito'] as string) || '';
+      const ing  = (answers['ingresos'] as string) || '';
+      const trab = (answers['trabajo']  as string) || '';
+      const pres = (answers['presupuesto_vida'] as string) || '';
+      const plazo = (answers['plazo'] as string) || '';
+
+      const bprAnswers: Record<string, string> = {
+        lifestyle:
+          dest === 'ciudad' || ubi === 'ciudad' || ritm === 'urbano' ? 'urban'
+          : dest === 'montanas' || ubi === 'montana' ? 'mountain'
+          : dest === 'tropical' ? 'island'
+          : (dest === 'oceano' || ubi === 'mar') ? 'beach'
+          : 'suburban',
+        climate:
+          ubi === 'montana' || dest === 'montanas' ? 'cool'
+          : ubi === 'mar' || dest === 'oceano' || dest === 'tropical' ? 'hot'
+          : 'mild',
+        healthcare: (ing === 'pension' || trab === 'no_trabajo') ? 'high' : 'medium',
+        spanish: 'medium',
+        remote_work: (ing === 'remoto' || trab === 'remoto') ? 'yes' : 'no',
+        business: (prop === 'trabajo' || prop === 'inversion') ? 'yes' : 'no',
+        retirement: (prop === 'jubilacion' || ing === 'pension') ? 'yes' : 'no',
+        budget:
+          pres === 'menos_1500' ? 'under_100k'
+          : pres === '1500_2500' ? '100_200k'
+          : pres === '2500_4000' ? '200_300k'
+          : pres === '4000_6000' ? '300_500k'
+          : pres === 'mas_6000' ? '500k_1m'
+          : '',
+        timeline:
+          plazo === 'ahora' || plazo === 'menos_3' ? 'under_3_months'
+          : plazo === '3_6' ? '3_6_months'
+          : plazo === '6_12' ? '6_12_months'
+          : plazo === '1_2' ? '1_2_years'
+          : plazo === 'mas_2' ? '2plus_years'
+          : 'researching',
+      };
+      const [first_name, ...rest] = (formData.name || '').trim().split(/\s+/);
+      const utm = (() => { try { return JSON.parse(decodeURIComponent(
+        document.cookie.split('; ').find(c => c.startsWith('bpr_utm='))?.split('=')[1] || '%7B%7D'
+      )); } catch { return {}; } })();
+
+      const bprRes = await fetch('/api/bpr/routes/quiz.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          first_name,
+          last_name: rest.join(' '),
+          phone: formData.phone || '',
+          language: lang,
+          lead_source: 'quiz',
+          consent: true,
+          answers: bprAnswers,
+          raw_answers: answers,
+          utm_source:  utm.utm_source || '',
+          utm_medium:  utm.utm_medium || '',
+          utm_campaign:utm.utm_campaign || '',
+          utm_content: utm.utm_content || '',
+        }),
+      });
+      const bprJson = await bprRes.json().catch(() => ({}));
+      if (bprJson?.contact_id && typeof window !== 'undefined') {
+        // Remember identity for future tracking (bpr-tracker.js reads this cookie).
+        document.cookie = `bpr_cid=${bprJson.contact_id};path=/;max-age=${60*60*24*365};SameSite=Lax`;
+      }
+    } catch { /* fail silently */ }
+
     setSubmitted(true);
   }
 

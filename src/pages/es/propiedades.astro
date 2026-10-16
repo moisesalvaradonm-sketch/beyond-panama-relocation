@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout
+  title="Buscar Propiedad en Panamá"
+  description="Encuentra tu propiedad ideal en Panamá. Cuéntanos qué buscas y te conectamos con las mejores opciones según tu zona, presupuesto y objetivo."
+  lang="es"
+>
+  <section class="max-w-2xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Encuentra tu Propiedad en Panamá</h1>
+      <p class="text-slate-mid text-lg leading-relaxed max-w-xl">
+        Cuéntanos qué buscas y nos pondremos en contacto contigo con opciones que se ajusten a tu perfil — sin compromiso.
+      </p>
+    </div>
+
+    <!-- Success message (hidden by default) -->
+    <div id="success-msg" class="hidden p-6 rounded-2xl bg-jade/10 border border-jade/20 text-center mb-8">
+      <p class="font-serif text-xl text-jade mb-2">¡Mensaje recibido!</p>
+      <p class="text-slate-mid text-sm">Nos pondremos en contacto contigo en menos de 24 horas por WhatsApp o email.</p>
+    </div>
+
+    <!-- Error message (hidden by default) -->
+    <div id="error-msg" class="hidden p-5 rounded-2xl bg-coral/10 border border-coral/20 text-center mb-8">
+      <p class="text-slate text-sm">Hubo un problema al enviar el formulario. Escríbenos directamente por <a href="https://wa.me/50760844256" class="text-jade hover:underline" target="_blank" rel="noopener">WhatsApp</a>.</p>
+    </div>
+
+    <form id="property-form" class="space-y-6 bg-white rounded-2xl border border-jade/10 p-6 sm:p-8">
+
+      <!-- Tipo de interés -->
+      <fieldset>
+        <legend class="font-semibold text-slate text-sm mb-3">¿Qué estás buscando? <span class="text-coral">*</span></legend>
+        <div class="grid grid-cols-3 gap-3">
+          {['Comprar', 'Alquilar', 'Invertir'].map(opt => (
+            <label class="flex flex-col items-center gap-2 cursor-pointer">
+              <input type="radio" name="interes" value={opt.toLowerCase()} required class="sr-only peer" />
+              <span class="w-full text-center py-3 px-2 rounded-xl border border-jade/15 text-slate-mid text-sm font-medium peer-checked:border-jade peer-checked:bg-jade/5 peer-checked:text-jade hover:border-jade/40 transition-colors">
+                {opt}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <!-- Tipo de propiedad -->
+      <fieldset>
+        <legend class="font-semibold text-slate text-sm mb-3">Tipo de propiedad <span class="text-coral">*</span></legend>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {['Apartamento', 'Casa', 'Finca / Lote', 'Local comercial'].map(opt => (
+            <label class="flex flex-col items-center gap-2 cursor-pointer">
+              <input type="radio" name="tipo_propiedad" value={opt.toLowerCase().replace(/ \/ /g, '-').replace(/ /g, '-')} required class="sr-only peer" />
+              <span class="w-full text-center py-3 px-2 rounded-xl border border-jade/15 text-slate-mid text-xs font-medium peer-checked:border-jade peer-checked:bg-jade/5 peer-checked:text-jade hover:border-jade/40 transition-colors">
+                {opt}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <!-- Zona -->
+      <div>
+        <label for="zona" class="block font-semibold text-slate text-sm mb-2">Zona preferida <span class="text-coral">*</span></label>
+        <select id="zona" name="zona" required class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm focus:outline-none focus:border-jade bg-white">
+          <option value="" disabled selected>Selecciona una zona...</option>
+          {[
+            'Ciudad de Panamá (Punta Pacífica / Costa del Este)',
+            'Ciudad de Panamá (Casco Viejo)',
+            'Ciudad de Panamá (San Francisco / Marbella)',
+            'Boquete / Chiriquí',
+            'Coronado / Pacífico Central',
+            'Bocas del Toro',
+            'Pedasí / Azuero',
+            'San Carlos / Santa Clara',
+            'David, Chiriquí',
+            'Volcán, Chiriquí',
+            'El Valle de Antón',
+            'Chitré / Azuero',
+            'Aún no lo tengo claro',
+          ].map(z => <option value={z}>{z}</option>)}
+        </select>
+      </div>
+
+      <!-- Presupuesto -->
+      <div>
+        <label for="presupuesto" class="block font-semibold text-slate text-sm mb-2">Presupuesto aproximado <span class="text-coral">*</span></label>
+        <select id="presupuesto" name="presupuesto" required class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm focus:outline-none focus:border-jade bg-white">
+          <option value="" disabled selected>Selecciona un rango...</option>
+          {[
+            'Menos de $100,000',
+            '$100,000 – $200,000',
+            '$200,000 – $400,000',
+            '$400,000 – $700,000',
+            '$700,000 – $1,000,000',
+            'Más de $1,000,000',
+            'Solo alquiler (mensual)',
+          ].map(p => <option value={p}>{p}</option>)}
+        </select>
+      </div>
+
+      <!-- Plazo -->
+      <div>
+        <label for="plazo" class="block font-semibold text-slate text-sm mb-2">¿Cuándo planeas comprar o alquilar?</label>
+        <select id="plazo" name="plazo" class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm focus:outline-none focus:border-jade bg-white">
+          <option value="" disabled selected>Selecciona un plazo...</option>
+          {[
+            'De inmediato (1–3 meses)',
+            'En los próximos 3–6 meses',
+            'En 6–12 meses',
+            'Más de 1 año',
+            'Aún explorando opciones',
+          ].map(p => <option value={p}>{p}</option>)}
+        </select>
+      </div>
+
+      <!-- Separador -->
+      <hr class="border-jade/10" />
+
+      <!-- Datos de contacto -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="nombre" class="block font-semibold text-slate text-sm mb-2">Nombre <span class="text-coral">*</span></label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            placeholder="Tu nombre"
+            class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm placeholder:text-slate-mid/50 focus:outline-none focus:border-jade"
+          />
+        </div>
+        <div>
+          <label for="whatsapp" class="block font-semibold text-slate text-sm mb-2">WhatsApp</label>
+          <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="+1 555 000 0000"
+            class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm placeholder:text-slate-mid/50 focus:outline-none focus:border-jade"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="block font-semibold text-slate text-sm mb-2">Email <span class="text-coral">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="tu@email.com"
+          class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm placeholder:text-slate-mid/50 focus:outline-none focus:border-jade"
+        />
+      </div>
+
+      <div>
+        <label for="notas" class="block font-semibold text-slate text-sm mb-2">¿Algo más que quieras comentarnos?</label>
+        <textarea
+          id="notas"
+          name="notas"
+          rows="3"
+          placeholder="Número de habitaciones, características especiales, vista al mar, cerca de escuelas..."
+          class="w-full rounded-xl border border-jade/20 px-4 py-3 text-slate text-sm placeholder:text-slate-mid/50 focus:outline-none focus:border-jade resize-none"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        id="submit-btn"
+        class="w-full py-4 rounded-full bg-jade text-white font-semibold text-sm hover:bg-jade-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        Enviar consulta
+      </button>
+
+      <p class="text-xs text-slate-mid text-center">
+        Al enviar aceptas nuestra <a href="/es/privacidad" class="text-jade hover:underline">política de privacidad</a>. No vendemos tu información.
+      </p>
+    </form>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('property-form') as HTMLFormElement;
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('/api/property-inquiry.php', {
+        method: 'POST',
+        body: data,
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successMsg?.classList.remove('hidden');
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      errorMsg?.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar consulta';
+    }
+  });
+</script>

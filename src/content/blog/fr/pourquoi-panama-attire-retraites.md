@@ -104,4 +104,4 @@ C'est devenu un chez-soi.
 
 ---
 
-*Prêt à explorer vos options ? Commencez par notre [guide du Visa Pensionado](/fr/blog/guide-visa-pensionado) ou [faites le quiz](/fr/quiz) pour découvrir quel chemin correspond le mieux à votre situation.*
+*Prêt à explorer vos options ? Commencez par notre [guide du Visa Pensionado](/fr/visas/pensionado) ou [faites le quiz](/fr/quiz) pour découvrir quel chemin correspond le mieux à votre situation.*

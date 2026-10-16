@@ -2,7 +2,9 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import { getLangFromUrl } from '../i18n/ui';
+import WhatsAppFloat from '../components/ui/WhatsAppFloat.astro';
+import PromoPopups from '../components/ui/PromoPopups.astro';
+import { getLangFromUrl, translatePath } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -14,6 +16,8 @@ interface Props {
   pubDate?: Date;
   articleAuthor?: string;
   articleSection?: string;
+  /** Landing-page mode: no site nav/footer/popups, no cross-language hreflang. */
+  minimal?: boolean;
 }
 
 const {
@@ -26,12 +30,14 @@ const {
   pubDate,
   articleAuthor,
   articleSection,
+  minimal = false,
 } = Astro.props;
 
 const currentLang = lang ?? getLangFromUrl(Astro.url);
 const siteUrl = 'https://beyondpanamarelocation.com';
 const canonical = canonicalUrl ?? Astro.url.href;
 const ogLocale = currentLang === 'es' ? 'es_PA' : currentLang === 'fr' ? 'fr_FR' : 'en_US';
+const schemaLang = currentLang === 'es' ? 'es-PA' : currentLang === 'fr' ? 'fr-FR' : 'en-US';
 const ogImageAbsolute = ogImage
   ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
   : `${siteUrl}/img/og-default.png`;
@@ -41,15 +47,16 @@ const ogType = pubDate ? 'article' : 'website';
 const pathname = Astro.url.pathname;
 const selfUrl = `${siteUrl}${pathname}`;
 
-// Build hreflang URLs for all 3 languages by replacing the lang prefix
-function swapLang(p: string, fromLang: string, toLang: string): string {
-  if (p === `/${fromLang}` || p === `/${fromLang}/`) return `/${toLang}`;
-  return p.replace(new RegExp(`^/${fromLang}(/|$)`), `/${toLang}$1`);
-}
+// Strip lang prefix to get the locale-independent path (e.g. /blog/slug/)
+const pathWithoutLang = pathname.replace(new RegExp(`^/${currentLang}`), '') || '/';
 
+// Build hreflang URLs using translatePath so blog slugs get correctly mapped
+// cross-language (falls back to /blog/ index when no translation exists)
 const hrefLangs = (['es', 'en', 'fr'] as const).map(l => ({
   lang: l,
-  url: `${siteUrl}${swapLang(pathname, currentLang, l)}`,
+  url: l === currentLang
+    ? `${siteUrl}${pathname}`
+    : `${siteUrl}/${l}${translatePath(pathWithoutLang, currentLang, l)}`,
 }));
 
 // ── Schema: WebSite ──────────────────────────────────────────────────────────
@@ -58,8 +65,16 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Beyond Panama Relocation',
   url: siteUrl,
-  description: description || 'Your bilingual guide to relocating and living in Panama.',
-  inLanguage: ogLocale,
+  description: description || 'Your trilingual guide to relocating and living in Panama.',
+  inLanguage: schemaLang,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/en/?s={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 // ── Schema: Organization ─────────────────────────────────────────────────────
@@ -70,14 +85,36 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Beyond Panama Relocation',
   url: siteUrl,
-  logo: `${siteUrl}/favicon.svg`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/img/logo-horizontal.webp`,
+    width: 600,
+    height: 200,
+  },
   description:
-    'A bilingual relocation information service helping people make well-informed decisions about moving to Panama.',
+    'A trilingual relocation information service helping people make well-informed decisions about moving to Panama.',
   areaServed: {
     '@type': 'Country',
     name: 'Panama',
   },
-  knowsLanguage: ['en', 'es'],
+  knowsLanguage: ['en', 'es', 'fr'],
+  foundingDate: '2024',
+  founder: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/en/about/#author`,
+    name: 'Moisés Alvarado',
+    url: `${siteUrl}/en/about/`,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    url: `${siteUrl}/en/contact/`,
+    availableLanguage: ['English', 'Spanish', 'French'],
+  },
+  sameAs: [
+    'https://www.facebook.com/beyondpanamarelocation',
+    'https://www.instagram.com/beyondpanamarelocation',
+  ],
 };
 
 // ── Schema: BreadcrumbList ────────────────────────────────────────────────────
@@ -145,16 +182,18 @@ if (contentSegments.length > 0) {
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/favicon-512.png" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
 
     <!-- Hreflang -->
-    {hrefLangs.map(({ lang: l, url }) => (
+    {!minimal && hrefLangs.map(({ lang: l, url }) => (
       <link rel="alternate" hreflang={l} href={url} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
+    {!minimal && <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -199,13 +238,29 @@ if (contentSegments.length > 0) {
     {breadcrumbSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     )}
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-682B073RCZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-682B073RCZ');
+    </script>
   </head>
   <body>
-    <Header lang={currentLang} />
+    {!minimal && <Header lang={currentLang} />}
     <main>
       <slot />
     </main>
-    <Footer lang={currentLang} />
+    {!minimal && <Footer lang={currentLang} />}
+    {!minimal && <WhatsAppFloat lang={currentLang} />}
+    {!minimal && <PromoPopups />}
+
+    {/* Beyond Panama Lead Engine — behavior tracker (page views, WhatsApp clicks,
+        consultation clicks, guide downloads). Adds no visible UI. */}
+    <script src="/js/bpr-tracker.js" defer></script>
+
     <script>
       // Scroll-triggered animation observer
       const observer = new IntersectionObserver(

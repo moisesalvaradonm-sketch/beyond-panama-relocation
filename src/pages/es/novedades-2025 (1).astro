@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Novedades para Expats en Panamá 2025" description="Los cambios más importantes en visas, salud, conectividad e infraestructura en Panamá para quienes planean mudarse en 2025." lang="es">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Novedades 2025</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panamá sigue mejorando como destino para expats. Aquí están los cambios más relevantes de los últimos 12 meses — con impacto directo en quienes planean mudarse o ya viven en el país.
+      </p>
+    </div>
+
+    <div class="space-y-5 mb-12">
+      {[
+        {
+          tag: "VISAS",
+          color: "border-jade/30 bg-jade/5",
+          tagColor: "bg-jade text-white",
+          title: "Visa Inversionista Calificado: umbral reducido a $300,000",
+          detail: "En octubre de 2024, el gobierno panameño redujo el umbral mínimo de inversión de $500,000 a $300,000. Esto abre la opción a un grupo más amplio de inversionistas que antes no alcanzaban el monto anterior.",
+          date: "Oct 2024",
+        },
+        {
+          tag: "VISAS",
+          color: "border-jade/30 bg-jade/5",
+          tagColor: "bg-jade text-white",
+          title: "Visa Pensionado: procesamiento acelerado",
+          detail: "El sistema de gestión de visas Pensionado ha mejorado. Los tiempos de aprobación se han reducido en varios meses en comparación con años anteriores. Contacta a un abogado local para conocer los plazos actuales.",
+          date: "2025",
+        },
+        {
+          tag: "SALUD",
+          color: "border-coral/20 bg-coral/5",
+          tagColor: "bg-coral text-white",
+          title: "Medicare: facturación directa ampliada",
+          detail: "Más hospitales privados en Ciudad de Panamá aceptan ahora Medicare Advantage con facturación directa, eliminando el proceso de reembolso. Verifica con tu plan específico antes de viajar.",
+          date: "2025",
+        },
+        {
+          tag: "CONECTIVIDAD",
+          color: "border-gold/30 bg-gold/5",
+          tagColor: "bg-gold text-white",
+          title: "Starlink disponible en zonas rurales",
+          detail: "La cobertura de Starlink en Panamá se ha expandido significativamente. Áreas como Volcán, Pedasí, Chitré y el interior del país ahora tienen acceso a internet satelital de alta velocidad (~100 Mbps) por ~$120/mes.",
+          date: "2024–2025",
+        },
+        {
+          tag: "INMOBILIARIO",
+          color: "border-jade/30 bg-jade/5",
+          tagColor: "bg-jade text-white",
+          title: "Nuevos destinos asequibles: Chitré, Dolega, Penonomé",
+          detail: "Mientras los precios en Boquete y Coronado siguen subiendo por la demanda expat, ciudades como Chitré (Azuero), Dolega (Chiriquí) y Penonomé (Coclé) ofrecen una relación calidad-precio excepcional para quienes buscan alternativas sin aglomeración.",
+          date: "2025",
+        },
+        {
+          tag: "INFRAESTRUCTURA",
+          color: "border-slate/20 bg-fog",
+          tagColor: "bg-slate text-white",
+          title: "Nuevo hospital en Boquete en construcción",
+          detail: "Panamá está construyendo un hospital público en Boquete, que se unirá al existente en David. Se espera mayor cobertura de atención de emergencias en la zona de Chiriquí sin necesidad de desplazarse hasta David.",
+          date: "Apertura prevista 2025",
+        },
+        {
+          tag: "EDUCACIÓN",
+          color: "border-gold/30 bg-gold/5",
+          tagColor: "bg-gold text-white",
+          title: "Educación bilingüe en crecimiento",
+          detail: "El gobierno panameño ha impulsado la educación bilingüe en escuelas públicas. Cada vez más familias expats optan por colegios públicos bilingües en zonas con comunidad expat consolidada, a un costo mínimo comparado con los internacionales.",
+          date: "2025",
+        },
+      ].map(({ tag, color, tagColor, title, detail, date }) => (
+        <div class={`p-5 rounded-2xl border ${color}`}>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
+            <span class="text-xs text-slate-mid whitespace-nowrap">{date}</span>
+          </div>
+          <p class="font-semibold text-slate mb-2">{title}</p>
+          <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-jade/15 bg-white">
+      <h2 class="font-serif text-xl text-slate mb-4">Qué Monitorear en 2025–2026</h2>
+      <ul class="space-y-2 text-sm text-slate-mid">
+        {[
+          "Posible expansión de la visa Nómada Digital — hay propuestas en discusión para simplificar el proceso.",
+          "Metro de Panamá línea 3 — conectará Ciudad de Panamá con Panamá Oeste.",
+          "Nuevas rutas aéreas directas a Europa desde PTY — Copa Airlines en expansión.",
+          "Reforma fiscal — seguimiento de cambios en el impuesto predial y exoneraciones.",
+          "Regulación de criptomonedas — Panamá está trabajando en un marco legal formal.",
+        ].map(item => (
+          <li class="flex items-start gap-2">
+            <span class="text-jade mt-0.5">→</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Listo para dar el próximo paso?</p>
+      <p class="text-slate-mid text-sm mb-5">Hablemos sobre tu situación específica y cómo estas novedades te impactan.</p>
+      <a href="/es/contacto" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Consulta gratuita →</a>
+    </div>
+  </section>
+</Layout>

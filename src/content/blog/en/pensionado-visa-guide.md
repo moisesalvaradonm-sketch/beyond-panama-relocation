@@ -1,5 +1,5 @@
 ---
-title: "Panama Pensionado Visa: updated guide on requirements and process"
+title: "Panama Pensionado Visa: 2026 Guide"
 description: "Everything you need to know about Latin America's most sought-after retiree visa: who qualifies, what documents you need, and what to expect from the process."
 pubDate: 2026-09-01
 category: visas

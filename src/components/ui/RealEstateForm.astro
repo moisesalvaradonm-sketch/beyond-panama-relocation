@@ -1,0 +1,986 @@
+---
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+type FormLang = {
+  step1Title: string;
+  step2Title: string;
+  step3Title: string;
+  step4Title: string;
+  step5Title: string;
+  formTitle: string;
+  q1Label: string;
+  q1: { value: string; label: string }[];
+  q2Label: string;
+  q2: { value: string; label: string }[];
+  q3Label: string;
+  q3: { value: string; label: string }[];
+  q4Label: string;
+  q4: { value: string; label: string }[];
+  q5Label: string;
+  q5: { value: string; label: string }[];
+  q6Label: string;
+  q6: { value: string; label: string }[];
+  q7Label: string;
+  q7: { value: string; label: string }[];
+  q8Label: string;
+  q8: { value: string; label: string }[];
+  q_featuresLabel: string;
+  q_features: { value: string; label: string }[];
+  q_petsLabel: string;
+  q_pets: { value: string; label: string }[];
+  q_financingLabel: string;
+  q_financing: { value: string; label: string }[];
+  q_visitLabel: string;
+  q_visit: { value: string; label: string }[];
+  q_groupLabel: string;
+  q_group: { value: string; label: string }[];
+  q_countryLabel: string;
+  q_countryPlaceholder: string;
+  q9Label: string;
+  q9Placeholder: string;
+  q10NameLabel: string;
+  q10NamePlaceholder: string;
+  q10EmailLabel: string;
+  q10EmailPlaceholder: string;
+  q10PhoneLabel: string;
+  q10PhonePlaceholder: string;
+  btnNext: string;
+  btnBack: string;
+  btnSubmit: string;
+  btnSubmitting: string;
+  disclaimer: string;
+  transparency: string;
+  successTitle: string;
+  successMsg: string;
+  stepOf: string;
+  required: string;
+};
+
+const t: Record<Lang, FormLang> = {
+  en: {
+    formTitle: 'Tell Us What You\'re Looking For',
+    step1Title: 'Your property goals',
+    step2Title: 'Property type & features',
+    step3Title: 'Budget, timeline & financing',
+    step4Title: 'Your background & situation',
+    step5Title: 'Contact information',
+    q1Label: 'What are you looking for?',
+    q1: [
+      { value: 'buy', label: 'Buy a property' },
+      { value: 'invest', label: 'Invest in real estate' },
+      { value: 'rent', label: 'Rent a property' },
+      { value: 'vacation', label: 'Vacation / second home' },
+      { value: 'exploring', label: "I'm still exploring" },
+    ],
+    q2Label: 'Which areas of Panama interest you?',
+    q2: [
+      { value: 'panama-city', label: 'Panama City' },
+      { value: 'coronado', label: 'Coronado / Pacific Coast' },
+      { value: 'boquete', label: 'Boquete / Chiriquí' },
+      { value: 'bocas', label: 'Bocas del Toro' },
+      { value: 'beach', label: 'Beach / Coastal Areas' },
+      { value: 'other', label: 'Other' },
+      { value: 'unsure', label: "I'm not sure — I need recommendations" },
+    ],
+    q3Label: 'What type of property are you interested in?',
+    q3: [
+      { value: 'apartment', label: 'Apartment' },
+      { value: 'house', label: 'House' },
+      { value: 'land', label: 'Land' },
+      { value: 'beachfront', label: 'Beachfront Property' },
+      { value: 'investment', label: 'Investment Property' },
+      { value: 'commercial', label: 'Commercial Property' },
+      { value: 'unsure', label: "I'm not sure yet" },
+    ],
+    q4Label: 'What is your approximate budget?',
+    q4: [
+      { value: 'under-150k', label: 'Under $150,000' },
+      { value: '150k-300k', label: '$150,000 – $300,000' },
+      { value: '300k-500k', label: '$300,000 – $500,000' },
+      { value: '500k-750k', label: '$500,000 – $750,000' },
+      { value: '750k-plus', label: '$750,000+' },
+      { value: 'unsure', label: "I'm not sure yet" },
+    ],
+    q5Label: 'When are you planning to buy or rent?',
+    q5: [
+      { value: '3months', label: 'Within 3 months' },
+      { value: '3-6months', label: '3–6 months' },
+      { value: '6-12months', label: '6–12 months' },
+      { value: '12plus', label: 'More than 12 months' },
+      { value: 'exploring', label: 'Just exploring' },
+    ],
+    q6Label: 'What is your main goal?',
+    q6: [
+      { value: 'move', label: 'Move to Panama' },
+      { value: 'second-home', label: 'Buy a second home' },
+      { value: 'rental-income', label: 'Generate rental income' },
+      { value: 'invest', label: 'Real estate investment' },
+      { value: 'diversify', label: 'Diversify my assets' },
+      { value: 'unsure', label: "I'm not sure yet" },
+    ],
+    q7Label: 'Are you currently living in Panama?',
+    q7: [
+      { value: 'yes', label: 'Yes' },
+      { value: 'planning', label: "No, but I'm planning to move" },
+      { value: 'considering', label: "No, I'm only considering Panama" },
+    ],
+    q8Label: 'Would you like to explore properties that may also support your relocation or residency plans in Panama?',
+    q8: [
+      { value: 'yes', label: 'Yes' },
+      { value: 'no', label: 'No' },
+      { value: 'learn', label: "I'd like to learn more" },
+    ],
+    q_featuresLabel: 'Which features are important to you?',
+    q_features: [
+      { value: 'pool', label: 'Pool' },
+      { value: 'ocean-view', label: 'Ocean view' },
+      { value: 'parking', label: 'Covered parking' },
+      { value: 'security', label: '24h security' },
+      { value: 'furnished', label: 'Furnished' },
+      { value: 'garden', label: 'Garden / terrace' },
+    ],
+    q_petsLabel: 'Do you have pets?',
+    q_pets: [
+      { value: 'yes', label: 'Yes, I have pets' },
+      { value: 'no', label: 'No pets' },
+    ],
+    q_financingLabel: 'How do you plan to finance the purchase?',
+    q_financing: [
+      { value: 'cash', label: 'Cash' },
+      { value: 'local-mortgage', label: 'Local mortgage (Panama bank)' },
+      { value: 'foreign-financing', label: 'Financing from my home country' },
+      { value: 'unsure', label: "I'm not sure yet" },
+    ],
+    q_visitLabel: 'Have you visited Panama?',
+    q_visit: [
+      { value: 'yes', label: "Yes, I've visited" },
+      { value: 'planned', label: "No, but I have a trip planned" },
+      { value: 'no', label: "No, I haven't visited yet" },
+    ],
+    q_groupLabel: 'Who will be moving?',
+    q_group: [
+      { value: 'solo', label: 'Just me' },
+      { value: 'couple', label: 'Me and my partner' },
+      { value: 'family', label: 'Family with children' },
+      { value: 'other', label: 'Other' },
+    ],
+    q_countryLabel: 'Current country of residence',
+    q_countryPlaceholder: 'e.g. United States, Canada, Colombia…',
+    q9Label: 'Tell us more about what you\'re looking for',
+    q9Placeholder: 'Number of bedrooms, specific location, beachfront, amenities, rental income potential, proximity to services, etc.',
+    q10NameLabel: 'Full Name',
+    q10NamePlaceholder: 'Your name',
+    q10EmailLabel: 'Email',
+    q10EmailPlaceholder: 'your@email.com',
+    q10PhoneLabel: 'WhatsApp / Phone Number',
+    q10PhonePlaceholder: '+1 (555) 000-0000',
+    btnNext: 'Next →',
+    btnBack: '← Back',
+    btnSubmit: 'Get Property Options',
+    btnSubmitting: 'Sending...',
+    disclaimer: 'Free and no obligation. We\'ll use your information only to contact you regarding the options you\'ve requested.',
+    transparency: 'Transparency: Beyond Panama Relocation is not a real estate agency or brokerage. We work with licensed real estate agents and brokers in Panama and connect you with them based on your needs and property search.',
+    successTitle: "We've received your request!",
+    successMsg: "Thank you. A member of our team will review your preferences and reach out within 1–2 business days with relevant property options and a real estate professional who fits your search.",
+    stepOf: 'of',
+    required: 'This field is required',
+  },
+  es: {
+    formTitle: 'Cuéntanos Qué Estás Buscando',
+    step1Title: 'Tus objetivos inmobiliarios',
+    step2Title: 'Tipo de propiedad y características',
+    step3Title: 'Presupuesto, plazo y financiamiento',
+    step4Title: 'Tu contexto y situación',
+    step5Title: 'Información de contacto',
+    q1Label: '¿Qué estás buscando?',
+    q1: [
+      { value: 'buy', label: 'Comprar una propiedad' },
+      { value: 'invest', label: 'Invertir en bienes raíces' },
+      { value: 'rent', label: 'Alquilar una propiedad' },
+      { value: 'vacation', label: 'Casa vacacional / segunda residencia' },
+      { value: 'exploring', label: 'Todavía estoy explorando' },
+    ],
+    q2Label: '¿Qué zonas de Panamá te interesan?',
+    q2: [
+      { value: 'panama-city', label: 'Ciudad de Panamá' },
+      { value: 'coronado', label: 'Coronado / Costa del Pacífico' },
+      { value: 'boquete', label: 'Boquete / Chiriquí' },
+      { value: 'bocas', label: 'Bocas del Toro' },
+      { value: 'beach', label: 'Playa / Zonas Costeras' },
+      { value: 'other', label: 'Otra zona' },
+      { value: 'unsure', label: 'No estoy seguro — necesito recomendaciones' },
+    ],
+    q3Label: '¿Qué tipo de propiedad te interesa?',
+    q3: [
+      { value: 'apartment', label: 'Apartamento' },
+      { value: 'house', label: 'Casa' },
+      { value: 'land', label: 'Terreno' },
+      { value: 'beachfront', label: 'Propiedad frente al mar' },
+      { value: 'investment', label: 'Propiedad de inversión' },
+      { value: 'commercial', label: 'Propiedad comercial' },
+      { value: 'unsure', label: 'Todavía no lo sé' },
+    ],
+    q4Label: '¿Cuál es tu presupuesto aproximado?',
+    q4: [
+      { value: 'under-150k', label: 'Menos de $150,000' },
+      { value: '150k-300k', label: '$150,000 – $300,000' },
+      { value: '300k-500k', label: '$300,000 – $500,000' },
+      { value: '500k-750k', label: '$500,000 – $750,000' },
+      { value: '750k-plus', label: '$750,000+' },
+      { value: 'unsure', label: 'Todavía no lo sé' },
+    ],
+    q5Label: '¿Cuándo planeas comprar o alquilar?',
+    q5: [
+      { value: '3months', label: 'En los próximos 3 meses' },
+      { value: '3-6months', label: 'En 3–6 meses' },
+      { value: '6-12months', label: 'En 6–12 meses' },
+      { value: '12plus', label: 'En más de 12 meses' },
+      { value: 'exploring', label: 'Solo estoy explorando' },
+    ],
+    q6Label: '¿Cuál es tu objetivo principal?',
+    q6: [
+      { value: 'move', label: 'Mudarme a Panamá' },
+      { value: 'second-home', label: 'Comprar una segunda vivienda' },
+      { value: 'rental-income', label: 'Generar ingresos por alquiler' },
+      { value: 'invest', label: 'Inversión en bienes raíces' },
+      { value: 'diversify', label: 'Diversificar mis activos' },
+      { value: 'unsure', label: 'Todavía no lo sé' },
+    ],
+    q7Label: '¿Actualmente vives en Panamá?',
+    q7: [
+      { value: 'yes', label: 'Sí' },
+      { value: 'planning', label: 'No, pero planeo mudarme' },
+      { value: 'considering', label: 'No, solo estoy considerando Panamá' },
+    ],
+    q8Label: '¿Te gustaría explorar propiedades que también puedan apoyar tus planes de reubicación o residencia en Panamá?',
+    q8: [
+      { value: 'yes', label: 'Sí' },
+      { value: 'no', label: 'No' },
+      { value: 'learn', label: 'Me gustaría saber más' },
+    ],
+    q_featuresLabel: '¿Qué características son importantes para ti?',
+    q_features: [
+      { value: 'pool', label: 'Piscina' },
+      { value: 'ocean-view', label: 'Vista al mar' },
+      { value: 'parking', label: 'Estacionamiento techado' },
+      { value: 'security', label: 'Seguridad 24h' },
+      { value: 'furnished', label: 'Amueblado' },
+      { value: 'garden', label: 'Jardín / terraza' },
+    ],
+    q_petsLabel: '¿Tienes mascotas?',
+    q_pets: [
+      { value: 'yes', label: 'Sí, tengo mascotas' },
+      { value: 'no', label: 'No tengo mascotas' },
+    ],
+    q_financingLabel: '¿Cómo planeas financiar la compra?',
+    q_financing: [
+      { value: 'cash', label: 'Efectivo' },
+      { value: 'local-mortgage', label: 'Hipoteca local (banco panameño)' },
+      { value: 'foreign-financing', label: 'Financiamiento desde mi país' },
+      { value: 'unsure', label: 'Todavía no lo sé' },
+    ],
+    q_visitLabel: '¿Has visitado Panamá?',
+    q_visit: [
+      { value: 'yes', label: 'Sí, ya he visitado' },
+      { value: 'planned', label: 'No, pero tengo un viaje planeado' },
+      { value: 'no', label: 'No, todavía no he visitado' },
+    ],
+    q_groupLabel: '¿Quiénes se mudarían?',
+    q_group: [
+      { value: 'solo', label: 'Solo yo' },
+      { value: 'couple', label: 'Yo y mi pareja' },
+      { value: 'family', label: 'Familia con hijos' },
+      { value: 'other', label: 'Otro' },
+    ],
+    q_countryLabel: 'País de residencia actual',
+    q_countryPlaceholder: 'Ej: Estados Unidos, Colombia, España…',
+    q9Label: 'Cuéntanos más sobre lo que estás buscando',
+    q9Placeholder: 'Número de habitaciones, ubicación específica, frente al mar, amenidades, potencial de renta, proximidad a servicios, etc.',
+    q10NameLabel: 'Nombre completo',
+    q10NamePlaceholder: 'Tu nombre',
+    q10EmailLabel: 'Correo electrónico',
+    q10EmailPlaceholder: 'tu@correo.com',
+    q10PhoneLabel: 'WhatsApp / Número de teléfono',
+    q10PhonePlaceholder: '+507 6000-0000',
+    btnNext: 'Siguiente →',
+    btnBack: '← Atrás',
+    btnSubmit: 'Obtener Opciones de Propiedades',
+    btnSubmitting: 'Enviando...',
+    disclaimer: 'Gratis y sin compromiso. Usaremos tu información únicamente para contactarte con las opciones que has solicitado.',
+    transparency: 'Transparencia: Beyond Panama Relocation no es una agencia ni correduría inmobiliaria. Trabajamos con agentes y corredores inmobiliarios con licencia en Panamá y te conectamos con ellos según tus necesidades y búsqueda de propiedades.',
+    successTitle: '¡Hemos recibido tu solicitud!',
+    successMsg: 'Gracias. Un miembro de nuestro equipo revisará tus preferencias y se pondrá en contacto contigo en 1–2 días hábiles con opciones de propiedades relevantes y un profesional inmobiliario que se adapte a tu búsqueda.',
+    stepOf: 'de',
+    required: 'Este campo es obligatorio',
+  },
+  fr: {
+    formTitle: 'Dites-Nous Ce Que Vous Cherchez',
+    step1Title: 'Vos objectifs immobiliers',
+    step2Title: 'Type de bien et caractéristiques',
+    step3Title: 'Budget, calendrier et financement',
+    step4Title: 'Votre contexte et situation',
+    step5Title: 'Informations de contact',
+    q1Label: 'Que cherchez-vous ?',
+    q1: [
+      { value: 'buy', label: 'Acheter un bien immobilier' },
+      { value: 'invest', label: 'Investir dans l\'immobilier' },
+      { value: 'rent', label: 'Louer un bien immobilier' },
+      { value: 'vacation', label: 'Résidence secondaire / vacances' },
+      { value: 'exploring', label: 'Je suis encore en phase d\'exploration' },
+    ],
+    q2Label: 'Quelles régions du Panama vous intéressent ?',
+    q2: [
+      { value: 'panama-city', label: 'Panama City' },
+      { value: 'coronado', label: 'Coronado / Côte Pacifique' },
+      { value: 'boquete', label: 'Boquete / Chiriquí' },
+      { value: 'bocas', label: 'Bocas del Toro' },
+      { value: 'beach', label: 'Plage / Zones côtières' },
+      { value: 'other', label: 'Autre' },
+      { value: 'unsure', label: 'Je ne suis pas sûr — j\'ai besoin de recommandations' },
+    ],
+    q3Label: 'Quel type de bien vous intéresse ?',
+    q3: [
+      { value: 'apartment', label: 'Appartement' },
+      { value: 'house', label: 'Maison' },
+      { value: 'land', label: 'Terrain' },
+      { value: 'beachfront', label: 'Propriété en bord de mer' },
+      { value: 'investment', label: 'Bien d\'investissement' },
+      { value: 'commercial', label: 'Local commercial' },
+      { value: 'unsure', label: 'Je ne sais pas encore' },
+    ],
+    q4Label: 'Quel est votre budget approximatif ?',
+    q4: [
+      { value: 'under-150k', label: 'Moins de 150 000 $' },
+      { value: '150k-300k', label: '150 000 $ – 300 000 $' },
+      { value: '300k-500k', label: '300 000 $ – 500 000 $' },
+      { value: '500k-750k', label: '500 000 $ – 750 000 $' },
+      { value: '750k-plus', label: '750 000 $+' },
+      { value: 'unsure', label: 'Je ne sais pas encore' },
+    ],
+    q5Label: 'Quand prévoyez-vous d\'acheter ou de louer ?',
+    q5: [
+      { value: '3months', label: 'Dans les 3 prochains mois' },
+      { value: '3-6months', label: '3–6 mois' },
+      { value: '6-12months', label: '6–12 mois' },
+      { value: '12plus', label: 'Plus de 12 mois' },
+      { value: 'exploring', label: 'Je suis juste en train d\'explorer' },
+    ],
+    q6Label: 'Quel est votre objectif principal ?',
+    q6: [
+      { value: 'move', label: 'Déménager au Panama' },
+      { value: 'second-home', label: 'Acheter une résidence secondaire' },
+      { value: 'rental-income', label: 'Générer des revenus locatifs' },
+      { value: 'invest', label: 'Investissement immobilier' },
+      { value: 'diversify', label: 'Diversifier mes actifs' },
+      { value: 'unsure', label: 'Je ne sais pas encore' },
+    ],
+    q7Label: 'Vivez-vous actuellement au Panama ?',
+    q7: [
+      { value: 'yes', label: 'Oui' },
+      { value: 'planning', label: 'Non, mais je prévois de déménager' },
+      { value: 'considering', label: 'Non, je considère seulement le Panama' },
+    ],
+    q8Label: 'Souhaiteriez-vous explorer des biens qui pourraient également soutenir vos projets de relocalisation ou de résidence au Panama ?',
+    q8: [
+      { value: 'yes', label: 'Oui' },
+      { value: 'no', label: 'Non' },
+      { value: 'learn', label: 'J\'aimerais en savoir plus' },
+    ],
+    q_featuresLabel: 'Quelles caractéristiques sont importantes pour vous ?',
+    q_features: [
+      { value: 'pool', label: 'Piscine' },
+      { value: 'ocean-view', label: 'Vue sur la mer' },
+      { value: 'parking', label: 'Parking couvert' },
+      { value: 'security', label: 'Sécurité 24h' },
+      { value: 'furnished', label: 'Meublé' },
+      { value: 'garden', label: 'Jardin / terrasse' },
+    ],
+    q_petsLabel: 'Avez-vous des animaux de compagnie ?',
+    q_pets: [
+      { value: 'yes', label: "Oui, j'ai des animaux" },
+      { value: 'no', label: "Non, pas d'animaux" },
+    ],
+    q_financingLabel: 'Comment prévoyez-vous de financer l\'achat ?',
+    q_financing: [
+      { value: 'cash', label: 'Comptant' },
+      { value: 'local-mortgage', label: 'Hypothèque locale (banque panaméenne)' },
+      { value: 'foreign-financing', label: 'Financement depuis mon pays' },
+      { value: 'unsure', label: 'Je ne sais pas encore' },
+    ],
+    q_visitLabel: 'Avez-vous déjà visité le Panama ?',
+    q_visit: [
+      { value: 'yes', label: "Oui, j'ai déjà visité" },
+      { value: 'planned', label: "Non, mais j'ai un voyage prévu" },
+      { value: 'no', label: "Non, je n'ai pas encore visité" },
+    ],
+    q_groupLabel: 'Qui déménagera ?',
+    q_group: [
+      { value: 'solo', label: 'Juste moi' },
+      { value: 'couple', label: 'Moi et mon/ma partenaire' },
+      { value: 'family', label: 'Famille avec enfants' },
+      { value: 'other', label: 'Autre' },
+    ],
+    q_countryLabel: 'Pays de résidence actuel',
+    q_countryPlaceholder: 'Ex : France, Belgique, Canada…',
+    q9Label: 'Dites-nous plus sur ce que vous cherchez',
+    q9Placeholder: 'Nombre de chambres, emplacement spécifique, vue sur la mer, commodités, potentiel locatif, proximité des services, etc.',
+    q10NameLabel: 'Nom complet',
+    q10NamePlaceholder: 'Votre nom',
+    q10EmailLabel: 'Adresse e-mail',
+    q10EmailPlaceholder: 'votre@email.com',
+    q10PhoneLabel: 'WhatsApp / Numéro de téléphone',
+    q10PhonePlaceholder: '+33 6 00 00 00 00',
+    btnNext: 'Suivant →',
+    btnBack: '← Retour',
+    btnSubmit: 'Obtenir des options de biens',
+    btnSubmitting: 'Envoi en cours...',
+    disclaimer: 'Gratuit et sans engagement. Nous utiliserons vos informations uniquement pour vous contacter concernant les options que vous avez demandées.',
+    transparency: 'Transparence : Beyond Panama Relocation n\'est pas une agence ou un courtier immobilier. Nous travaillons avec des agents et courtiers immobiliers agréés au Panama et vous mettons en relation avec eux selon vos besoins et votre recherche de biens.',
+    successTitle: 'Nous avons bien reçu votre demande !',
+    successMsg: 'Merci. Un membre de notre équipe examinera vos préférences et vous contactera dans 1 à 2 jours ouvrables avec des options de biens pertinentes et un professionnel de l\'immobilier adapté à votre recherche.',
+    stepOf: 'sur',
+    required: 'Ce champ est obligatoire',
+  },
+};
+
+const strings = t[lang];
+const formName = `real-estate-${lang}`;
+
+const stepTitles = [
+  strings.step1Title,
+  strings.step2Title,
+  strings.step3Title,
+  strings.step4Title,
+  strings.step5Title,
+];
+---
+
+
+<div
+  id="re-form-wrapper"
+  class="w-full"
+  data-step-titles={JSON.stringify(stepTitles)}
+  data-txt-next={strings.btnNext}
+  data-txt-back={strings.btnBack}
+  data-txt-submit={strings.btnSubmit}
+  data-txt-submitting={strings.btnSubmitting}
+  data-step-of={strings.stepOf}
+>
+
+  <!-- Progress header -->
+  <div class="mb-8">
+    <div id="re-step-label" class="flex items-center justify-between mb-3">
+      <span class="text-xs font-semibold text-jade uppercase tracking-wide" id="re-step-name">{stepTitles[0]}</span>
+      <span class="text-xs text-slate-mid" id="re-step-counter">1 {strings.stepOf} 5</span>
+    </div>
+    <div class="w-full bg-jade/10 rounded-full h-1.5">
+      <div id="re-progress-bar" class="bg-jade h-1.5 rounded-full transition-all duration-500" style="width: 20%"></div>
+    </div>
+  </div>
+
+  <!-- Main form -->
+  <form
+    id="re-form"
+    novalidate
+  >
+    <input type="hidden" name="access_key" value="e5abb278-073f-446e-8ff3-a87ecdba7105" />
+    <input type="hidden" name="subject" value={`Real Estate Inquiry — Beyond Panama Relocation (${lang.toUpperCase()})`} />
+    <input type="hidden" name="from_name" value="Beyond Panama Relocation" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+    <!-- STEP 1: Goal + Areas (multi-select) -->
+    <div class="re-step" data-step="1">
+      <!-- Q1: Goal (single select) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q1Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q1.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="goal" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q2: Areas (multi-select checkboxes) -->
+      <div>
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q2Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q2.map(opt => (
+            <label class="re-check-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="checkbox" name="areas" value={opt.value} class="sr-only re-checkbox" />
+              <span class="re-check-box w-4 h-4 rounded border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors flex items-center justify-center"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Property type + Budget -->
+    <div class="re-step hidden" data-step="2">
+      <!-- Q3: Property type (single) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q3Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q3.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="property_type" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q4: Budget (single) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q4Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q4.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="budget" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q_FEATURES: Desired features (multi-select) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q_featuresLabel}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q_features.map(opt => (
+            <label class="re-check-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="checkbox" name="features" value={opt.value} class="sr-only re-checkbox" />
+              <span class="re-check-box w-4 h-4 rounded border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors flex items-center justify-center"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q_PETS: Pets (single) -->
+      <div>
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q_petsLabel}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q_pets.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="has_pets" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Timeline + Main goal -->
+    <div class="re-step hidden" data-step="3">
+      <!-- Q5: Timeline -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q5Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q5.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="timeline" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q6: Main goal -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q6Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q6.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="main_goal" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q_FINANCING: How to finance (single) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q_financingLabel}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q_financing.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="financing" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q_VISIT: Visit to Panama (single) -->
+      <div>
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q_visitLabel}</label>
+        <div class="grid sm:grid-cols-1 gap-3" role="group">
+          {strings.q_visit.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="visited_panama" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Group + Country + Living in Panama + Residency + Details -->
+    <div class="re-step hidden" data-step="4">
+      <!-- Q_GROUP: Who is moving (single) -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q_groupLabel}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q_group.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="group_size" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q_COUNTRY: Country of residence (text) -->
+      <div class="mb-8">
+        <label for="re-country" class="block font-serif text-lg text-slate mb-3">{strings.q_countryLabel}</label>
+        <input
+          id="re-country"
+          type="text"
+          name="country_of_residence"
+          placeholder={strings.q_countryPlaceholder}
+          class="w-full rounded-xl border border-jade/20 bg-white px-4 py-3 text-sm text-slate placeholder-slate-mid/50 focus:outline-none focus:border-jade/50 focus:ring-2 focus:ring-jade/10 transition-all"
+        />
+      </div>
+
+      <!-- Q7: Living in Panama -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q7Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q7.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="living_in_panama" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q8: Residency interest -->
+      <div class="mb-8">
+        <label class="block font-serif text-lg text-slate mb-4">{strings.q8Label}</label>
+        <div class="grid sm:grid-cols-2 gap-3" role="group">
+          {strings.q8.map(opt => (
+            <label class="re-radio-card flex items-center gap-3 p-4 rounded-xl border border-jade/15 bg-white cursor-pointer hover:border-jade/40 hover:bg-jade/3 transition-all group">
+              <input type="radio" name="residency_interest" value={opt.value} class="sr-only re-radio" required />
+              <span class="re-radio-dot w-4 h-4 rounded-full border-2 border-jade/30 flex-shrink-0 group-hover:border-jade transition-colors"></span>
+              <span class="text-sm text-slate-mid group-hover:text-slate transition-colors">{opt.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Q9: Details (free text) -->
+      <div>
+        <label for="re-details" class="block font-serif text-lg text-slate mb-3">{strings.q9Label}</label>
+        <textarea
+          id="re-details"
+          name="details"
+          rows="4"
+          placeholder={strings.q9Placeholder}
+          class="w-full rounded-xl border border-jade/20 bg-white px-4 py-3 text-sm text-slate placeholder-slate-mid/50 focus:outline-none focus:border-jade/50 focus:ring-2 focus:ring-jade/10 resize-none transition-all"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 5: Contact information -->
+    <div class="re-step hidden" data-step="5">
+      <div class="space-y-5">
+        <div>
+          <label for="re-name" class="block text-sm font-medium text-slate mb-1.5">
+            {strings.q10NameLabel} <span class="text-coral">*</span>
+          </label>
+          <input
+            id="re-name"
+            type="text"
+            name="full_name"
+            placeholder={strings.q10NamePlaceholder}
+            required
+            class="w-full rounded-xl border border-jade/20 bg-white px-4 py-3 text-sm text-slate placeholder-slate-mid/50 focus:outline-none focus:border-jade/50 focus:ring-2 focus:ring-jade/10 transition-all"
+          />
+        </div>
+        <div>
+          <label for="re-email" class="block text-sm font-medium text-slate mb-1.5">
+            {strings.q10EmailLabel} <span class="text-coral">*</span>
+          </label>
+          <input
+            id="re-email"
+            type="email"
+            name="email"
+            placeholder={strings.q10EmailPlaceholder}
+            required
+            class="w-full rounded-xl border border-jade/20 bg-white px-4 py-3 text-sm text-slate placeholder-slate-mid/50 focus:outline-none focus:border-jade/50 focus:ring-2 focus:ring-jade/10 transition-all"
+          />
+        </div>
+        <div>
+          <label for="re-phone" class="block text-sm font-medium text-slate mb-1.5">
+            {strings.q10PhoneLabel}
+          </label>
+          <input
+            id="re-phone"
+            type="tel"
+            name="phone"
+            placeholder={strings.q10PhonePlaceholder}
+            class="w-full rounded-xl border border-jade/20 bg-white px-4 py-3 text-sm text-slate placeholder-slate-mid/50 focus:outline-none focus:border-jade/50 focus:ring-2 focus:ring-jade/10 transition-all"
+          />
+        </div>
+      </div>
+
+      <p class="mt-5 text-xs text-slate-mid leading-relaxed">{strings.disclaimer}</p>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="mt-8 flex items-center justify-between gap-4">
+      <button
+        type="button"
+        id="re-btn-back"
+        class="hidden items-center gap-1.5 px-5 py-3 rounded-full border border-jade/20 text-slate-mid text-sm font-medium hover:border-jade/40 hover:text-slate transition-all"
+      >
+        {strings.btnBack}
+      </button>
+      <div class="flex-1"></div>
+      <button
+        type="button"
+        id="re-btn-next"
+        class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-jade text-white font-semibold text-sm hover:bg-jade-dark transition-colors shadow-sm"
+      >
+        {strings.btnNext}
+      </button>
+      <button
+        type="submit"
+        id="re-btn-submit"
+        class="hidden items-center gap-2 px-8 py-3.5 rounded-full bg-gold text-slate font-semibold text-sm hover:bg-gold/90 transition-colors shadow-sm"
+      >
+        {strings.btnSubmit}
+      </button>
+    </div>
+  </form>
+
+  <!-- Success state -->
+  <div id="re-success" class="hidden text-center py-8">
+    <div class="w-16 h-16 rounded-full bg-jade/10 flex items-center justify-center mx-auto mb-5">
+      <svg class="w-8 h-8 text-jade" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <h3 class="font-serif text-2xl text-slate mb-3">{strings.successTitle}</h3>
+    <p class="text-slate-mid max-w-md mx-auto leading-relaxed">{strings.successMsg}</p>
+  </div>
+
+  <!-- Transparency note -->
+  <p class="mt-6 text-xs text-slate-mid/70 leading-relaxed border-t border-jade/8 pt-5">
+    {strings.transparency}
+  </p>
+</div>
+
+<style>
+  .re-radio:checked + .re-radio-dot {
+    background-color: #2a7d4f;
+    border-color: #2a7d4f;
+    box-shadow: inset 0 0 0 3px white;
+  }
+  .re-radio:checked ~ span:last-child {
+    color: #1a2e25;
+  }
+  label:has(.re-radio:checked) {
+    border-color: #2a7d4f;
+    background-color: rgba(42, 125, 79, 0.04);
+  }
+  .re-checkbox:checked + .re-check-box {
+    background-color: #2a7d4f;
+    border-color: #2a7d4f;
+  }
+  .re-checkbox:checked + .re-check-box::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 5px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  label:has(.re-checkbox:checked) {
+    border-color: #2a7d4f;
+    background-color: rgba(42, 125, 79, 0.04);
+  }
+  .re-step { animation: fadeStep 0.3s ease; }
+  @keyframes fadeStep {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script type="module">
+  const wrapper    = document.getElementById('re-form-wrapper');
+  const stepTitles = JSON.parse(wrapper.dataset.stepTitles);
+  const txtNext    = wrapper.dataset.txtNext;
+  const txtBack    = wrapper.dataset.txtBack;
+  const txtSubmit  = wrapper.dataset.txtSubmit;
+  const txtSubmitting = wrapper.dataset.txtSubmitting;
+  const stepOf     = wrapper.dataset.stepOf;
+  const steps       = document.querySelectorAll('.re-step');
+  const progressBar = document.getElementById('re-progress-bar');
+  const stepLabel   = document.getElementById('re-step-name');
+  const stepCounter = document.getElementById('re-step-counter');
+  const elBtnNext   = document.getElementById('re-btn-next');
+  const elBtnBack   = document.getElementById('re-btn-back');
+  const elBtnSubmit = document.getElementById('re-btn-submit');
+  const form        = document.getElementById('re-form');
+  const successEl   = document.getElementById('re-success');
+  const totalSteps  = steps.length;
+
+  let currentStep = 0;
+
+  function showStep(idx) {
+    steps.forEach((s, i) => {
+      s.classList.toggle('hidden', i !== idx);
+    });
+
+    const pct = Math.round(((idx + 1) / totalSteps) * 100);
+    if (progressBar) progressBar.style.width = `${pct}%`;
+    if (stepLabel) stepLabel.textContent = stepTitles[idx];
+    if (stepCounter) stepCounter.textContent = `${idx + 1} ${stepOf} ${totalSteps}`;
+
+    const isLast = idx === totalSteps - 1;
+    if (elBtnNext) {
+      elBtnNext.classList.toggle('hidden', isLast);
+      elBtnNext.classList.toggle('inline-flex', !isLast);
+    }
+    if (elBtnSubmit) {
+      elBtnSubmit.classList.toggle('hidden', !isLast);
+      elBtnSubmit.classList.toggle('inline-flex', isLast);
+    }
+    if (elBtnBack) {
+      const showBack = idx > 0;
+      elBtnBack.classList.toggle('hidden', !showBack);
+      elBtnBack.classList.toggle('flex', showBack);
+    }
+  }
+
+  function validateStep(idx) {
+    const step = steps[idx];
+    if (!step) return true;
+    const radios = step.querySelectorAll('input[type="radio"][required]');
+    const radioGroups = new Set();
+    radios.forEach(r => radioGroups.add(r.getAttribute('name')));
+
+    for (const name of radioGroups) {
+      const checked = step.querySelector(`input[name="${name}"]:checked`);
+      if (!checked) {
+        const firstRadio = step.querySelector(`input[name="${name}"]`);
+        firstRadio?.closest('[role="group"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+    }
+
+    const requiredTextInputs = step.querySelectorAll('input[required], textarea[required]');
+    for (const input of requiredTextInputs) {
+      if (!input.value.trim()) {
+        input.focus();
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  // On mobile, sr-only inputs can miss touch events — explicitly check the radio on label tap
+  document.querySelectorAll('.re-radio-card').forEach(label => {
+    label.addEventListener('click', () => {
+      const radio = label.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+        radio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
+
+  elBtnNext?.addEventListener('click', () => {
+    if (!validateStep(currentStep)) return;
+    if (currentStep < totalSteps - 1) {
+      currentStep++;
+      showStep(currentStep);
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  elBtnBack?.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validateStep(currentStep)) return;
+
+      if (elBtnSubmit) {
+        elBtnSubmit.textContent = txtSubmitting;
+        elBtnSubmit.setAttribute('disabled', 'true');
+      }
+
+      const data = new FormData(form);
+      // Collect multi-value fields (areas checkboxes) as comma-separated string
+      const payload: Record<string, string> = {};
+      data.forEach((value, key) => {
+        if (payload[key]) {
+          payload[key] += ', ' + value;
+        } else {
+          payload[key] = String(value);
+        }
+      });
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (json.success) {
+          if (form) form.classList.add('hidden');
+          document.querySelector('#re-form-wrapper > .mb-8')?.classList.add('hidden');
+          if (successEl) successEl.classList.remove('hidden');
+        } else {
+          throw new Error(json.message);
+        }
+      } catch {
+        if (elBtnSubmit) {
+          elBtnSubmit.textContent = txtSubmit;
+          elBtnSubmit.removeAttribute('disabled');
+        }
+      }
+  });
+
+  showStep(0);
+</script>

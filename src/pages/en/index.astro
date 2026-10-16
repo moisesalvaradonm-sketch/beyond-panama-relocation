@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ReviewsCarousel from '../../components/ui/ReviewsCarousel.astro';
+import NewsletterSignup from '../../components/ui/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('blog', ({ data, id }) =>
@@ -58,56 +59,77 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Panama Relocation Guide"
-  description="Honest information about visas, areas to live, and cost of living in Panama. For expats who want to make a well-informed decision."
+  title="Move to Panama — Visas, Areas & Real Costs"
+  description="Real information about moving to Panama: which visa fits your situation, where to live, and true monthly costs — no sales pressure, no guessing."
   lang="en"
 >
 
   <!-- Hero -->
-  <section class="relative text-white overflow-hidden min-h-[90vh] flex items-center">
+  <section class="relative text-white overflow-hidden min-h-[92vh] flex items-end">
     <!-- Background photo -->
     <img
-      src="/img/panama-hero.webp"
-      alt="Aerial view of Panama City's Cinta Costera and Pacific Ocean"
+      src="/img/areas/panama-city-waterfront.webp"
+      alt="Panama City's Cinta Costera waterfront at sunset"
       class="absolute inset-0 w-full h-full object-cover object-center"
-      width="3964"
-      height="4955"
       fetchpriority="high"
     />
-    <!-- Gradient overlay: dark top-left + gradient to right -->
-    <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/70 to-slate/30"></div>
-    <!-- Bottom fade for smooth transition -->
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-fog/30 to-transparent"></div>
+    <!-- Layered gradients: horizontal + bottom-up for cinematic depth -->
+    <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/55 to-slate/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate/90 via-slate/30 to-transparent"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-28 md:py-40 w-full">
-      <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">
-        Beyond Panama Relocation
-      </span>
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] max-w-3xl mb-8">
-        Move to Panama,<br />
-        <span id="hero-accent" class="text-coral transition-opacity duration-500">without guessing.</span>
-      </h1>
-      <p id="hero-sub" class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
-        Real information about visas, neighborhoods and cost of living — no sales pressure,
-        no empty promises. Like a friend who already did it telling you how it really is.
-      </p>
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <a
-          href="/en/quiz"
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors shadow-lg"
-        >
-          Find your route to Panama →
-        </a>
-        <a
-          href="/en/visas"
-          class="text-white/60 hover:text-white text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-colors"
-        >
-          See visa options
-        </a>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 pb-24 md:pb-32 pt-40 w-full">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+
+        <!-- Left: main content -->
+        <div class="max-w-2xl">
+          <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-2">Beyond Panama Relocation</span>
+          <span class="block text-white/50 text-xs tracking-wider mb-6">For retirees · remote workers · digital nomads · investors</span>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-8">
+            Move to Panama,<br />
+            <span id="hero-accent" class="text-coral transition-opacity duration-500">without guessing.</span>
+          </h1>
+          <p id="hero-sub" class="text-white/75 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
+            Real information about visas, neighborhoods and cost of living — no sales pressure,
+            no empty promises. Like a friend who already did it telling you how it really is.
+          </p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a
+              href="/en/quiz"
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors shadow-lg"
+            >
+              Find your route to Panama →
+            </a>
+            <a
+              href="/en/visas"
+              class="text-white/60 hover:text-white text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-colors"
+            >
+              See visa options
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: stat cards (desktop) -->
+        <div class="hidden md:flex flex-col gap-3 shrink-0">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">$1,200<span class="text-sm font-normal text-white/60">/mo</span></p>
+            <p class="text-white/55 text-xs mt-1.5">Minimum cost of living</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">6 visas</p>
+            <p class="text-white/55 text-xs mt-1.5">Residency pathways</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">50+ countries</p>
+            <p class="text-white/55 text-xs mt-1.5">No origin restriction</p>
+          </div>
+        </div>
+
       </div>
-      <div class="mt-16 pt-6 border-t border-white/15">
+
+      <!-- Bottom stat bar -->
+      <div class="mt-12 pt-5 border-t border-white/12">
         <p class="text-white/40 text-xs tracking-wide">
-          30–50% below US costs &nbsp;·&nbsp; 4 visa pathways &nbsp;·&nbsp; Bilingual EN + ES
+          30–50% below US costs &nbsp;·&nbsp; USD economy &nbsp;·&nbsp; Guides in EN · ES · FR
         </p>
       </div>
     </div>
@@ -155,11 +177,11 @@ const faqSchema = {
         <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">03</p>
         <h3 class="font-serif text-xl font-semibold text-slate mb-3">Real Cost Calculator</h3>
         <p class="text-slate-mid text-sm leading-relaxed mb-5">
-          Visa cost + housing + daily life by area — all in one tool.
-          The real number, not the brochure number.
+          Pick your area (13 zones) and lifestyle level — adjust rent, food, health and transport
+          to get your real monthly number.
         </p>
         <span class="text-jade text-sm font-medium group-hover:underline underline-offset-4">
-          Calculate my cost →
+          Open calculator →
         </span>
       </a>
 
@@ -170,16 +192,16 @@ const faqSchema = {
   <div class="border-t border-b border-jade/15 py-12">
     <div class="max-w-5xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-jade/15">
       <div class="py-8 md:py-0 md:px-10 first:pl-0 last:pr-0">
-        <p class="font-serif text-3xl font-semibold text-slate mb-1">$1,200–$5,000</p>
-        <p class="text-xs text-slate-mid uppercase tracking-widest">Monthly cost of living</p>
+        <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">$1,200–$5,000</p>
+        <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">Monthly cost of living</p>
       </div>
       <div class="py-8 md:py-0 md:px-10">
-        <p class="font-serif text-3xl font-semibold text-slate mb-1">4 visa types</p>
-        <p class="text-xs text-slate-mid uppercase tracking-widest">Permanent residency options</p>
+        <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">6 visa routes</p>
+        <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">Permanent residency options</p>
       </div>
       <div class="py-8 md:py-0 md:px-10 last:pr-0">
-        <p class="font-serif text-3xl font-semibold text-slate mb-1">EN + ES</p>
-        <p class="text-xs text-slate-mid uppercase tracking-widest">All guides bilingual</p>
+        <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">EN + ES</p>
+        <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">All guides bilingual</p>
       </div>
     </div>
   </div>
@@ -226,7 +248,7 @@ const faqSchema = {
             <h3 class="font-serif text-lg font-semibold text-slate mb-3 leading-snug group-hover:text-jade transition-colors flex-1">
               {post.data.title}
             </h3>
-            <p class="text-sm text-slate-mid mb-4 line-clamp-2 leading-relaxed">
+            <p class="text-sm text-slate-mid mb-4 line-clamp-3 md:line-clamp-2 leading-relaxed">
               {post.data.description}
             </p>
             <div class="flex items-center justify-between mt-auto">
@@ -244,8 +266,8 @@ const faqSchema = {
     <h2 class="font-serif text-3xl text-slate mb-10">Frequently Asked Questions</h2>
     <dl class="space-y-0">
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">Does Panama use the US dollar?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">Does Panama use the US dollar?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Yes. Panama's official currency is the US dollar — there is no local exchange rate
           and no currency conversion risk. This makes budgeting straightforward for anyone
@@ -254,8 +276,8 @@ const faqSchema = {
         </dd>
       </div>
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">What residency visas does Panama offer for foreigners?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">What residency visas does Panama offer for foreigners?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Panama offers several residency pathways depending on your situation. The
           <a href="/en/visas/pensionado" class="text-jade hover:underline">Pensionado visa</a> is
@@ -271,8 +293,8 @@ const faqSchema = {
         </dd>
       </div>
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">How much does it cost to live in Panama per month?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">How much does it cost to live in Panama per month?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Living costs in Panama range from $1,200 to over $5,000 per month, depending on
           location and lifestyle. A couple living simply in Boquete — a popular highland town —
@@ -284,8 +306,8 @@ const faqSchema = {
         </dd>
       </div>
 
-      <div class="py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">What are the most popular areas for expats in Panama?</dt>
+      <div class="py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">What are the most popular areas for expats in Panama?</dt>
         <dd class="text-slate-mid leading-relaxed">
           The most popular areas for foreign residents in Panama are Panama City (the capital,
           with the broadest range of services and price points),
@@ -301,6 +323,11 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Newsletter signup -->
+  <section class="max-w-3xl mx-auto px-6 md:px-8">
+    <NewsletterSignup lang="en" />
+  </section>
 
   <!-- Google Reviews carousel — bottom of page -->
   <ReviewsCarousel lang="en" />

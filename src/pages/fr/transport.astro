@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Transport et Mobilité au Panama" description="Guide complet des transports au Panama : aéroports, métro, bus, taxis, Uber et conduite. Prix et conseils pratiques pour les expatriés." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Transport et Mobilité au Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama dispose d'une infrastructure de transport étonnamment moderne — du plus grand aéroport d'Amérique centrale à un système de métro propre et efficace.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Aéroports</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3"><p class="font-semibold text-white text-sm">Aéroports du Panama</p></div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Tocumen International (PTY)", "Panama City", "Le plus grand d'Amérique centrale. Vols directs vers l'Amérique du Nord, l'Europe et l'Amérique du Sud."],
+            ["David (DAV)", "Chiriquí", "Vols domestiques vers la capitale. Porte d'entrée vers Boquete et l'ouest."],
+            ["Río Hato (RIH)", "Coclé", "Vols charters depuis le Canada. Proche de Coronado et El Valle."],
+            ["Bocas del Toro (BOC)", "Bocas del Toro", "Vols depuis la capitale. Porte d'entrée vers l'archipel."],
+          ].map(([airport, province, desc]) => (
+            <div class="px-5 py-4">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-medium text-slate text-sm">{airport}</p>
+                <span class="text-xs text-jade font-medium whitespace-nowrap">{province}</span>
+              </div>
+              <p class="text-slate-mid text-xs leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Transports en Commun</h2>
+      <div class="space-y-4">
+        {[
+          ["🚇", "Métro (Panama City)", "0,35$", "Moderne, climatisé, efficace. Le moyen le plus rapide de se déplacer dans la capitale."],
+          ["🚌", "Métrobus", "~0,35$", "Réseau étendu à Panama City. Carte rechargeable requise."],
+          ["🚐", "Bus interurbain", "3–20$", "Depuis la Grande Gare d'Albrook. Climatisé sur les principales routes."],
+          ["🚕", "Taxi", "~3$ en ville", "Sans compteur — négociez le prix avant de monter."],
+          ["📱", "Uber / InDrive", "Prix par appli", "Disponible à Panama City. Plus prévisible que les taxis."],
+          ["⛵", "Pangas (Bocas del Toro)", "2–20$", "Transport entre les îles. Embarquement au quai principal de Bocas Town."],
+        ].map(([emoji, mode, price, detail]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+            <span class="text-2xl">{emoji}</span>
+            <div class="flex-1">
+              <div class="flex justify-between items-start mb-1">
+                <p class="font-medium text-slate text-sm">{mode}</p>
+                <span class="text-jade font-bold">{price}</span>
+              </div>
+              <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Distances depuis Panama City</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Panama → Coronado", "80 km", "~1 heure"],
+            ["Panama → El Valle de Antón", "120 km", "~2 heures"],
+            ["Panama → Chitré", "250 km", "~3,5 heures"],
+            ["Panama → Santiago", "250 km", "~3 heures"],
+            ["Panama → David", "480 km", "~6 heures"],
+            ["Panama → Boquete", "510 km", "~6,5 heures"],
+            ["David → Boquete", "38 km", "~30 minutes"],
+          ].map(([route, km, time]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-slate-mid flex-1">{route}</span>
+              <span class="text-slate-mid text-xs">{km}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Vous choisissez où vivre au Panama ?</p>
+      <p class="text-slate-mid text-sm mb-5">Comparez les régions par emplacement, accès et style de vie.</p>
+      <a href="/fr/zones" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explorer les régions →</a>
+    </div>
+  </section>
+</Layout>

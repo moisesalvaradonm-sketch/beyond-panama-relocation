@@ -19,6 +19,7 @@ interface Props {
   neighborhoods?: { name: string; desc: string }[];
   heroImage?: string;
   faqs?: { q: string; a: string }[];
+  noindex?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   climate, rentRange, profile, internet,
   intro, highlights, considerations, neighborhoods = [],
   heroImage, faqs = [],
+  noindex = false,
 } = Astro.props;
 
 const faqSchema = faqs.length > 0 ? {
@@ -51,7 +53,7 @@ const stats = [
 ];
 ---
 
-<Layout {title} {description} {lang}>
+<Layout {title} {description} {lang} {noindex}>
 
   <!-- Hero -->
   <div class="relative min-h-[55vh] flex flex-col justify-end overflow-hidden bg-slate">

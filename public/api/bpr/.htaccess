@@ -1,0 +1,9 @@
+# Protect internal directories & config from direct web access.
+# Routes and admin endpoints live one level deep and remain reachable.
+
+<FilesMatch "^(config\.php|config\.example\.php|schema\.sql|seeds\.sql|install\.php\.done)$">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 404 ^/api/bpr/lib/.*\.php$
+RedirectMatch 404 ^/api/bpr/templates/.*$

@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Géographie et Climat du Panama" description="Données essentielles sur le Panama : géographie, provinces, zones climatiques et tout ce qu'il faut savoir avant de s'y installer." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Géographie et Climat du Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama est un isthme unique reliant l'Amérique du Nord et du Sud — avec des côtes sur deux océans, des montagnes entre les deux et l'une des plus grandes concentrations de biodiversité au monde.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Données Essentielles</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Nom officiel", "République du Panama"],
+            ["Population", "Environ 4,4 millions d'habitants"],
+            ["Capitale", "Panama City"],
+            ["Langue officielle", "Espagnol"],
+            ["Fuseau horaire", "UTC-5 (heure de l'Est des États-Unis)"],
+            ["Monnaie", "Balboa (B/.) = 1 USD — le dollar américain a cours légal"],
+            ["Sans banque centrale", "Le Panama n'a pas de banque centrale et ne peut pas imprimer de monnaie"],
+            ["Système bancaire", "130+ banques internationales — centre bancaire régional"],
+            ["Classement retraite", "Régulièrement classé #1 destination retraite mondiale"],
+          ].map(([label, value]) => (
+            <div class="flex items-start px-5 py-3 gap-4 text-sm">
+              <span class="text-slate-mid w-48 flex-shrink-0">{label}</span>
+              <span class="font-medium text-slate">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Géographie : L'Isthme</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">Le Panama mesure environ <strong class="text-slate">75 000 km²</strong> — comparable à la Caroline du Sud ou à l'Autriche. Sa forme est allongée d'est en ouest, avec l'océan Pacifique au sud et la mer des Caraïbes au nord.</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["🌊", "Côte Pacifique", "Saisons sèche et humide bien définies. 27–32°C. Surf, pêche, immobilier en développement."],
+          ["🏝️", "Côte Caraïbe", "Pluies presque toute l'année. Plus vert et humide. Archipels (Bocas del Toro), atolls coralliens."],
+          ["⛰️", "Hautes Terres", "Chiriquí et Coclé. Climat printanier (18–24°C). Café, fraises, agriculture. Idéal pour la retraite."],
+          ["🏙️", "Panama City", "Capitale cosmopolite. Gratte-ciels, centres commerciaux, hôpitaux de premier ordre. Climat tropical 28–33°C."],
+          ["🌿", "Darién", "Jungle vierge à l'est. Sans route panaméricaine. Haute biodiversité. Très peu habité par des expatriés."],
+          ["🏘️", "Intérieur (Azuero / Veraguas)", "Culture panaméenne authentique. Carnaval, folklore, prix bas. Moins de tourisme, plus d'identité locale."],
+        ].map(([emoji, zone, detail]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-lg">{emoji}</span>
+              <p class="font-semibold text-slate text-sm">{zone}</p>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Climat : Côte vs Montagne</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-jade px-4 py-3"><p class="font-semibold text-white text-sm">Côte / Panama City</p></div>
+          <div class="bg-white divide-y divide-jade/8">
+            {[["Température","27–33°C toute l'année"],["Saison sèche","Déc – Avr (Pacifique)"],["Saison des pluies","Mai – Nov"],["Climatisation","Indispensable"],["Électricité","100–300$/mois"]].map(([k,v]) => (
+              <div class="flex justify-between px-4 py-2 text-xs"><span class="text-slate-mid">{k}</span><span class="font-medium text-slate">{v}</span></div>
+            ))}
+          </div>
+        </div>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-jade px-4 py-3"><p class="font-semibold text-white text-sm">Hautes Terres (Boquete, Volcán)</p></div>
+          <div class="bg-white divide-y divide-jade/8">
+            {[["Température","15–24°C toute l'année"],["Pluies","Présentes presque toute l'année"],["Brume","Fréquente en saison"],["Climatisation","Non nécessaire"],["Électricité","~25$/mois"]].map(([k,v]) => (
+              <div class="flex justify-between px-4 py-2 text-xs"><span class="text-slate-mid">{k}</span><span class="font-medium text-slate">{v}</span></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Provinces du Panama</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Panama","Panama City","Capitale, affaires, hôpitaux, vols internationaux"],
+            ["Chiriquí","David","Hautes terres (Boquete, Volcán), agriculture, expatriés"],
+            ["Coclé","Penonomé","Coronado (plage), El Valle de Antón, intérieur tranquille"],
+            ["Herrera","Chitré","Azuero, carnaval, culture panaméenne authentique"],
+            ["Los Santos","Las Tablas","Azuero, plages vierges, tradition populaire"],
+            ["Veraguas","Santiago","Centre géographique, Coiba, Santiago"],
+            ["Bocas del Toro","Bocas del Toro","Archipel caraïbe, tourisme, vie insulaire"],
+            ["Colón","Colón","Zone franche, entrée atlantique du Canal"],
+            ["Darién","La Palma","Jungle vierge, sans route goudronnée"],
+            ["Panama Oeste","La Chorrera","Zone dortoir de Panama City"],
+          ].map(([province, capital, desc]) => (
+            <div class="px-5 py-3">
+              <div class="flex justify-between items-center mb-0.5">
+                <p class="font-medium text-slate text-sm">{province}</p>
+                <span class="text-jade text-xs">{capital}</span>
+              </div>
+              <p class="text-slate-mid text-xs">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Quelle région vous correspond ?</p>
+      <p class="text-slate-mid text-sm mb-5">Comparez les régions par climat, coût et style de vie.</p>
+      <a href="/fr/zones" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explorer les régions →</a>
+    </div>
+  </section>
+</Layout>

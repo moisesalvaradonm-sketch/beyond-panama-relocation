@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: es
 draft: false
-image: /img/blog/panama-passport.webp
+image: /img/blog/blog-friendly-full.webp
 imageAlt: "Visa de Naciones Amigas Panamá — residencia permanente para nacionalidades calificadas"
 ---
 
@@ -63,23 +63,28 @@ Todos los documentos expedidos fuera de Panamá deben estar **apostillados** en 
 
 ### Tiempo de procesamiento
 
-Una vez presentada la solicitud, el trámite tarda habitualmente entre **3 y 6 meses**. Ese plazo comienza cuando el paquete completo se presenta físicamente ante el Servicio Nacional de Migración. Las presentaciones incompletas reinician el reloj.
+Una vez presentada la solicitud, el proceso sigue estas etapas:
 
-Durante el período de revisión, recibirás un **carnet provisional** que certifica que tu solicitud está en proceso. Este carnet puede renovarse mientras la solicitud está pendiente.
+1. **Carnet inicial (7 días):** Tras presentar el expediente en Migración, recibes en aproximadamente 7 días un carnet de residente temporal inicial que acredita que tu solicitud está en trámite.
+2. **Resolución provisional (3–5 meses):** Migración revisa el expediente y emite una resolución de residencia provisional. Este período puede extenderse si la documentación está incompleta.
+3. **Residencia provisional (2 años):** Con la resolución aprobada, entras en un período de residencia provisional de aproximadamente 2 años durante el cual debes mantener los vínculos económicos que sustentaron tu solicitud.
+4. **Residencia permanente:** Al concluir el período provisional sin incidencias, puedes solicitar la conversión a residencia permanente.
+
+Las presentaciones incompletas reinician el reloj, por lo que es importante presentar el expediente completo desde el primer intento.
 
 ### Qué ocurre al ser aprobado
 
-A diferencia de muchas otras categorías de residencia en Panamá, la Visa de Naciones Amigas **otorga residencia permanente directamente**. No hay un período inicial temporal que se convierte en permanente después de dos o tres años. La aprobación significa residencia permanente desde el primer día.
+La Visa de Naciones Amigas conduce a residencia permanente, pero **no la otorga de inmediato**. El proceso incluye un período provisional de aproximadamente 2 años antes de acceder a la residencia permanente. Es importante entender esta distinción al planificar tu mudanza.
 
 ## Sin requisito de permanencia mínima
 
-Una vez que tienes residencia permanente mediante la Visa de Naciones Amigas, Panamá no exige un número mínimo de días por año en el país para mantener tu estatus. Esto la diferencia de algunos otros programas de residencia a nivel mundial. Sin embargo, si con el tiempo buscas la ciudadanía panameña, las reglas son distintas.
+Durante el período provisional y una vez convertida en permanente, Panamá no exige un número mínimo de días por año en el país para mantener tu estatus migratorio. Esto la diferencia de algunos otros programas de residencia a nivel mundial. Sin embargo, si con el tiempo buscas la ciudadanía panameña, las reglas son distintas y sí requieren presencia continua demostrable.
 
 ## Camino a la ciudadanía
 
 La ciudadanía panameña por naturalización requiere **5 años de residencia continua**. "Continua" permite viajes internacionales razonables, pero los solicitantes de naturalización deben demostrar vínculos y presencia genuinos durante ese período de cinco años. La solicitud de ciudadanía es un proceso separado y más exigente.
 
-La Visa de Naciones Amigas te da la residencia permanente — lo que pone en marcha ese conteo de cinco años — pero la ciudadanía no es automática al llegar a la marca de los cinco años.
+La Visa de Naciones Amigas te lleva a la residencia permanente (tras el período provisional de ~2 años), y es desde la permanente que comienza el conteo de los cinco años para naturalización. La ciudadanía no es automática — requiere un proceso separado y más exigente.
 
 ## Naciones Amigas vs. Visa Pensionado: diferencias clave
 
@@ -88,7 +93,7 @@ La Visa de Naciones Amigas te da la residencia permanente — lo que pone en mar
 | Requisito de ingreso | Ninguno | $1,000/mes de pensión vitalicia |
 | Requisito de vínculos económicos | Sí (empleo, empresa o propiedad) | No |
 | Para quién aplica | Adultos en edad laboral, inversores, compradores de propiedad | Jubilados con ingresos de pensión |
-| Tipo de residencia otorgada | Permanente, desde el inicio | Permanente, desde el inicio |
+| Tipo de residencia otorgada | Provisional (~2 años) → Permanente | Permanente, desde el inicio |
 | Descuentos de pensionado | No | Sí (25% restaurantes, 15% salud, etc.) |
 | Ciudadanos de cualquier país | No (aplica lista de ~50 países) | Sí |
 | Tiempo aproximado de trámite | 3–6 meses | 3–6 meses |

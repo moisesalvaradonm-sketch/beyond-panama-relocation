@@ -67,10 +67,10 @@ const categoryColor: Record<string, string> = {
         {posts.map(post => (
           <a
             href={`/es/insights/${post.id.replace('es/', '')}`}
-            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
+            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all min-w-0"
           >
             {post.data.image && (
-              <div class="sm:w-48 h-36 sm:h-auto flex-shrink-0 rounded-xl overflow-hidden">
+              <div class="w-full sm:w-48 h-36 sm:h-auto flex-shrink-0 min-w-0 rounded-xl overflow-hidden">
                 <img src={post.data.image} alt={post.data.imageAlt ?? post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             )}

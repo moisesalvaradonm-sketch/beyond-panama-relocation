@@ -1,12 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Moisés Alvarado',
+  jobTitle: 'Fundador, Beyond Panama Relocation',
+  url: 'https://beyondpanamarelocation.com/es/sobre-nosotros',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Beyond Panama Relocation',
+    url: 'https://beyondpanamarelocation.com',
+  },
+  knowsAbout: [
+    'Reubicación en Panamá',
+    'Inmigración en Panamá',
+    'Bienes raíces en Panamá',
+    'Vida de expatriados en Panamá',
+    'Visas de Panamá',
+    'Reubicación internacional',
+  ],
+  description:
+    'Fundador de Beyond Panama Relocation. Ha trabajado en reubicación internacional y el mercado inmobiliario panameño, asesorando a extranjeros sobre el sistema de visas de Panamá, los barrios y el costo de vida.',
+};
 ---
 
 <Layout
   title="Sobre Beyond Panama Relocation"
-  description="Beyond Panama Relocation es un portal de información para extranjeros que quieren vivir en Panamá. Sin agencia de viajes, sin bufete, sin ventas — solo información honesta."
+  description="Beyond Panama Relocation es un portal de información independiente para extranjeros que consideran mudarse a Panamá — fundado por Moisés Alvarado, consultor de reubicación con experiencia directa en bienes raíces e inmigración en Panamá."
   lang="es"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
   <section class="max-w-3xl mx-auto px-4 py-16">
 
     <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
@@ -15,23 +40,56 @@ import Layout from '../../layouts/Layout.astro';
       <h1 class="font-serif text-4xl text-slate mb-4">Sobre Beyond Panama</h1>
       <p class="text-slate-mid text-xl leading-relaxed">
         Beyond Panama no es una inmobiliaria. No es un bufete. No somos agentes de viajes.
-        Somos un portal de información para quien quiere mudarse a Panamá y quiere
+        Somos un portal de información independiente para quien quiere mudarse a Panamá y quiere
         entender el terreno antes de tomar ninguna decisión.
       </p>
     </header>
 
     <div class="space-y-10">
 
-      <!-- Quiénes somos -->
+      <!-- Quiénes somos — E-E-A-T: experto nombrado con experiencia verificable -->
       <div>
-        <h2 class="font-serif text-2xl text-slate mb-3">Quiénes somos</h2>
-        <div class="flex gap-5 items-start">
-          <div class="w-14 h-14 rounded-full bg-jade/10 flex items-center justify-center text-2xl shrink-0">🌿</div>
+        <h2 class="font-serif text-2xl text-slate mb-4">Quiénes somos</h2>
+        <div class="flex gap-5 items-start p-6 rounded-2xl bg-jade/5 border border-jade/15">
+          <a href="https://www.linkedin.com/in/mois%C3%A9s-alvarado-n/" target="_blank" rel="noopener noreferrer" class="shrink-0 mt-1" aria-label="Moisés Alvarado en LinkedIn">
+            <img src="/moises-alvarado.jpg" alt="Moisés Alvarado" class="w-14 h-14 rounded-full object-cover ring-2 ring-jade/20" />
+          </a>
           <div>
-            <p class="font-medium text-slate mb-1">Moisés Alvarado — Fundador</p>
-            <p class="text-slate-mid leading-relaxed text-sm">
-              Moisés ha trabajado en reubicación internacional y el mercado inmobiliario panameño durante años — lo que significa que ha visto las dos caras: la complejidad que enfrentan las personas al mudarse a un nuevo país, y las brechas de información que generan errores costosos. Beyond Panama nació para cerrar esa brecha — no como un negocio de servicios, sino como un recurso.
+            <p class="font-semibold text-slate mb-1">Moisés Alvarado — Fundador y editor</p>
+
+            <a href="https://www.linkedin.com/in/mois%C3%A9s-alvarado-n/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-slate-mid hover:text-jade transition-colors mb-3">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <p class="text-slate-mid leading-relaxed text-sm mb-3">
+              Moisés ha trabajado directamente en reubicación internacional y el mercado inmobiliario panameño — lo que significa que ha visto las dos caras: la complejidad que enfrentan las personas al elegir una categoría de visa, escoger un barrio y estimar los costos reales del mes, y las brechas de información que generan errores costosos. Beyond Panama nació de esa experiencia directa — no como un negocio de servicios, sino como el recurso que Moisés hubiera querido tener cuando empezó a trabajar en este campo.
             </p>
+            <p class="text-slate-mid leading-relaxed text-sm">
+              Cada guía de este sitio está escrita desde el conocimiento directo del sistema migratorio panameño, el mercado inmobiliario y la vida cotidiana del expatriado — no desde fuentes secundarias ni contenido genérico de reubicación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enfoque editorial -->
+      <div>
+        <h2 class="font-serif text-2xl text-slate mb-3">Nuestro enfoque editorial</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Solo fuentes primarias</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Las estadísticas y requisitos legales provienen del Servicio Nacional de Migración (SNM) de Panamá, publicaciones oficiales del gobierno y observación directa del mercado — no de otros blogs de expatriados. Cada guía cita su fuente y fecha.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Sin números inventados</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Las cifras de costos (alquileres, honorarios de visa, presupuestos mensuales) reflejan precios reales observados en el mercado panameño durante el período señalado. No citamos el "número del folleto" — citamos lo que la gente realmente paga.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Actualizado cuando cambian las reglas</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Las reglas migratorias, los requisitos de visa y los aranceles oficiales de Panamá cambian. Cuando lo hacen, la guía correspondiente se actualiza con la nueva información y la fecha del cambio. La información desactualizada sobre inmigración puede costarle a alguien una negación de visa.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Comparativo, no prescriptivo</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Presentamos múltiples rutas de visa y múltiples zonas con honestidad — incluyendo los inconvenientes de cada una. El objetivo es que tomes una decisión bien informada, no que te oriente hacia la opción que nos genera un referido.</p>
           </div>
         </div>
       </div>
@@ -100,18 +158,6 @@ import Layout from '../../layouts/Layout.astro';
           <li class="flex gap-3"><span class="text-coral mt-1">✗</span> No usamos urgencia falsa ni superlativos de venta</li>
           <li class="flex gap-3"><span class="text-coral mt-1">✗</span> No inventamos testimonios ni estadísticas</li>
         </ul>
-      </div>
-
-      <!-- Citas del fundador -->
-      <div class="space-y-4">
-        <div class="p-6 rounded-2xl bg-jade/5 border border-jade/15">
-          <p class="font-serif text-lg text-slate mb-2">"La idea de Beyond Panama no es gestión de visa, sino de información — y para captar leads de clientes interesados en Panamá."</p>
-          <p class="text-sm text-slate-mid">— Moisés Alvarado, fundador</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-jade/5 border border-jade/15">
-          <p class="font-serif text-lg text-slate mb-2">"No quiero que el cliente sienta que con Beyond Panama se está vendiendo algo."</p>
-          <p class="text-sm text-slate-mid">— Moisés Alvarado, fundador</p>
-        </div>
       </div>
 
     </div>

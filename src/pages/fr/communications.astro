@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Communications et Services au Panama" description="Téléphone mobile, internet, électricité et eau au Panama : opérateurs, prix et conseils pratiques pour les expatriés." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Communications et Services</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Se connecter au Panama est plus facile et moins cher que la plupart des expatriés ne l'imaginent. Guide pratique du mobile, internet, électricité et eau — avec les vrais prix.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-jade bg-jade/5">
+      <p class="font-semibold text-slate mb-1">Le plus important à savoir</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        <strong>WhatsApp est le principal moyen de communication au Panama</strong> — pour tout : appels, messages, documents, rendez-vous et affaires. Particuliers, entreprises, médecins, propriétaires et communautés d'expatriés l'utilisent. Installez-le dès votre arrivée.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Téléphone Mobile</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">Les téléphones américains doivent être débloqués pour utiliser une SIM locale. Les principaux opérateurs sont <strong class="text-slate">Tigo, Claro, Movistar et +Móvil</strong>.</p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Activation de SIM", "~5$", "Le personnel configure tout en magasin"],
+            ["Forfait mensuel typique", "~30$/mois", "Appels + données + appels internationaux illimités"],
+            ["Contrat requis ?", "Non", "Option prépayée disponible, sans engagement"],
+          ].map(([item, price, note]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-slate-mid flex-1">{item}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{price}</span>
+              <span class="text-slate-mid/60 text-xs hidden sm:block">{note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Internet</h2>
+      <div class="space-y-4">
+        {[
+          ["Tigo / Fibre", "~40$/mois", "300–1 000 Mbps. Option la plus courante en zones urbaines."],
+          ["Starlink (Satellite)", "~120$/mois + équipement", "Idéal pour les zones rurales, côtières et montagneuses. A transformé le télétravail à l'intérieur du pays."],
+          ["Internet + TV câble", "~60$/mois", "Forfaits combinés avec chaînes en anglais et espagnol."],
+        ].map(([name, price, detail]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <p class="font-medium text-slate">{name}</p>
+              <span class="text-jade font-semibold text-sm whitespace-nowrap">{price}</span>
+            </div>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Électricité</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="text-2xl mb-2">⛰️</p>
+          <p class="font-semibold text-slate text-sm mb-1">Montagnes (Boquete, Volcán)</p>
+          <p class="font-serif text-2xl text-jade font-bold mb-1">~25$/mois</p>
+          <p class="text-slate-mid text-xs">Climat frais = pas de climatisation.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="text-2xl mb-2">🏖️</p>
+          <p class="font-semibold text-slate text-sm mb-1">Côte / Panama City</p>
+          <p class="font-serif text-2xl text-jade font-bold mb-1">100–300$/mois</p>
+          <p class="text-slate-mid text-xs">Usage intensif de clim multiplié par 4–5.</p>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl border border-jade/15 bg-fog text-sm text-slate-mid">
+        <strong class="text-slate">Spécifications :</strong> 110V / 60Hz — identique aux États-Unis. Les prises plates américaines fonctionnent sans adaptateur.
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Eau</h2>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏙️</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Panama continental</p>
+            <p class="text-slate-mid text-sm">L'eau du robinet est considérée potable dans la plupart des zones urbaines. Beaucoup de foyers ont un réservoir avec filtre supplémentaire.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏝️</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Îles (Bocas del Toro)</p>
+            <p class="text-slate-mid text-sm">Eau en bouteille recommandée exclusivement. L'infrastructure hydrique insulaire est moins fiable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Vous voulez estimer votre budget mensuel ?</p>
+      <p class="text-slate-mid text-sm mb-5">La calculatrice de coût de la vie vous permet d'ajuster chaque poste.</p>
+      <a href="/fr/cout-de-la-vie" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Ouvrir la calculatrice →</a>
+    </div>
+  </section>
+</Layout>

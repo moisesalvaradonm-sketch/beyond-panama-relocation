@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ui/ContactForm';
 ---
 
 <Layout
-  title="Contact — Beyond Panama Relocation"
+  title="Contact"
   description="Reach out to start planning your move to Panama. WhatsApp, email, or schedule a call — we respond within 24 hours."
   lang="en"
 >
@@ -29,7 +30,7 @@ import Layout from '../../layouts/Layout.astro';
           </p>
         </div>
         <a
-          href="https://wa.me/50766060000"
+          href="https://wa.me/50760844256"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-jade text-white font-medium text-base hover:bg-jade-dark transition-colors shrink-0"
@@ -49,10 +50,10 @@ import Layout from '../../layouts/Layout.astro';
           <p class="text-slate-mid text-sm">Works great for longer questions or if you'd like to attach documents.</p>
         </div>
         <a
-          href="mailto:hola@beyondpanamarelocation.com"
+          href="mailto:contact@beyondpanamarelocation.com"
           class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-jade/25 text-jade font-medium text-sm hover:bg-jade/5 transition-colors shrink-0"
         >
-          hola@beyondpanamarelocation.com
+          contact@beyondpanamarelocation.com
         </a>
       </div>
 
@@ -68,6 +69,13 @@ import Layout from '../../layouts/Layout.astro';
         </span>
       </div>
 
+    </div>
+
+    <!-- Contact form -->
+    <div class="mb-14">
+      <h2 class="font-serif text-2xl text-slate mb-2">Or send us a message directly</h2>
+      <p class="text-slate-mid text-sm mb-6">Fill in the form and we'll get back to you within 24 hours.</p>
+      <ContactForm lang="en" client:load />
     </div>
 
     <!-- What to expect -->

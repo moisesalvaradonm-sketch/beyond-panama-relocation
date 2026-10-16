@@ -1,6 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CostCalculator from '../../components/ui/CostCalculator';
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Calculatrice du Coût de la Vie au Panama',
+  url: 'https://beyondpanamarelocation.com/fr/cout-de-la-vie/',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  description: 'Calculez le vrai coût de vivre au Panama selon la zone et le style de vie. Outil interactif gratuit, sans inscription.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: 'fr-FR',
+};
 ---
 
 <Layout title="Calculatrice du Coût de la Vie au Panama" description="Calculez le vrai coût de vivre au Panama selon la zone et votre style de vie. Outil interactif, sans inscription." lang="fr">
@@ -49,7 +61,44 @@ import CostCalculator from '../../components/ui/CostCalculator';
     </div>
 
     <h2 class="font-serif text-2xl text-slate mb-6">Calculatrice interactive</h2>
-    <CostCalculator client:load lang="en" />
+
+    <div class="mb-10 overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <caption class="text-left font-serif text-lg text-slate mb-3">Coût de vie mensuel estimé au Panama (2026)</caption>
+        <thead>
+          <tr class="bg-jade/10 text-left">
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Zone</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Budget de base</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Budget confortable</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/10">
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Panama City (San Francisco, Miraflores)</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 800 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">3 200 $/mois</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Boquete</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 200 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 200 $/mois</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Coronado</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 400 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 500 $/mois</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Bocas del Toro</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 100 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 000 $/mois</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-xs text-slate-mid mt-2">De base = appartement modeste, marché local, sans voiture. Confortable = appt 2 ch., produits importés, voiture ou taxis fréquents.</p>
+    </div>
+
+    <CostCalculator client:load lang="fr" />
 
     <div class="mt-12 p-6 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Quelle zone vous convient le mieux ?</p>
@@ -62,4 +111,5 @@ import CostCalculator from '../../components/ui/CostCalculator';
     </div>
 
   </section>
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
 </Layout>

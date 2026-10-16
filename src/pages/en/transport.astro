@@ -1,0 +1,186 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Transport & Getting Around in Panama" description="Complete guide to transport in Panama: airports, metro, buses, taxis, Uber, and driving. Prices and practical tips for expats." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Transport & Getting Around in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama has surprisingly modern transport infrastructure — from Central America's largest international airport to a clean metro system. Here's how to get around.
+      </p>
+    </div>
+
+    <!-- Airports -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Airports & Flights</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3">
+          <p class="font-semibold text-white text-sm">Panama's Airports</p>
+        </div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Tocumen International (PTY)", "Panama City", "Central America's largest airport. Direct flights to North America, Europe, and South America."],
+            ["David (DAV)", "Chiriquí", "Domestic flights to the capital. Gateway to Boquete and western Panama."],
+            ["Río Hato (RIH)", "Coclé", "Charter flights from Canada available. Near Coronado and El Valle."],
+            ["Chitré / Azuero", "Herrera", "Limited domestic flights to Panama City."],
+            ["Bocas del Toro (BOC)", "Bocas del Toro", "Flights from the capital. The gateway to the archipelago."],
+          ].map(([airport, province, desc]) => (
+            <div class="px-5 py-4">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-medium text-slate text-sm">{airport}</p>
+                <span class="text-xs text-jade font-medium whitespace-nowrap">{province}</span>
+              </div>
+              <p class="text-slate-mid text-xs leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Public Transport -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Public Transport</h2>
+      <div class="space-y-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">🚇</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">Metro (Panama City)</p>
+              <span class="text-jade font-bold">$0.35</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">Modern, clean, and air-conditioned. Runs end-to-end across the city. The fastest way to move through Panama City during rush hour. Three lines cover most major areas.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">🚌</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">City Bus (Metrobús)</p>
+              <span class="text-jade font-bold">~$0.35</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">Requires a rechargeable Metrobús card. Covers a wide network across Panama City. Less reliable scheduling than the metro but covers more neighborhoods.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">🚐</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">Intercity Bus</p>
+              <span class="text-jade font-bold">$3–$20</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">Departs from Albrook Terminal (Gran Terminal de Transportes) in Panama City. Price depends on destination: David ~$12–18, Chitré ~$8, Bocas del Toro ~$20. Air-conditioned coaches on main routes.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">🚕</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">Taxi</p>
+              <span class="text-jade font-bold">~$3 in city</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">No meter — always agree the fare before getting in. Prices are negotiated, not metered. Short city trips: $3–5. Longer rides: negotiate beforehand.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">📱</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">Uber / InDrive</p>
+              <span class="text-jade font-bold">App-based pricing</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">Available in Panama City and growing in other urban areas. More predictable pricing than taxis. Uber is the more reliable option; InDrive allows fare negotiation. Both require a smartphone and data.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex items-start gap-4">
+          <span class="text-2xl">⛵</span>
+          <div class="flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <p class="font-medium text-slate text-sm">Water Taxis (Bocas del Toro)</p>
+              <span class="text-jade font-bold">$2–$20</span>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">Pangas (small motorboats) are the primary transport between islands in Bocas del Toro. Price varies by island. Boarded at the main dock in Bocas Town.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Driving -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Driving in Panama</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        Driving in <strong class="text-slate">Panama City</strong> can be a challenge: many streets are unnamed, intersections may lack signals, traffic is heavy, and horns are used constantly — not as a hostile gesture, but as normal communication. In the interior, driving is far calmer and more enjoyable.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        {[
+          ["Side of the road", "Right (same as the US)"],
+          ["Speed limit", "100 km/h (62 mph) on highways"],
+          ["Fuel sold in", "Liters (~4 liters = 1 gallon)"],
+          ["Foreign license valid for", "90 days — then Panamanian license required"],
+          ["Mandatory requirements", "Seat belt + insurance"],
+          ["Traffic enforcement", "Strict — respect speed limits"],
+        ].map(([label, value]) => (
+          <div class="flex flex-col p-4 rounded-xl border border-jade/15 bg-white text-sm">
+            <span class="text-slate-mid text-xs mb-1">{label}</span>
+            <span class="font-semibold text-slate">{value}</span>
+          </div>
+        ))}
+      </div>
+      <div class="p-5 rounded-xl border border-gold/30 bg-gold/5 text-sm text-slate-mid leading-relaxed">
+        <strong class="text-slate">Pro tip:</strong> Provincial borders are sometimes staffed with checkpoints where authorities may ask to see your passport and driver's license. Keep both accessible when traveling between provinces.
+      </div>
+    </div>
+
+    <!-- Getting a Panamanian License -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Getting a Panamanian Driver's License</h2>
+      <p class="text-slate-mid leading-relaxed mb-4">
+        Your foreign license is valid for the first 90 days in Panama. After that, you need to obtain a Panamanian license. The process requires:
+      </p>
+      <ul class="space-y-2 text-slate-mid text-sm">
+        {[
+          "Valid residency visa or temporary residency card",
+          "Valid foreign driver's license (apostilled or authenticated)",
+          "Medical exam (vision + general health)",
+          "Payment of government fees",
+          "Visit to the Transit Authority (ATTT) office",
+        ].map(item => (
+          <li class="flex gap-3 items-start">
+            <span class="text-jade mt-0.5">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Distance reference -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Driving Distances from Panama City</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Panama City → Coronado", "80 km", "~1 hour"],
+            ["Panama City → El Valle de Antón", "120 km", "~2 hours"],
+            ["Panama City → Chitré", "250 km", "~3.5 hours"],
+            ["Panama City → Santiago", "250 km", "~3 hours"],
+            ["Panama City → David", "480 km", "~6 hours"],
+            ["Panama City → Boquete", "510 km", "~6.5 hours"],
+            ["David → Boquete", "38 km", "~30 minutes"],
+          ].map(([route, km, time]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-slate-mid flex-1">{route}</span>
+              <span class="text-slate-mid text-xs">{km}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Choosing where to live in Panama?</p>
+      <p class="text-slate-mid text-sm mb-5">Compare areas by location, transport access and lifestyle.</p>
+      <a href="/en/areas" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explore areas →</a>
+    </div>
+  </section>
+</Layout>

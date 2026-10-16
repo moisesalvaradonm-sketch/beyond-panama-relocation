@@ -6,14 +6,16 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://beyondpanamarelocation.com',
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()],
   },
   integrations: [
     react(),
     sitemap({
+      filter: (page) => page !== 'https://beyondpanamarelocation.com/',
       i18n: {
-        defaultLocale: 'es',
+        defaultLocale: 'en',
         locales: {
           es: 'es-PA',
           en: 'en-US',

@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout
+  title="Banking in Panama — How to Open an Account, Taxes & the Dollar Economy"
+  description="Panama's banking system for expats: 130+ international banks, a dollarized economy, 0% tax on foreign income, and how to open an account step by step. Verified 2025 data."
+  lang="en"
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Banking & Finance in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama is one of the largest banking centers in the world, home to 130+ international institutions and a fully dollarized economy. There is no exchange rate to monitor, no central bank to print money, and no tax on income earned outside Panama.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Quick Answer</p>
+      <p class="text-slate text-sm leading-relaxed">
+        Panama uses the US dollar. Foreign income — pension, remote work, investments — is <strong>not taxed</strong>. To open a bank account you need your residency visa (cédula), a reference letter, and proof of income. The process takes <strong>2–4 weeks</strong>. Without residency, it's significantly harder. Wise or Revolut work as a bridge while your visa processes.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">130+</p>
+        <p class="text-slate-mid text-xs">International banks operating in Panama</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">0%</p>
+        <p class="text-slate-mid text-xs">Tax on income earned outside Panama</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">1:1</p>
+        <p class="text-slate-mid text-xs">Balboa = US Dollar · no conversion ever</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Currency: The Dollar Economy</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">
+        Panama's official currency is the <strong class="text-slate">Balboa (B/.)</strong>, fixed at 1:1 with the US dollar — which is itself legal tender everywhere in the country. In practice, you always transact in USD. There is no exchange rate to monitor and no conversion risk for anyone earning in dollars.
+      </p>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏦</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">No Central Bank</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Panama does not have a central bank and cannot print money. The money supply is entirely market-driven — Panama must earn foreign currency through exports of goods and services. This structural constraint has historically produced greater macroeconomic stability than most Latin American economies.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">💵</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">USD as Legal Tender — in practice everywhere</p>
+            <p class="text-slate-mid text-xs leading-relaxed">US dollar bills circulate alongside Panamanian coins (Balboas). All ATMs dispense USD. All prices are in USD. No currency conversion at any point — what you see is what you pay. No fees at ATMs that accept your international card (though your home bank may charge foreign transaction fees).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">The Territorial Tax System</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">
+        Panama taxes only income <em>earned within Panama</em>. Income generated outside the country is not taxed — regardless of where you live or how long you've been a resident. This applies to:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-4">
+        {[
+          ["Foreign pension / Social Security", "Not taxed in Panama"],
+          ["Remote work (client abroad)", "Not taxed in Panama"],
+          ["Online business (foreign clients)", "Not taxed in Panama"],
+          ["Foreign investments / dividends", "Not taxed in Panama"],
+          ["Rental income from foreign property", "Not taxed in Panama"],
+          ["Income earned in Panama", "Subject to Panama tax"],
+          ["Panama-source rental income", "Subject to Panama tax"],
+          ["Panamanian business income", "Subject to Panama tax"],
+        ].map(([source, treatment]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{source}</span>
+            <span class={`font-semibold text-xs whitespace-nowrap ${treatment.includes('Not') ? 'text-jade' : 'text-coral'}`}>{treatment}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid">Panama's territorial system is favorable for retirees, remote workers, and online entrepreneurs. Important: you may still have tax obligations in your home country (especially US citizens under FATCA/FBAR). Always consult a tax attorney familiar with both jurisdictions.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Opening a Bank Account</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">
+        Opening a personal bank account in Panama is straightforward once you have residency. Without a visa, the process is significantly harder — banks have strict AML/KYC compliance requirements and require demonstrated economic ties to the country.
+      </p>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Documents typically required</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+            {[
+              ["Cédula (residency card)", "Issued after your visa is approved. This is the key document."],
+              ["Passport copy", "Color copy of all pages."],
+              ["Proof of income", "Pension letters, employment contracts, or bank statements from your home country showing regular deposits. Last 3–6 months."],
+              ["Bank reference letter", "A letter from your current bank (abroad) stating your account type, standing, and years of relationship. Banks in Panama request this."],
+              ["Proof of address in Panama", "Utility bill, lease agreement, or notarized letter from your landlord."],
+              ["Source of funds declaration", "A brief signed statement explaining where your money comes from. Standard for compliance."],
+            ].map(([doc, detail]) => (
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">{doc}</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Banks that work well for expats</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+            {[
+              ["Banco General", "Largest Panamanian bank. Strong online banking, good English support, broad ATM network."],
+              ["Banistmo (HSBC)", "HSBC-affiliated. Familiar interface for international clients. Good for transfers abroad."],
+              ["Global Bank", "Known for being more accessible to new residents. Faster account opening in some cases."],
+              ["BAC Panama", "Regional bank with good mobile app. Popular with expats in Boquete and Coronado."],
+              ["Citibank Panama", "For clients with existing Citibank relationship abroad — simplifies account opening."],
+            ].map(([bank, detail]) => (
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">{bank}</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Timeline: 2–4 weeks</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Account opening takes 2–4 weeks due to internal compliance review (AML/KYC). Visit the bank in person — this cannot be done fully online for new accounts. Some banks require multiple visits. Bring originals and certified copies of all documents.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Without residency: harder but not impossible</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Most banks require strong economic ties (property ownership, active business), a local attorney, and higher minimum deposits ($5,000–$10,000+). This path is viable but slow. If you're in the process of getting your visa, it's usually better to wait.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Digital Banking Alternatives</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">
+        While you wait for your residency visa and bank account to process, these digital tools work in Panama and are used by most expats from day one:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          {
+            name: "Wise (formerly TransferWise)",
+            detail: "USD, EUR and multi-currency account. Debit card works at Panama ATMs. Best exchange rates for transfers between countries. No fee for USD transactions in Panama."
+          },
+          {
+            name: "Revolut",
+            detail: "Virtual and physical debit cards. Good for multi-currency. Some features limited depending on your country of origin. Accepted at most Panama City establishments."
+          },
+          {
+            name: "Charles Schwab (US accounts)",
+            detail: "Schwab's brokerage debit card reimburses all international ATM fees globally — including Panama. Ideal for retirees keeping a US account active."
+          },
+          {
+            name: "PayPal",
+            detail: "Widely accepted online in Panama for services and rentals. USD transfers work normally. Not a substitute for a bank account but useful in the transition period."
+          },
+        ].map(({name, detail}) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">{name}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Cryptocurrency</h2>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white">
+        <p class="text-slate-mid text-sm leading-relaxed">
+          Panama has no formal cryptocurrency regulation but virtually no restrictions on personal use. Crypto transactions are not specifically taxed under the territorial system if they originate from foreign exchanges or clients. Panama has not passed formal crypto legislation as of 2025 — the regulatory environment remains permissive but legally undefined. Consult a local tax attorney for asset planning involving crypto holdings, especially for immigration purposes.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Does Panama tax my US Social Security or pension?</dt>
+          <dd class="text-slate-mid leading-relaxed">No. Under Panama's territorial tax system, foreign pensions — including US Social Security — are not taxed in Panama. You may still have obligations to the IRS in the US (consult a US tax attorney, especially regarding FBAR requirements for foreign accounts over $10,000), but Panama imposes no tax on income earned outside its borders.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Can I open a bank account in Panama without residency?</dt>
+          <dd class="text-slate-mid leading-relaxed">It's possible but significantly harder. Panama's banking system has strict AML/KYC compliance requirements. Without a residency visa, most banks require a large minimum deposit, a local attorney, and extensive economic documentation. With a cédula (residency card), the process is straightforward. Use Wise or Revolut as a bridge in the meantime.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Do I need to report my Panamanian bank account to the IRS?</dt>
+          <dd class="text-slate-mid leading-relaxed">US citizens and US persons must report foreign financial accounts exceeding $10,000 at any point during the year via FBAR (FinCEN Form 114). A Panamanian bank account qualifies. This is separate from US income tax and applies even if no tax is owed. Consult a US tax attorney familiar with expat reporting requirements.</dd>
+        </div>
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Is Panama's economy stable?</dt>
+          <dd class="text-slate-mid leading-relaxed">Panama has one of the most stable economies in Latin America. The dollarized monetary system (no central bank, no money printing), the Canal revenues, and the international banking center create structural stability. Panama's GDP growth has consistently outpaced regional peers over the past two decades. The 2024 mining concession dispute caused temporary unrest but economic fundamentals remained intact throughout.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Ready to take the next step?</p>
+      <p class="text-slate-mid text-sm mb-5">Find your residency pathway in 2 minutes — no registration, no pressure.</p>
+      <a href="/en/visas" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">See visa options →</a>
+    </div>
+  </section>
+</Layout>

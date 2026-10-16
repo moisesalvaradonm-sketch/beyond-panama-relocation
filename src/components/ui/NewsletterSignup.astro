@@ -1,0 +1,114 @@
+---
+interface Props {
+  lang?: 'en' | 'es' | 'fr';
+}
+const { lang = 'en' } = Astro.props;
+
+const copy = {
+  en: {
+    title: 'Get new guides in your inbox',
+    desc: 'We publish practical guides on visas, costs, and life in Panama. No spam — just useful content when we post something new.',
+    placeholder: 'your@email.com',
+    btn: 'Subscribe',
+    btnLoading: 'Subscribing…',
+    success: 'You\'re in! We\'ll notify you when new guides are published.',
+    error: 'Something went wrong. Please try again.',
+    privacy: 'No spam. Unsubscribe at any time.',
+  },
+  es: {
+    title: 'Recibe nuevas guías en tu correo',
+    desc: 'Publicamos guías prácticas sobre visas, costos y vida en Panamá. Sin spam — solo contenido útil cuando publicamos algo nuevo.',
+    placeholder: 'tu@correo.com',
+    btn: 'Suscribirme',
+    btnLoading: 'Suscribiendo…',
+    success: '¡Listo! Te avisaremos cuando publiquemos nuevas guías.',
+    error: 'Algo salió mal. Por favor intenta de nuevo.',
+    privacy: 'Sin spam. Cancela cuando quieras.',
+  },
+  fr: {
+    title: 'Recevez les nouveaux guides par email',
+    desc: 'Nous publions des guides pratiques sur les visas, les coûts et la vie au Panama. Pas de spam — juste du contenu utile à chaque nouvelle publication.',
+    placeholder: 'votre@email.com',
+    btn: 'S\'abonner',
+    btnLoading: 'Abonnement…',
+    success: 'C\'est fait ! Vous serez notifié lors de la publication de nouveaux guides.',
+    error: 'Une erreur est survenue. Veuillez réessayer.',
+    privacy: 'Pas de spam. Désinscription à tout moment.',
+  },
+}[lang];
+---
+
+<div class="rounded-2xl bg-jade/5 border border-jade/15 p-8 my-12" id="newsletter-block">
+  <div class="max-w-xl mx-auto text-center">
+    <span class="inline-block text-2xl mb-3">📬</span>
+    <h3 class="font-serif text-xl text-slate mb-2">{copy.title}</h3>
+    <p class="text-slate-mid text-sm mb-6">{copy.desc}</p>
+
+    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
+      <input
+        type="email"
+        id="newsletter-email"
+        name="email"
+        placeholder={copy.placeholder}
+        autocomplete="email"
+        required
+        class="flex-1 px-4 py-3 rounded-full border border-jade/25 bg-white text-slate placeholder:text-slate-mid/60 text-sm focus:outline-none focus:border-jade focus:ring-2 focus:ring-jade/20"
+      />
+      <button
+        type="submit"
+        id="newsletter-btn"
+        class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors whitespace-nowrap"
+      >
+        {copy.btn}
+      </button>
+    </form>
+
+    <p class="text-xs text-slate-mid/70 mt-3">{copy.privacy}</p>
+
+    <div id="newsletter-success" class="hidden mt-4 text-sm text-jade font-medium">{copy.success}</div>
+    <div id="newsletter-error" class="hidden mt-4 text-sm text-coral font-medium">{copy.error}</div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const btn  = document.getElementById('newsletter-btn') as HTMLButtonElement | null;
+  const successEl = document.getElementById('newsletter-success');
+  const errorEl   = document.getElementById('newsletter-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('newsletter-email') as HTMLInputElement)?.value?.trim();
+    if (!email) return;
+
+    if (btn) {
+      btn.textContent = btn.closest('form')?.dataset.loading ?? 'Subscribing…';
+      btn.disabled = true;
+    }
+    successEl?.classList.add('hidden');
+    errorEl?.classList.add('hidden');
+
+    try {
+      const res = await fetch('/api/property-inquiry.php?t=nl', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const json = await res.json().catch(() => ({}));
+
+      if (json.ok) {
+        form?.classList.add('hidden');
+        successEl?.classList.remove('hidden');
+      } else {
+        throw new Error(json.error ?? 'Error');
+      }
+    } catch {
+      errorEl?.classList.remove('hidden');
+      if (btn) {
+        btn.textContent = btn.dataset.label ?? 'Subscribe';
+        btn.disabled = false;
+      }
+    }
+  });
+</script>

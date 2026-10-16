@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Trabajar en Panamá — Guía para Expats" description="Todo lo que necesitas saber sobre trabajar en Panamá: permisos según visa, restricciones laborales, trabajo remoto y negocios para extranjeros." lang="es">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Trabajar en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Las posibilidades laborales de un expat en Panamá dependen principalmente del tipo de visa que posees. Entender las restricciones te evita sorpresas costosas.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-gold bg-gold/5">
+      <p class="font-semibold text-slate mb-1">El sistema de renta territorial trabaja a tu favor</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Si generas ingresos <strong>fuera de Panamá</strong> — trabajo remoto, pensión, inversiones extranjeras, clientes en el exterior — no pagas impuestos en Panamá por eso. El sistema solo grava los ingresos generados localmente.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Permisos Laborales por Tipo de Visa</h2>
+      <div class="space-y-4">
+        {[
+          {
+            visa: "Visa Pensionado",
+            color: "border-coral/30 bg-coral/5",
+            badge: "Sin trabajo local",
+            badgeColor: "text-coral",
+            detail: "Los titulares de visa Pensionado no pueden trabajar para empleadores panameños. Sí pueden recibir su pensión o jubilación del exterior sin restricción.",
+          },
+          {
+            visa: "Visa Naciones Amigas",
+            color: "border-jade/30 bg-jade/5",
+            badge: "Trabajo local permitido",
+            badgeColor: "text-jade",
+            detail: "Permite empleo local y actividad empresarial. La opción más flexible para quienes deseen trabajar activamente en Panamá.",
+          },
+          {
+            visa: "Visa Nómada Digital",
+            color: "border-gold/30 bg-gold/5",
+            badge: "Solo trabajo remoto",
+            badgeColor: "text-gold",
+            detail: "Diseñada para trabajadores remotos con empleadores o clientes fuera de Panamá. No permite trabajar para empresas panameñas.",
+          },
+          {
+            visa: "Visa Inversionista Calificado",
+            color: "border-jade/30 bg-jade/5",
+            badge: "Actividad empresarial permitida",
+            badgeColor: "text-jade",
+            detail: "Permite dirigir negocios e inversiones en Panamá. La opción preferida para emprendedores e inversionistas.",
+          },
+          {
+            visa: "Visa Rentista / Retirado",
+            color: "border-slate/15 bg-white",
+            badge: "Sin trabajo local",
+            badgeColor: "text-slate-mid",
+            detail: "Requiere demostrar ingresos pasivos del exterior. El trabajo local activo generalmente no está permitido.",
+          },
+        ].map(({ visa, color, badge, badgeColor, detail }) => (
+          <div class={`p-5 rounded-xl border ${color}`}>
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <p class="font-semibold text-slate">{visa}</p>
+              <span class={`font-medium text-xs whitespace-nowrap ${badgeColor}`}>{badge}</span>
+            </div>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Restricciones Laborales para Extranjeros</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Cuota de trabajadores extranjeros", "Máximo 10% de la plantilla puede ser extranjera en la mayoría de las empresas."],
+            ["Profesiones protegidas", "Medicina, derecho, ingeniería, odontología y otras requieren revalidación del título."],
+            ["Salario mínimo", "B/. 2.40/hora en la mayoría de sectores (diciembre 2024). Se aplica a contratos locales."],
+            ["Contrato en español", "Los contratos de trabajo deben ser en español y registrarse en el MITRADEL."],
+          ].map(([label, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{label}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Trabajo Remoto y Negocios Online</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">Para los nómadas digitales y emprendedores online, Panamá ofrece las condiciones ideales: 0% de impuesto sobre ingresos del exterior, costo de vida bajo y excelente conectividad.</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["💻", "Trabajo remoto", "Trabaja para tu empleador o clientes extranjeros desde Panamá. Si ganas fuera, no tributas aquí."],
+          ["🌐", "Negocio online", "Clientes extranjeros, plataformas digitales, comercio electrónico internacional — exento de impuestos panameños."],
+          ["📊", "Consultoría", "Servicios de consultoría a clientes fuera de Panamá: libre de impuesto territorial. Requiere estructuración correcta."],
+          ["🏢", "Empresa S.A. panameña", "Constituir una sociedad anónima panameña puede dar ventajas bancarias y operativas. Consulta con un abogado."],
+        ].map(([emoji, title, detail]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <span class="text-2xl block mb-2">{emoji}</span>
+            <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Estructuras Empresariales en Panamá</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["S.A. (Sociedad Anónima)", "La más común. Flexibilidad societaria, acciones al portador eliminadas, ideal para operaciones internacionales."],
+            ["SRL (Sociedad de Responsabilidad Limitada)", "Similar a LLC. Responsabilidad limitada, buena para negocios pequeños y medianos."],
+            ["Persona Natural (Independiente)", "Simple. Adecuado para prestación de servicios profesionales. Requiere Aviso de Operación."],
+          ].map(([type, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{type}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Explorando opciones de residencia?</p>
+      <p class="text-slate-mid text-sm mb-5">Compara todas las visas disponibles y encuentra la que se ajusta a tu situación.</p>
+      <a href="/es/visas" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Ver comparativa de visas →</a>
+    </div>
+  </section>
+</Layout>

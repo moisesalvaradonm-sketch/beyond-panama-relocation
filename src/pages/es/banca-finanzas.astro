@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Banca y Finanzas en Panamá" description="Sistema bancario de Panamá, sistema de renta territorial, cómo abrir una cuenta bancaria y qué significa la economía dolarizada para los expats." lang="es" noindex={false}>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Banca y Finanzas en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panamá es uno de los centros bancarios más grandes del mundo, con más de 130 instituciones internacionales y una economía dolarizada sin riesgo cambiario.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">130+</p>
+        <p class="text-slate-mid text-xs">Bancos internacionales</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">0%</p>
+        <p class="text-slate-mid text-xs">Impuesto a ingresos del exterior</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">1:1</p>
+        <p class="text-slate-mid text-xs">Balboa = Dólar estadounidense</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Moneda: La Economía Dolarizada</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">La moneda oficial de Panamá es el <strong class="text-slate">Balboa (B/.)</strong>, fijo 1:1 con el dólar estadounidense — que a su vez es de curso legal en todo el país. No hay tipo de cambio que monitorear ni riesgo de conversión para quienes ganan en dólares.</p>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏦</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Sin Banco Central</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Panamá no tiene banco central y no puede imprimir dinero. La oferta monetaria es completamente de mercado — lo que produce mayor estabilidad macroeconómica histórica.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">💵</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">USD como Moneda de Curso Legal</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Los billetes de dólar circulan junto a monedas panameñas (Balboas). Los cajeros dispensan USD. Todos los precios están en USD. Sin conversión de moneda en ningún momento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Sistema de Renta Territorial</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">Panamá grava únicamente los ingresos <em>generados dentro de Panamá</em>. Los ingresos generados en el exterior no tributan — sin importar dónde vivas. Esto aplica a:</p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-4">
+        {[
+          ["Pensión / jubilación extranjera", "No tributa en Panamá"],
+          ["Trabajo remoto (cliente en el exterior)", "No tributa en Panamá"],
+          ["Negocio online (clientes extranjeros)", "No tributa en Panamá"],
+          ["Inversiones / dividendos extranjeros", "No tributa en Panamá"],
+          ["Ingresos generados en Panamá", "Sujeto a impuestos panameños"],
+          ["Renta de propiedades en Panamá", "Sujeto a impuestos panameños"],
+        ].map(([source, treatment]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{source}</span>
+            <span class={`font-semibold text-xs whitespace-nowrap ${treatment.includes('No') ? 'text-jade' : 'text-coral'}`}>{treatment}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid">Consulta siempre con un abogado fiscal local para tu situación específica.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Abrir una Cuenta Bancaria</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Con visa de residencia", "Relativamente sencillo. Visita el banco con tu cédula (carnet de residencia) y documentos requeridos."],
+            ["Sin visa", "Más complejo. Los bancos requieren fuertes vínculos económicos, depósitos mínimos elevados y documentación de cumplimiento adicional."],
+            ["Plazo", "La apertura de cuenta tarda normalmente 2–4 semanas por revisión de cumplimiento (AML/KYC)."],
+            ["Recomendación", "Elige un banco con banca en línea disponible en inglés y español."],
+          ].map(([label, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{label}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Listo para dar el siguiente paso?</p>
+      <p class="text-slate-mid text-sm mb-5">Encuentra tu ruta de residencia en 2 minutos.</p>
+      <a href="/es/visas" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Ver opciones de visa →</a>
+    </div>
+  </section>
+</Layout>
