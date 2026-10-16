@@ -87,7 +87,9 @@ export function getLangFromUrl(url: URL): Lang {
 }
 
 export function getLocalizedPath(path: string, lang: Lang): string {
-  return `/${lang}${path}`;
+  const full = `/${lang}${path}`;
+  // Canonical URLs end with a slash (trailingSlash: 'always'); avoids a 301 hop per link.
+  return /[?#.]/.test(full.split('/').pop() ?? '') || full.endsWith('/') ? full : `${full}/`;
 }
 
 // Segment-level path translation table (keyed by any-language value)
@@ -169,20 +171,48 @@ const pathSegments: Record<string, Record<Lang, string>> = {
   'ville-de-panama':          { en: 'panama-city',              es: 'ciudad-de-panama',         fr: 'ville-de-panama' },
 };
 
-// Blog slug cross-language map (FR has no individual blog posts → fall back to /blog/)
-const blogSlugMap: Record<string, Partial<Record<Lang, string>>> = {
-  'pensionado-visa-guide':            { en: 'pensionado-visa-guide',            es: 'visa-pensionado-guia' },
-  'visa-pensionado-guia':             { en: 'pensionado-visa-guide',            es: 'visa-pensionado-guia' },
-  'friendly-nations-visa-guide':      { en: 'friendly-nations-visa-guide',      es: 'visa-naciones-amigas-guia' },
-  'visa-naciones-amigas-guia':        { en: 'friendly-nations-visa-guide',      es: 'visa-naciones-amigas-guia' },
-  'banking-in-panama-guide':          { en: 'banking-in-panama-guide',          es: 'banca-panama-extranjeros' },
-  'banca-panama-extranjeros':         { en: 'banking-in-panama-guide',          es: 'banca-panama-extranjeros' },
-  'real-cost-of-living-panama':       { en: 'real-cost-of-living-panama',       es: 'costo-real-vivir-panama' },
-  'costo-real-vivir-panama':          { en: 'real-cost-of-living-panama',       es: 'costo-real-vivir-panama' },
-  'boquete-vs-coronado':              { en: 'boquete-vs-coronado',              es: 'boquete-vs-coronado' },
-  'panama-city-neighborhoods-guide':  { en: 'panama-city-neighborhoods-guide',  es: 'guia-barrios-ciudad-panama' },
-  'guia-barrios-ciudad-panama':       { en: 'panama-city-neighborhoods-guide',  es: 'guia-barrios-ciudad-panama' },
-};
+// Blog slug cross-language map. A post with no entry for a language has NO translation
+// there (hreflang must not point to the blog index in that case).
+const blogPairs: Array<Partial<Record<Lang, string>>> = [
+  { en: 'pensionado-visa-guide',           es: 'visa-pensionado-guia' },
+  { en: 'friendly-nations-visa-guide',     es: 'visa-naciones-amigas-guia' },
+  { en: 'banking-in-panama-guide',         es: 'banca-panama-extranjeros' },
+  { en: 'real-cost-of-living-panama',      es: 'costo-real-vivir-panama' },
+  { en: 'boquete-vs-coronado',             es: 'boquete-vs-coronado' },
+  { en: 'panama-city-neighborhoods-guide', es: 'guia-barrios-ciudad-panama' },
+  { en: 'qualified-investor-decree-2026',  es: 'inversionista-calificado-decreto-2026', fr: 'investisseur-qualifie-decret-2026' },
+  { en: 'panama-territorial-tax-guide',    es: 'ventajas-fiscales-panama-expatriados' },
+  { en: 'healthcare-in-panama-for-expats', es: 'salud-panama-extranjeros' },
+  { en: 'internet-and-remote-work-in-panama', es: 'internet-trabajo-remoto-panama' },
+  { en: 'renting-apartment-panama-guide',  es: 'alquilar-apartamento-panama-extranjero' },
+  { en: 'why-panama-attracts-retirees',    es: 'por-que-panama-atrae-jubilados', fr: 'pourquoi-panama-attire-retraites' },
+];
+const insightPairs: Array<Partial<Record<Lang, string>>> = [
+  { en: 'us-documents-before-moving-to-panama', es: 'documentos-eeuu-antes-de-mudarte-panama' },
+];
+
+function findPair(pairs: Array<Partial<Record<Lang, string>>>, slug: string) {
+  return pairs.find(p => Object.values(p).includes(slug));
+}
+
+/**
+ * Strict translation for hreflang: returns the equivalent path in `toLang`,
+ * or null when no real translation exists (never falls back to an index page).
+ * Existence of the target route is checked by the caller.
+ */
+export function translatePathStrict(path: string, fromLang: Lang, toLang: Lang): string | null {
+  if (fromLang === toLang) return path;
+  const parts = path.split('/').filter(Boolean);
+  if (parts.length === 0) return '/';
+  if (parts[0] === '404') return null;
+  if ((parts[0] === 'blog' || parts[0] === 'insights') && parts[1]) {
+    const pair = findPair(parts[0] === 'blog' ? blogPairs : insightPairs, parts[1]);
+    const slug = pair?.[toLang];
+    return slug ? `/${parts[0]}/${slug}/` : null;
+  }
+  const translated = parts.map(seg => pathSegments[seg]?.[toLang] ?? seg);
+  return '/' + translated.join('/') + '/';
+}
 
 export function translatePath(path: string, fromLang: Lang, toLang: Lang): string {
   if (fromLang === toLang || !path || path === '/') return path;
@@ -195,15 +225,15 @@ export function translatePath(path: string, fromLang: Lang, toLang: Lang): strin
 
   // Blog post: /blog/<slug>
   if (parts[0] === 'blog' && parts[1]) {
-    const slug = parts[1];
-    const mapped = blogSlugMap[slug];
+    const mapped = findPair(blogPairs, parts[1]);
     if (mapped && mapped[toLang]) return `/blog/${mapped[toLang]}/`;
     return '/blog/';
   }
 
   // Insights article: fall back to insights index if no translation exists
   if (parts[0] === 'insights' && parts[1]) {
-    return '/insights/';
+    const mapped = findPair(insightPairs, parts[1]);
+    return mapped?.[toLang] ? `/insights/${mapped[toLang]}/` : '/insights/';
   }
 
   const translated = parts.map(seg => {
