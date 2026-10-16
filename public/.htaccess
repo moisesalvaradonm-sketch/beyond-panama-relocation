@@ -17,6 +17,14 @@ Options -Indexes
   RewriteRule ^(en|es|fr)/(.+?)(%20|\ |\+)\(1\)/?$ /$1/$2/ [R=301,L,NE]
   RewriteRule ^(en|es|fr)/blog/(.+-2026)-1/?$ /$1/blog/$2/ [R=301,L]
 
+  # 3c. Raíz: redirección de servidor (antes era una página JS vacía). 302 porque depende del idioma.
+  RewriteCond %{HTTP:Accept-Language} ^es [NC]
+  RewriteRule ^$ /es/ [R=302,L]
+  RewriteRule ^$ /en/ [R=302,L]
+
+  # 3d. Sitemap antiguo (URLs sin barra, obsoleto) -> índice vigente
+  RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
+
   # 4. Newsletter subscribe → property-inquiry.php?t=nl (bypasses stale LiteSpeed cache on subscribe.php)
   RewriteRule ^api/subscribe(\.php)?$ /api/property-inquiry.php?t=nl [L,QSA]
 
