@@ -104,4 +104,4 @@ For those looking to establish themselves in Panama — whether through real est
 
 At **Beyond Panama Relocation**, we work with international investors throughout the residency, investment, structuring, and establishment process in Panama, coordinating the legal and immigration aspects required for each case.
 
-Are you considering investing in Panama and obtaining permanent residency? [Contact us](/en/contact) to learn about the available options and receive guidance for your process.
+Are you considering investing in Panama and obtaining permanent residency? [Contact us](/en/contact/) to learn about the available options and receive guidance for your process.

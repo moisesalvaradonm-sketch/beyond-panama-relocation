@@ -37,9 +37,9 @@ const {
   noindex = false,
 } = Astro.props;
 
-const backHref = lang === 'es' ? '/es/visas' : lang === 'fr' ? '/fr/visas' : '/en/visas';
-const compHref = lang === 'es' ? '/es/visas/comparativa' : lang === 'fr' ? '/fr/visas/comparaison' : '/en/visas/comparison';
-const quizHref = `/${lang}/quiz`;
+const backHref = lang === 'es' ? '/es/visas/' : lang === 'fr' ? '/fr/visas/' : '/en/visas/';
+const compHref = lang === 'es' ? '/es/visas/comparativa/' : lang === 'fr' ? '/fr/visas/comparaison/' : '/en/visas/comparison/';
+const quizHref = `/${lang}/quiz/`;
 
 // ── Schema: FAQPage ───────────────────────────────────────────────────────────
 // NOTE (2026-09-08): Google retired FAQ rich results for all sites on

@@ -74,7 +74,7 @@ const categoryLabel: Record<string, string> = {
       <div id="blog-grid" class="grid md:grid-cols-2 gap-6 mb-12">
         {posts.map(post => (
           <a
-            href={`/es/blog/${post.id.replace('es/', '')}`}
+            href={`/es/blog/${post.id.replace('es/', '')}/`}
             class="group rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all overflow-hidden flex flex-col"
           >
             {post.data.image && (
@@ -110,7 +110,7 @@ const categoryLabel: Record<string, string> = {
     <div class="text-center p-8 rounded-2xl bg-jade/5 border border-jade/15">
       <p class="font-serif text-xl text-slate mb-2">Más guías en camino</p>
       <p class="text-slate-mid text-sm mb-5">Publicamos regularmente. Mientras tanto, tu ruta es la forma más rápida de orientarte.</p>
-      <a href="/es/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/es/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Encontrar tu ruta →
       </a>
     </div>

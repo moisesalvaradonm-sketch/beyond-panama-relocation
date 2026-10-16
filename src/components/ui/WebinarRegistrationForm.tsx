@@ -217,7 +217,7 @@ export default function WebinarRegistrationForm({
           />
           <span>
             Email me the webinar details and a recording. I can unsubscribe any time. See our{' '}
-            <a href="/en/privacy" className="text-jade underline">privacy policy</a>.
+            <a href="/en/privacy/" className="text-jade underline">privacy policy</a>.
           </span>
         </label>
         {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}

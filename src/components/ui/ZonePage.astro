@@ -40,9 +40,9 @@ const faqSchema = faqs.length > 0 ? {
   })),
 } : null;
 
-const backHref = lang === 'es' ? '/es/zonas' : lang === 'fr' ? '/fr/zones' : '/en/areas';
+const backHref = lang === 'es' ? '/es/zonas/' : lang === 'fr' ? '/fr/zones/' : '/en/areas/';
 const backLabel = lang === 'es' ? '← Todas las zonas' : lang === 'fr' ? '← Toutes les zones' : '← All areas';
-const quizHref = `/${lang}/quiz`;
+const quizHref = `/${lang}/quiz/`;
 const quizLabel = lang === 'es' ? 'Encontrar tu ruta →' : lang === 'fr' ? 'Trouver ma route →' : 'Find your route →';
 
 const stats = [

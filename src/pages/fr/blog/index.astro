@@ -52,7 +52,7 @@ function imgPos(src?: string) {
         {posts.map(post => {
           const lang = post.data.lang ?? 'en';
           const slug = post.id.replace(/^(es|en)\//, '');
-          const href = `/${lang}/blog/${slug}`;
+          const href = `/${lang}/blog/${slug}/`;
           return (
             <a
               href={href}
@@ -88,7 +88,7 @@ function imgPos(src?: string) {
     ) : (
       <div class="text-center py-20 text-slate-mid">
         <p class="text-lg mb-2">Articles bientôt disponibles en français.</p>
-        <p class="text-sm">En attendant, consultez nos guides en <a href="/en/blog" class="text-jade hover:underline">anglais</a> ou en <a href="/es/blog" class="text-jade hover:underline">espagnol</a>.</p>
+        <p class="text-sm">En attendant, consultez nos guides en <a href="/en/blog/" class="text-jade hover:underline">anglais</a> ou en <a href="/es/blog/" class="text-jade hover:underline">espagnol</a>.</p>
       </div>
     )}
 
@@ -97,7 +97,7 @@ function imgPos(src?: string) {
       <p class="text-slate-mid text-sm mb-5 max-w-md mx-auto">
         Faites le quiz de 2 minutes pour obtenir une recommandation personnalisée selon votre situation.
       </p>
-      <a href="/fr/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/fr/quiz/" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Trouver ma route →
       </a>
     </div>

@@ -45,7 +45,7 @@ Las condiciones preexistentes son la variable que realmente importa. Las asegura
 
 El seguro de salud internacional (Cigna Global, IMG, Allianz Care) es la otra ruta comun, especialmente para quienes quieren una cobertura que tambien funcione si viajan de vuelta a Estados Unidos o Europa. Es considerablemente mas caro — a menudo entre $300 y $700+ al mes segun la edad y la region de cobertura — pero en muchos casos evita las exclusiones por condiciones preexistentes del sistema local y ofrece acceso a una red mas amplia.
 
-Si estas aplicando a la [visa de Pensionado](/es/visas/pensionado), ten en cuenta que Panama no exige comprobante de seguro de salud para esa categoria de visa, pero todo corredor de seguros y la mayoria de los asesores financieros en Panama te diran que no uses eso como excusa para no contratar cobertura.
+Si estas aplicando a la [visa de Pensionado](/es/visas/pensionado/), ten en cuenta que Panama no exige comprobante de seguro de salud para esa categoria de visa, pero todo corredor de seguros y la mayoria de los asesores financieros en Panama te diran que no uses eso como excusa para no contratar cobertura.
 
 ## La opcion de la CSS para residentes
 
@@ -63,4 +63,4 @@ El cuidado dental merece una mencion especial porque es una de las diferencias d
 
 Consigue una cotizacion de poliza privada y activala antes de necesitarla, no despues. Confirma con que hospital tiene tu aseguradora acuerdos de facturacion directa, ya que algunas polizas te obligan a pagar por adelantado y reembolsarte despues si usas una instalacion fuera de la red — una diferencia importante cuando la factura es de $12,000. Y si te vas a establecer fuera de la Ciudad de Panama, maneja la ruta hasta el hospital de mayor nivel mas cercano una vez, de dia, antes de decidir que esa ubicacion te conviene a largo plazo.
 
-No estas seguro de como encaja la logistica de salud con el resto de tu plan de mudanza? Haz el [quiz](/es/quiz) para obtener una lectura personalizada sobre que partes de Panama coinciden con lo que realmente necesitas.
+No estas seguro de como encaja la logistica de salud con el resto de tu plan de mudanza? Haz el [quiz](/es/quiz/) para obtener una lectura personalizada sobre que partes de Panama coinciden con lo que realmente necesitas.

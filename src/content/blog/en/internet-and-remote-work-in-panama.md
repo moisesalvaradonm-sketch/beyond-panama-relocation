@@ -62,10 +62,10 @@ Internet speed gets all the attention; power reliability gets almost none, despi
 
 ## Panama's visa option built for this exact situation
 
-Panama runs a dedicated [Digital Nomad Visa](/en/visas/digital-nomad), aimed specifically at people earning foreign income while living in Panama. It requires proof of remote employment (or client letters if freelancing) and monthly income of at least $3,000, with processing taking one to two months and up to nine months of stay, renewable. It's a different track from the [Pensionado visa](/en/visas/pensionado), which is built for retirees with a pension rather than active income, so pick the one that actually matches your situation rather than defaulting to whichever one you've heard of first.
+Panama runs a dedicated [Digital Nomad Visa](/en/visas/digital-nomad/), aimed specifically at people earning foreign income while living in Panama. It requires proof of remote employment (or client letters if freelancing) and monthly income of at least $3,000, with processing taking one to two months and up to nine months of stay, renewable. It's a different track from the [Pensionado visa](/en/visas/pensionado/), which is built for retirees with a pension rather than active income, so pick the one that actually matches your situation rather than defaulting to whichever one you've heard of first.
 
 ## Before you sign a lease
 
 Ask the landlord for the exact ISP and plan name, not just "fast internet included," and run a speed test from the unit itself if you can arrange a visit or ask a local contact to do it. If that's not possible, check whether Starlink is an option at the address before committing to a 12-month lease in a weak-coverage pocket. It's a five-minute question that prevents months of frustration.
 
-Not sure which city or province actually fits your work setup and budget? Take the [quiz](/en/quiz) to get a shortlist based on your real priorities, not just internet speed.
+Not sure which city or province actually fits your work setup and budget? Take the [quiz](/en/quiz/) to get a shortlist based on your real priorities, not just internet speed.

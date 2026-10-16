@@ -45,7 +45,7 @@ Pre-existing conditions are the real variable. Local insurers routinely exclude 
 
 International health insurance (Cigna Global, IMG, Allianz Care) is the other common route, especially for people who want coverage that also works when they travel back to the U.S. or Europe. It's considerably more expensive — often $300-$700+/month depending on age and coverage region — but it skips Panama's local pre-existing-condition exclusions in many cases and gives broader network access.
 
-If you're applying for the [Pensionado visa](/en/visas/pensionado), note that Panama does not require proof of health insurance for that visa category, but every insurance broker and most financial advisors in Panama will tell you not to rely on that as a reason to skip coverage.
+If you're applying for the [Pensionado visa](/en/visas/pensionado/), note that Panama does not require proof of health insurance for that visa category, but every insurance broker and most financial advisors in Panama will tell you not to rely on that as a reason to skip coverage.
 
 ## The CSS option for residents
 
@@ -63,4 +63,4 @@ Dental care deserves a specific mention because it's one of the most dramatic pr
 
 Get a private policy quoted and bound before you need it, not after. Confirm which hospital your prospective insurer has direct billing agreements with, since some policies require you to pay upfront and get reimbursed if you use an out-of-network facility — a meaningful difference when the bill is $12,000. And if you're settling outside Panama City, drive the route to the nearest Level I hospital once, in daylight, before you decide the location works for you long-term.
 
-Not sure how healthcare logistics fit with the rest of your relocation plan? Take the [quiz](/en/quiz) to get a personalized read on which parts of Panama match what you actually need.
+Not sure how healthcare logistics fit with the rest of your relocation plan? Take the [quiz](/en/quiz/) to get a personalized read on which parts of Panama match what you actually need.

@@ -104,4 +104,4 @@ Se ha convertido en hogar.
 
 ---
 
-*¿Listo para explorar tus opciones? Empieza con nuestra [guía de la Visa de Pensionado](/es/blog/visa-pensionado-guia) o [haz el quiz](/es/quiz) para descubrir qué camino se adapta mejor a tu situación.*
+*¿Listo para explorar tus opciones? Empieza con nuestra [guía de la Visa de Pensionado](/es/blog/visa-pensionado-guia/) o [haz el quiz](/es/quiz/) para descubrir qué camino se adapta mejor a tu situación.*

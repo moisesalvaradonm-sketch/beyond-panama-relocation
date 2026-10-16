@@ -104,4 +104,4 @@ Pour ceux qui cherchent à s'établir au Panama — que ce soit par l'investisse
 
 Chez **Beyond Panama Relocation**, nous accompagnons les investisseurs internationaux dans leurs processus de résidence, d'investissement, de structuration et d'établissement au Panama, en coordonnant les aspects juridiques et migratoires nécessaires à chaque situation.
 
-Vous envisagez d'investir au Panama et d'obtenir la résidence permanente ? [Contactez-nous](/fr/contact) pour connaître les options disponibles et recevoir des conseils pour votre démarche.
+Vous envisagez d'investir au Panama et d'obtenir la résidence permanente ? [Contactez-nous](/fr/contact/) pour connaître les options disponibles et recevoir des conseils pour votre démarche.

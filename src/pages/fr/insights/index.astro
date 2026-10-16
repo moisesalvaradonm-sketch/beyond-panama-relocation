@@ -64,7 +64,7 @@ const categoryColor: Record<string, string> = {
     {posts.length > 0 ? (
       <div class="grid gap-8">
         {posts.map(post => (
-          <a href={`/fr/insights/${post.id.replace('fr/', '')}`}
+          <a href={`/fr/insights/${post.id.replace('fr/', '')}/`}
             class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all min-w-0">
             {post.data.image && (
               <div class="w-full sm:w-48 h-36 sm:h-auto flex-shrink-0 min-w-0 rounded-xl overflow-hidden">
@@ -99,7 +99,7 @@ const categoryColor: Record<string, string> = {
         <p class="font-serif text-xl text-slate mb-2">Bientôt disponible</p>
         <p class="text-sm">Les perspectives d'experts seront publiées ici prochainement.</p>
         <p class="text-sm mt-2">En attendant, les articles sont disponibles en anglais.</p>
-        <a href="/en/insights" class="inline-flex mt-4 px-5 py-2 rounded-full border border-jade text-jade text-sm hover:bg-jade hover:text-white transition-colors">
+        <a href="/en/insights/" class="inline-flex mt-4 px-5 py-2 rounded-full border border-jade text-jade text-sm hover:bg-jade hover:text-white transition-colors">
           Voir en anglais →
         </a>
       </div>
@@ -108,7 +108,7 @@ const categoryColor: Record<string, string> = {
     <div class="mt-16 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Vous êtes partenaire, conseiller ou client ?</p>
       <p class="text-slate-mid text-sm mb-5">Si vous avez une expérience réelle de la relocalisation au Panama et souhaitez partager votre perspective, contactez-nous.</p>
-      <a href="/fr/contact" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/fr/contact/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Nous contacter →
       </a>
     </div>

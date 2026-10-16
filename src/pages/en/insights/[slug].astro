@@ -81,7 +81,7 @@ const articleSchema = {
 >
   <article class="max-w-3xl mx-auto px-4 py-16">
 
-    <a href="/en/insights" class="inline-flex items-center gap-1 text-jade text-sm hover:underline mb-8">
+    <a href="/en/insights/" class="inline-flex items-center gap-1 text-jade text-sm hover:underline mb-8">
       ← Beyond Insights
     </a>
 
@@ -189,7 +189,7 @@ const articleSchema = {
     <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Ready for your next step?</p>
       <p class="text-slate-mid text-sm mb-5">Take the quiz to get a personalized relocation route in 2 minutes.</p>
-      <a href="/en/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/en/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Take the quiz →
       </a>
     </div>
@@ -201,7 +201,7 @@ const articleSchema = {
         <div class="grid sm:grid-cols-2 gap-5">
           {related.map(rel => (
             <a
-              href={`/en/insights/${rel.id.replace('en/', '')}`}
+              href={`/en/insights/${rel.id.replace('en/', '')}/`}
               class="group p-5 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
             >
               <span class={`text-xs font-semibold uppercase tracking-wide ${rel.data.category === 'client-story' ? 'text-jade' : 'text-slate-mid'}`}>

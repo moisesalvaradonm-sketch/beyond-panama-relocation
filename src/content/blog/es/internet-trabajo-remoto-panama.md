@@ -62,10 +62,10 @@ La velocidad de internet se roba toda la atencion; la confiabilidad electrica ca
 
 ## La visa de Panama pensada exactamente para esto
 
-Panama tiene una [Visa de Nomada Digital](/es/visas/nomada-digital) dedicada, pensada especificamente para personas que viven en Panama con ingresos del extranjero. Exige comprobar empleo remoto (o cartas de clientes si eres freelancer) e ingresos mensuales de al menos $3,000, con un tramite que toma entre uno y dos meses y una estadia de hasta nueve meses, renovable. Es un camino distinto al de la [visa de Pensionado](/es/visas/pensionado), pensada para jubilados con pension y no para quienes tienen ingresos activos, asi que conviene elegir la que de verdad corresponde a tu situacion y no la primera que se te viene a la mente.
+Panama tiene una [Visa de Nomada Digital](/es/visas/nomada-digital/) dedicada, pensada especificamente para personas que viven en Panama con ingresos del extranjero. Exige comprobar empleo remoto (o cartas de clientes si eres freelancer) e ingresos mensuales de al menos $3,000, con un tramite que toma entre uno y dos meses y una estadia de hasta nueve meses, renovable. Es un camino distinto al de la [visa de Pensionado](/es/visas/pensionado/), pensada para jubilados con pension y no para quienes tienen ingresos activos, asi que conviene elegir la que de verdad corresponde a tu situacion y no la primera que se te viene a la mente.
 
 ## Antes de firmar un contrato de alquiler
 
 Pidele al propietario el nombre exacto del proveedor y del plan, no solo "internet rapido incluido", y si puedes organizar una visita o pedirle a un contacto local que lo haga, corre una prueba de velocidad desde la unidad misma. Si no es posible, averigua si Starlink es una opcion en esa direccion antes de comprometerte a un contrato de 12 meses en una zona de cobertura debil. Es una pregunta de cinco minutos que evita meses de frustracion.
 
-¿No sabes que ciudad o provincia se ajusta realmente a tu forma de trabajar y a tu presupuesto? Haz el [quiz](/es/quiz) para obtener una lista corta basada en tus prioridades reales, no solo en la velocidad de internet.
+¿No sabes que ciudad o provincia se ajusta realmente a tu forma de trabajar y a tu presupuesto? Haz el [quiz](/es/quiz/) para obtener una lista corta basada en tus prioridades reales, no solo en la velocidad de internet.

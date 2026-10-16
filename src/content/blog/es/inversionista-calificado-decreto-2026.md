@@ -104,4 +104,4 @@ Para quienes buscan establecerse en Panamá, invertir en bienes raíces, estruct
 
 En **Beyond Panama Relocation**, acompañamos a inversionistas internacionales en sus procesos de residencia, inversión, estructuración y establecimiento en Panamá, coordinando los aspectos legales y migratorios necesarios para cada caso.
 
-¿Estás evaluando invertir en Panamá y obtener la residencia permanente? [Contáctanos](/es/contacto) para conocer las opciones disponibles y recibir orientación sobre tu proceso.
+¿Estás evaluando invertir en Panamá y obtener la residencia permanente? [Contáctanos](/es/contacto/) para conocer las opciones disponibles y recibir orientación sobre tu proceso.
