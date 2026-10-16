@@ -6,6 +6,8 @@ lang: en
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/healthcare-in-panama-for-expats.webp
+imageAlt: "Expat patient consulting with a doctor at a modern Panama City hospital with skyline view"
 ---
 
 A hip replacement that costs $40,000 in the United States runs about $12,000-$16,000 at Hospital Punta Pacífica in Panama City, with the same Johns Hopkins-affiliated standards of care. That price gap is the first thing most expats learn about Panamanian healthcare, and it's also the thing that gets oversimplified into "healthcare is cheap here" — which isn't quite true once you factor in insurance, location, and what happens when something goes wrong outside the capital.

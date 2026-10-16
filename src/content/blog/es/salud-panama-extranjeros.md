@@ -6,6 +6,8 @@ lang: es
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/salud-panama-extranjeros.webp
+imageAlt: "Expatriado consultando con un médico en un hospital moderno de Ciudad de Panamá con vista al skyline"
 ---
 
 Una cirugia de reemplazo de cadera que cuesta 40,000 dolares en Estados Unidos sale entre 12,000 y 16,000 dolares en el Hospital Punta Pacifica en la Ciudad de Panama, con el mismo nivel de atencion afiliado a estandares de Johns Hopkins. Esa diferencia de precio es lo primero que la mayoria de los extranjeros aprenden sobre el sistema de salud panameno, y tambien es lo que se simplifica demasiado en la frase "la salud es barata aqui" — algo que no es del todo cierto una vez que se toma en cuenta el seguro, la ubicacion y lo que pasa cuando algo sale mal fuera de la capital.
