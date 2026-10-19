@@ -183,7 +183,6 @@ const blogPairs: Array<Partial<Record<Lang, string>>> = [
   { en: 'qualified-investor-decree-2026',  es: 'inversionista-calificado-decreto-2026', fr: 'investisseur-qualifie-decret-2026' },
   { en: 'panama-territorial-tax-guide',    es: 'ventajas-fiscales-panama-expatriados' },
   { en: 'healthcare-in-panama-for-expats', es: 'salud-panama-extranjeros' },
-  { en: 'internet-and-remote-work-in-panama', es: 'internet-trabajo-remoto-panama' },
   { en: 'renting-apartment-panama-guide',  es: 'alquilar-apartamento-panama-extranjero' },
   { en: 'why-panama-attracts-retirees',    es: 'por-que-panama-atrae-jubilados', fr: 'pourquoi-panama-attire-retraites' },
 ];
