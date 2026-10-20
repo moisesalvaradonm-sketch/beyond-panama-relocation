@@ -1,0 +1,236 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+import RealEstateForm from '../../components/ui/RealEstateForm.astro';
+import RealEstateHero from '../../components/ui/RealEstateHero.astro';
+---
+
+<Layout
+  title="Buying & Renting Real Estate in Panama — A Practical Guide"
+  description="What you need to know about Panama's property market: price ranges by area, how foreigners buy property, the purchase process, renting vs. buying, and what to watch out for."
+  lang="en"
+>
+
+  <RealEstateHero lang="en" />
+
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h2 class="font-serif text-4xl text-slate mt-4 mb-3">Real Estate in Panama</h2>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Foreigners have the same property ownership rights as Panamanian citizens. There is no restriction on buying residential or commercial real estate — no quotas, no minimum stay requirements, no forced joint ownership. Here's how the market actually works.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Quick Answer</p>
+      <p class="text-slate text-sm leading-relaxed">
+        A 1-bedroom apartment in Panama City ranges from <strong>$120,000 to $250,000</strong> to buy, or <strong>$700–$1,200/month</strong> to rent. In Boquete or Coronado, the same money buys more space. Foreigners own property outright — no restrictions. You'll need a Panamanian attorney to close (standard fee: 1% of purchase price). Total transaction costs: approximately 4–5% of sale price.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-2xl font-bold text-jade mb-1">100%</p>
+        <p class="text-slate-mid text-xs leading-snug">Foreign ownership rights — same as citizens</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-2xl font-bold text-jade mb-1">4–5%</p>
+        <p class="text-slate-mid text-xs leading-snug">Typical total transaction costs (buyer)</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-2xl font-bold text-jade mb-1">$0</p>
+        <p class="text-slate-mid text-xs leading-snug">Agent fee for buyers (paid by seller)</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Price Ranges by Area (2025)</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed text-sm">
+        Prices below are market observations as of Q3 2025 from actively listed and recently sold properties. They reflect a range — location within the area, quality, and age of construction affect price significantly.
+      </p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3">
+          <div class="grid grid-cols-3 gap-2">
+            <span class="text-white text-xs font-semibold">Area</span>
+            <span class="text-white text-xs font-semibold">Buy (1BR apartment)</span>
+            <span class="text-white text-xs font-semibold">Rent/month</span>
+          </div>
+        </div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Panama City — Casco Viejo", "$180,000–$350,000", "$900–$2,000"],
+            ["Panama City — Marbella / Punta Pacífica", "$200,000–$450,000", "$900–$2,500"],
+            ["Panama City — El Cangrejo / Bella Vista", "$120,000–$220,000", "$700–$1,400"],
+            ["Panama City — San Francisco", "$130,000–$250,000", "$750–$1,500"],
+            ["Coronado (Pacific Coast)", "$90,000–$200,000", "$500–$1,000"],
+            ["Boquete (Chiriquí highlands)", "$80,000–$250,000", "$400–$900"],
+            ["Bocas del Toro", "$80,000–$180,000", "$400–$800"],
+            ["Pedasi & Pacific villages", "$60,000–$180,000", "$350–$700"],
+          ].map(([area, buy, rent]) => (
+            <div class="grid grid-cols-3 gap-2 px-5 py-4 text-sm">
+              <span class="font-medium text-slate">{area}</span>
+              <span class="text-slate-mid">{buy}</span>
+              <span class="text-jade font-medium">{rent}</span>
+            </div>
+          ))}
+        </div>
+        <div class="px-5 py-3 bg-fog border-t border-jade/10">
+          <p class="text-xs text-slate-mid">Prices are market observations from Q3 2025 listings. Beachfront, ocean views, or newly built units carry a premium. Prices in Casco Viejo have appreciated significantly since 2018 and remain active.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">How Foreigners Buy Property in Panama</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        Panama's property law is straightforward for foreign buyers: you own the title directly, in your own name. There is no requirement to be a resident, to have a local partner, or to have been in the country for any minimum time. The process mirrors a US closing, with a few local differences.
+      </p>
+      <div class="space-y-3">
+        {[
+          {
+            step: "1. Find the property",
+            detail: "Work with a licensed real estate agent (their commission — typically 5% — is paid by the seller, not the buyer). Do not rely on word-of-mouth listings for title properties: require a formal MLS listing or documented ownership chain."
+          },
+          {
+            step: "2. Sign a promise-to-purchase agreement",
+            detail: "The promesa de compraventa locks in the price and terms. A deposit of 5–10% is standard. Your attorney reviews this document before you sign — do not skip this step."
+          },
+          {
+            step: "3. Title search (estudio de títulos)",
+            detail: "Your attorney searches the Public Registry to confirm the seller holds clear title, that there are no liens, and that the property boundaries match the catastral records. Takes 1–3 weeks."
+          },
+          {
+            step: "4. Closing at a notary public",
+            detail: "Panama closings happen at a notary public, not a title company. Your attorney prepares the escritura (deed). Both parties sign in person. The notary registers the transfer with the Public Registry."
+          },
+          {
+            step: "5. Registration",
+            detail: "The Public Registry records the new title in your name. This can take 2–8 weeks after closing. Your attorney handles this process and delivers the registered título once complete."
+          },
+        ].map(({step, detail}) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-1">{step}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Transaction Costs</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Real estate agent commission", "5% of sale price", "Paid by seller"],
+            ["Transfer tax (Impuesto de Transferencia)", "2% of sale price or cadastral value", "Paid by seller"],
+            ["Legal fees (buyer's attorney)", "~1% of sale price", "Paid by buyer"],
+            ["Notary & registration fees", "~0.1–0.3% of sale price", "Shared"],
+            ["Property transfer stamp tax", "0.5% of value", "Paid by seller"],
+            ["Annual property tax", "0% (exempt on primary residence up to $120,000 cadastral value)", "Ongoing — buyer"],
+          ].map(([item, amount, who]) => (
+            <div class="px-5 py-4 text-sm">
+              <div class="flex justify-between gap-4">
+                <span class="font-medium text-slate">{item}</span>
+                <span class="text-jade font-semibold whitespace-nowrap">{amount}</span>
+              </div>
+              <p class="text-slate-mid text-xs mt-0.5">{who}</p>
+            </div>
+          ))}
+        </div>
+        <div class="px-5 py-3 bg-fog border-t border-jade/10">
+          <p class="text-xs text-slate-mid">For buyers: the main cost is the attorney fee (~1%). Estimate 1.5–2% total buyer-side costs including registration. Sellers bear the agent commission and transfer taxes. Source: Panamanian Public Registry and standard market practice, 2025.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Renting vs. Buying</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed text-sm">
+        Most expats rent for the first 6–18 months before buying. Panama's rental market is well-developed in Panama City and Coronado. This is not just conventional advice — it's practical: neighborhoods in Panama City vary dramatically within a few blocks, and what looks appealing on a map can feel different once you've lived there.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-semibold text-slate text-sm mb-3">Rent first if…</p>
+          <ul class="space-y-2 text-xs text-slate-mid">
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You haven't lived in Panama yet</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You're not certain which city or area fits you</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You want flexibility while your residency processes</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You're not ready to commit capital yet</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-semibold text-slate text-sm mb-3">Buy when…</p>
+          <ul class="space-y-2 text-xs text-slate-mid">
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You've lived in Panama at least 6–12 months</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>You're confident in the specific neighborhood</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>Your residency visa is in hand (simplifies financing)</li>
+            <li class="flex gap-2"><span class="text-jade mt-0.5">✓</span>The investment also qualifies for or supports your visa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Property Investment & Residency Visas</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">
+        Two Panama residency programs use real estate as a qualifying asset:
+      </p>
+      <div class="space-y-3">
+        <div class="p-4 rounded-xl bg-white border border-gold/20">
+          <p class="font-semibold text-slate text-sm mb-1">Qualified Investor Visa — real estate option</p>
+          <p class="text-slate-mid text-xs leading-relaxed">Property investment of $300,000+ (not encumbered). Qualifies for permanent residency from the first application with a path to citizenship. The property must be titled property — not a right of possession.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-gold/20">
+          <p class="font-semibold text-slate text-sm mb-1">Friendly Nations Visa — property option</p>
+          <p class="text-slate-mid text-xs leading-relaxed">A property purchase of $200,000+ can satisfy the economic ties requirement for the Friendly Nations visa, alongside or instead of an employment letter. The property must be in the applicant's name and free of major liens.</p>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-4">Residency requirements change. Verify current thresholds with a licensed Panamanian immigration attorney before committing any purchase for visa purposes. See <a href="/en/visas/qualified-investor/" class="text-jade hover:underline">Qualified Investor Visa</a> and <a href="/en/visas/friendly-nations/" class="text-jade hover:underline">Friendly Nations Visa</a> for current details.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-6">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Can foreigners own property in Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes, with the same rights as Panamanian citizens. There are no restrictions on foreign ownership of titled residential property. You can own in your own name, a corporation, or a foundation. No residency or visa is required to purchase.</dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Do I need a Panamanian attorney to buy property?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes, and this is not optional in practice. Panama law requires a licensed Panamanian attorney to prepare the deed and conduct the closing. Attorney fees are typically 1% of the purchase price. Budget for this from the start — it's also the most important protection you have in the transaction.</dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Can I get a mortgage in Panama as a foreigner?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes. Panamanian banks offer mortgages to foreign buyers, typically at 70–80% LTV (you put down 20–30%). Interest rates range from 6–8% in USD. Requirements include a residency visa or strong documented income, bank statements, and proof of funds. The process takes 4–8 weeks. Most expat buyers transact in cash.</dd>
+        </div>
+
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">What is "right of possession" vs. titled property?</dt>
+          <dd class="text-slate-mid leading-relaxed">Titled property (título de propiedad, registered in the Public Registry) is the safest form of ownership and the standard in Panama City and most urbanized areas. Right of possession (derecho de posesión) is a documented claim without full legal title, common in rural areas and some beach zones. Foreign buyers should almost always seek titled property — right of possession carries legal risk and cannot typically be used for visa qualification or bank financing.</dd>
+        </div>
+
+      </dl>
+    </div>
+  </section>
+
+  <section class="bg-cream border-t border-jade/8">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-20">
+      <div class="mb-10 text-center">
+        <span class="text-jade text-xs font-semibold uppercase tracking-widest">Property Search</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-slate mt-3 mb-3">Tell Us What You're Looking For</h2>
+        <p class="text-slate-mid text-sm md:text-base max-w-lg mx-auto">
+          We connect you with a licensed agent in the area you're considering — no cost, no obligation.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-jade/10 shadow-sm p-6 md:p-10">
+        <RealEstateForm lang="en" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedGuides lang="en" categories={['proceso', 'zonas']} />
+</Layout>

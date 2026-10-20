@@ -1,6 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Quiz from '../../components/quiz/Quiz';
+
+const quizSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Quiz de Visa para Panamá',
+  url: 'https://beyondpanamarelocation.com/es/quiz/',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  description: 'Encuentra tu ruta hacia Panamá en 2 minutos según tu perfil y presupuesto reales.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: 'es-PA',
+};
 ---
 
 <Layout
@@ -8,6 +20,7 @@ import Quiz from '../../components/quiz/Quiz';
   description="Encuentra tu ruta en 2 minutos según lo que realmente buscas en Panamá."
   lang="es"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(quizSchema)} />
   <!-- Formulario oculto para que Netlify lo detecte en el build -->
   <form name="quiz-subscribe-es" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="name" />

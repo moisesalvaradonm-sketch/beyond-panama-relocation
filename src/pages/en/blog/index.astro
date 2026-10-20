@@ -71,7 +71,7 @@ const categoryLabel: Record<string, string> = {
       <div id="blog-grid" class="grid md:grid-cols-2 gap-6 mb-12">
         {posts.map(post => (
           <a
-            href={`/en/blog/${post.id.replace('en/', '')}`}
+            href={`/en/blog/${post.id.replace('en/', '')}/`}
             class="group rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all overflow-hidden flex flex-col"
           >
             {post.data.image && (
@@ -107,7 +107,7 @@ const categoryLabel: Record<string, string> = {
     <div class="text-center p-8 rounded-2xl bg-jade/5 border border-jade/15">
       <p class="font-serif text-xl text-slate mb-2">More guides coming</p>
       <p class="text-slate-mid text-sm mb-5">We publish regularly. Meanwhile, the quiz is the fastest way to get oriented.</p>
-      <a href="/en/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/en/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Take the quiz →
       </a>
     </div>

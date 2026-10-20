@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import RelatedGuides from '../../../components/ui/RelatedGuides.astro';
 
 const visas = [
   {
@@ -8,7 +9,7 @@ const visas = [
     tag: 'Retraités',
     requirement: 'Pension viagère de 1 000 USD/mois',
     idealFor: 'Retraités avec une pension de n\'importe quel pays',
-    href: '/fr/visas/pensionado',
+    href: '/fr/visas/pensionado/',
   },
   {
     emoji: '🌐',
@@ -16,7 +17,7 @@ const visas = [
     tag: '50 pays éligibles',
     requirement: 'Lien économique ou professionnel avec le Panama',
     idealFor: 'Professionnels et télétravailleurs de 50 nations',
-    href: '/fr/visas/nations-amies',
+    href: '/fr/visas/nations-amies/',
   },
   {
     emoji: '💻',
@@ -24,7 +25,7 @@ const visas = [
     tag: 'Télétravail',
     requirement: '3 000 USD+/mois de revenus étrangers',
     idealFor: 'Télétravailleurs pour des entreprises hors Panama',
-    href: '/fr/visas/nomade-digital',
+    href: '/fr/visas/nomade-digital/',
   },
   {
     emoji: '📈',
@@ -32,7 +33,7 @@ const visas = [
     tag: 'Golden Visa',
     requirement: 'Investissement min. 300 000 USD au Panama',
     idealFor: 'Investisseurs cherchant la résidence permanente immédiate',
-    href: '/fr/visas/investisseur-qualifie',
+    href: '/fr/visas/investisseur-qualifie/',
   },
   {
     emoji: '🏦',
@@ -40,7 +41,7 @@ const visas = [
     tag: 'Dépôt à terme',
     requirement: 'Dépôt bancaire générant 850+ USD/mois d\'intérêts',
     idealFor: 'Détenteurs de capital souhaitant le Passeport Spécial',
-    href: '/fr/visas/rentista-retirado',
+    href: '/fr/visas/rentista-retirado/',
   },
   {
     emoji: '🌳',
@@ -48,7 +49,7 @@ const visas = [
     tag: 'Investisseurs nature',
     requirement: 'Min. 100 000 USD dans un projet forestier certifié',
     idealFor: 'Investisseurs avec sensibilité environnementale',
-    href: '/fr/visas/reboisement',
+    href: '/fr/visas/reboisement/',
   },
 ];
 ---
@@ -58,16 +59,27 @@ const visas = [
   description="Comparez les 6 principales voies de résidence au Panama : Pensionado, Nations Amies, Investisseur Qualifié, Rentista Retirado, Reboisement et Nomade Digital."
   lang="fr"
 >
-  <section class="max-w-4xl mx-auto px-4 py-16">
-
-    <div class="mb-12">
-      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
-      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Visas et Résidence au Panama</h1>
-      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+  <!-- Hero banner -->
+  <div class="relative overflow-hidden bg-slate">
+    <img
+      src="/img/areas/panama-city-aerial.webp"
+      alt="Vue aérienne de Panama City"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-30"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-slate/95 via-slate/75 to-slate/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate/80 to-transparent"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-16 md:py-24">
+      <a href="/fr/" class="text-white/55 hover:text-white text-sm transition-colors">← Accueil</a>
+      <h1 class="font-serif text-4xl md:text-5xl text-white mt-5 mb-5 leading-tight">Visas et Résidence au Panama</h1>
+      <p class="text-white/70 text-lg max-w-2xl leading-relaxed">
         Le Panama compte plus de 50 catégories d'immigration. Les 6 qui concernent la plupart
         des personnes souhaitant s'y installer — expliquées clairement, sans jargon juridique.
       </p>
     </div>
+  </div>
+
+  <section class="max-w-4xl mx-auto px-4 py-12">
 
     <div class="grid md:grid-cols-2 gap-5 mb-12">
       {visas.map(visa => (
@@ -115,39 +127,39 @@ const visas = [
         </thead>
         <tbody class="divide-y divide-jade/5">
           <tr class="hover:bg-jade/3 transition-colors">
-            <td class="px-5 py-4"><a href="/fr/visas/pensionado" class="font-semibold text-jade hover:underline">Pensionado</a></td>
+            <td class="px-5 py-4"><a href="/fr/visas/pensionado/" class="font-semibold text-jade hover:underline">Pensionado</a></td>
             <td class="px-5 py-4 text-slate-mid">Retraités avec pension</td>
             <td class="px-5 py-4 text-slate-mid">1 000 USD/mois de pension</td>
             <td class="px-5 py-4 text-slate-mid">~6 mois</td>
           </tr>
           <tr class="hover:bg-jade/3 transition-colors">
-            <td class="px-5 py-4"><a href="/fr/visas/nations-amies" class="font-semibold text-jade hover:underline">Nations Amies</a></td>
+            <td class="px-5 py-4"><a href="/fr/visas/nations-amies/" class="font-semibold text-jade hover:underline">Nations Amies</a></td>
             <td class="px-5 py-4 text-slate-mid">Ressortissants de 50 pays</td>
             <td class="px-5 py-4 text-slate-mid">Lien économique avec le Panama</td>
             <td class="px-5 py-4 text-slate-mid">2–3 mois</td>
           </tr>
           <tr class="hover:bg-jade/3 transition-colors">
-            <td class="px-5 py-4"><a href="/fr/visas/nomade-digital" class="font-semibold text-jade hover:underline">Nomade Digital</a></td>
+            <td class="px-5 py-4"><a href="/fr/visas/nomade-digital/" class="font-semibold text-jade hover:underline">Nomade Digital</a></td>
             <td class="px-5 py-4 text-slate-mid">Télétravailleurs</td>
             <td class="px-5 py-4 text-slate-mid">36 000 USD/an revenus étrangers</td>
             <td class="px-5 py-4 text-slate-mid">1–2 mois</td>
           </tr>
           <tr class="hover:bg-jade/3 transition-colors bg-gold/3">
             <td class="px-5 py-4">
-              <a href="/fr/visas/investisseur-qualifie" class="font-semibold text-jade hover:underline">Investisseur Qualifié</a>
+              <a href="/fr/visas/investisseur-qualifie/" class="font-semibold text-jade hover:underline">Investisseur Qualifié</a>
             </td>
             <td class="px-5 py-4 text-slate-mid">Investisseurs</td>
             <td class="px-5 py-4 text-slate-mid">300 000 USD immobilier</td>
             <td class="px-5 py-4 text-slate-mid">30–45 jours</td>
           </tr>
           <tr class="hover:bg-jade/3 transition-colors">
-            <td class="px-5 py-4"><a href="/fr/visas/rentista-retirado" class="font-semibold text-jade hover:underline">Rentista Retirado</a></td>
+            <td class="px-5 py-4"><a href="/fr/visas/rentista-retirado/" class="font-semibold text-jade hover:underline">Rentista Retirado</a></td>
             <td class="px-5 py-4 text-slate-mid">Détenteurs de capital</td>
             <td class="px-5 py-4 text-slate-mid">~250 000 USD dépôt bancaire</td>
             <td class="px-5 py-4 text-slate-mid">~6 mois</td>
           </tr>
           <tr class="hover:bg-jade/3 transition-colors">
-            <td class="px-5 py-4"><a href="/fr/visas/reboisement" class="font-semibold text-jade hover:underline">Reboisement</a></td>
+            <td class="px-5 py-4"><a href="/fr/visas/reboisement/" class="font-semibold text-jade hover:underline">Reboisement</a></td>
             <td class="px-5 py-4 text-slate-mid">Investisseurs écologiques</td>
             <td class="px-5 py-4 text-slate-mid">100 000 USD projet forestier</td>
             <td class="px-5 py-4 text-slate-mid">4–8 mois</td>
@@ -165,14 +177,15 @@ const visas = [
         Comparez les 6 visas côte à côte, ou trouvez votre route en 2 minutes pour obtenir une recommandation neutre selon votre situation.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/fr/visas/comparaison" class="px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
+        <a href="/fr/visas/comparaison/" class="px-6 py-3 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
           Voir la comparaison complète →
         </a>
-        <a href="/fr/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        <a href="/fr/quiz/" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
           Trouver votre route →
         </a>
       </div>
     </div>
 
   </section>
+  <RelatedGuides lang="fr" categories={['visas']} />
 </Layout>

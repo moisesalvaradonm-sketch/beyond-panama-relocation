@@ -1,0 +1,41 @@
+---
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Real last-update date, if the article has one. */
+  updated?: Date;
+}
+const { lang, updated } = Astro.props;
+
+const aboutHref = lang === 'es' ? '/es/sobre-nosotros/' : lang === 'fr' ? '/fr/a-propos/' : '/en/about/';
+const locale = lang === 'es' ? 'es-PA' : lang === 'fr' ? 'fr-FR' : 'en-US';
+const t = {
+  es: {
+    role: 'Fundador de Beyond Panama Relocation · consultor de reubicación con experiencia en el mercado inmobiliario y el entorno migratorio de Panamá.',
+    note: 'Este artículo es información general, no asesoría legal ni migratoria. Los requisitos cambian: confirma siempre con la autoridad oficial o un abogado panameño antes de decidir.',
+    by: 'Escrito por', upd: 'Actualizado', more: 'Sobre el autor',
+  },
+  fr: {
+    role: 'Fondateur de Beyond Panama Relocation · consultant en relocalisation, avec une expérience du marché immobilier et du cadre migratoire du Panama.',
+    note: "Cet article est une information générale, pas un conseil juridique ou migratoire. Les exigences évoluent : vérifiez toujours auprès de l'autorité officielle ou d'un avocat panaméen.",
+    by: 'Écrit par', upd: 'Mis à jour', more: "À propos de l'auteur",
+  },
+  en: {
+    role: "Founder of Beyond Panama Relocation · relocation consultant with experience in Panama's real estate market and immigration landscape.",
+    note: 'This article is general information, not legal or immigration advice. Requirements change: always confirm with the official authority or a Panamanian attorney before deciding.',
+    by: 'Written by', upd: 'Updated', more: 'About the author',
+  },
+}[lang];
+---
+<aside class="mt-12 p-6 rounded-2xl bg-white border border-jade/10 flex gap-4 items-start" aria-label={t.more}>
+  <img src="/moises-alvarado.jpg" alt="Moisés Alvarado" class="w-14 h-14 rounded-full object-cover flex-shrink-0" width="56" height="56" loading="lazy" />
+  <div class="text-sm text-slate-mid leading-relaxed">
+    <p class="text-slate font-medium">
+      {t.by} <a href={aboutHref} class="text-jade hover:underline">Moisés Alvarado</a>
+      {updated && <span class="text-slate-mid font-normal"> · {t.upd} <time datetime={updated.toISOString().slice(0, 10)}>{updated.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</time></span>}
+    </p>
+    <p class="mt-1">{t.role}</p>
+    <p class="mt-2 text-xs text-slate-mid/80">{t.note}</p>
+  </div>
+</aside>

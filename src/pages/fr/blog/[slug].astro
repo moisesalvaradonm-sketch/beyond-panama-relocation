@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import AuthorBox from '../../../components/ui/AuthorBox.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data, id }) =>
@@ -69,7 +70,7 @@ const articleSchema = {
     height: 630,
   } : undefined,
   datePublished: post.data.pubDate.toISOString(),
-  dateModified: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
   url: pageUrl,
   inLanguage: 'fr',
   author: {
@@ -82,7 +83,7 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'Beyond Panama Relocation',
     url: siteUrl,
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon-512.png` },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
 };
@@ -93,11 +94,12 @@ const articleSchema = {
   description={post.data.description}
   lang="fr"
   pubDate={post.data.pubDate}
+  modDate={post.data.updatedDate}
   articleAuthor="Moisés Alvarado"
   articleSection={categoryLabel[post.data.category] ?? post.data.category}
 >
   <article class="max-w-3xl mx-auto px-4 py-16">
-    <a href="/fr/blog" class="inline-flex items-center gap-1 text-jade text-sm hover:underline mb-8">
+    <a href="/fr/blog/" class="inline-flex items-center gap-1 text-jade text-sm hover:underline mb-8">
       ← Retour au Blog
     </a>
 
@@ -127,8 +129,6 @@ const articleSchema = {
           <span>{post.data.pubDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
           <span>·</span>
           <span>{post.data.readTime} min de lecture</span>
-          <span>·</span>
-          <span>Dernière révision : septembre 2026</span>
         </div>
       </div>
     </header>
@@ -171,11 +171,13 @@ const articleSchema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
+    <AuthorBox lang="fr" updated={post.data.updatedDate} />
+
     <!-- CTA Quiz -->
     <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Prêt pour la prochaine étape ?</p>
       <p class="text-slate-mid text-sm mb-5">Le quiz vous oriente en 2 minutes selon votre profil et votre budget réel.</p>
-      <a href="/fr/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/fr/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Faire le quiz →
       </a>
     </div>
@@ -187,7 +189,7 @@ const articleSchema = {
         <div class="grid sm:grid-cols-2 gap-5">
           {related.map(rel => (
             <a
-              href={`/fr/blog/${rel.id.replace('fr/', '')}`}
+              href={`/fr/blog/${rel.id.replace('fr/', '')}/`}
               class="group p-5 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
             >
               <span class="text-xs font-semibold text-jade uppercase tracking-wide">

@@ -2,7 +2,10 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import { getLangFromUrl } from '../i18n/ui';
+import WhatsAppFloat from '../components/ui/WhatsAppFloat.astro';
+import PromoPopups from '../components/ui/PromoPopups.astro';
+import { getLangFromUrl, translatePathStrict, type Lang } from '../i18n/ui';
+import { getRouteSet, isNoindexPath } from '../seo';
 
 interface Props {
   title: string;
@@ -12,8 +15,12 @@ interface Props {
   canonicalUrl?: string;
   noindex?: boolean;
   pubDate?: Date;
+  /** Real last-update date (dateModified / article:modified_time). Falls back to pubDate. */
+  modDate?: Date;
   articleAuthor?: string;
   articleSection?: string;
+  /** Landing-page mode: no site nav/footer/popups, no cross-language hreflang. */
+  minimal?: boolean;
 }
 
 const {
@@ -22,16 +29,20 @@ const {
   lang,
   ogImage,
   canonicalUrl,
-  noindex = false,
+  noindex: noindexProp = false,
   pubDate,
+  modDate,
   articleAuthor,
   articleSection,
+  minimal = false,
 } = Astro.props;
 
 const currentLang = lang ?? getLangFromUrl(Astro.url);
+const noindex = noindexProp || isNoindexPath(Astro.url.pathname);
 const siteUrl = 'https://beyondpanamarelocation.com';
 const canonical = canonicalUrl ?? Astro.url.href;
 const ogLocale = currentLang === 'es' ? 'es_PA' : currentLang === 'fr' ? 'fr_FR' : 'en_US';
+const schemaLang = currentLang === 'es' ? 'es-PA' : currentLang === 'fr' ? 'fr-FR' : 'en-US';
 const ogImageAbsolute = ogImage
   ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
   : `${siteUrl}/img/og-default.png`;
@@ -41,16 +52,23 @@ const ogType = pubDate ? 'article' : 'website';
 const pathname = Astro.url.pathname;
 const selfUrl = `${siteUrl}${pathname}`;
 
-// Build hreflang URLs for all 3 languages by replacing the lang prefix
-function swapLang(p: string, fromLang: string, toLang: string): string {
-  if (p === `/${fromLang}` || p === `/${fromLang}/`) return `/${toLang}`;
-  return p.replace(new RegExp(`^/${fromLang}(/|$)`), `/${toLang}$1`);
-}
+// Strip lang prefix to get the locale-independent path (e.g. /blog/slug/)
+const pathWithoutLang = pathname.replace(new RegExp(`^/${currentLang}`), '') || '/';
 
-const hrefLangs = (['es', 'en', 'fr'] as const).map(l => ({
-  lang: l,
-  url: `${siteUrl}${swapLang(pathname, currentLang, l)}`,
-}));
+// hreflang: only real, indexable translations (never an index page as a stand-in).
+// Reciprocal by construction: every page in a cluster computes the same set.
+const routes = await getRouteSet();
+const hrefLangs: { lang: Lang; url: string }[] = [];
+if (!noindex) {
+  for (const l of ['es', 'en', 'fr'] as const) {
+    const p = l === currentLang ? pathWithoutLang : translatePathStrict(pathWithoutLang, currentLang, l);
+    if (!p) continue;
+    const full = `/${l}${p}`;
+    if (l !== currentLang && (!routes.has(full) || isNoindexPath(full))) continue;
+    hrefLangs.push({ lang: l, url: `${siteUrl}${full}` });
+  }
+}
+const xDefault = hrefLangs.find(h => h.lang === 'en')?.url;
 
 // ── Schema: WebSite ──────────────────────────────────────────────────────────
 const websiteSchema = {
@@ -58,8 +76,8 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Beyond Panama Relocation',
   url: siteUrl,
-  description: description || 'Your bilingual guide to relocating and living in Panama.',
-  inLanguage: ogLocale,
+  description: description || 'Your trilingual guide to relocating and living in Panama.',
+  inLanguage: schemaLang,
 };
 
 // ── Schema: Organization ─────────────────────────────────────────────────────
@@ -70,14 +88,36 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Beyond Panama Relocation',
   url: siteUrl,
-  logo: `${siteUrl}/favicon.svg`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/img/logo-horizontal.webp`,
+    width: 600,
+    height: 200,
+  },
   description:
-    'A bilingual relocation information service helping people make well-informed decisions about moving to Panama.',
+    'A trilingual relocation information service helping people make well-informed decisions about moving to Panama.',
   areaServed: {
     '@type': 'Country',
     name: 'Panama',
   },
-  knowsLanguage: ['en', 'es'],
+  knowsLanguage: ['en', 'es', 'fr'],
+  foundingDate: '2024',
+  founder: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/en/about/#author`,
+    name: 'Moisés Alvarado',
+    url: `${siteUrl}/en/about/`,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    url: `${siteUrl}/en/contact/`,
+    availableLanguage: ['English', 'Spanish', 'French'],
+  },
+  sameAs: [
+    'https://www.facebook.com/beyondpanamarelocation',
+    'https://www.instagram.com/beyondpanamarelocation',
+  ],
 };
 
 // ── Schema: BreadcrumbList ────────────────────────────────────────────────────
@@ -85,15 +125,18 @@ const organizationSchema = {
 // Segments after the lang prefix are converted from kebab-case to Title Case
 // for intermediate items; the current page uses the page `title` prop.
 
-interface BreadcrumbListItem {
-  '@type': 'ListItem';
-  position: number;
-  name: string;
-  item: string;
-}
-
 const pathSegments = pathname.split('/').filter(Boolean); // e.g. ['en','visas','pensionado']
 const contentSegments = pathSegments.slice(1);            // drop lang prefix
+
+// Section labels for intermediate crumbs (fallback: Title Case of the slug).
+const sectionLabels: Record<string, Record<Lang, string>> = {
+  visas:    { en: 'Visas & Residency', es: 'Visas y Residencia', fr: 'Visas & Résidence' },
+  areas:    { en: 'Areas to Live', es: 'Zonas para Vivir', fr: 'Régions pour Vivre' },
+  zonas:    { en: 'Areas to Live', es: 'Zonas para Vivir', fr: 'Régions pour Vivre' },
+  zones:    { en: 'Areas to Live', es: 'Zonas para Vivir', fr: 'Régions pour Vivre' },
+  blog:     { en: 'Blog', es: 'Blog', fr: 'Blog' },
+  insights: { en: 'Beyond Insights', es: 'Beyond Insights', fr: 'Beyond Insights' },
+};
 
 function kebabToTitle(s: string): string {
   return s
@@ -105,25 +148,20 @@ function kebabToTitle(s: string): string {
 let breadcrumbSchema: object | null = null;
 
 if (contentSegments.length > 0) {
-  const langPrefix = pathSegments[0]; // 'en' | 'es'
+  const langPrefix = pathSegments[0]; // 'en' | 'es' | 'fr'
   const homeLabel = currentLang === 'es' ? 'Inicio' : currentLang === 'fr' ? 'Accueil' : 'Home';
 
-  const items: BreadcrumbListItem[] = [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: homeLabel,
-      item: `${siteUrl}/${langPrefix}`,
-    },
+  const crumbs: { name: string; item: string }[] = [
+    { name: homeLabel, item: `${siteUrl}/${langPrefix}/` },
   ];
 
   contentSegments.forEach((segment, index) => {
     const isLast = index === contentSegments.length - 1;
-    const cumulativePath = `/${langPrefix}/${contentSegments.slice(0, index + 1).join('/')}`;
-    items.push({
-      '@type': 'ListItem',
-      position: index + 2,
-      name: isLast ? title : kebabToTitle(segment),
+    const cumulativePath = `/${langPrefix}/${contentSegments.slice(0, index + 1).join('/')}/`;
+    // Skip intermediate crumbs that are not real pages
+    if (!isLast && !routes.has(cumulativePath)) return;
+    crumbs.push({
+      name: isLast ? title : (sectionLabels[segment]?.[currentLang] ?? kebabToTitle(segment)),
       item: `${siteUrl}${cumulativePath}`,
     });
   });
@@ -131,9 +169,11 @@ if (contentSegments.length > 0) {
   breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items,
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, ...c })),
   };
 }
+
+const isHome = contentSegments.length === 0;
 ---
 
 <!doctype html>
@@ -145,16 +185,18 @@ if (contentSegments.length > 0) {
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/favicon-512.png" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
 
     <!-- Hreflang -->
-    {hrefLangs.map(({ lang: l, url }) => (
+    {!minimal && hrefLangs.length > 1 && hrefLangs.map(({ lang: l, url }) => (
       <link rel="alternate" hreflang={l} href={url} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
+    {!minimal && xDefault && hrefLangs.length > 1 && <link rel="alternate" hreflang="x-default" href={xDefault} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -167,7 +209,7 @@ if (contentSegments.length > 0) {
 
     <!-- Article meta (blog posts only) -->
     {pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
-    {pubDate && <meta property="article:modified_time" content={pubDate.toISOString()} />}
+    {pubDate && <meta property="article:modified_time" content={(modDate ?? pubDate).toISOString()} />}
     {articleAuthor && <meta property="article:author" content={articleAuthor} />}
     {articleSection && <meta property="article:section" content={articleSection} />}
 
@@ -189,23 +231,37 @@ if (contentSegments.length > 0) {
 
     <title>{fullTitle}</title>
 
-    <!-- JSON-LD: WebSite -->
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-
-    <!-- JSON-LD: Organization -->
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <!-- JSON-LD: WebSite + Organization (home pages only) -->
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />}
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />}
 
     <!-- JSON-LD: BreadcrumbList (inner pages only) -->
     {breadcrumbSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     )}
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-682B073RCZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-682B073RCZ');
+    </script>
   </head>
   <body>
-    <Header lang={currentLang} />
+    {!minimal && <Header lang={currentLang} />}
     <main>
       <slot />
     </main>
-    <Footer lang={currentLang} />
+    {!minimal && <Footer lang={currentLang} />}
+    {!minimal && <WhatsAppFloat lang={currentLang} />}
+    {!minimal && <PromoPopups />}
+
+    {/* Beyond Panama Lead Engine — behavior tracker (page views, WhatsApp clicks,
+        consultation clicks, guide downloads). Adds no visible UI. */}
+    <script src="/js/bpr-tracker.js" defer></script>
+
     <script>
       // Scroll-triggered animation observer
       const observer = new IntersectionObserver(

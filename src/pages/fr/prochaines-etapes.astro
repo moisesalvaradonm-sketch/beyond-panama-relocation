@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout title="Prochaines Étapes pour S'installer au Panama" description="Guide pratique étape par étape pour s'installer au Panama : visa, logement, banque, santé et tout ce qu'il faut faire avant et après l'arrivée." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Prochaines Étapes</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Un plan clair pour passer de la curiosité à la résidence au Panama. Suivez ces étapes dans l'ordre pour éviter les délais et les erreurs coûteuses.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-2">Pourquoi le Panama fonctionne pour les expatriés</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mt-5">
+        {[
+          {emoji:"💵",title:"Dollar américain",detail:"Aucun risque de change. Économie stable, sans banque centrale."},
+          {emoji:"🏥",title:"Santé de qualité",detail:"Hôpitaux accrédités JCI à Panama City. Médecins formés aux USA."},
+          {emoji:"✈️",title:"Hub aérien mondial",detail:"90+ destinations directes depuis Tocumen. 3h de Miami, 5h de Paris."},
+          {emoji:"🌡️",title:"Climat varié",detail:"Côtes tropicales ou montagnes fraîches — choisissez votre région."},
+          {emoji:"🏠",title:"Logement accessible",detail:"500$ à 2 000$/mois selon région et style de vie. Moins qu'en Europe."},
+          {emoji:"📋",title:"Visas accessibles",detail:"Pensionado, Nations Amies, Nomade Digital — options pour tous les profils."},
+          {emoji:"🌐",title:"Connexion mondiale",detail:"Starlink, fibre optique et 4G/5G dans les zones urbaines et rurales."},
+          {emoji:"🤝",title:"Communauté active",detail:"Groupes expats organisés dans chaque zone. Intégration facilitée."},
+        ].map(({emoji, title, detail}) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white flex gap-3 items-start">
+            <span class="text-xl flex-shrink-0">{emoji}</span>
+            <div>
+              <p class="font-semibold text-slate text-sm">{title}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Liste de Contrôle en 10 Étapes</h2>
+      <div class="space-y-3">
+        {[
+          {num:"01", title:"Choisissez votre type de visa", detail:"Pensionado, Nations Amies, Nomade Digital, Investisseur Qualifié — chaque visa a ses conditions et avantages. Commencez ici.", link:"/fr/visas/", linkLabel:"Comparer les visas"},
+          {num:"02", title:"Visitez le Panama avant de décider", detail:"Passez au moins 2–4 semaines pour explorer différentes régions. Louez avant d'acheter."},
+          {num:"03", title:"Engagez un avocat local", detail:"Indispensable pour le visa, l'immobilier et les démarches administratives. Coût moyen : 1 500–3 000$ pour une procédure complète."},
+          {num:"04", title:"Préparez vos documents", detail:"Acte de naissance, casier judiciaire, relevés bancaires — tous apostillés et traduits en espagnol si nécessaire."},
+          {num:"05", title:"Déposez votre demande de visa", detail:"Votre avocat soumettra les documents. Délais : 1–6 mois selon le visa."},
+          {num:"06", title:"Ouvrez un compte bancaire", detail:"Commencez le processus dès que possible — c'est souvent l'étape la plus longue. Préparez 2–4 semaines.", link:"/fr/banque-finances/", linkLabel:"Guide bancaire"},
+          {num:"07", title:"Trouvez votre logement", detail:"Louez dans la région choisie pendant 3–6 mois avant tout achat. Les sites locaux et les groupes Facebook expats sont vos meilleurs outils."},
+          {num:"08", title:"Contractez une assurance santé", detail:"Plusieurs assureurs internationaux couvrent le Panama. Préparez la couverture avant l'arrivée.", link:"/fr/sante-assurances/", linkLabel:"Guide santé"},
+          {num:"09", title:"Configurez votre connectivité", detail:"SIM locale (Cable & Wireless, Claro) pour la mobilité. Starlink ou fibre pour le télétravail intensif."},
+          {num:"10", title:"Rejoignez les communautés expats locales", detail:"Facebook, Meetup, clubs de sport — les communautés expats au Panama sont extrêmement actives et accueillantes."},
+        ].map(({num, title, detail, link, linkLabel}) => (
+          <div class="flex gap-4 p-4 rounded-xl border border-jade/15 bg-white">
+            <span class="font-serif text-2xl font-bold text-jade/30 w-8 flex-shrink-0 leading-tight">{num}</span>
+            <div class="flex-1">
+              <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+              <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+              {link && <a href={link} class="text-jade text-xs hover:underline mt-1 block">{linkLabel} →</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-10 p-6 rounded-2xl border border-jade/15 bg-white">
+      <h2 class="font-serif text-xl text-slate mb-4">Délais Typiques — Visa Pensionado</h2>
+      <div class="space-y-2">
+        {[
+          ["Mois 1–2","Préparation des documents (apostilles, traductions)"],
+          ["Mois 2–3","Dépôt de la demande via l'avocat"],
+          ["Mois 3–5","Vérification par le SNM (Service National des Migrations)"],
+          ["Mois 5–6","Obtention de la cédula de résidence"],
+          ["Mois 6+","Enregistrement et début des avantages Pensionado"],
+        ].map(([period, step]) => (
+          <div class="flex gap-4 items-center text-sm border-b border-jade/8 pb-2 last:border-0 last:pb-0">
+            <span class="text-jade font-semibold text-xs w-20 flex-shrink-0">{period}</span>
+            <span class="text-slate-mid">{step}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-10 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-xl text-slate mb-3">Chemin vers la Citoyenneté</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-3">Après 5 ans de résidence permanente légale, vous pouvez demander la nationalité panaméenne. Le Panama autorise la double nationalité avec la plupart des pays. Les Français, Belges et autres ressortissants de pays amis peuvent également accéder au visa Nations Amies, qui offre un chemin rapide vers la résidence permanente.</p>
+      <p class="text-xs text-slate-mid">Consultez un avocat local pour les dernières conditions légales en vigueur.</p>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-slate text-white text-center">
+      <p class="font-serif text-2xl mb-2">Vous avez des questions spécifiques ?</p>
+      <p class="text-white/70 text-sm mb-6">Notre équipe est disponible pour vous guider dans votre projet de relocalisation.</p>
+      <a href="/fr/contact/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Nous contacter →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="fr" categories={['proceso', 'visas']} />
+</Layout>

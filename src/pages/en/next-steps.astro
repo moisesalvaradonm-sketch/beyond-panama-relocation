@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout title="Moving to Panama: Your Next Steps" description="Executive summary and action checklist for relocating to Panama. Step-by-step guide from profile assessment to full residency." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Moving to Panama: Your Next Steps</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama brings together everything expats value most: low cost of living, modern infrastructure, an excellent climate, quality healthcare, a favorable tax system, and some of the most accessible residency programs in the world. Here's how to get started.
+      </p>
+    </div>
+
+    <!-- Why Panama summary -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Why Panama Works</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["💰", "Cost of living", "Single from $1,000–$1,200/mo. Couple from $1,500–$2,000/mo outside premium areas."],
+          ["🏥", "Healthcare", "Johns Hopkins & Cleveland Clinic-affiliated hospitals. Under $20/visit. ~1/3 of US medication prices."],
+          ["🌤️", "Climate", "24–32°C. No snow, no hurricanes. Dry season Dec–Apr. Highland areas offer permanent spring."],
+          ["🏛️", "Stability", "Stable democracy, dollarized economy, no central bank, 130+ international banks."],
+          ["💵", "Taxes", "Territorial system: foreign income and pensions are not taxed in Panama."],
+          ["✈️", "Accessibility", "Tocumen: Central America's largest airport with direct flights worldwide."],
+          ["🤝", "Expat community", "Active communities in Panama City, Boquete, Coronado, Bocas del Toro, and growing."],
+          ["📋", "Residency", "One of the world's most accessible residency programs. Permanent from day one for Pensionado."],
+        ].map(([emoji, label, detail]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white flex gap-3 items-start">
+            <span class="text-xl">{emoji}</span>
+            <div>
+              <p class="font-semibold text-slate text-sm mb-0.5">{label}</p>
+              <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Checklist -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Your Relocation Checklist</h2>
+      <p class="text-slate-mid mb-6 text-sm leading-relaxed">The difference between a successful relocation and a costly disappointment lies in preparation and qualified support. Work through this list in order.</p>
+
+      <div class="space-y-3">
+        {[
+          {
+            step: "01",
+            title: "Determine your profile",
+            detail: "Are you a retiree with a pension? A remote worker? An investor? A digital nomad? Your profile determines everything that follows.",
+            link: "/en/quiz/",
+            linkLabel: "Take the quiz →",
+          },
+          {
+            step: "02",
+            title: "Identify the most suitable visa",
+            detail: "Pensionado (retirees with pension), Friendly Nations (working/entrepreneurial), Qualified Investor (investors), Digital Nomad (remote workers). Each has different requirements and rights.",
+            link: "/en/visas/comparison/",
+            linkLabel: "Compare visas →",
+          },
+          {
+            step: "03",
+            title: "Research areas to live",
+            detail: "Panama City, Boquete, Coronado, Bocas del Toro, Chitré, Volcán — each has a completely different cost, climate, and community profile.",
+            link: "/en/areas/",
+            linkLabel: "Explore areas →",
+          },
+          {
+            step: "04",
+            title: "Visit Panama in person",
+            detail: "Spend at least 1–2 weeks in the areas that interest you. No amount of research replaces being there. Try to visit during both the dry and rainy season if possible.",
+            link: null,
+            linkLabel: null,
+          },
+          {
+            step: "05",
+            title: "Rent for at least 12 months",
+            detail: "Do not buy property until you have permanent residency and have lived in the country for at least a year. Areas feel completely different across seasons. Many costly mistakes are made by buying too quickly.",
+            link: "/en/real-estate/",
+            linkLabel: "Real estate guide →",
+          },
+          {
+            step: "06",
+            title: "Begin the visa process with a verified attorney",
+            detail: "All residency applications require a local immigration attorney. The process is legitimate and thorough — budget 6 months for Pensionado, 2–3 years for Friendly Nations permanent residency.",
+            link: "/en/contact/",
+            linkLabel: "Get a referral →",
+          },
+          {
+            step: "07",
+            title: "Open a bank account",
+            detail: "Wait until you have temporary residency — the process is significantly easier with a cédula. Choose a bank with online banking in English and Spanish.",
+            link: "/en/banking/",
+            linkLabel: "Banking guide →",
+          },
+          {
+            step: "08",
+            title: "Get connected",
+            detail: "Get a local SIM card (~$5 + $30/mo). Install WhatsApp immediately — it is the primary communication platform in Panama for everything. Set up fiber internet or Starlink.",
+            link: "/en/communications/",
+            linkLabel: "Communications guide →",
+          },
+          {
+            step: "09",
+            title: "Evaluate health insurance options",
+            detail: "Local plan (~$117/mo at age 66), international plan (~$85/mo at 50), or self-insure given how low out-of-pocket costs are. A full emergency was documented at $119.80.",
+            link: "/en/healthcare/",
+            linkLabel: "Healthcare guide →",
+          },
+          {
+            step: "10",
+            title: "Integrate into the community",
+            detail: "Join local expat groups, community organizations, and social networks. Panama's expat communities are active and welcoming. Most newcomers are surprised by how quickly they feel at home.",
+            link: null,
+            linkLabel: null,
+          },
+        ].map(({ step, title, detail, link, linkLabel }) => (
+          <div class="flex gap-5 items-start p-5 rounded-xl border border-jade/15 bg-white">
+            <span class="font-serif text-4xl text-jade/20 font-bold leading-none shrink-0 select-none">{step}</span>
+            <div class="flex-1 min-w-0">
+              <p class="font-semibold text-slate mb-1">{title}</p>
+              <p class="text-slate-mid text-sm leading-relaxed mb-2">{detail}</p>
+              {link && (
+                <a href={link} class="text-jade text-xs font-medium hover:underline underline-offset-2">{linkLabel}</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Residency roadmap -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Residency Timeline</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3">
+          <p class="font-semibold text-white text-sm">Typical Timeline — Pensionado Visa (Most Common)</p>
+        </div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Phase 1", "Document collection", "Gather pension letter, FBI background check, apostilles. ~4–8 weeks."],
+            ["Phase 2", "Attorney review & filing", "Attorney prepares and files the complete immigration dossier."],
+            ["Phase 3", "Provisional card issued", "Temporary residency card issued in ~5 business days after filing."],
+            ["Phase 4", "Permanent residency", "Full permanent residency issued 4–6 months after the initial application."],
+            ["Phase 5", "Bank account opening", "Open your Panamanian account with your cédula. ~2–4 weeks."],
+            ["Ongoing", "Maintenance", "Visit Panama 1 day every 2 years. No renewals ever required."],
+          ].map(([phase, title, detail]) => (
+            <div class="px-5 py-4 flex gap-4">
+              <span class="text-xs font-semibold text-jade whitespace-nowrap pt-0.5">{phase}</span>
+              <div>
+                <p class="font-medium text-slate text-sm">{title}</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-3">Timeline varies by visa type. Friendly Nations: 2–3 years to permanent residency. Qualified Investor: ~30 business days. Always use a verified local immigration attorney.</p>
+    </div>
+
+    <!-- Path to citizenship -->
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-xl text-slate mb-3">Path to Panamanian Citizenship</h2>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        The vast majority of permanent residency visas allow you to apply for Panamanian citizenship after <strong>5 years of continuous residency</strong>. Panama allows dual citizenship — you do not need to renounce your current citizenship. A Panamanian passport provides visa-free access to 140+ countries including the Schengen Area and the United Kingdom.
+      </p>
+    </div>
+
+    <!-- MR Global Partners -->
+    <div class="mb-12 p-6 rounded-2xl bg-slate text-white">
+      <h2 class="font-serif text-2xl text-white mb-3">Working with MR Global Partners</h2>
+      <p class="text-white/70 text-sm leading-relaxed mb-5">
+        The difference between moving "blind" and doing it with specialized advice can amount to tens of thousands of dollars in avoided mistakes. MR Global Partners supports individuals, families, and investors through the entire relocation process:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-5">
+        {[
+          "Personalized assessment of your profile and recommended visa",
+          "Support with renting and buying property",
+          "Coordination with trusted immigration attorneys",
+          "Verified network of attorneys, doctors, and agents",
+          "Guidance on banking, insurance, and essential services",
+          "Ongoing advice after you arrive",
+        ].map(item => (
+          <div class="flex gap-2 items-start text-sm text-white/75">
+            <span class="text-jade mt-0.5 shrink-0">✓</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+      <a href="/en/contact/" class="inline-flex px-6 py-3 rounded-full bg-gold text-slate font-semibold text-sm hover:bg-gold/90 transition-colors">
+        Get your free assessment →
+      </a>
+    </div>
+
+  </section>
+  <RelatedGuides lang="en" categories={['proceso', 'visas']} />
+</Layout>

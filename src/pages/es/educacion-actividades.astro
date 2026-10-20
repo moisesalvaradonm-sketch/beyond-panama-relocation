@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Educación y Actividades en Panamá" description="Escuelas internacionales, colegios bilingües, actividades al aire libre, atracciones culturales y vida comunitaria para expats en Panamá." lang="es">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Educación y Actividades en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panamá ofrece una buena oferta de educación internacional y una vida activa envidiable: desde el Canal hasta el buceo en reservas mundiales, pasando por una comunidad expat consolidada.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Educación Internacional</h2>
+      <div class="space-y-3 mb-6">
+        {[
+          ["Calidad educativa", "Los colegios internacionales en Panamá compiten con estándares globales. Muchos ofrecen bachillerato IB y programas en inglés completo."],
+          ["Costo de matrícula", "Entre $200 y $1,000 al mes según colegio y nivel. Mucho más accesible que escuelas internacionales en EE.UU. o Europa."],
+          ["Calendario escolar", "Algunos colegios siguen el calendario del hemisferio norte (septiembre–junio); otros el local (enero–diciembre). Verifica antes de matricular."],
+          ["Diversidad", "Comunidades estudiantiles de todas partes del mundo — ideal para familias expats que quieren integración multicultural."],
+          ["Educación en casa", "El homeschooling es legal en Panamá. Hay grupos de apoyo activos, especialmente en Boquete y zonas con comunidad expat."],
+        ].map(([label, detail]) => (
+          <div class="flex items-start gap-4 p-4 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm whitespace-nowrap w-36 flex-shrink-0">{label}</p>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Actividades Populares</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          {emoji:"🚢", title:"Canal de Panamá", detail:"Visita el Biomuseo o los centros de visitantes en Miraflores y Agua Clara. Una de las maravillas de la ingeniería moderna."},
+          {emoji:"🦅", title:"Avistamiento de aves", detail:"Panamá tiene más de 900 especies de aves — más que toda América del Norte. El Pipeline Road y Boquete son los mejores spots."},
+          {emoji:"🐋", title:"Avistamiento de ballenas", detail:"Julio–octubre en el Pacífico. Las ballenas jorobadas pasan por aguas panameñas en una de las rutas migratorias más espectaculares."},
+          {emoji:"🤿", title:"Buceo y snorkel", detail:"La Isla Coiba (UNESCO) y el archipiélago de Bocas del Toro ofrecen algunas de las mejores experiencias de buceo de la región."},
+          {emoji:"🏄", title:"Surf", detail:"Playa Venao y Santa Catalina son reconocidas internacionalmente. Temporada principal de mayo a noviembre en el Pacífico."},
+          {emoji:"🏓", title:"Pádel y Pickleball", detail:"El pickleball ha explotado en Panamá — se puede jugar prácticamente en cualquier zona con comunidad expat. Clases y ligas disponibles."},
+          {emoji:"🌿", title:"Biomuseo", detail:"Diseñado por Frank Gehry, explica la formación del istmo de Panamá y su impacto en la biodiversidad global. Imprescindible."},
+          {emoji:"🏘️", title:"Turismo indígena Emberá", detail:"Excursiones de un día desde Ciudad de Panamá al río Chagres. Cultura Emberá, artesanías, naturaleza y gastronomía auténtica."},
+          {emoji:"🌲", title:"Senderismo y canopy", detail:"Boquete y Volcán tienen las mejores rutas de montaña. El Parque La Amistad, fronterizo con Costa Rica, es Patrimonio de la UNESCO."},
+          {emoji:"☕", title:"Cultura del café", detail:"El café de Boquete, especialmente los Geisha de fincas como Hacienda La Esmeralda, son reconocidos como los mejores del mundo."},
+        ].map(({emoji, title, detail}) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <span class="text-2xl block mb-2">{emoji}</span>
+            <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-10 p-6 rounded-2xl border border-jade/15 bg-jade/5">
+      <h2 class="font-serif text-xl text-slate mb-3">Vida Comunitaria Expat</h2>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Las comunidades de expats más activas están en <strong class="text-slate">Boquete, Ciudad de Panamá y Coronado</strong>. Grupos en Facebook, clubs de golf, grupos de senderismo, ligas de pickleball, asociaciones de residentes y eventos sociales regulares. El idioma común es el inglés, aunque aprender español abre muchas más puertas.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Cuál zona de Panamá te llama más?</p>
+      <p class="text-slate-mid text-sm mb-5">Compara clima, actividades y costos en cada región.</p>
+      <a href="/es/zonas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explorar zonas →</a>
+    </div>
+  </section>
+</Layout>

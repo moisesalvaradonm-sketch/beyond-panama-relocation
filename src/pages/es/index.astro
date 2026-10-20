@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ReviewsCarousel from '../../components/ui/ReviewsCarousel.astro';
+import NewsletterSignup from '../../components/ui/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('blog', ({ data, id }) =>
@@ -64,45 +65,70 @@ const faqSchema = {
 >
 
   <!-- Hero -->
-  <section class="relative text-white overflow-hidden min-h-[90vh] flex items-center">
+  <section class="relative text-white overflow-hidden min-h-[92vh] flex items-end">
     <!-- Background photo -->
     <img
-      src="/img/panama-hero.webp"
-      alt="Vista aérea de la Cinta Costera de Ciudad de Panamá y el Océano Pacífico"
+      src="/img/areas/panama-city-waterfront.webp"
+      alt="Vista de la Cinta Costera de Ciudad de Panamá al atardecer"
       class="absolute inset-0 w-full h-full object-cover object-center"
       fetchpriority="high"
     />
-    <!-- Gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/70 to-slate/30"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-fog/30 to-transparent"></div>
+    <!-- Layered gradients: horizontal + bottom-up for cinematic depth -->
+    <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/55 to-slate/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate/90 via-slate/30 to-transparent"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-28 md:py-40 w-full">
-      <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">Beyond Panama Relocation</span>
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] max-w-3xl mb-8">
-        Múdate a Panamá,<br />
-        <span id="hero-accent" class="text-coral transition-opacity duration-500">sin adivinar.</span>
-      </h1>
-      <p id="hero-sub" class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
-        Información real sobre visas, zonas y costo de vida — sin presión de venta,
-        sin promesas vacías. Como si un amigo que ya lo vivió te lo explicara.
-      </p>
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <a
-          href="/es/quiz"
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors shadow-lg"
-        >
-          ¿Qué buscas en Panamá? →
-        </a>
-        <a
-          href="/es/zonas"
-          class="text-white/60 hover:text-white text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-colors"
-        >
-          Explorar zonas
-        </a>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8 pb-24 md:pb-32 pt-40 w-full">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+
+        <!-- Left: main content -->
+        <div class="max-w-2xl">
+          <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">Beyond Panama Relocation</span>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-8">
+            Múdate a Panamá,<br />
+            <span id="hero-accent" class="text-coral transition-opacity duration-500">sin adivinar.</span>
+          </h1>
+          <p id="hero-sub" class="text-white/75 text-base md:text-lg max-w-xl leading-relaxed mb-10 transition-opacity duration-500">
+            Información real sobre visas, zonas y costo de vida — sin presión de venta,
+            sin promesas vacías. Como si un amigo que ya lo vivió te lo explicara.
+          </p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a
+              href="/es/quiz/"
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors shadow-lg"
+            >
+              ¿Qué buscas en Panamá? →
+            </a>
+            <a
+              href="/es/zonas/"
+              class="text-white/60 hover:text-white text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-colors"
+            >
+              Explorar zonas
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: stat cards (desktop) -->
+        <div class="hidden md:flex flex-col gap-3 shrink-0">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">$1,200<span class="text-sm font-normal text-white/60">/mes</span></p>
+            <p class="text-white/55 text-xs mt-1.5">Costo de vida mínimo</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">6 visas</p>
+            <p class="text-white/55 text-xs mt-1.5">Vías de residencia</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-6 py-4">
+            <p class="text-2xl font-semibold text-white leading-none">+50 países</p>
+            <p class="text-white/55 text-xs mt-1.5">Sin restricción de origen</p>
+          </div>
+        </div>
+
       </div>
-      <div class="mt-16 pt-6 border-t border-white/15">
+
+      <!-- Bottom stat bar -->
+      <div class="mt-12 pt-5 border-t border-white/12">
         <p class="text-white/40 text-xs tracking-wide">
-          30–50% menos que EE.UU. &nbsp;·&nbsp; 4 tipos de visa &nbsp;·&nbsp; Guías bilingües EN + ES
+          30–50% menos que EE.UU. &nbsp;·&nbsp; Dólar americano &nbsp;·&nbsp; Guías EN · ES · FR
         </p>
       </div>
     </div>
@@ -122,7 +148,7 @@ const faqSchema = {
     </h2>
     <div class="grid md:grid-cols-3 gap-8">
 
-      <a href="/es/zonas" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+      <a href="/es/zonas/" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
         <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">01</p>
         <h3 class="font-serif text-xl font-semibold text-slate mb-3">Zonas para Vivir</h3>
         <p class="text-slate-mid text-sm leading-relaxed mb-5">
@@ -134,7 +160,7 @@ const faqSchema = {
         </span>
       </a>
 
-      <a href="/es/visas" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+      <a href="/es/visas/" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
         <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">02</p>
         <h3 class="font-serif text-xl font-semibold text-slate mb-3">Visas y Residencia</h3>
         <p class="text-slate-mid text-sm leading-relaxed mb-5">
@@ -146,7 +172,7 @@ const faqSchema = {
         </span>
       </a>
 
-      <a href="/es/costo-de-vida" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
+      <a href="/es/costo-de-vida/" class="group block p-8 bg-white border-l-2 border-jade hover:border-jade-dark transition-colors hover:shadow-sm">
         <p class="font-serif text-5xl text-jade/15 font-bold leading-none mb-4 select-none" aria-hidden="true">03</p>
         <h3 class="font-serif text-xl font-semibold text-slate mb-3">Calculadora de Costo Real</h3>
         <p class="text-slate-mid text-sm leading-relaxed mb-5">
@@ -167,18 +193,18 @@ const faqSchema = {
       <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-jade/15">
 
         <div class="py-8 md:py-0 md:pr-10">
-          <p class="font-serif text-3xl font-semibold text-slate mb-1">$1,200–$5,000</p>
-          <p class="text-xs text-slate-mid uppercase tracking-widest">Costo mensual de vida</p>
+          <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">$1,200–$5,000</p>
+          <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">Costo mensual de vida</p>
         </div>
 
         <div class="py-8 md:py-0 md:px-10">
-          <p class="font-serif text-3xl font-semibold text-slate mb-1">4 tipos de visa</p>
-          <p class="text-xs text-slate-mid uppercase tracking-widest">Opciones de residencia</p>
+          <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">6 rutas de residencia</p>
+          <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">Opciones de residencia</p>
         </div>
 
         <div class="py-8 md:py-0 md:pl-10">
-          <p class="font-serif text-3xl font-semibold text-slate mb-1">EN + ES</p>
-          <p class="text-xs text-slate-mid uppercase tracking-widest">Guías bilingües</p>
+          <p class="font-serif text-2xl md:text-3xl font-semibold text-slate mb-1">EN + ES</p>
+          <p class="text-xs text-slate-mid uppercase tracking-[0.1em] md:tracking-widest">Guías bilingües</p>
         </div>
 
       </div>
@@ -197,7 +223,7 @@ const faqSchema = {
         sin comprometerte con nada.
       </p>
       <a
-        href="/es/quiz"
+        href="/es/quiz/"
         class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-slate font-semibold text-base hover:bg-gold/90 transition-colors"
       >
         Empezar tu ruta →
@@ -211,14 +237,14 @@ const faqSchema = {
     <section class="max-w-6xl mx-auto px-6 md:px-8 py-20">
       <div class="flex items-end justify-between mb-12">
         <h2 class="font-serif text-3xl text-slate">Del blog</h2>
-        <a href="/es/blog" class="text-jade text-sm font-medium hover:underline underline-offset-4">
+        <a href="/es/blog/" class="text-jade text-sm font-medium hover:underline underline-offset-4">
           Todos los artículos →
         </a>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         {recentPosts.map(post => (
           <a
-            href={`/es/blog/${post.id.replace('es/', '')}`}
+            href={`/es/blog/${post.id.replace('es/', '')}/`}
             class="group flex flex-col p-6 bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
           >
             <span class="text-xs font-semibold text-jade uppercase tracking-wide mb-3">
@@ -227,7 +253,7 @@ const faqSchema = {
             <h3 class="font-serif text-lg font-semibold text-slate mb-3 leading-snug group-hover:text-jade transition-colors flex-1">
               {post.data.title}
             </h3>
-            <p class="text-sm text-slate-mid mb-4 line-clamp-2 leading-relaxed">
+            <p class="text-sm text-slate-mid mb-4 line-clamp-3 md:line-clamp-2 leading-relaxed">
               {post.data.description}
             </p>
             <div class="flex items-center justify-between mt-auto">
@@ -245,8 +271,8 @@ const faqSchema = {
     <h2 class="font-serif text-3xl text-slate mb-10">Preguntas frecuentes</h2>
     <dl class="space-y-0">
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">¿Panamá usa el dólar estadounidense?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">¿Panamá usa el dólar estadounidense?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Sí. La moneda oficial de Panamá es el dólar estadounidense — no existe tipo de cambio
           local ni riesgo de conversión de divisas. Esto hace que el presupuesto sea sencillo
@@ -255,44 +281,44 @@ const faqSchema = {
         </dd>
       </div>
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">¿Qué visas de residencia ofrece Panamá para extranjeros?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">¿Qué visas de residencia ofrece Panamá para extranjeros?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Panamá ofrece varias vías de residencia según tu situación. La
-          <a href="/es/visas/pensionado" class="text-jade hover:underline">visa Pensionado</a> está
+          <a href="/es/visas/pensionado/" class="text-jade hover:underline">visa Pensionado</a> está
           diseñada para jubilados con una pensión vitalicia de al menos $1,000/mes — otorga
           residencia permanente y un amplio catálogo de descuentos. La
-          <a href="/es/visas/naciones-amigas" class="text-jade hover:underline">visa Naciones Amigas</a> está
+          <a href="/es/visas/naciones-amigas/" class="text-jade hover:underline">visa Naciones Amigas</a> está
           dirigida a ciudadanos de países específicos con vínculos económicos con Panamá. La
-          <a href="/es/visas/inversionista-calificado" class="text-jade hover:underline">visa Inversionista Calificado</a> requiere
+          <a href="/es/visas/inversionista-calificado/" class="text-jade hover:underline">visa Inversionista Calificado</a> requiere
           una inversión financiera que cumpla los requisitos. La visa Nómada Digital está disponible
           para trabajadores remotos que generan ingresos fuera de Panamá. Beyond Panama Relocation
           cubre cada visa con requisitos, tiempos de tramitación y una
-          <a href="/es/visas/comparativa" class="text-jade hover:underline">comparativa</a>.
+          <a href="/es/visas/comparativa/" class="text-jade hover:underline">comparativa</a>.
         </dd>
       </div>
 
-      <div class="border-b border-jade/10 py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">¿Cuánto cuesta vivir en Panamá al mes?</dt>
+      <div class="border-b border-jade/10 py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">¿Cuánto cuesta vivir en Panamá al mes?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Los costos de vida en Panamá van de $1,200 a más de $5,000 al mes, dependiendo de la
           ubicación y el estilo de vida. Una pareja que vive con sencillez en Boquete — una popular
           ciudad de montaña — puede manejarse con aproximadamente $1,620/mes, cubriendo alquiler,
           comida, servicios, seguro médico, internet y transporte. Los costos en Ciudad de Panamá
           serán considerablemente más altos. Panamá es típicamente un
-          <a href="/es/costo-de-vida" class="text-jade hover:underline">30–50% más barato</a>
+          <a href="/es/costo-de-vida/" class="text-jade hover:underline">30–50% más barato</a>
           que un estilo de vida equivalente en Estados Unidos.
         </dd>
       </div>
 
-      <div class="py-8 pl-5 border-l-4 border-l-jade/30">
-        <dt class="font-serif text-xl font-semibold text-slate mb-3">¿Cuáles son las zonas más populares para expatriados en Panamá?</dt>
+      <div class="py-6 md:py-8 pl-5 border-l-4 border-l-jade/30">
+        <dt class="font-serif text-lg md:text-xl font-semibold text-slate mb-3">¿Cuáles son las zonas más populares para expatriados en Panamá?</dt>
         <dd class="text-slate-mid leading-relaxed">
           Las zonas más populares para residentes extranjeros en Panamá son Ciudad de Panamá
           (la capital, con la mayor variedad de servicios y rangos de precios),
-          <a href="/es/zonas/boquete" class="text-jade hover:underline">Boquete</a> (una ciudad de
+          <a href="/es/zonas/boquete/" class="text-jade hover:underline">Boquete</a> (una ciudad de
           montaña con clima fresco y una comunidad de expatriados bien establecida),
-          <a href="/es/zonas/coronado" class="text-jade hover:underline">Coronado</a> (una zona de
+          <a href="/es/zonas/coronado/" class="text-jade hover:underline">Coronado</a> (una zona de
           playa en el Pacífico popular entre jubilados) y Bocas del Toro (un archipiélago caribeño
           con un estilo de vida más tranquilo). Cada zona tiene un perfil distinto en términos de
           costo, comunidad e infraestructura.
@@ -303,6 +329,11 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Newsletter signup -->
+  <section class="max-w-3xl mx-auto px-6 md:px-8">
+    <NewsletterSignup lang="es" />
+  </section>
 
   <!-- Google Reviews carousel — al final de la página -->
   <ReviewsCarousel lang="es" />

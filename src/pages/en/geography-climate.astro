@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Panama Geography, Climate & Country Facts" description="Complete country profile for Panama: geography, provinces, climate by region, time zone, language, and essential facts for expats." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Panama: Geography, Climate & Country Facts</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama is the southernmost country in Central America — a narrow isthmus connecting two continents, with ocean on both sides. Here's everything you need to understand the country before you visit.
+      </p>
+    </div>
+
+    <!-- Quick facts -->
+    <div class="mb-12 rounded-2xl border border-jade/15 overflow-hidden">
+      <div class="bg-jade px-5 py-3">
+        <p class="font-semibold text-white text-sm">Panama at a Glance — 2025</p>
+      </div>
+      <div class="bg-white divide-y divide-jade/8">
+        {[
+          ["Official name", "Republic of Panama"],
+          ["Population", "~4,468,000 (over 70% urban — highest rate in Central America)"],
+          ["Capital & largest city", "Panama City"],
+          ["Other major cities", "David (Chiriquí), Colón"],
+          ["Indigenous peoples", "~12% of the population"],
+          ["Life expectancy", "77.37 years"],
+          ["Official language", "Spanish. English widely spoken in Panama City, Boquete, Coronado, and Bocas del Toro."],
+          ["Time zone", "EST (GMT-5) year-round. No daylight saving time."],
+          ["Measurement system", "Metric (km, liters, kg). Fuel in liters, speed in km/h."],
+          ["Electricity", "120V / 60Hz — same as the US. Standard US-style flat plugs."],
+          ["Currency", "Balboa (B/.) at 1:1 with the US Dollar. USD is legal tender."],
+          ["No central bank", "Panama cannot print money — money supply is market-driven."],
+          ["Banking", "130+ international banks. Financial hub of Latin America."],
+          ["International ranking", "#1 country to live as an expat — InterNations / Forbes 2024"],
+        ].map(([label, value]) => (
+          <div class="flex px-5 py-3 gap-4 text-sm">
+            <span class="text-slate-mid w-40 shrink-0">{label}</span>
+            <span class="text-slate font-medium">{value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Geography -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Geography</h2>
+      <p class="text-slate-mid leading-relaxed mb-5">
+        Panama is an <strong class="text-slate">isthmus</strong> — a narrow strip of land connecting North and South America, with the Pacific Ocean to the south and the Caribbean Sea to the north. It borders Costa Rica to the west and Colombia to the east.
+      </p>
+      <p class="text-slate-mid leading-relaxed mb-5">
+        The country spans approximately 75,000 km² (29,000 sq mi) — similar in size to South Carolina. Despite its small size, it contains remarkable geographic diversity: Caribbean coastline, Pacific beaches, highland mountains (up to 3,474m at Barú Volcano), tropical jungle, and the engineering marvel of the Panama Canal.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["Pacific coast", "South. Drier, more pronounced seasons. Most expat beach towns."],
+          ["Caribbean coast", "North. More rainfall, lush vegetation. Bocas del Toro archipelago."],
+          ["Central highlands", "Chiriquí highlands, Barú Volcano, Boquete. Spring-like climate."],
+          ["Panama Canal Zone", "Central. The Canal connecting both oceans. Panama City."],
+          ["Darién jungle", "East. Largest and least populated province. Ends at Colombia border."],
+          ["Azuero Peninsula", "South-central. Cultural heartland. Chitré, Pedasí, surf beaches."],
+        ].map(([zone, desc]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-1">{zone}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- The 10 Provinces -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">The 10 Provinces</h2>
+      <p class="text-slate-mid mb-5 text-sm leading-relaxed">Panama is divided into 10 provinces, each with its own character. Crossing provincial borders by road may involve checkpoints where passport and driver's license may be requested.</p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Panama", "Panama City", "National capital. 1.5M+ people, Canal, Tocumen airport, banking, Casco Viejo."],
+            ["Panama Oeste", "La Chorrera", "Fast-growing suburbs west of the Canal. Coronado, Chame, Altos del María beaches."],
+            ["Coclé", "Penonomé", "Dry zone. El Valle de Antón (dormant volcano), windmills, Río Hato airport."],
+            ["Herrera", "Chitré", "Smallest province. Azuero Peninsula. Clay crafts, colonial history, agriculture."],
+            ["Los Santos", "Las Tablas", "Cultural hotspot. World-famous Carnival. Pedasí, Playa Venao, surf, Isla Iguana."],
+            ["Veraguas", "Santiago", "One of the largest. Coiba Marine Park. Rapid growth. Santa Fe in the mountains."],
+            ["Chiriquí", "David", "Panama's breadbasket. Boquete (world coffee), Volcán, Cerro Punta, Barú Volcano."],
+            ["Bocas del Toro", "Bocas Town", "Caribbean archipelago. 9 islands. Surf, snorkel, English-speaking communities."],
+            ["Colón", "Colón City", "World's 2nd-largest free trade zone. Caribbean side of the Canal. Portobelo."],
+            ["Darién", "La Palma", "Largest, least populated. Pure jungle. Pan-American Highway ends here."],
+          ].map(([province, capital, desc]) => (
+            <div class="px-5 py-4">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-medium text-slate text-sm">{province}</p>
+                <span class="text-xs text-jade font-medium whitespace-nowrap">{capital}</span>
+              </div>
+              <p class="text-slate-mid text-xs leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Climate -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Climate</h2>
+      <p class="text-slate-mid leading-relaxed mb-5">
+        Panama sits about 8 degrees above the equator with a <strong class="text-slate">tropical monsoon climate</strong>. There is no snow and no hurricanes. Temperature and humidity depend mainly on elevation and proximity to the ocean.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-5 mb-6">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <h3 class="font-semibold text-slate mb-3">Coast / Sea Level</h3>
+          <div class="space-y-2 text-sm">
+            {[
+              ["Average temperature", "29–32°C (84–90°F)"],
+              ["Humidity", "High, especially both coasts"],
+              ["Dry season", "December to April"],
+              ["Rainy season", "May to November"],
+              ["Rainfall", "~269 cm (106 in) avg/year"],
+            ].map(([label, value]) => (
+              <div class="flex justify-between">
+                <span class="text-slate-mid">{label}</span>
+                <span class="font-medium text-slate">{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <h3 class="font-semibold text-slate mb-3">Highlands (e.g., Boquete 3,500 ft)</h3>
+          <div class="space-y-2 text-sm">
+            {[
+              ["Average temperature", "~24°C (76°F) — permanent spring"],
+              ["Humidity", "Moderate, cooler and less humid"],
+              ["Dry season", "December to April"],
+              ["Rainy season", "May to November"],
+              ["Altitude rule", "~2°C cooler per 300m elevation"],
+            ].map(([label, value]) => (
+              <div class="flex justify-between">
+                <span class="text-slate-mid">{label}</span>
+                <span class="font-medium text-slate">{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-fog text-sm text-slate-mid leading-relaxed">
+        <strong class="text-slate">Key climate advantage:</strong> Panama has no hurricanes and no snow anywhere in the country. The rainy season (May–November) brings afternoon showers, not all-day rain — mornings are typically sunny. The dry season (December–April) is the most popular time to visit.
+      </div>
+    </div>
+
+    <!-- Language guide -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Language: A Practical Guide</h2>
+      <p class="text-slate-mid leading-relaxed mb-5">
+        Spanish is the official language. English has a strong presence in Panama City, Boquete, Coronado, and Bocas del Toro (where it coexists with Caribbean Creole English). In the rural interior, Spanish is almost exclusive.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["Learning basics recommended", "Basic Spanish makes everyday life significantly easier in most of Panama."],
+          ["Cultural immersion fastest", "Living in Panama is the fastest way to learn — necessity is the best teacher."],
+          ["Learning resources", "Duolingo, private tutors, and language schools are widely available."],
+          ["English widely spoken", "Panama City business districts, Boquete expat community, Bocas del Toro."],
+        ].map(([label, detail]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-1">{label}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Time zone -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Time Zone</h2>
+      <p class="text-slate-mid mb-4 text-sm leading-relaxed">Panama observes EST (GMT-5) year-round — no daylight saving time adjustment.</p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Winter (Nov–Mar) vs. US Eastern (EST)", "Same time — no difference"],
+            ["Winter (Nov–Mar) vs. US Central (CST)", "Panama is 1 hour ahead"],
+            ["Summer (Mar–Nov) vs. US Eastern (EDT)", "Panama is 1 hour ahead"],
+            ["Summer (Mar–Nov) vs. US Central (CDT)", "Same time — no difference"],
+            ["vs. UK (GMT)", "Panama is 5 hours behind"],
+          ].map(([comparison, result]) => (
+            <div class="flex items-center px-5 py-3 gap-4 text-sm">
+              <span class="text-slate-mid flex-1">{comparison}</span>
+              <span class="font-semibold text-jade">{result}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Ready to explore Panama's best areas?</p>
+      <p class="text-slate-mid text-sm mb-5">Compare regions, costs and lifestyles side by side.</p>
+      <a href="/en/areas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explore areas →</a>
+    </div>
+  </section>
+</Layout>

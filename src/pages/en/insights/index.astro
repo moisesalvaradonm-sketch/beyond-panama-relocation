@@ -68,11 +68,11 @@ const categoryColor: Record<string, string> = {
       <div class="grid gap-8">
         {posts.map(post => (
           <a
-            href={`/en/insights/${post.id.replace('en/', '')}`}
-            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
+            href={`/en/insights/${post.id.replace('en/', '')}/`}
+            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all min-w-0"
           >
             {post.data.image && (
-              <div class="sm:w-48 h-36 sm:h-auto flex-shrink-0 rounded-xl overflow-hidden">
+              <div class="w-full sm:w-48 h-36 sm:h-auto flex-shrink-0 min-w-0 rounded-xl overflow-hidden">
                 <img
                   src={post.data.image}
                   alt={post.data.imageAlt ?? post.data.title}
@@ -128,7 +128,7 @@ const categoryColor: Record<string, string> = {
     <div class="mt-16 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Are you a partner, advisor, or client?</p>
       <p class="text-slate-mid text-sm mb-5">If you have real experience with Panama relocation and want to contribute a perspective, get in touch.</p>
-      <a href="/en/contact" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/en/contact/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Get in touch →
       </a>
     </div>

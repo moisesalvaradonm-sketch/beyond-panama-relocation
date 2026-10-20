@@ -66,11 +66,11 @@ const categoryColor: Record<string, string> = {
       <div class="grid gap-8">
         {posts.map(post => (
           <a
-            href={`/es/insights/${post.id.replace('es/', '')}`}
-            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all"
+            href={`/es/insights/${post.id.replace('es/', '')}/`}
+            class="group flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-white border border-jade/10 hover:border-jade/25 hover:shadow-sm transition-all min-w-0"
           >
             {post.data.image && (
-              <div class="sm:w-48 h-36 sm:h-auto flex-shrink-0 rounded-xl overflow-hidden">
+              <div class="w-full sm:w-48 h-36 sm:h-auto flex-shrink-0 min-w-0 rounded-xl overflow-hidden">
                 <img src={post.data.image} alt={post.data.imageAlt ?? post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             )}
@@ -106,7 +106,7 @@ const categoryColor: Record<string, string> = {
         <p class="font-serif text-xl text-slate mb-2">Próximamente</p>
         <p class="text-sm">Pronto publicaremos perspectivas de expertos aquí.</p>
         <p class="text-sm mt-2">Por ahora, puedes leer los artículos disponibles en inglés.</p>
-        <a href="/en/insights" class="inline-flex mt-4 px-5 py-2 rounded-full border border-jade text-jade text-sm hover:bg-jade hover:text-white transition-colors">
+        <a href="/en/insights/" class="inline-flex mt-4 px-5 py-2 rounded-full border border-jade text-jade text-sm hover:bg-jade hover:text-white transition-colors">
           Ver en inglés →
         </a>
       </div>
@@ -115,7 +115,7 @@ const categoryColor: Record<string, string> = {
     <div class="mt-16 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">¿Eres socio, asesor o cliente?</p>
       <p class="text-slate-mid text-sm mb-5">Si tienes experiencia real con la reubicación en Panamá y quieres aportar una perspectiva, escríbenos.</p>
-      <a href="/es/contacto" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/es/contacto/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Contactar →
       </a>
     </div>

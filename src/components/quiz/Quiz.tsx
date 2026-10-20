@@ -639,27 +639,27 @@ function buildResult(answers: Record<string, string | string[]>, lang: Lang): Re
 
   if (lang === 'en') {
     let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
-    if (isRetired)  visa = { heading: 'The Pensionado visa looks like the strongest fit.', body: 'As a retiree planning a full or part-time move, the Pensionado route offers permanent residency, 20% off medications, and dozens of legal discounts on everything from restaurants to flights.', cta: 'See Pensionado visa →', ctaHref: '/en/visas/pensionado' };
-    else if (isRemote)   visa = { heading: 'Friendly Nations or Digital Nomad — depending on your passport.', body: 'Remote workers have two key routes: Friendly Nations (for residents of 50 countries with an economic tie to Panama) and Digital Nomad ($36,000/yr in foreign income, 9-month stay).', cta: 'Compare visas →', ctaHref: '/en/visas/comparison' };
-    else if (isInvestor) visa = { heading: 'Qualified Investor — fast-track permanent residency.', body: 'With an investment goal or higher budget, the Qualified Investor visa delivers permanent residency in 30–45 days via real estate, stocks, or a fixed deposit.', cta: 'See Qualified Investor →', ctaHref: '/en/visas/qualified-investor' };
-    else                 visa = { heading: 'A few routes could work for you.', body: 'Based on your profile, we recommend comparing all residency routes side by side — exact requirements, timelines, and real costs for each situation.', cta: 'Compare all visas →', ctaHref: '/en/visas' };
+    if (isRetired)  visa = { heading: 'The Pensionado visa looks like the strongest fit.', body: 'As a retiree planning a full or part-time move, the Pensionado route offers permanent residency, 20% off medications, and dozens of legal discounts on everything from restaurants to flights.', cta: 'See Pensionado visa →', ctaHref: '/en/visas/pensionado/' };
+    else if (isRemote)   visa = { heading: 'Friendly Nations or Digital Nomad — depending on your passport.', body: 'Remote workers have two key routes: Friendly Nations (for residents of 50 countries with an economic tie to Panama) and Digital Nomad ($36,000/yr in foreign income, 9-month stay).', cta: 'Compare visas →', ctaHref: '/en/visas/comparison/' };
+    else if (isInvestor) visa = { heading: 'Qualified Investor — fast-track permanent residency.', body: 'With an investment goal or higher budget, the Qualified Investor visa delivers permanent residency in 30–45 days via real estate, stocks, or a fixed deposit.', cta: 'See Qualified Investor →', ctaHref: '/en/visas/qualified-investor/' };
+    else                 visa = { heading: 'A few routes could work for you.', body: 'Based on your profile, we recommend comparing all residency routes side by side — exact requirements, timelines, and real costs for each situation.', cta: 'Compare all visas →', ctaHref: '/en/visas/' };
     return { ...visa, zoneHeading, zoneSub, zones };
   }
 
   if (lang === 'fr') {
     let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
-    if (isRetired)  visa = { heading: 'Le visa Pensionado est probablement le plus adapté.', body: "En tant que retraité(e) avec une pension régulière, la voie Pensionado offre la résidence permanente, 20 % de réduction sur les médicaments et des dizaines d'avantages légaux.", cta: 'Voir le visa Pensionado →', ctaHref: '/fr/visas/pensionado' };
-    else if (isRemote)   visa = { heading: 'Nations Amies ou Nomade Digital — selon votre passeport.', body: "Les travailleurs à distance ont deux voies clés : Nations Amies (résidents de 50 pays avec lien économique au Panama) et Nomade Digital (36 000 $/an de revenus étrangers).", cta: 'Comparer les visas →', ctaHref: '/fr/visas/comparaison' };
-    else if (isInvestor) visa = { heading: "L'Investisseur Qualifié — résidence permanente rapide.", body: "Avec un budget élevé ou un objectif d'investissement, le visa Investisseur Qualifié offre la résidence permanente en 30 à 45 jours.", cta: "Voir l'Investisseur Qualifié →", ctaHref: '/fr/visas/investisseur-qualifie' };
-    else                 visa = { heading: 'Plusieurs voies pourraient vous convenir.', body: 'Sur la base de votre profil, nous vous recommandons de comparer toutes les voies de résidence côte à côte.', cta: 'Comparer tous les visas →', ctaHref: '/fr/visas' };
+    if (isRetired)  visa = { heading: 'Le visa Pensionado est probablement le plus adapté.', body: "En tant que retraité(e) avec une pension régulière, la voie Pensionado offre la résidence permanente, 20 % de réduction sur les médicaments et des dizaines d'avantages légaux.", cta: 'Voir le visa Pensionado →', ctaHref: '/fr/visas/pensionado/' };
+    else if (isRemote)   visa = { heading: 'Nations Amies ou Nomade Digital — selon votre passeport.', body: "Les travailleurs à distance ont deux voies clés : Nations Amies (résidents de 50 pays avec lien économique au Panama) et Nomade Digital (36 000 $/an de revenus étrangers).", cta: 'Comparer les visas →', ctaHref: '/fr/visas/comparaison/' };
+    else if (isInvestor) visa = { heading: "L'Investisseur Qualifié — résidence permanente rapide.", body: "Avec un budget élevé ou un objectif d'investissement, le visa Investisseur Qualifié offre la résidence permanente en 30 à 45 jours.", cta: "Voir l'Investisseur Qualifié →", ctaHref: '/fr/visas/investisseur-qualifie/' };
+    else                 visa = { heading: 'Plusieurs voies pourraient vous convenir.', body: 'Sur la base de votre profil, nous vous recommandons de comparer toutes les voies de résidence côte à côte.', cta: 'Comparer tous les visas →', ctaHref: '/fr/visas/' };
     return { ...visa, zoneHeading, zoneSub, zones };
   }
 
   let visa: Omit<ResultData, 'zoneHeading' | 'zoneSub' | 'zones'>;
-  if (isRetired)  visa = { heading: 'La Visa Pensionado parece la más adecuada para tu perfil.', body: 'Como jubilado o persona con ingresos recurrentes, la ruta Pensionado ofrece residencia permanente, 20% de descuento en medicamentos y docenas de beneficios legales.', cta: 'Ver visa Pensionado →', ctaHref: '/es/visas/pensionado' };
-  else if (isRemote)   visa = { heading: 'Naciones Amigas o Nómada Digital — según tu pasaporte.', body: 'Los trabajadores remotos tienen dos rutas clave: Naciones Amigas y Nómada Digital (ingresos de $36,000/año del exterior, estadía 9 meses). Compáralas.', cta: 'Comparar visas →', ctaHref: '/es/visas/comparativa' };
-  else if (isInvestor) visa = { heading: 'Inversionista Calificado — residencia permanente acelerada.', body: 'Con un presupuesto alto o meta de inversión, la Visa Inversionista Calificado otorga residencia permanente en 30-45 días vía bienes raíces, acciones o depósito a plazo.', cta: 'Ver Inversionista Calificado →', ctaHref: '/es/visas/inversionista-calificado' };
-  else                 visa = { heading: 'Varias rutas podrían funcionar para ti.', body: 'Con base en tu perfil, te recomendamos comparar todas las rutas de residencia una al lado de la otra — requisitos exactos, tiempos y costos reales para cada situación.', cta: 'Comparar todas las visas →', ctaHref: '/es/visas' };
+  if (isRetired)  visa = { heading: 'La Visa Pensionado parece la más adecuada para tu perfil.', body: 'Como jubilado o persona con ingresos recurrentes, la ruta Pensionado ofrece residencia permanente, 20% de descuento en medicamentos y docenas de beneficios legales.', cta: 'Ver visa Pensionado →', ctaHref: '/es/visas/pensionado/' };
+  else if (isRemote)   visa = { heading: 'Naciones Amigas o Nómada Digital — según tu pasaporte.', body: 'Los trabajadores remotos tienen dos rutas clave: Naciones Amigas y Nómada Digital (ingresos de $36,000/año del exterior, estadía 9 meses). Compáralas.', cta: 'Comparar visas →', ctaHref: '/es/visas/comparativa/' };
+  else if (isInvestor) visa = { heading: 'Inversionista Calificado — residencia permanente acelerada.', body: 'Con un presupuesto alto o meta de inversión, la Visa Inversionista Calificado otorga residencia permanente en 30-45 días vía bienes raíces, acciones o depósito a plazo.', cta: 'Ver Inversionista Calificado →', ctaHref: '/es/visas/inversionista-calificado/' };
+  else                 visa = { heading: 'Varias rutas podrían funcionar para ti.', body: 'Con base en tu perfil, te recomendamos comparar todas las rutas de residencia una al lado de la otra — requisitos exactos, tiempos y costos reales para cada situación.', cta: 'Comparar todas las visas →', ctaHref: '/es/visas/' };
   return { ...visa, zoneHeading, zoneSub, zones };
 }
 
@@ -839,6 +839,93 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
         }),
       });
     } catch (_) { /* fail silently */ }
+
+    // Send personalized roadmap email to client
+    fetch('/api/quiz-roadmap.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        lang,
+        answers,
+      }),
+    }).catch(() => { /* fail silently */ });
+
+    // Beyond Panama Lead Engine — creates contact, scores quiz, triggers automation
+    try {
+      // Map the existing quiz answer keys to the BPR scorer's normalized shape
+      const dest = (answers['destino'] as string) || '';
+      const ubi  = (answers['ubicacion'] as string) || '';
+      const ritm = (answers['ritmo'] as string) || '';
+      const prop = (answers['proposito'] as string) || '';
+      const ing  = (answers['ingresos'] as string) || '';
+      const trab = (answers['trabajo']  as string) || '';
+      const pres = (answers['presupuesto_vida'] as string) || '';
+      const plazo = (answers['plazo'] as string) || '';
+
+      const bprAnswers: Record<string, string> = {
+        lifestyle:
+          dest === 'ciudad' || ubi === 'ciudad' || ritm === 'urbano' ? 'urban'
+          : dest === 'montanas' || ubi === 'montana' ? 'mountain'
+          : dest === 'tropical' ? 'island'
+          : (dest === 'oceano' || ubi === 'mar') ? 'beach'
+          : 'suburban',
+        climate:
+          ubi === 'montana' || dest === 'montanas' ? 'cool'
+          : ubi === 'mar' || dest === 'oceano' || dest === 'tropical' ? 'hot'
+          : 'mild',
+        healthcare: (ing === 'pension' || trab === 'no_trabajo') ? 'high' : 'medium',
+        spanish: 'medium',
+        remote_work: (ing === 'remoto' || trab === 'remoto') ? 'yes' : 'no',
+        business: (prop === 'trabajo' || prop === 'inversion') ? 'yes' : 'no',
+        retirement: (prop === 'jubilacion' || ing === 'pension') ? 'yes' : 'no',
+        budget:
+          pres === 'menos_1500' ? 'under_100k'
+          : pres === '1500_2500' ? '100_200k'
+          : pres === '2500_4000' ? '200_300k'
+          : pres === '4000_6000' ? '300_500k'
+          : pres === 'mas_6000' ? '500k_1m'
+          : '',
+        timeline:
+          plazo === 'ahora' || plazo === 'menos_3' ? 'under_3_months'
+          : plazo === '3_6' ? '3_6_months'
+          : plazo === '6_12' ? '6_12_months'
+          : plazo === '1_2' ? '1_2_years'
+          : plazo === 'mas_2' ? '2plus_years'
+          : 'researching',
+      };
+      const [first_name, ...rest] = (formData.name || '').trim().split(/\s+/);
+      const utm = (() => { try { return JSON.parse(decodeURIComponent(
+        document.cookie.split('; ').find(c => c.startsWith('bpr_utm='))?.split('=')[1] || '%7B%7D'
+      )); } catch { return {}; } })();
+
+      const bprRes = await fetch('/api/bpr/routes/quiz.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          first_name,
+          last_name: rest.join(' '),
+          phone: formData.phone || '',
+          language: lang,
+          lead_source: 'quiz',
+          consent: true,
+          answers: bprAnswers,
+          raw_answers: answers,
+          utm_source:  utm.utm_source || '',
+          utm_medium:  utm.utm_medium || '',
+          utm_campaign:utm.utm_campaign || '',
+          utm_content: utm.utm_content || '',
+        }),
+      });
+      const bprJson = await bprRes.json().catch(() => ({}));
+      if (bprJson?.contact_id && typeof window !== 'undefined') {
+        // Remember identity for future tracking (bpr-tracker.js reads this cookie).
+        document.cookie = `bpr_cid=${bprJson.contact_id};path=/;max-age=${60*60*24*365};SameSite=Lax`;
+      }
+    } catch { /* fail silently */ }
+
     setSubmitted(true);
   }
 

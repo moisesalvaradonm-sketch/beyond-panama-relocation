@@ -1,0 +1,38 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. HTTPS redirect
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 2. www → non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # 3. Fix misrouted cross-language blog URLs: /{lang1}/blog/{lang2}/{slug}/ → /{lang2}/blog/{slug}/
+  RewriteRule ^(en|es|fr)/blog/(en|es|fr)/(.+?)/?$ /$2/blog/$3/ [R=301,L]
+
+  # 3b. Duplicados fusionados (Fase 2 SEO): "<slug> (1)" y "<slug>-2026-1" -> original
+  RewriteRule ^(en|es|fr)/(.+?)(%20|\ |\+)\(1\)/?$ /$1/$2/ [R=301,L,NE]
+  RewriteRule ^(en|es|fr)/blog/(.+-2026)-1/?$ /$1/blog/$2/ [R=301,L]
+
+  # Artículos retirados -> visa afín
+  RewriteRule ^en/blog/internet-and-remote-work-in-panama/?$ /en/visas/digital-nomad/ [R=301,L]
+  RewriteRule ^es/blog/internet-trabajo-remoto-panama/?$ /es/visas/nomada-digital/ [R=301,L]
+
+  # 3c. Raíz: redirección de servidor (antes era una página JS vacía). 302 porque depende del idioma.
+  RewriteCond %{HTTP:Accept-Language} ^es [NC]
+  RewriteRule ^$ /es/ [R=302,L]
+  RewriteRule ^$ /en/ [R=302,L]
+
+  # 3d. Sitemap antiguo (URLs sin barra, obsoleto) -> índice vigente
+  RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
+
+  # 4. Newsletter subscribe → property-inquiry.php?t=nl (bypasses stale LiteSpeed cache on subscribe.php)
+  RewriteRule ^api/subscribe(\.php)?$ /api/property-inquiry.php?t=nl [L,QSA]
+
+  # 5. Route extensionless API calls to their PHP files
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^api/([a-z0-9_-]+)$ /api/$1.php [L]
+</IfModule>

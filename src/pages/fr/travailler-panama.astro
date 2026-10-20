@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Travailler au Panama — Guide pour Expatriés" description="Tout ce qu'il faut savoir sur le travail au Panama : permis selon le visa, restrictions, télétravail et entreprises pour étrangers." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Travailler au Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Les possibilités de travail d'un expatrié au Panama dépendent principalement du type de visa détenu. Comprendre les restrictions vous évitera des surprises coûteuses.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-gold bg-gold/5">
+      <p class="font-semibold text-slate mb-1">Le système fiscal territorial joue en votre faveur</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Si vous générez des revenus <strong>hors du Panama</strong> — télétravail, pension, investissements étrangers, clients à l'étranger — vous ne payez pas d'impôts au Panama sur ces revenus.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Permissions de Travail par Type de Visa</h2>
+      <div class="space-y-4">
+        {[
+          {visa:"Visa Pensionado", color:"border-coral/30 bg-coral/5", badge:"Sans travail local", bc:"text-coral", detail:"Les titulaires ne peuvent pas travailler pour des employeurs panaméens. Ils peuvent recevoir leur pension de l'étranger sans restriction."},
+          {visa:"Visa Nations Amies", color:"border-jade/30 bg-jade/5", badge:"Travail local autorisé", bc:"text-jade", detail:"Permet l'emploi local et l'activité entrepreneuriale. L'option la plus flexible pour ceux qui souhaitent travailler activement au Panama."},
+          {visa:"Visa Nomade Digital", color:"border-gold/30 bg-gold/5", badge:"Télétravail uniquement", bc:"text-gold", detail:"Conçu pour les travailleurs à distance avec employeurs ou clients hors du Panama. Ne permet pas de travailler pour des entreprises panaméennes."},
+          {visa:"Visa Investisseur Qualifié", color:"border-jade/30 bg-jade/5", badge:"Activité commerciale autorisée", bc:"text-jade", detail:"Permet de diriger des entreprises et des investissements au Panama. Option préférée des entrepreneurs et investisseurs."},
+        ].map(({visa, color, badge, bc, detail}) => (
+          <div class={`p-5 rounded-xl border ${color}`}>
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <p class="font-semibold text-slate">{visa}</p>
+              <span class={`font-medium text-xs whitespace-nowrap ${bc}`}>{badge}</span>
+            </div>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Télétravail et Business en Ligne</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["💻","Télétravail","Travaillez pour votre employeur ou clients étrangers depuis le Panama. Si vous gagnez à l'étranger, pas d'impôts ici."],
+          ["🌐","Business en ligne","Clients étrangers, plateformes digitales, e-commerce international — exonéré d'impôts panaméens."],
+          ["📊","Conseil","Services de conseil à des clients hors du Panama : libre d'impôt territorial. Structuration correcte requise."],
+          ["🏢","Société S.A. panaméenne","Constituer une S.A. panaméenne peut offrir des avantages bancaires et opérationnels. Consultez un avocat."],
+        ].map(([emoji, title, detail]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <span class="text-2xl block mb-2">{emoji}</span>
+            <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Explorez vos options de résidence</p>
+      <p class="text-slate-mid text-sm mb-5">Comparez tous les visas disponibles et trouvez celui qui correspond à votre situation.</p>
+      <a href="/fr/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir la comparaison des visas →</a>
+    </div>
+  </section>
+</Layout>

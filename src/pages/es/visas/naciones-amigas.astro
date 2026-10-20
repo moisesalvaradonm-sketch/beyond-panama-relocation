@@ -1,15 +1,16 @@
 ---
 import VisaPage from '../../../components/ui/VisaPage.astro';
+import WhatsAppCTA from '../../../components/ui/WhatsAppCTA.astro';
 ---
 <VisaPage
   lang="es"
   title="Visa de Naciones Amigas Panamá"
-  description="Guía completa de la Visa de Naciones Amigas de Panamá: países elegibles, requisitos, proceso y a quién le conviene."
+  description="Guía completa de la Visa de Naciones Amigas de Panamá: los 50 países elegibles, vías calificadas, residencia provisional de 2 años a permanente y camino a la ciudadanía."
   visaName="Visa de Naciones Amigas Panamá"
   tag="50 países elegibles"
   tagColor="bg-gold/20 text-slate"
   mainReq="Ser nacional de país elegible + vínculo económico calificado"
-  processingTime="3 a 6 meses (trámite inicial) · 2–3 años hasta permanente"
+  processingTime="3 a 6 meses (trámite inicial) · luego residencia provisional de 2 años"
   renewalNote="Residencia provisional 2 años, luego permanente; ciudadanía tras 5 años"
   intro="Una de las vías de residencia más flexibles de Panamá.
     Disponible para nacionales de 50 países con vínculos con Panamá, requiere establecer
@@ -17,7 +18,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     Una vez permanente, permite aplicar a la ciudadanía panameña tras 5 años."
   requirements={[
     "Ser nacional de uno de los 50 países elegibles (EE.UU., Canadá, Reino Unido, Alemania, Francia, España, Australia, Argentina, Colombia, México, entre otros)",
-    "Establecer uno de estos cuatro vínculos calificados — elige cualquiera: (1) Contrato de trabajo con empresa panameña · (2) Ser dueño o accionista de una empresa panameña · (3) Inversión en bienes raíces de $200,000+ en Panamá · (4) Depósito bancario a plazo fijo de $200,000+ por 3 años",
+    "Establecer uno de estos tres vínculos calificados — elige cualquiera: (1) Inversión en bienes raíces de $200,000+ en Panamá · (2) Depósito a plazo fijo de $200,000+ en un banco panameño por 3 años · (3) Empleo en Panamá: contrato de trabajo con una empresa panameña, o autocontratarte mediante una empresa creada por ti mismo",
     "Pasaporte válido con al menos 6 meses de vigencia",
     "Certificado de antecedentes penales apostillado del país de origen",
     "Examen médico en Panamá",
@@ -35,7 +36,66 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
   ]}
   notFor={[
     "No eres nacional de ninguno de los 50 países elegibles — en ese caso, revisa Inversionista Calificado o Reforestación",
-    "No puedes establecer ninguno de los cuatro vínculos calificados (empleo, empresa, $200k en bienes raíces, o $200k en depósito)",
+    "No puedes establecer ninguno de los tres vínculos calificados ($200k en bienes raíces, $200k en depósito en banco panameño, o empleo/autoempleo con empresa propia en Panamá)",
     "Quieres una residencia permanente desde el primer día — esta categoría comienza con un período provisional de 2 años",
   ]}
-/>
+  quickAnswer="La Visa de Naciones Amigas de Panamá está disponible para nacionales de 50 países. Necesitas un solo vínculo económico calificado: comprar bienes raíces en Panamá por $200,000+, colocar un depósito a plazo fijo de $200,000+ por 3 años, o tener empleo en Panamá (contrato con una empresa panameña o autocontratación mediante una empresa creada por ti). Obtienes una residencia provisional de 2 años y luego conviertes a residencia permanente. La ciudadanía panameña es posible tras 5 años de residencia permanente."
+  faqs={[
+    {
+      q: "¿Qué 50 países son elegibles para la Visa de Naciones Amigas?",
+      a: "Los 50 países elegibles son: Alemania, Andorra, Argentina, Australia, Austria, Bélgica, Brasil, Canadá, Chile, Chipre, Corea del Sur, Costa Rica, Croacia, Dinamarca, España, Estados Unidos, Estonia, Finlandia, Francia, Grecia, Hong Kong, Hungría, Irlanda, Israel, Italia, Japón, Letonia, Liechtenstein, Lituania, Luxemburgo, Malta, San Marino, México, Mónaco, Montenegro, Noruega, Nueva Zelanda, Países Bajos, Paraguay, Polonia, Portugal, Reino Unido, República Checa, Singapur, Sudáfrica, Suecia, Suiza, Taiwán y Uruguay. Si tienes doble nacionalidad y uno de tus pasaportes es de un país de esta lista, puedes usarlo para todo el trámite."
+    },
+    {
+      q: "¿Cuáles son los vínculos económicos calificados?",
+      a: "Debes establecer solo uno, el que mejor encaje contigo: (1) Bienes raíces: comprar una propiedad en Panamá por al menos $200,000 USD, a título personal o mediante una estructura societaria de la que seas beneficiario final. (2) Depósito a plazo fijo: $200,000 USD por un mínimo de 3 años en un banco con Licencia General en Panamá. (3) Empleo en Panamá: contrato de trabajo formal con una empresa panameña y el permiso de trabajo correspondiente, o autocontratarte mediante una empresa creada por ti mismo. No necesitas combinarlos."
+    },
+    {
+      q: "¿Cuánto tarda el trámite?",
+      a: "Los plazos varían según el caso: el trámite inicial toma de 3 a 6 meses y da lugar a una residencia provisional de 2 años; tras ese período, manteniendo tu vínculo calificado, solicitas la conversión a permanente. Después de 5 años de residencia permanente puedes optar a la ciudadanía. Confirma los plazos actuales con un abogado migratorio panameño."
+    },
+    {
+      q: "¿Puedo trabajar en Panamá con esta visa?",
+      a: "Con la vía de empleo, la visa incluye un permiso de trabajo formal que te permite ser empleado por una empresa panameña. Quienes califican por bienes raíces o depósito pueden, en general, operar su propio negocio; un empleo asalariado bajo otra persona requeriría un permiso de trabajo aparte. Si trabajas de forma remota para empresas extranjeras, la visa es compatible y Panamá no grava los ingresos de fuente extranjera."
+    },
+    {
+      q: "¿Qué pasa después de los 2 años de residencia provisional?",
+      a: "Al completar el período provisional, manteniendo tu vínculo económico calificado, solicitas convertir tu estatus a residencia permanente. Si se aprueba, la residencia permanente no vence. Desde esa fecha empieza la cuenta de 5 años para poder solicitar la ciudadanía panameña y el pasaporte panameño."
+    },
+    {
+      q: "¿Puedo incluir a mi familia?",
+      a: "Sí. El cónyuge y los hijos menores pueden incluirse como dependientes en la misma solicitud (con una tarifa adicional por cada uno). Solo se incluyen cónyuge e hijos menores."
+    }
+  ]}
+>
+  <WhatsAppCTA
+    lang="es"
+    message={{ en: "Hi! I'd like more information about the Friendly Nations visa for Panama.", es: "¡Hola! Quiero más información sobre la visa de Naciones Amigas de Panamá.", fr: "Bonjour ! Je souhaite plus d'informations sur le visa Nations Amies du Panama." }}
+    label={{ en: "Get more info on WhatsApp", es: "Pedir más información por WhatsApp", fr: "Plus d'infos sur WhatsApp" }}
+  />
+  {/* [VERIFICAR] Discrepancias EN vs ES que deben resolverse antes de unificar:
+      1) Vías: RESUELTO por el autor (20-oct-2026): 3 vías (inmueble $200k, depósito $200k en banco panameño, empleo o autocontratación con empresa propia).
+      2) Plazos: RESUELTO por el autor (20-oct-2026): 3–6 meses de trámite inicial y luego provisional de 2 años. EN/FR/ES alineados; ya no se publica "hasta permanente" en meses/años.
+      3) Dependientes: RESUELTO por el autor (20-oct-2026): solo cónyuge e hijos menores.
+      4) Aún sin confirmar: lista de 50 países, umbral $200,000, depósito mínimo 3 años, seguro médico obligatorio, "no se grava ingreso extranjero" y "único visado con permiso de trabajo integrado". */}
+  <div class="mt-6 p-5 rounded-2xl bg-fog border border-jade/15">
+    <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Guías relacionadas</p>
+    <div class="space-y-2">
+      <a href="/es/bienes-raices/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Bienes raíces en Panamá — rangos de precios, proceso de compra y costos</span>
+      </a>
+      <a href="/es/visas/inversionista-calificado/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Visa Inversionista Calificado — si necesitas residencia permanente desde el primer día</span>
+      </a>
+      <a href="/es/visas/comparativa/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Comparar todas las visas de residencia</span>
+      </a>
+      <a href="/es/blog/visa-naciones-amigas-guia/" class="flex items-center gap-2 text-jade text-sm hover:underline">
+        <span>→</span>
+        <span>Guía en el blog: Visa de Naciones Amigas</span>
+      </a>
+    </div>
+  </div>
+</VisaPage>

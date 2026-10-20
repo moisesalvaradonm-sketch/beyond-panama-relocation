@@ -12,7 +12,7 @@ authorName: "Kaitlyn Conner"
 authorRole: "U.S. Document Services Specialist · Kaitlyn Conner Global Document Services LLC"
 authorAvatar: "/img/insights/authors/kaitlyn-conner.jpg"
 authorBio: "Kaitlyn Conner Global Document Services LLC helps individuals, families, attorneys, immigration professionals, and relocation specialists obtain and prepare U.S. documents for international use."
-authorWebsite: "https://kaitlynconnerglobal.com"
+authorWebsite: "https://www.kaitlynconnerglobal.com"
 authorPhone: "+18125737450"
 ---
 

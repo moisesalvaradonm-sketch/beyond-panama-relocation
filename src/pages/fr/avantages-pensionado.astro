@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Avantages du Pensionado au Panama" description="Guide complet des réductions et avantages exclusifs du visa Pensionado : économies réelles, comment les utiliser et qui est éligible." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Avantages du Pensionado</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le programme Pensionado du Panama est considéré comme l'un des meilleurs au monde. Ses réductions s'appliquent à presque tous les aspects de la vie quotidienne — et s'utilisent à vie.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-jade bg-jade/5">
+      <p class="font-semibold text-slate mb-1">Qui est éligible automatiquement ?</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Les titulaires du visa Pensionado reçoivent la carte d'avantages. <strong>De plus, les citoyens panaméens et résidents permanents sont automatiquement éligibles</strong> en atteignant l'âge de la retraite : femmes à 55 ans, hommes à 60 ans.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Tableau Complet des Réductions</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3"><p class="font-semibold text-white text-sm">Avantages Pensionado — En vigueur 2025</p></div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["🎬","Cinémas, théâtres et divertissements","50%"],
+            ["🚌","Transports publics (bus, métro)","30%"],
+            ["✈️","Vols internationaux","25%"],
+            ["🏨","Hôtels (jours de semaine)","50%"],
+            ["🏨","Hôtels (week-ends)","30%"],
+            ["🍽️","Restaurants","25%"],
+            ["🏥","Consultations médicales privées","20%"],
+            ["🦷","Dentisterie et ophtalmologie","15%"],
+            ["💊","Médicaments sur ordonnance","20%"],
+            ["🏥","Factures hospitalières (sans assurance)","15%"],
+            ["🔧","Services techniques et réparations","20%"],
+            ["🏠","Taxe foncière (résidence principale)","Exonération totale"],
+            ["🚗","Taxe d'importation (véhicule)","Exonération 1 véhicule à vie"],
+          ].map(([emoji, category, discount]) => (
+            <div class="flex items-center px-5 py-3 gap-4">
+              <span class="text-lg">{emoji}</span>
+              <span class="text-slate-mid text-sm flex-1">{category}</span>
+              <span class="font-bold text-jade whitespace-nowrap">{discount}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Combien Pouvez-Vous Économiser par Mois ?</h2>
+      <p class="text-slate-mid text-sm mb-4">Estimation basée sur un expatrié avec des dépenses typiques :</p>
+      <div class="space-y-2 mb-4">
+        {[
+          ["Sorties au restaurant (4x/mois)","25$ économisés → 100$ total","25$"],
+          ["Transports publics","10$ économisés/mois","10$"],
+          ["Médicaments sur ordonnance","15$ économisés/mois","15$"],
+          ["Consultation médicale mensuelle","4$ économisés (20$ consult.)","4$"],
+          ["Hôtel ou voyage trimestriel","75$ économisés (proratisé)","25$"],
+        ].map(([category, detail, saving]) => (
+          <div class="flex items-center justify-between bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <div>
+              <p class="font-medium text-slate">{category}</p>
+              <p class="text-slate-mid text-xs">{detail}</p>
+            </div>
+            <span class="font-bold text-jade whitespace-nowrap">{saving}/mois</span>
+          </div>
+        ))}
+      </div>
+      <div class="bg-jade/10 rounded-xl px-4 py-3 flex justify-between items-center">
+        <p class="font-semibold text-slate">Économies mensuelles estimées</p>
+        <p class="font-serif text-2xl font-bold text-jade">85–150$+</p>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Vous êtes intéressé par le visa Pensionado ?</p>
+      <p class="text-slate-mid text-sm mb-5">Découvrez les conditions requises et le processus pour l'obtenir.</p>
+      <a href="/fr/visas/pensionado/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir le visa Pensionado →</a>
+    </div>
+  </section>
+</Layout>

@@ -32,4 +32,4 @@ Disallow: /
 User-agent: cohere-ai
 Disallow: /
 
-Sitemap: https://beyondpanamarelocation.com/sitemap.xml
+Sitemap: https://beyondpanamarelocation.com/sitemap-index.xml

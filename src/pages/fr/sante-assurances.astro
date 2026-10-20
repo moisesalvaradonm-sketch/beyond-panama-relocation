@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout title="Santé et Assurances au Panama" description="Guide complet de santé au Panama : hôpitaux de référence, coûts réels, options d'assurance et comparaison avec les États-Unis." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Santé et Assurances au Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama offre des soins médicaux accrédités au niveau international à une fraction du coût dans les pays d'origine. De nombreux médecins dans les hôpitaux de Panama City ont été formés aux États-Unis et parlent anglais.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Réponse rapide</p>
+      <p class="text-slate text-sm leading-relaxed">
+        Une consultation chez un médecin privé au Panama coûte <strong>moins de 20 $</strong>. Un plan d'assurance santé local pour une personne de 66 ans revient à environ <strong>117 $/mois</strong> sans franchise. Une urgence documentée avec chirurgie a coûté <strong>119,80 $ au total</strong>. Les meilleurs hôpitaux de Panama City sont affiliés à Johns Hopkins International et à la Cleveland Clinic. De nombreux expatriés s'auto-assurent, tant les frais à leur charge sont faibles.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">20$</p>
+        <p class="text-slate-mid text-xs leading-snug">Consultation médicale privée sans assurance</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">117$</p>
+        <p class="text-slate-mid text-xs leading-snug">Plan santé mensuel (à 66 ans)</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">119$</p>
+        <p class="text-slate-mid text-xs leading-snug">Urgence complète avec chirurgie (cas réel)</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Hôpitaux de Référence</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3"><p class="font-semibold text-white text-sm">Hôpitaux Principaux — 2025</p></div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Pacífica Salud (Panama City)", "Le seul hôpital en Amérique latine affilié à Johns Hopkins International."],
+            ["Hôpital Paitilla (Panama City)", "Affilié à la Cleveland Clinic. L'un des centres de diagnostic et de chirurgie les plus complets du pays."],
+            ["Centro Médico Paitilla", "Cliniques ambulatoires, laboratoires et spécialités à côté de l'hôpital Paitilla. Rendez-vous rapides."],
+            ["Hôpital Santa Fe (Panama City)", "Assurance santé sans limite d'âge — important pour les personnes âgées refusées ailleurs."],
+            ["Hôpital Chiriquí (David)", "Référence pour tout l'ouest du pays. Urgences 24h/24."],
+            ["Hôpital de Bocas del Toro", "Nouvel hôpital 24h/24 sur l'Île Colón."],
+            ["Hôpital de Volcán", "Urgences 24h/24 pour Volcán et Cerro Punta."],
+            ["Hôpital public de Chitré", "L'hôpital le plus moderne et le plus grand de la péninsule d'Azuero."],
+            ["Boquete (nouveau)", "Hôpital public en construction à Boquete ; ouverture attendue 2025–2026."],
+          ].map(([name, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{name}</p>
+              <p class="text-slate-mid text-xs mt-0.5">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Coûts Réels des Soins</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Consultation générale (clinique privée)", "Moins de 20$", "150–400$ sans assurance aux USA"],
+            ["Consultation de spécialiste (privée)", "40–90$", "250–600$"],
+            ["Consultation en hôpital public", "2$", "Pas d'équivalent"],
+            ["Urgences complètes (avec chirurgie)", "119,80$ (cas documenté)", "5 000–15 000$+"],
+            ["Assurance santé mensuelle (66 ans)", "117$/mois", "800–1 200$/mois"],
+            ["Détartrage dentaire", "25–50$", "100–200$"],
+            ["Médicaments", "~1/3 du prix américain", "Prix plein"],
+          ].map(([service, panama, us]) => (
+            <div class="flex items-center px-5 py-3 gap-4 text-sm">
+              <span class="text-slate-mid flex-1">{service}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{panama}</span>
+              <span class="text-slate-mid/60 text-xs whitespace-nowrap hidden sm:block">{us}</span>
+            </div>
+          ))}
+        </div>
+        <div class="px-5 py-3 bg-fog border-t border-jade/10">
+          <p class="text-xs text-slate-mid">Les titulaires du visa Pensionado bénéficient de remises supplémentaires. Source : observation directe du marché, T3 2025.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Options d'Assurance</h2>
+      <div class="space-y-4">
+        {[
+          ["Plan local panaméen", "~117$/mois (66 ans)", "Couvre 80% des frais, 100% hospitalisation, sans franchise."],
+          ["Plan international", "~85$/mois (50 ans)", "Sans franchise au Panama ; 1 000$ à l'étranger."],
+          ["Hôpital Santa Fe", "Sans limite d'âge", "Plans complets sans restriction d'âge — l'option principale pour les expatriés de 70 ans et plus refusés par les assureurs classiques."],
+          ["Medicare Advantage (USA)", "Votre plan actuel", "Certains plans incluent une couverture d'urgence avec facturation directe dans des hôpitaux sélectionnés. Medicare standard (Parties A/B) ne couvre pas les soins courants à l'étranger. Vérifiez votre plan."],
+          ["Auto-assurance", "0$ prime", "Option réelle choisie par beaucoup d'expatriés vu le faible coût des soins. Certains constituent une réserve médicale personnelle plutôt que de payer des primes mensuelles."],
+        ].map(([type, cost, detail]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <p class="font-medium text-slate">{type}</p>
+              <span class="text-jade font-semibold text-sm whitespace-nowrap">{cost}</span>
+            </div>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Remises Pensionado sur la Santé</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">Les titulaires du visa Pensionado — et les résidents en âge de la retraite (femmes 55 ans et plus, hommes 60 ans et plus) — bénéficient de remises prévues par la loi sur les services médicaux dans tout le Panama :</p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {[
+          ["Factures d'hôpital (sans assurance)", "15 % de remise"],
+          ["Consultations médicales", "20 % de remise"],
+          ["Médicaments sur ordonnance", "20 % de remise"],
+          ["Dentisterie et examens de la vue", "15 % de remise"],
+          ["Chirurgies", "20 % de remise"],
+          ["Analyses de laboratoire et radiographies", "15 % de remise"],
+        ].map(([label, discount]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{label}</span>
+            <span class="font-semibold text-jade">{discount}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid mt-4">Remises prévues par la législation panaméenne (Loi 6 de 1987 et réformes ultérieures) ; les établissements sont tenus de les appliquer. Voir la <a href="/fr/avantages-pensionado/" class="text-jade hover:underline">liste complète des avantages Pensionado</a>.</p>
+    </div>
+
+    <div class="mb-12 space-y-5 text-slate-mid leading-relaxed">
+      <h2 class="font-serif text-2xl text-slate">À quoi s'attendre des soins au Panama</h2>
+      <p>Les principaux hôpitaux privés de Panama City — Pacífica Salud (Johns Hopkins) et l'hôpital Paitilla (Cleveland Clinic) — offrent une qualité comparable à celle des hôpitaux américains. De nombreux médecins ont été formés aux États-Unis ou en Europe et parlent anglais.</p>
+      <p>En dehors de la capitale, les soins sont solides dans les centres régionaux comme David (hôpital Chiriquí) et Chitré, mais les spécialités et les cas complexes sont généralement orientés vers Panama City. À Boquete et Volcán, des soins de base sont disponibles sur place ; les urgences sont transférées à David (environ 45 minutes). Un transport d'urgence est disponible.</p>
+      <p>Différence notable avec les États-Unis : il est courant que les médecins donnent à leurs patients leur numéro de portable personnel pour les questions de suivi.</p>
+      <p>Les médicaments coûtent environ un tiers du prix américain et la plupart sont disponibles sans ordonnance en pharmacie, y compris beaucoup de ceux qui en exigent une aux États-Unis.</p>
+      <p>Langue : dans les hôpitaux privés de Panama City, les médecins et infirmiers anglophones sont courants. En dehors de la capitale, l'espagnol prévaut ; un peu d'espagnol médical de base ou une application de traduction aident beaucoup.</p>
+    </div>
+
+    <div class="mt-12 mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Questions Fréquentes</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">La qualité des soins au Panama est-elle bonne ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Oui, en particulier à Panama City, où les principaux hôpitaux privés sont affiliés à Johns Hopkins International (Pacífica Salud) et à la Cleveland Clinic (hôpital Paitilla). Hors de la capitale, la qualité est bonne dans les centres régionaux comme David et Chitré, mais les spécialités sont généralement orientées vers la capitale.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Ai-je besoin d'une assurance santé pour vivre au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Aucune obligation légale de souscrire une assurance santé comme résident étranger. Beaucoup d'expatriés s'auto-assurent car les frais à leur charge sont faibles : une consultation privée coûte moins de 20 $ et une urgence complète avec chirurgie a été documentée à 119,80 $. Une assurance apporte toutefois de la tranquillité pour les actes importants et peut couvrir des soins à l'étranger. Les plans locaux démarrent autour de 117 $/mois à 66 ans.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Medicare américain couvre-t-il les soins au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Medicare standard (Parties A et B) ne couvre pas les soins courants ou non urgents hors des États-Unis. Certains plans Medicare Advantage incluent une couverture d'urgence avec facturation directe dans des hôpitaux sélectionnés ; vérifiez la section internationale de votre plan. Pour une couverture complète au Panama, un plan local ou international complémentaire est recommandé.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Combien coûtent les médicaments au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Environ un tiers du prix américain. La plupart des médicaments courants sont disponibles sans ordonnance et les génériques sont largement répandus. Les titulaires du visa Pensionado bénéficient en plus de remises légales (voir la section sur les remises).</dd>
+        </div>
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Que se passe-t-il si j'ai besoin de soins hors de Panama City ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Les hôpitaux régionaux assurent les soins courants et les urgences. L'hôpital Chiriquí à David est la référence pour les hautes terres de l'ouest (Boquete, Volcán, Cerro Punta). Pour les cas complexes ou de spécialiste, les patients sont généralement transférés à Panama City. Des services d'ambulance privée et de transfert par hélicoptère existent pour les cas graves.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Prêt à planifier votre déménagement ?</p>
+      <p class="text-slate-mid text-sm mb-5">Le quiz prend 2 minutes et vous donne un point de départ personnalisé.</p>
+      <a href="/fr/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Trouvez votre voie →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="fr" categories={['lifestyle']} />
+</Layout>

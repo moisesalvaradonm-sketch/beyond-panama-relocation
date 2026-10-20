@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from './RelatedGuides.astro';
 import type { Lang } from '../../i18n/ui';
 
 interface FAQ {
@@ -12,29 +13,34 @@ interface Props {
   title: string;
   description: string;
   visaName: string;
-  tag: string;           // "Jubilados" / "Inversión" / etc.
-  tagColor?: string;     // css class
-  mainReq: string;       // requisito principal en 1 línea
+  tag: string;
+  tagColor?: string;
+  mainReq: string;
   income?: string;
   investment?: string;
   processingTime: string;
   renewalNote: string;
+  quickAnswer?: string;
   intro: string;
   requirements: string[];
   benefits: string[];
   notFor: string[];
-  faqs?: FAQ[];          // Additional human-readable Q&A for AI citability
+  faqs?: FAQ[];
+  temporalResidence?: boolean;
+  noindex?: boolean;
 }
 
 const {
   lang, title, description, visaName, tag, tagColor = 'bg-jade/10 text-jade',
   mainReq, income, investment, processingTime, renewalNote,
-  intro, requirements, benefits, notFor, faqs = [],
+  quickAnswer, intro, requirements, benefits, notFor, faqs = [],
+  temporalResidence = false,
+  noindex = false,
 } = Astro.props;
 
-const backHref = lang === 'es' ? '/es/visas' : lang === 'fr' ? '/fr/visas' : '/en/visas';
-const compHref = lang === 'es' ? '/es/visas/comparativa' : lang === 'fr' ? '/fr/visas/comparaison' : '/en/visas/comparison';
-const quizHref = `/${lang}/quiz`;
+const backHref = lang === 'es' ? '/es/visas/' : lang === 'fr' ? '/fr/visas/' : '/en/visas/';
+const compHref = lang === 'es' ? '/es/visas/comparativa/' : lang === 'fr' ? '/fr/visas/comparaison/' : '/en/visas/comparison/';
+const quizHref = `/${lang}/quiz/`;
 
 // ── Schema: FAQPage ───────────────────────────────────────────────────────────
 // NOTE (2026-09-08): Google retired FAQ rich results for all sites on
@@ -103,7 +109,7 @@ const faqSchema = {
 };
 ---
 
-<Layout {title} {description} {lang}>
+<Layout {title} {description} {lang} {noindex}>
   <article class="max-w-3xl mx-auto px-4 py-16">
 
     <a href={backHref} class="text-jade text-sm hover:underline">
@@ -113,10 +119,31 @@ const faqSchema = {
     <header class="mt-4 mb-10">
       <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-3 ${tagColor}`}>{tag}</span>
       <h1 class="font-serif text-4xl text-slate mb-3">{visaName}</h1>
-      <p class="text-slate-mid text-lg leading-relaxed">{intro}</p>
+      <p class="text-slate-mid text-lg leading-relaxed mb-4">{intro}</p>
+      <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-jade/10">
+        <img src="/moises-alvarado.jpg" alt="Moisés Alvarado" class="w-8 h-8 rounded-full object-cover flex-shrink-0" width="32" height="32" />
+        <div class="flex flex-wrap gap-2 text-xs text-slate-mid">
+          <span>
+            {isEs ? 'Por' : isFr ? 'Par' : 'By'}{' '}
+            <a
+              href={isEs ? '/es/sobre-nosotros/' : isFr ? '/fr/a-propos/' : '/en/about/'}
+              class="text-jade hover:underline font-medium"
+            >Moisés Alvarado</a>
+          </span>
+          <span>·</span>
+          <span>{isEs ? 'Última revisión: septiembre 2026' : isFr ? 'Dernière révision : septembre 2026' : 'Last reviewed: September 2026'}</span>
+        </div>
+      </div>
     </header>
 
-    <!-- Stats rápidos -->
+    {quickAnswer && (
+      <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+        <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">
+          {lang === 'es' ? 'Respuesta rápida' : lang === 'fr' ? 'Réponse rapide' : 'Quick Answer'}
+        </p>
+        <p class="text-slate text-sm leading-relaxed">{quickAnswer}</p>
+      </div>
+    )}
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
       <div class="p-4 rounded-xl bg-white border border-jade/10">
         <p class="text-xs text-slate-mid uppercase tracking-wide mb-1">
@@ -217,10 +244,12 @@ const faqSchema = {
             ? { n: 5, title: 'Recevez votre carnet provisoire', body: 'Pendant l\'examen de votre dossier — généralement entre 3 et 9 mois — vous recevez une carte provisoire qui confirme votre statut migratoire et vous permet de résider et de voyager au Panama normalement.' }
             : { n: 5, title: 'Receive your provisional ID (carnet)', body: 'While your file is reviewed — typically 3 to 9 months — you receive a provisional ID card that confirms your immigration status and allows you to live in and travel through Panama normally.' },
           isEs
-            ? { n: 6, title: 'Obtén tu cédula de residencia permanente', body: 'Una vez aprobada la solicitud, recibirás tu cédula de residente permanente. En algunos trámites también podrás solicitar una cédula de identidad panameña (carnet de residente).' }
+            ? temporalResidence
+              ? { n: 6, title: 'Obtén tu carnet de residencia temporal', body: 'Una vez aprobada la solicitud, recibirás tu carnet de residente temporal (5 años, renovable). Este documento acredita tu estatus migratorio y te permite vivir, viajar y acceder a servicios en Panamá durante el período de vigencia.' }
+              : { n: 6, title: 'Obtén tu cédula de residencia permanente', body: 'Una vez aprobada la solicitud, recibirás tu cédula de residente permanente. En algunos trámites también podrás solicitar una cédula de identidad panameña (carnet de residente).' }
             : isFr
             ? { n: 6, title: 'Recevez votre carte de résident permanent', body: 'Une fois approuvée, vous recevez votre carte de résident permanent. Selon le type de visa, vous pourrez également faire une demande de carte d\'identité de résident panaméen (cédula de identidad).' }
-            : { n: 6, title: 'Receive your permanent resident card', body: 'Once approved, you receive your permanent resident ID. Depending on the visa type, you may also be eligible to apply for a Panama resident identity card (cédula de identidad).' },
+            : { n: 6, title: 'Receive your resident card', body: 'Once approved, you receive your resident ID card. Depending on the visa type this will be a temporary (5-year renewable) or permanent resident card.' },
         ].map(({ n, title, body }) => (
           <li class="flex gap-4 items-start">
             <span class="flex-shrink-0 w-7 h-7 rounded-full bg-jade text-white text-xs font-bold flex items-center justify-center mt-0.5">{n}</span>
@@ -265,6 +294,8 @@ const faqSchema = {
       </section>
     )}
 
+    <slot />
+
     <!-- Disclaimer legal -->
     <p class="text-xs text-slate-mid border-t border-jade/10 pt-6 mb-10">
       {lang === 'es'
@@ -288,4 +319,5 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   </article>
+  <RelatedGuides lang={lang} categories={['visas']} max={4} />
 </Layout>

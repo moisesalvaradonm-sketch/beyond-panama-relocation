@@ -12,7 +12,7 @@ authorName: "Kaitlyn Conner"
 authorRole: "U.S. Document Services Specialist · Kaitlyn Conner Global Document Services LLC"
 authorAvatar: "/img/insights/authors/kaitlyn-conner.jpg"
 authorBio: "Kaitlyn Conner Global Document Services LLC ayuda a personas, familias, abogados, profesionales de inmigración y especialistas en reubicación a obtener y preparar documentos de Estados Unidos para su uso internacional."
-authorWebsite: "https://kaitlynconnerglobal.com"
+authorWebsite: "https://www.kaitlynconnerglobal.com"
 authorPhone: "+18125737450"
 ---
 

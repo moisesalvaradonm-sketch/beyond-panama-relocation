@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Education & Activities in Panama" description="International schools in Panama, schooling options for expat families, and top activities: the Canal, wildlife, surf, diving, and more." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Education & Activities in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        From world-class international schools to 900 bird species and the best surf breaks in Central America — Panama offers more than most expats expect.
+      </p>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="mb-14">
+      <h2 class="font-serif text-3xl text-slate mb-2">Education</h2>
+      <p class="text-slate-mid mb-8 leading-relaxed">
+        Public schools in Panama are generally under-resourced and use a local Spanish curriculum — expat families with children almost universally choose private international schools.
+      </p>
+
+      <!-- School overview -->
+      <div class="mb-8">
+        <h3 class="font-serif text-xl text-slate mb-4">International Schools: What to Expect</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            ["📚", "Curriculum quality", "Comparable to US standards; among the best in Central America."],
+            ["🌍", "Student diversity", "Asia, Europe, North & South America — genuinely multicultural."],
+            ["💰", "Enrollment fee", "$200–$1,000 per student (family discounts available)."],
+            ["📅", "Calendar options", "Option A: Sep–Jun (US system) / Option B: Mar–Dec (Panamanian)."],
+            ["🗣️", "Languages available", "English, Spanish, French, Japanese, Chinese."],
+            ["✝️", "Faith-based options", "Jewish, Catholic, Adventist, and Muslim schools available."],
+          ].map(([emoji, label, detail]) => (
+            <div class="p-4 rounded-xl border border-jade/15 bg-white flex gap-3 items-start">
+              <span class="text-xl">{emoji}</span>
+              <div>
+                <p class="font-semibold text-slate text-sm mb-0.5">{label}</p>
+                <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Where to find schools -->
+      <div class="mb-8">
+        <h3 class="font-serif text-xl text-slate mb-4">Where Are International Schools?</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+            {[
+              ["Panama City", "Most options — English, French, Japanese, Chinese, Jewish, Catholic, Adventist, Muslim schools."],
+              ["Coronado / Panama Oeste", "International school serving the expat beach community. US curriculum."],
+              ["Boquete", "Smaller local schools; some expat families homeschool or use online platforms."],
+            ].map(([location, detail]) => (
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">{location}</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Homeschooling -->
+      <div class="p-5 rounded-xl border border-jade/15 bg-white">
+        <p class="font-medium text-slate text-sm mb-1">Homeschooling</p>
+        <p class="text-slate-mid text-xs leading-relaxed">Online platforms, US-accredited curricula, and a growing expat homeschool community make this a viable option — particularly in smaller towns like Boquete, Volcán, and Pedasí where formal international schools are limited.</p>
+      </div>
+    </div>
+
+    <!-- ACTIVITIES -->
+    <div class="mb-14">
+      <h2 class="font-serif text-3xl text-slate mb-2">Activities & Attractions</h2>
+      <p class="text-slate-mid mb-8 leading-relaxed">
+        Panama packs an extraordinary range of activities into a country the size of South Carolina. Most expats discover they have far more to do than expected.
+      </p>
+
+      <div class="space-y-5">
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">⚓</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">The Panama Canal</p>
+            <p class="text-slate-mid text-sm leading-relaxed">A marvel of modern engineering — watching Panamax and Neopanamax ships pass through the locks is genuinely spectacular. The Miraflores and Agua Clara visitor centers are well-run and informative. A must-see, even for long-term residents.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🦜</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Birdwatching — 900+ Species</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Panama is one of the top birdwatching destinations in the world, with over 900 recorded species — more than the US and Canada combined. The Pipeline Road near Panama City and Boquete's highlands are world-renowned birding spots. Harpy Eagles, toucans, resplendent quetzals, and hundreds more.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🐳</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Whale Watching (Jul–Oct)</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Humpback whales migrate through Panama's Pacific waters from July to October. Tour operators in the Pearl Islands and Pedasí report near-100% sighting rates during peak season. Dolphins are visible year-round along both coasts.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🤿</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Diving & Snorkeling</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Coiba Island (Pacific) is a UNESCO World Heritage Site with world-class shark diving. Bocas del Toro (Caribbean) offers Bastimentos marine park with coral reefs, sea turtles, and tropical fish. Both sites are among Central America's best dive spots.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🏄</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Surfing</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Playa Venao (Pedasí, Pacific) and Santa Catalina (Veraguas) are Panama's top surf destinations, with consistent beach and point breaks. Bocas del Toro offers Caribbean-side waves popular with beginners and intermediates. Surf season runs May–October on the Pacific.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🏓</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Pickleball & Paddle</p>
+            <p class="text-slate-mid text-sm leading-relaxed">The most popular sport among expats and increasingly popular with Panamanians. Courts exist in dozens of towns across the country — from Boquete and Coronado to Panama City and Chitré. Expat communities often organize regular games, making it an easy way to meet people.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🏛️</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Biomuseo (Panama City)</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Designed by architect Frank Gehry, this is the most architecturally striking building in Panama. Eight galleries tell the story of how the formation of the Isthmus of Panama transformed global biodiversity. Fascinating for adults and children alike.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">🛶</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Emberá Village Tours</p>
+            <p class="text-slate-mid text-sm leading-relaxed">A canoe trip upriver to an Indigenous Darién community: crafts, traditional food on plantain leaves, and temporary natural tattoos. One of Panama's most unique cultural experiences, available as a day tour from Panama City.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">⛰️</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Hiking & Ziplining</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Barú Volcano (Chiriquí) is Panama's highest peak with a pre-dawn summit hike offering both-ocean views on clear days. Ziplining and canopy tours in Bocas del Toro, Boquete, and El Valle. Jungle and island trails throughout the country.</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-3xl">☕</span>
+          <div>
+            <p class="font-semibold text-slate mb-1">Coffee Culture (Boquete / Chiriquí)</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Panama produces some of the world's most sought-after specialty coffee — Geisha varieties from Boquete regularly break auction records. Farm tours, cupping sessions, and direct purchases from producers are all available in the Chiriquí highlands.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Expat community involvement -->
+    <div class="mb-12 p-6 rounded-2xl bg-jade/5 border border-jade/15">
+      <h3 class="font-serif text-xl text-slate mb-3">Community Life</h3>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Panama's expat communities are active beyond recreation. Residents organize animal spay/neuter clinics, make blankets for newborns in local hospitals, teach English to local children, and participate in a wide range of community service activities. Integration into the local community is a common experience — and one that consistently surprises newcomers.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Find the area that matches your lifestyle</p>
+      <p class="text-slate-mid text-sm mb-5">Compare Panama's top expat destinations side by side.</p>
+      <a href="/en/areas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explore areas →</a>
+    </div>
+  </section>
+</Layout>

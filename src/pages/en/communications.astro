@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Communications & Utilities in Panama" description="Everything you need to know about mobile, internet, electricity and water in Panama. Providers, prices and tips for expats." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Communications & Utilities in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Getting connected in Panama is easier and cheaper than most expats expect. Here's a practical breakdown of mobile, internet, electricity, and water — with real prices.
+      </p>
+    </div>
+
+    <!-- WhatsApp callout -->
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-jade bg-jade/5">
+      <p class="font-semibold text-slate mb-1">The single most important thing to know</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        <strong>WhatsApp is the primary means of communication in Panama</strong> — for everything: calls, messages, documents, appointments, and business. Individuals, companies, doctors, landlords, and expat communities all use it. Download it the moment you arrive.
+      </p>
+    </div>
+
+    <!-- Mobile -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Mobile Phone</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        US phones must be unlocked to use a local SIM. The main carriers are <strong class="text-slate">Tigo, Claro, Movistar, and +Móvil</strong>. Coverage is very good across most of the country.
+      </p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden mb-5">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["SIM card activation", "~$5", "Staff set it up for you in-store"],
+            ["Typical monthly plan", "~$30/mo", "Unlimited calls + data + international calls"],
+            ["Basic handset (if needed)", "From $100", "Available at local stores"],
+            ["Contract required?", "No", "Prepaid option available, no commitment"],
+          ].map(([item, price, note]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-slate-mid flex-1">{item}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{price}</span>
+              <span class="text-slate-mid/60 text-xs hidden sm:block">{note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-3">
+        {["Tigo", "Claro", "Movistar"].map(carrier => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white text-center">
+            <p class="font-semibold text-slate text-sm">{carrier}</p>
+            <p class="text-slate-mid text-xs mt-1">~$30/mo unlimited</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Internet -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Internet Service</h2>
+      <div class="space-y-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Tigo / Más Móvil (Fiber)</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">~$40/mo</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">300–1,000 Mbps. The most common option in urban areas. Reliable and fast in Panama City, Boquete center, Coronado, and other expat hubs. Quality drops in rural areas.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Starlink (Satellite)</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">~$120/mo + equipment</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Ideal for rural, coastal, and mountain areas without cable infrastructure. High speeds even in isolated communities. Has transformed remote work possibilities in the Panamanian interior. Available since 2023.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Internet + Cable TV Bundle</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">~$60/mo</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Combined internet and cable TV packages with English and Spanish channels. Many expats also use a Firestick, Netflix, Apple TV, or similar streaming services. A VPN may be needed for some US-based streaming libraries.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electricity -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Electricity</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-5">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">⛰️</div>
+          <p class="font-semibold text-slate text-sm mb-1">Mountains (Boquete, Volcán)</p>
+          <p class="font-serif text-2xl text-jade font-bold mb-1">~$25/mo</p>
+          <p class="text-slate-mid text-xs leading-relaxed">Cool climate means no air conditioning needed. Electricity bills are minimal.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">🏖️</div>
+          <p class="font-semibold text-slate text-sm mb-1">Coast / Panama City</p>
+          <p class="font-serif text-2xl text-jade font-bold mb-1">$100–$300/mo</p>
+          <p class="text-slate-mid text-xs leading-relaxed">Heavy A/C use pushes bills to 4–5× higher than the highlands. Budget accordingly.</p>
+        </div>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-fog text-sm text-slate-mid leading-relaxed">
+        <strong class="text-slate">Technical specs:</strong> 120V / 60Hz — identical to the US. Standard US flat-plug adapters work without converters. Reliable service with occasional outages during heavy electrical storms.
+      </div>
+    </div>
+
+    <!-- Water -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Water</h2>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏙️</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Mainland Panama</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Tap water is considered safe to drink in most urban areas. Many homes have a reserve tank with an additional filter for extra peace of mind. Most expats drink tap water or use a home filter.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏝️</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Islands (Bocas del Toro)</p>
+            <p class="text-slate-mid text-sm leading-relaxed">Bottled water is exclusively recommended. Island water infrastructure is less reliable than on the mainland.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick reference -->
+    <div class="mb-12 rounded-2xl border border-jade/15 overflow-hidden">
+      <div class="bg-jade px-5 py-3">
+        <p class="font-semibold text-white text-sm">Monthly Utilities — Quick Reference</p>
+      </div>
+      <div class="bg-white divide-y divide-jade/8">
+        {[
+          ["Mobile phone (unlimited)", "~$30"],
+          ["Internet + Cable TV", "~$60"],
+          ["Electricity (mountains)", "~$25"],
+          ["Electricity (coast, with A/C)", "$100–$300"],
+          ["Water (mainland)", "~$10–$20"],
+          ["Total (mountain area)", "~$125/mo"],
+          ["Total (coastal/city)", "$200–$410/mo"],
+        ].map(([item, cost], i) => (
+          <div class={`flex justify-between items-center px-5 py-3 text-sm ${i === 5 || i === 6 ? 'bg-jade/5 font-semibold' : ''}`}>
+            <span class="text-slate-mid">{item}</span>
+            <span class="font-semibold text-slate">{cost}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Want to estimate your full monthly budget?</p>
+      <p class="text-slate-mid text-sm mb-5">The cost calculator lets you adjust every line item to your situation.</p>
+      <a href="/en/cost-of-living/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Open cost calculator →</a>
+    </div>
+  </section>
+</Layout>

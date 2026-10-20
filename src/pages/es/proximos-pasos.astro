@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout title="Próximos Pasos para Mudarte a Panamá" description="Checklist de reubicación, cronograma realista, ruta hacia la ciudadanía y los servicios de MR Global Partners para tu mudanza a Panamá." lang="es" noindex={false}>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Tus Próximos Pasos</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Mudarse a Panamá es un proceso, no un evento único. Este resumen ejecutivo te da el mapa completo — desde la decisión hasta la residencia permanente.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Por Qué Panamá Funciona</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["🏦", "Centro bancario mundial", "130+ bancos internacionales, economía dolarizada, sin banco central — estabilidad financiera única en la región."],
+          ["💸", "0% impuesto a ingresos del exterior", "El sistema territorial solo grava lo que ganas dentro de Panamá. Ideal para jubilados, nómadas y emprendedores globales."],
+          ["🏥", "Atención médica de primer nivel", "Hospitales afiliados a Johns Hopkins y Cleveland Clinic, a una fracción del costo en EE.UU."],
+          ["✈️", "Hub de conectividad", "Copa Airlines conecta 80+ ciudades desde PTY. Vuelos directos a todas las capitales de Latinoamérica y EE.UU."],
+          ["🌿", "Biodiversidad excepcional", "Parques nacionales, 900+ especies de aves, playas en dos océanos, montañas con clima primaveral."],
+          ["🤝", "Comunidad expat madura", "Décadas de inmigración han creado comunidades establecidas con redes de apoyo, servicios y vida social en inglés."],
+          ["📜", "Visas accesibles", "Pensionado, Naciones Amigas, Nómada Digital — opciones para casi cualquier situación y nivel de ingresos."],
+          ["💰", "Costo de vida 40–60% menor", "Vs. EE.UU., Canadá y Europa Occidental — con calidad de vida comparable o superior en muchos aspectos."],
+        ].map(([emoji, title, detail]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-lg">{emoji}</span>
+              <p class="font-semibold text-slate text-sm">{title}</p>
+            </div>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Checklist de Reubicación en 10 Pasos</h2>
+      <div class="space-y-3">
+        {[
+          ["1", "Definir tu visa", "Compara Pensionado, Naciones Amigas, Nómada Digital e Inversionista Calificado. Elige según tus ingresos y planes laborales.", "/es/visas/"],
+          ["2", "Contratar un abogado", "Un abogado de inmigración local te guía en la visa y evita errores costosos. Costo típico $1,500–$3,000 todo incluido.", null],
+          ["3", "Visita exploratoria", "Pasa al menos 2–4 semanas en las zonas que más te interesan antes de comprometerte.", "/es/zonas/"],
+          ["4", "Definir presupuesto mensual", "Usa la calculadora de costo de vida. El promedio de una pareja es $2,500–$4,000/mes.", "/es/costo-de-vida/"],
+          ["5", "Arrendamiento temporal", "Arrienda durante los primeros 6–12 meses. No compres hasta conocer bien la zona y el país.", null],
+          ["6", "Apertura de cuenta bancaria", "Inicia el proceso de cuenta bancaria con tu abogado. Tarda 2–4 semanas. Necesitas la visa activa.", "/es/banca-finanzas/"],
+          ["7", "Tramitar la cédula (carnet de residencia)", "Una vez aprobada tu visa, obtén la cédula en el Tribunal Electoral. Es tu ID oficial.", null],
+          ["8", "Obtener tarjeta Pensionado (si aplica)", "Con cédula en mano, ve al Tribunal Electoral a obtener tu tarjeta de beneficios Pensionado.", "/es/beneficios-pensionado/"],
+          ["9", "SIM local y WhatsApp", "Activa un SIM panameño inmediatamente — es el principal canal de comunicación del país.", "/es/comunicaciones/"],
+          ["10", "Conectarte con la comunidad expat", "Únete a grupos locales, clubs de actividades y redes sociales expat en tu zona.", "/es/testimonios/"],
+        ].map(([num, title, detail, link]) => (
+          <div class="flex items-start gap-4 p-4 rounded-xl border border-jade/15 bg-white">
+            <span class="w-8 h-8 rounded-full bg-jade text-white text-sm font-bold flex items-center justify-center flex-shrink-0">{num}</span>
+            <div class="flex-1">
+              <p class="font-semibold text-slate text-sm">{title}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+              {link && <a href={link} class="text-jade text-xs hover:underline mt-1 inline-block">Ver guía →</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Cronograma: Visa Pensionado</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Fase 1 (1–2 meses)", "Reunión de documentos, apostillas, traducciones. Contrata tu abogado."],
+            ["Fase 2 (1–2 meses)", "Presentación de solicitud ante el SNM (Servicio Nacional de Migración)."],
+            ["Fase 3 (2–4 meses)", "Revisión por parte del SNM. Periodo de espera variable."],
+            ["Fase 4", "Aprobación: permiso de residencia temporal + carnet provisional."],
+            ["Fase 5 (2 años de residencia temporal)", "Solicitud de residencia permanente."],
+            ["Fase 6 (5 años desde residencia temporal)", "Opcional: solicitud de ciudadanía panameña."],
+          ].map(([phase, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{phase}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-xl text-slate mb-3">Ruta hacia la Ciudadanía Panameña</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-3">Panamá permite la doble ciudadanía. El proceso típico:</p>
+      <div class="space-y-2 text-sm">
+        {[
+          "Obtener residencia temporal → residencia permanente (2 años después)",
+          "Cinco años de residencia total con presencia física significativa",
+          "Demostrar integración: español funcional, conocimiento de la cultura panameña",
+          "Solicitud de naturalización ante el Ministerio de Gobierno",
+          "Obtención de pasaporte panameño (acceso a 145+ países)",
+        ].map(step => (
+          <div class="flex items-start gap-2 text-slate-mid">
+            <span class="text-jade mt-0.5">→</span>
+            <span>{step}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-slate text-white overflow-hidden">
+      <div class="p-8">
+        <p class="font-serif text-2xl mb-3">Listo para comenzar</p>
+        <p class="text-white/70 text-sm mb-6 leading-relaxed">
+          MR Global Partners acompaña a expats en cada etapa del proceso — desde la primera pregunta hasta la residencia permanente. Nuestro equipo vive en Panamá y conoce el proceso de primera mano.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-3 mb-6">
+          {[
+            "Asesoría de visa y migración",
+            "Búsqueda y cierre de propiedades",
+            "Configuración bancaria y financiera",
+            "Búsqueda de vivienda en arrendamiento",
+            "Planificación fiscal internacional",
+            "Apoyo de reubicación integral",
+          ].map(service => (
+            <div class="flex items-center gap-2 text-sm text-white/80">
+              <span class="text-jade">✓</span>
+              <span>{service}</span>
+            </div>
+          ))}
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="/es/contacto/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Consulta gratuita</a>
+          <a href="/es/quiz/" class="inline-flex px-6 py-3 rounded-full border border-white/30 text-white font-medium text-sm hover:bg-white/10 transition-colors">Quiz de 2 minutos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <RelatedGuides lang="es" categories={['proceso', 'visas']} />
+</Layout>

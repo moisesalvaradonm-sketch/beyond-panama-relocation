@@ -1,12 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Moisés Alvarado',
+  jobTitle: 'Fondateur, Beyond Panama Relocation',
+  url: 'https://beyondpanamarelocation.com/fr/a-propos',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Beyond Panama Relocation',
+    url: 'https://beyondpanamarelocation.com',
+  },
+  knowsAbout: [
+    'Relocation au Panama',
+    'Immigration au Panama',
+    'Immobilier au Panama',
+    'Vie d\'expatriés au Panama',
+    'Visas pour le Panama',
+    'Relocation internationale',
+  ],
+  description:
+    'Fondateur de Beyond Panama Relocation. A travaillé dans la relocation internationale et le marché immobilier panaméen, conseillant les étrangers sur le système de visas du Panama, les quartiers et le coût de la vie.',
+};
 ---
 
 <Layout
   title="À propos de Beyond Panama Relocation"
-  description="Beyond Panama Relocation est un portail d'information pour les étrangers qui veulent vivre au Panama. Pas d'agence, pas de cabinet juridique, pas de vente — juste des informations honnêtes."
+  description="Beyond Panama Relocation est un portail d'information indépendant pour les francophones qui envisagent de s'installer au Panama — fondé par Moisés Alvarado, consultant en relocation avec une expérience directe du marché immobilier et de l'immigration panaméenne."
   lang="fr"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
   <section class="max-w-3xl mx-auto px-4 py-16">
 
     <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
@@ -15,84 +40,137 @@ import Layout from '../../layouts/Layout.astro';
       <h1 class="font-serif text-4xl text-slate mb-4">À propos de Beyond Panama</h1>
       <p class="text-slate-mid text-xl leading-relaxed">
         Beyond Panama n'est pas une agence immobilière. Pas un cabinet d'avocats. Pas des agents de voyage.
-        Nous sommes un portail d'information pour ceux qui veulent s'installer au Panama et qui souhaitent
+        Nous sommes un portail d'information indépendant pour ceux qui veulent s'installer au Panama et qui souhaitent
         comprendre le terrain avant de prendre la moindre décision.
       </p>
     </header>
 
     <div class="space-y-10">
 
+      <!-- Qui sommes-nous — E-E-A-T -->
       <div>
-        <h2 class="font-serif text-2xl text-slate mb-3">Qui nous sommes</h2>
-        <div class="flex gap-5 items-start">
-          <div class="w-14 h-14 rounded-full bg-jade/10 flex items-center justify-center text-2xl shrink-0">🌿</div>
+        <h2 class="font-serif text-2xl text-slate mb-4">Qui sommes-nous</h2>
+        <div class="flex gap-5 items-start p-6 rounded-2xl bg-jade/5 border border-jade/15">
+          <a href="https://www.linkedin.com/in/mois%C3%A9s-alvarado-n/" target="_blank" rel="noopener noreferrer" class="shrink-0 mt-1" aria-label="Moisés Alvarado sur LinkedIn">
+            <img src="/moises-alvarado.jpg" alt="Moisés Alvarado" class="w-14 h-14 rounded-full object-cover ring-2 ring-jade/20" />
+          </a>
           <div>
-            <p class="font-medium text-slate mb-1">Moisés Alvarado — Fondateur</p>
+            <p class="font-semibold text-slate mb-1">Moisés Alvarado — Fondateur et éditeur</p>
+            <p class="text-xs text-jade font-medium tracking-wide uppercase mb-1">Consultant en relocation · marché immobilier panaméen</p>
+            <a href="https://www.linkedin.com/in/mois%C3%A9s-alvarado-n/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-slate-mid hover:text-jade transition-colors mb-3">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <p class="text-slate-mid leading-relaxed text-sm mb-3">
+              Moisés a travaillé directement dans la relocation internationale et le marché immobilier panaméen — ce qui lui a permis de voir les deux côtés : la complexité à laquelle font face les personnes qui choisissent une catégorie de visa, un quartier et estiment les vrais coûts mensuels, et les lacunes d'information qui génèrent des erreurs coûteuses. Beyond Panama est né de cette expérience directe — non comme une entreprise de services, mais comme la ressource que Moisés aurait voulu avoir lorsqu'il a commencé à travailler dans ce domaine.
+            </p>
             <p class="text-slate-mid leading-relaxed text-sm">
-              Moisés a travaillé dans la relocalisation internationale et le marché immobilier panaméen pendant des années — ce qui signifie qu'il a vu les deux côtés : la complexité à laquelle font face les personnes qui s'installent dans un nouveau pays, et les lacunes d'information qui génèrent des erreurs coûteuses. Beyond Panama est né pour combler ce fossé — non pas comme une entreprise de services, mais comme une ressource.
+              Chaque guide de ce site est rédigé à partir d'une connaissance directe du système d'immigration panaméen, du marché immobilier et de la vie quotidienne de l'expatrié — non à partir de sources secondaires ou de contenu générique sur la relocation.
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Approche éditoriale -->
+      <div>
+        <h2 class="font-serif text-2xl text-slate mb-3">Notre approche éditoriale</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Sources primaires uniquement</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Les statistiques et exigences légales proviennent du Servicio Nacional de Migración (SNM) du Panama, des publications officielles du gouvernement et de l'observation directe du marché — pas d'autres blogs d'expatriés. Chaque guide cite sa source et sa date.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Sans chiffres inventés</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Les chiffres de coûts (loyers, frais de visa, budgets mensuels) reflètent les prix réels observés sur le marché panaméen pendant la période indiquée. Nous ne citons pas le "chiffre de la brochure" — nous citons ce que les gens paient réellement.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Mis à jour quand les règles changent</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Les règles d'immigration, les exigences de visa et les frais officiels du Panama évoluent. Quand c'est le cas, le guide concerné est mis à jour avec les nouvelles informations et la date du changement. Des informations périmées sur l'immigration peuvent coûter à quelqu'un un refus de visa.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-2">Comparatif, non prescriptif</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Nous présentons plusieurs voies de visa et plusieurs zones honnêtement — y compris les inconvénients de chacune. L'objectif est que vous preniez une décision bien informée, non que vous soyez orienté vers l'option qui nous génère un référencement.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pourquoi Beyond Panama existe -->
       <div>
         <h2 class="font-serif text-2xl text-slate mb-3">Pourquoi Beyond Panama existe</h2>
         <p class="text-slate-mid leading-relaxed">
-          S'installer dans un autre pays comporte trop de variables. La plupart des informations disponibles
-          sur le Panama proviennent de personnes qui ont quelque chose à vous vendre : des agents immobiliers
-          qui touchent une commission, des cabinets d'avocats qui facturent par procédure, ou des blogs qui
-          monétisent avec des affiliés.
+          S'installer dans un autre pays comporte trop de pièces mobiles. La plupart des informations
+          disponibles sur le Panama proviennent de personnes qui ont quelque chose à vous vendre :
+          des agents immobiliers touchant des commissions, des cabinets juridiques facturant par processus,
+          ou des blogs monétisant avec des affiliés.
         </p>
         <p class="text-slate-mid leading-relaxed mt-4">
           Beyond Panama existe pour être le contraire : des informations neutres, comparatives et à jour,
-          sans pression de vente. L'idée est que vous arriviez à une décision parce que vous l'avez comprise
-          — pas parce que quelqu'un vous a convaincu.
+          sans pression commerciale. L'idée est que vous arriviez à une décision parce que vous l'avez
+          comprise — pas parce que quelqu'un vous a convaincu.
         </p>
       </div>
 
+      <!-- Qui visite Beyond Panama -->
       <div>
-        <h2 class="font-serif text-2xl text-slate mb-5">Qui visite Beyond Panama</h2>
+        <h2 class="font-serif text-2xl text-slate mb-5">Qui vient sur Beyond Panama</h2>
         <div class="grid sm:grid-cols-3 gap-4">
           <div class="p-5 rounded-xl border border-jade/15 bg-white">
             <div class="text-2xl mb-2">🌴</div>
             <p class="font-medium text-slate text-sm mb-1">Retraités</p>
-            <p class="text-xs text-slate-mid">Qui cherchent une retraite confortable avec un meilleur pouvoir d'achat.</p>
+            <p class="text-slate-mid text-xs leading-relaxed">
+              À la recherche d'une vie plus chaude, plus abordable avec des soins de qualité. Beyond Panama les aide à naviguer le visa Pensionado, comparer les zones et comprendre les coûts réels avant de s'engager dans quoi que ce soit.
+            </p>
           </div>
           <div class="p-5 rounded-xl border border-jade/15 bg-white">
             <div class="text-2xl mb-2">💻</div>
-            <p class="font-medium text-slate text-sm mb-1">Nomades numériques</p>
-            <p class="text-xs text-slate-mid">Qui veulent une base stable avec un accès internet fiable et un hub aérien.</p>
+            <p class="font-medium text-slate text-sm mb-1">Professionnels à distance</p>
+            <p class="text-slate-mid text-xs leading-relaxed">
+              Gagnant en USD, souhaitant rentabiliser leur revenu dans une ville stable et connectée. Beyond Panama couvre les voies Nomade Digital et Nations Amies, les quartiers de Panama City et les réalités pratiques de s'installer ici.
+            </p>
           </div>
           <div class="p-5 rounded-xl border border-jade/15 bg-white">
             <div class="text-2xl mb-2">📈</div>
             <p class="font-medium text-slate text-sm mb-1">Investisseurs</p>
-            <p class="text-xs text-slate-mid">Qui cherchent la résidence permanente via l'investissement ou la diversification.</p>
+            <p class="text-slate-mid text-xs leading-relaxed">
+              Envisageant une propriété ou cherchant une voie de résidence liée à un investissement. Beyond Panama cartographie les voies Investisseur Qualifié et Nations Amies honnêtement — y compris les risques — pour qu'ils décident avec une information complète.
+            </p>
           </div>
         </div>
       </div>
 
+      <!-- Comment ça fonctionne -->
+      <div>
+        <h2 class="font-serif text-2xl text-slate mb-3">Comment ça fonctionne</h2>
+        <p class="text-slate-mid leading-relaxed">
+          Le site est gratuit. Nous ne facturons rien aux lecteurs. Si après avoir exploré
+          le contenu vous souhaitez avancer avec un processus juridique ou immobilier, nous vous
+          connectons discrètement avec des professionnels qualifiés — c'est ce que nous appelons
+          un référencement. Beyond Panama peut recevoir une compensation pour cette connexion,
+          sans que cela change ni le coût ni la qualité du service que vous recevez.
+        </p>
+      </div>
+
+      <!-- Ce que nous ne faisons pas -->
       <div>
         <h2 class="font-serif text-2xl text-slate mb-3">Ce que nous ne faisons pas</h2>
-        <ul class="space-y-2 text-slate-mid text-sm">
-          <li class="flex gap-3"><span class="text-coral mt-0.5">✗</span> Nous ne vendons pas de propriétés</li>
-          <li class="flex gap-3"><span class="text-coral mt-0.5">✗</span> Nous ne gérons pas de procédures de visa</li>
-          <li class="flex gap-3"><span class="text-coral mt-0.5">✗</span> Nous ne facturons pas pour les informations de ce site</li>
-          <li class="flex gap-3"><span class="text-coral mt-0.5">✗</span> Nous ne percevons pas de commissions d'agents ou de cabinets</li>
+        <ul class="space-y-2 text-slate-mid">
+          <li class="flex gap-3"><span class="text-coral mt-1">✗</span> Nous ne gérons pas les demandes de visa ou de résidence sous notre marque</li>
+          <li class="flex gap-3"><span class="text-coral mt-1">✗</span> Nous ne vendons pas de propriétés ni ne gérons notre propre inventaire immobilier</li>
+          <li class="flex gap-3"><span class="text-coral mt-1">✗</span> Nous n'utilisons pas de fausse urgence ni de superlatifs de vente</li>
+          <li class="flex gap-3"><span class="text-coral mt-1">✗</span> Nous n'inventons pas de témoignages ni de statistiques</li>
         </ul>
       </div>
 
-      <div class="p-6 rounded-2xl bg-jade/5 border border-jade/15 text-center">
-        <p class="font-serif text-lg text-slate mb-3">Une question spécifique ?</p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="/fr/contact" class="px-5 py-2.5 rounded-full border border-jade text-jade font-medium text-sm hover:bg-jade/5 transition-colors">
-            Nous contacter
-          </a>
-          <a href="/fr/quiz" class="px-5 py-2.5 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
-            Trouver ma route →
-          </a>
-        </div>
-      </div>
-
     </div>
+
+    <!-- CTA au quiz -->
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Vous ne savez pas par où commencer ?</p>
+      <p class="text-slate-mid text-sm mb-5">Le quiz prend 2 minutes et vous donne un point de départ personnalisé — sans pression, sans inscription.</p>
+      <a href="/fr/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Commencer mon parcours →
+      </a>
+    </div>
+
   </section>
 </Layout>

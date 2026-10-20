@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Nouveautés 2025 au Panama" description="Les dernières mises à jour pour les expatriés au Panama : nouvelles règles de visa, projets d'infrastructure, coût de la vie et actualités importantes." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Nouveautés 2025</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama continue d'évoluer rapidement. Voici les mises à jour les plus importantes pour les expatriés et futurs résidents en 2025.
+      </p>
+    </div>
+
+    <div class="space-y-5 mb-12">
+      {[
+        {
+          label:"Investisseur Qualifié",
+          badge:"Visa",
+          color:"border-jade/30 bg-jade/5",
+          bc:"bg-jade text-white",
+          detail:"Le seuil minimum pour le visa Investisseur Qualifié a été porté à 300 000$. Ce visa reste l'une des meilleures options pour les résidents à hauts revenus cherchant la résidence permanente rapide et des avantages fiscaux complets."
+        },
+        {
+          label:"Starlink au Panama",
+          badge:"Connectivité",
+          color:"border-gold/30 bg-gold/5",
+          bc:"bg-gold text-white",
+          detail:"Starlink est désormais disponible dans pratiquement toutes les zones rurales du Panama, y compris les Highlands de Chiriquí et Bocas del Toro. Vitesses entre 80–200 Mbps. Un changement majeur pour les télétravailleurs dans des zones auparavant peu connectées."
+        },
+        {
+          label:"Hôpital à Boquete",
+          badge:"Santé",
+          color:"border-coral/30 bg-coral/5",
+          bc:"bg-coral text-white",
+          detail:"Un nouvel hôpital moderne a ouvert ses portes à Boquete en 2025, renforçant considérablement les services médicaux dans les Highlands. Les résidents expats n'ont plus besoin de se rendre à David pour la plupart des soins spécialisés."
+        },
+        {
+          label:"Visa Nomade Digital",
+          badge:"Visa",
+          color:"border-jade/30 bg-jade/5",
+          bc:"bg-jade text-white",
+          detail:"Le visa Nomade Digital du Panama a été renouvelé avec un processus simplifié. Revenu minimum requis : 3 000$/mois. Valable 9 mois, renouvelable. Idéal pour les télétravailleurs qui veulent tester la vie au Panama avant de s'engager."
+        },
+        {
+          label:"Lignes de métro",
+          badge:"Infrastructure",
+          color:"border-gold/30 bg-gold/5",
+          bc:"bg-gold text-white",
+          detail:"L'extension de la ligne 3 du métro de Panama City progresse selon le calendrier prévu, avec de nouvelles stations dans les zones résidentielles de l'ouest. Réduction des embouteillages attendue dans les corridors principaux."
+        },
+        {
+          label:"Loi de transparence fiscale",
+          badge:"Fiscalité",
+          color:"border-coral/30 bg-coral/5",
+          bc:"bg-coral text-white",
+          detail:"Le Panama a renforcé ses accords de transparence fiscale internationale. L'imposition territoriale reste inchangée — revenus générés hors du Panama toujours exonérés — mais la documentation sur l'origine des revenus est plus rigoureusement vérifiée à l'ouverture de comptes bancaires."
+        },
+        {
+          label:"Connexion aérienne directe",
+          badge:"Transport",
+          color:"border-jade/30 bg-jade/5",
+          bc:"bg-jade text-white",
+          detail:"Copa Airlines a ajouté plusieurs nouvelles routes directes depuis l'Europe et l'Amérique du Sud vers Tocumen. Le Panama consolide sa position de hub aérien des Amériques avec plus de 90 destinations directes."
+        },
+      ].map(({label, badge, color, bc, detail}) => (
+        <div class={`p-5 rounded-xl border ${color}`}>
+          <div class="flex items-start gap-3 mb-2">
+            <p class="font-semibold text-slate flex-1">{label}</p>
+            <span class={`text-xs font-medium px-2 py-0.5 rounded-full whitespace-nowrap ${bc}`}>{badge}</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Prêt à explorer vos options ?</p>
+      <p class="text-slate-mid text-sm mb-5">Comparez les visas disponibles et trouvez le bon pour vous.</p>
+      <a href="/fr/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Comparer les visas →</a>
+    </div>
+  </section>
+</Layout>

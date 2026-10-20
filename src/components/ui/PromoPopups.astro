@@ -1,0 +1,1093 @@
+---
+// Global premium pop-ups — ES / EN / FR, all pages
+---
+
+<style is:global>
+/* ══════════════════════════════════════════════════════════════
+   SPLIT POPUP — centrado, foto izquierda + formulario derecha
+══════════════════════════════════════════════════════════════ */
+#bpr-split-wrap {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9600;
+  background: rgba(4, 10, 18, 0.78);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+#bpr-split-wrap.bpr-split-open { display: flex; }
+
+@keyframes bpr-split-in {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+#bpr-split-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(860px, 100%);
+  max-height: 90vh;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 8px 32px rgba(0,0,0,0.4);
+  animation: bpr-split-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Left: photo ── */
+#bpr-split-photo {
+  position: relative;
+  min-height: 500px;
+  background: #0a1a26;
+  overflow: hidden;
+}
+#bpr-split-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.82);
+}
+#bpr-split-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(11,29,42,0.15) 0%, rgba(11,29,42,0.55) 100%);
+}
+#bpr-split-photo-badge {
+  position: absolute; bottom: 24px; left: 20px; right: 20px; z-index: 2;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── Right: form ── */
+#bpr-split-form-side {
+  background: #0B1D2A;
+  padding: 44px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+}
+#bpr-split-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5); font-size: 13px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s; line-height: 1;
+}
+#bpr-split-close:hover { background: rgba(255,255,255,0.18); color: white; }
+
+/* Big offer typography */
+#bpr-split-eyebrow {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #5DBDAC; margin-bottom: 14px;
+}
+#bpr-split-offer-block {
+  margin-bottom: 6px;
+  line-height: 1;
+}
+#bpr-split-pct {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(4rem, 8vw, 6.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+#bpr-split-de {
+  display: inline-block;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-top: 4px;
+}
+#bpr-split-word1 {
+  display: block;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase;
+  color: #fff; line-height: 1.05;
+}
+#bpr-split-word2 {
+  display: block;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); line-height: 1.1; margin-top: 2px;
+}
+#bpr-split-caption {
+  font-size: 0.73rem; color: rgba(255,255,255,0.45); margin: 14px 0 22px;
+  line-height: 1.55;
+}
+
+/* Form inputs */
+#bpr-split-form .bpr-si {
+  display: block; width: 100%; box-sizing: border-box;
+  padding: 11px 0; margin-bottom: 2px;
+  background: transparent;
+  border: none; border-bottom: 1px solid rgba(255,255,255,0.18);
+  color: #fff; font-size: 0.83rem;
+  outline: none; transition: border-color 0.2s;
+}
+#bpr-split-form .bpr-si::placeholder { color: rgba(255,255,255,0.3); }
+#bpr-split-form .bpr-si:focus { border-bottom-color: #2D7D6F; }
+.bpr-si-wrap { margin-bottom: 14px; }
+
+#bpr-split-consent {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin: 18px 0 20px;
+}
+#bpr-split-consent input { accent-color: #2D7D6F; margin-top: 2px; flex-shrink: 0; }
+#bpr-split-consent span { font-size: 0.65rem; color: rgba(255,255,255,0.35); line-height: 1.5; }
+
+#bpr-split-submit {
+  width: 100%; padding: 14px; border: none; border-radius: 8px;
+  font-size: 0.78rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+  background: linear-gradient(135deg, #2D7D6F, #3AADA0); color: white;
+  cursor: pointer; box-shadow: 0 8px 28px rgba(45,125,111,0.4);
+  transition: opacity 0.2s, transform 0.15s;
+}
+#bpr-split-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+#bpr-split-submit:disabled { opacity: 0.55; transform: none; }
+
+#bpr-split-success {
+  display: none;
+  text-align: center;
+  padding: 24px 0;
+}
+#bpr-split-success .bpr-s-icon { font-size: 2.2rem; margin-bottom: 12px; }
+#bpr-split-success h3 { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.4rem; color: white; margin: 0 0 8px; }
+#bpr-split-success p { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; }
+
+/* Mobile: stack vertically */
+@media (max-width: 600px) {
+  #bpr-split-card { grid-template-columns: 1fr; }
+  #bpr-split-photo { min-height: 200px; max-height: 220px; }
+  #bpr-split-form-side { padding: 30px 24px 24px; }
+  #bpr-split-pct { font-size: 4rem; }
+}</style>
+
+<!-- ── SPLIT POPUP (foto + formulario) ─────────────────────────── -->
+<div id="bpr-split-wrap" role="dialog" aria-modal="true" aria-labelledby="bpr-split-word1">
+  <div id="bpr-split-card">
+    <!-- Left: photo -->
+    <div id="bpr-split-photo">
+      <img src="/img/Panama-D-01a.png" alt="Panama City" loading="lazy" />
+      <p id="bpr-split-photo-badge">📍 Panamá · Beyond Panama Relocation</p>
+    </div>
+
+    <!-- Right: form -->
+    <div id="bpr-split-form-side">
+      <button id="bpr-split-close" aria-label="Cerrar">✕</button>
+
+      <p id="bpr-split-eyebrow"></p>
+      <div id="bpr-split-offer-block">
+        <span id="bpr-split-pct"></span>
+        <span id="bpr-split-de"></span>
+        <span id="bpr-split-word1"></span>
+        <span id="bpr-split-word2"></span>
+      </div>
+      <p id="bpr-split-caption"></p>
+
+      <div id="bpr-split-success">
+        <div class="bpr-s-icon">✅</div>
+        <h3 id="bpr-ss-title"></h3>
+        <p id="bpr-ss-body"></p>
+      </div>
+
+      <form id="bpr-split-form" novalidate>
+        <div class="bpr-si-wrap">
+          <input class="bpr-si" id="bpr-sn" name="name" type="text" required autocomplete="given-name" />
+        </div>
+        <div class="bpr-si-wrap">
+          <input class="bpr-si" id="bpr-se" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div id="bpr-split-consent">
+          <input type="checkbox" id="bpr-sc" required />
+          <span id="bpr-split-consent-txt"></span>
+        </div>
+        <button type="submit" id="bpr-split-submit"></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* ── Popup base ─────────────────────────────────────────────── */
+  .bpr-popup {
+    display: none;
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9200;
+    width: min(420px, calc(100vw - 32px));
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.55), 0 6px 20px rgba(0,0,0,0.3);
+  }
+  .bpr-popup-inner {
+    padding: 32px 28px 24px;
+    position: relative;
+  }
+  .bpr-popup.bpr-visa   .bpr-popup-inner { background: linear-gradient(148deg, #0B1D2A 0%, #0E2535 60%, #0F2A30 100%); border-top: 3px solid #2D7D6F; }
+  .bpr-popup.bpr-prop   .bpr-popup-inner { background: linear-gradient(148deg, #120E00 0%, #1E1A06 60%, #16130A 100%); border-top: 3px solid #C4A96D; }
+
+  .bpr-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.6); font-size: 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .bpr-close:hover { background: rgba(255,255,255,0.18); color: white; }
+
+  .bpr-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .bpr-visa  .bpr-tag { background: rgba(45,125,111,0.2); color: #5DBDAC; border: 1px solid rgba(45,125,111,0.3); }
+  .bpr-prop  .bpr-tag { background: rgba(196,169,109,0.15); color: #D4BA82; border: 1px solid rgba(196,169,109,0.25); }
+
+  .bpr-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem; font-weight: 600; color: #fff;
+    line-height: 1.28; margin: 0 28px 6px 0;
+  }
+  .bpr-subtitle {
+    font-size: 0.78rem; font-weight: 600; margin: 0 0 12px;
+  }
+  .bpr-visa  .bpr-subtitle { color: #5DBDAC; }
+  .bpr-prop  .bpr-subtitle { color: #D4BA82; }
+
+  .bpr-body {
+    font-size: 0.77rem; color: rgba(255,255,255,0.55);
+    line-height: 1.6; margin: 0 0 14px;
+  }
+  .bpr-bullets { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 7px; }
+  .bpr-bullet { display: flex; align-items: flex-start; gap: 8px; font-size: 0.77rem; color: rgba(255,255,255,0.8); line-height: 1.4; }
+  .bpr-bullet-dot {
+    flex-shrink: 0; margin-top: 1px;
+    width: 16px; height: 16px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 9px;
+  }
+  .bpr-visa  .bpr-bullet-dot { background: rgba(45,125,111,0.25); color: #5DBDAC; }
+  .bpr-prop  .bpr-bullet-dot { background: rgba(196,169,109,0.2); color: #D4BA82; }
+
+  .bpr-cta {
+    display: block; width: 100%; text-align: center; border: none; cursor: pointer;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+    padding: 13px 20px; border-radius: 10px; text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .bpr-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+  .bpr-cta:active { transform: translateY(0); }
+  .bpr-visa  .bpr-cta { background: linear-gradient(135deg, #2D7D6F, #3AADA0); color: white; box-shadow: 0 6px 24px rgba(45,125,111,0.4); }
+  .bpr-prop  .bpr-cta { background: linear-gradient(135deg, #C4A96D, #D4BA82); color: #12100A; box-shadow: 0 6px 24px rgba(196,169,109,0.3); }
+
+  .bpr-fine {
+    font-size: 0.62rem; color: rgba(255,255,255,0.28);
+    line-height: 1.5; margin: 14px 0 0; text-align: center;
+  }
+  .bpr-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 18px 0; }
+
+  /* Entrance animation */
+  @keyframes bpr-in {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  }
+  .bpr-popup.bpr-visible {
+    display: block;
+    animation: bpr-in 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  }
+  @keyframes bpr-out {
+    to { opacity: 0; transform: translateY(12px) scale(0.97); }
+  }
+  .bpr-popup.bpr-hiding {
+    animation: bpr-out 0.28s ease-in forwards;
+  }
+
+  /* Mobile: bottom sheet */
+  @media (max-width: 500px) {
+    .bpr-popup {
+      bottom: 0 !important; left: 0 !important; right: 0 !important;
+      width: 100% !important; border-radius: 20px 20px 0 0 !important;
+    }
+  }
+
+  /* ── Form modal ─────────────────────────────────────────────── */
+  #bpr-form-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9800;
+    background: rgba(8,16,26,0.8); backdrop-filter: blur(6px);
+    overflow-y: auto; padding: 24px 16px;
+  }
+  #bpr-form-overlay.bpr-visible { display: block; }
+  .bpr-form-card {
+    background: #fff; border-radius: 16px;
+    max-width: 520px; margin: 0 auto; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+  .bpr-form-head {
+    background: linear-gradient(135deg, #0B1D2A, #0E2A22);
+    padding: 28px 28px 22px; position: relative;
+    border-bottom: 3px solid #2D7D6F;
+  }
+  .bpr-form-head-title { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.25rem; color: white; margin: 0 0 6px; }
+  .bpr-form-head-sub { font-size: 0.77rem; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.5; }
+  #bpr-form-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7); font-size: 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  #bpr-form-close:hover { background: rgba(255,255,255,0.2); }
+  .bpr-form-body { padding: 24px; }
+  .bpr-field-group { margin-bottom: 20px; }
+  .bpr-field-legend {
+    display: block; font-size: 0.78rem; font-weight: 700; color: #0B1D2A;
+    margin-bottom: 10px; letter-spacing: 0.01em;
+  }
+  .bpr-radio-grid { display: flex; flex-direction: column; gap: 6px; }
+  .bpr-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .bpr-option {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 0.79rem; color: #2D3748; cursor: pointer;
+    padding: 7px 10px; border-radius: 8px; border: 1px solid #E2E8EE;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .bpr-option:hover { border-color: #2D7D6F; background: #f0faf8; }
+  .bpr-option input { accent-color: #2D7D6F; }
+  .bpr-input-wrap { margin-bottom: 12px; }
+  .bpr-input-label { display: block; font-size: 0.78rem; font-weight: 700; color: #0B1D2A; margin-bottom: 5px; }
+  .bpr-input {
+    width: 100%; padding: 10px 13px; border: 1.5px solid #D1D9E0;
+    border-radius: 8px; font-size: 0.82rem; color: #1a1a2e;
+    box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .bpr-input:focus { border-color: #2D7D6F; box-shadow: 0 0 0 3px rgba(45,125,111,0.12); }
+  .bpr-submit {
+    width: 100%; padding: 14px; border: none; border-radius: 10px; cursor: pointer;
+    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em;
+    background: linear-gradient(135deg, #2D7D6F, #3AADA0); color: white;
+    box-shadow: 0 6px 24px rgba(45,125,111,0.35);
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .bpr-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+  .bpr-submit:disabled { opacity: 0.6; transform: none; }
+  .bpr-form-fine {
+    font-size: 0.65rem; color: #9AACB8; margin: 14px 0 0; text-align: center; line-height: 1.5;
+  }
+  .bpr-form-success {
+    display: none; text-align: center; padding: 32px 20px;
+    background: linear-gradient(135deg, #f0faf7, #e8f6f2);
+    border-radius: 12px; margin-bottom: 8px;
+  }
+  .bpr-form-success .icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .bpr-form-success h3 { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.3rem; color: #0B1D2A; margin: 0 0 8px; }
+  .bpr-form-success p  { font-size: 0.8rem; color: #4A6070; margin: 0; line-height: 1.6; }
+  .bpr-form-error {
+    display: none; text-align: center; padding: 12px 16px;
+    background: #FFF0EE; border-radius: 8px; border: 1px solid #FECEC5; margin-bottom: 8px;
+  }
+  .bpr-form-error p { font-size: 0.78rem; color: #C0392B; margin: 0; }
+  .bpr-sep { height: 1px; background: #EDF0F4; margin: 18px 0; }
+</style>
+
+<!-- ── VISA POP-UP ──────────────────────────────────────────────── -->
+<div id="bpr-popup-visa" class="bpr-popup bpr-visa" role="dialog" aria-modal="true">
+  <div class="bpr-popup-inner">
+    <button class="bpr-close" id="bpr-visa-close" aria-label="Cerrar">✕</button>
+    <span class="bpr-tag" id="bpr-v-tag">●</span>
+    <p class="bpr-title" id="bpr-v-title"></p>
+    <p class="bpr-subtitle" id="bpr-v-subtitle"></p>
+    <p class="bpr-body" id="bpr-v-body"></p>
+    <ul class="bpr-bullets" id="bpr-v-bullets"></ul>
+    <a class="bpr-cta" id="bpr-v-cta" href="#" target="_blank" rel="noopener"></a>
+    <p class="bpr-fine" id="bpr-v-fine"></p>
+  </div>
+</div>
+
+<!-- ── PROPERTY POP-UP ─────────────────────────────────────────── -->
+<div id="bpr-popup-prop" class="bpr-popup bpr-prop" role="dialog" aria-modal="true">
+  <div class="bpr-popup-inner">
+    <button class="bpr-close" id="bpr-prop-close" aria-label="Cerrar">✕</button>
+    <span class="bpr-tag" id="bpr-p-tag">●</span>
+    <p class="bpr-title" id="bpr-p-title"></p>
+    <p class="bpr-subtitle" id="bpr-p-subtitle"></p>
+    <p class="bpr-body" id="bpr-p-body"></p>
+    <ul class="bpr-bullets" id="bpr-p-bullets"></ul>
+    <button class="bpr-cta" id="bpr-p-cta"></button>
+    <p class="bpr-fine" id="bpr-p-fine"></p>
+  </div>
+</div>
+
+<!-- ── PROPERTY FORM OVERLAY ───────────────────────────────────── -->
+<div id="bpr-form-overlay">
+  <div class="bpr-form-card">
+    <div class="bpr-form-head">
+      <button id="bpr-form-close" aria-label="Cerrar">✕</button>
+      <p class="bpr-form-head-title" id="bprf-title">🏡 Cuéntanos qué propiedad estás buscando</p>
+      <p class="bpr-form-head-sub" id="bprf-sub">Completa este formulario y te conectaremos con un profesional inmobiliario que pueda mostrarte opciones según tus necesidades.</p>
+    </div>
+    <div class="bpr-form-body">
+      <div class="bpr-form-success" id="bpr-success">
+        <div class="icon">✅</div>
+        <h3 id="bprf-s-title">¡Listo!</h3>
+        <p id="bprf-s-body">Recibimos tu solicitud. Revisaremos lo que estás buscando y te conectaremos con un profesional inmobiliario que pueda ayudarte.</p>
+      </div>
+      <div class="bpr-form-error" id="bpr-error">
+        <p id="bprf-e-msg">Hubo un problema. Por favor inténtalo de nuevo o escríbenos por WhatsApp.</p>
+      </div>
+
+      <form id="bpr-prop-form">
+        <div class="bpr-field-group">
+          <span class="bpr-field-legend" id="bprf-q1"></span>
+          <div class="bpr-radio-grid" id="bprf-q1-opts"></div>
+        </div>
+        <div class="bpr-sep"></div>
+        <div class="bpr-field-group">
+          <span class="bpr-field-legend" id="bprf-q2"></span>
+          <div class="bpr-check-grid" id="bprf-q2-opts"></div>
+        </div>
+        <div class="bpr-sep"></div>
+        <div class="bpr-field-group">
+          <span class="bpr-field-legend" id="bprf-q3"></span>
+          <div class="bpr-radio-grid" id="bprf-q3-opts"></div>
+        </div>
+        <div class="bpr-sep"></div>
+        <div class="bpr-field-group">
+          <span class="bpr-field-legend" id="bprf-q4"></span>
+          <div class="bpr-radio-grid" id="bprf-q4-opts"></div>
+        </div>
+        <div class="bpr-sep"></div>
+        <div class="bpr-field-group">
+          <span class="bpr-field-legend" id="bprf-q5"></span>
+          <div class="bpr-radio-grid" id="bprf-q5-opts"></div>
+        </div>
+        <div class="bpr-sep"></div>
+        <div class="bpr-input-wrap">
+          <label class="bpr-input-label" for="bprf-name" id="bprf-l-name"></label>
+          <input class="bpr-input" id="bprf-name" name="name" type="text" required />
+        </div>
+        <div class="bpr-input-wrap">
+          <label class="bpr-input-label" for="bprf-wa" id="bprf-l-wa"></label>
+          <input class="bpr-input" id="bprf-wa" name="whatsapp" type="tel" required placeholder="+1 555 000 0000" />
+        </div>
+        <div class="bpr-input-wrap">
+          <label class="bpr-input-label" for="bprf-email" id="bprf-l-email"></label>
+          <input class="bpr-input" id="bprf-email" name="email" type="email" required placeholder="email@example.com" />
+        </div>
+        <button type="submit" class="bpr-submit" id="bprf-submit-btn"></button>
+        <p class="bpr-form-fine" id="bprf-fine"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const lang = document.documentElement.lang || 'es';
+
+  /* ═══════════════════════════════════════════════════════════════
+     CONTENT — all variants for 3 languages
+  ═══════════════════════════════════════════════════════════════ */
+  const content = {
+    es: {
+      visaTag: '🏛️ Residencia en Panamá',
+      propTag: '🏡 Propiedades en Panamá',
+      visa: [
+        {
+          title: '¿Pensando en hacer tu residencia en Panamá?',
+          subtitle: 'Conecta con el asesor adecuado y ahorra hasta un 25 %.',
+          body: 'En Beyond Panama Relocation te ayudamos a encontrar y conectar con profesionales especializados que pueden orientarte sobre tu proceso de residencia según tu situación y objetivos.',
+          bullets: ['Ahorra hasta un 25 %', 'Conexión con profesionales especializados', 'Orientación inicial sobre las opciones disponibles', 'Una forma sencilla de dar el primer paso'],
+          cta: 'QUIERO COMENZAR',
+          fine: 'La promoción está sujeta a disponibilidad y condiciones aplicables. Los servicios profesionales son prestados directamente por los profesionales correspondientes.',
+        },
+        {
+          title: '¿Quieres hacer tu residencia en Panamá?',
+          subtitle: '¡Ahorra hasta un 25 % si comienzas ahora!',
+          body: '¿Ya estás listo para mudarte o apenas estás explorando? Beyond Panama Relocation te conecta con profesionales especializados que pueden orientarte y ayudarte con tu proceso de residencia.',
+          bullets: ['Conecta con el profesional adecuado', 'Conoce tus opciones de residencia', 'Empieza tu proceso con orientación profesional'],
+          cta: 'QUIERO COMENZAR',
+          fine: 'Promoción sujeta a disponibilidad y condiciones aplicables. Los servicios profesionales son prestados directamente por los profesionales correspondientes.',
+        },
+        {
+          title: '¿Pensando en mudarte a Panamá?',
+          subtitle: 'Este puede ser el momento de comenzar.',
+          body: 'Conoce tus opciones de residencia y conecta con un profesional especializado. Ahorra hasta un 25 % si comienzas ahora.',
+          bullets: [],
+          cta: 'QUIERO CONOCER MIS OPCIONES',
+          fine: 'Los servicios profesionales son prestados directamente por los profesionales correspondientes. Sujeto a condiciones aplicables.',
+        },
+      ],
+      property: [
+        {
+          title: '¿Buscando una propiedad en Panamá?',
+          subtitle: 'Encuentra opciones que se ajusten a lo que estás buscando.',
+          body: '¿Quieres comprar, alquilar o conocer las opciones disponibles? Beyond Panama Relocation te conecta con profesionales inmobiliarios que pueden ayudarte según tu zona, presupuesto y necesidades.',
+          bullets: [],
+          cta: 'QUIERO ENCONTRAR UNA PROPIEDAD',
+          fine: 'Las propiedades y servicios inmobiliarios son ofrecidos directamente por los profesionales correspondientes. Sujeto a disponibilidad.',
+        },
+        {
+          title: '¿Buscando una propiedad en Panamá?',
+          subtitle: 'Ahorra hasta un 10 % en propiedades seleccionadas',
+          body: '¿Estás pensando en comprar, alquilar o invertir? Beyond Panama Relocation te conecta con profesionales y propiedades que se ajustan a lo que buscas.',
+          bullets: ['Compra o inversión', 'Diferentes zonas de Panamá', 'Opciones según tu presupuesto', 'Descuentos en propiedades seleccionadas'],
+          cta: 'EXPLORAR OPORTUNIDADES',
+          fine: 'Descuentos sujetos a disponibilidad, propiedad y condiciones establecidas por el vendedor.',
+        },
+        {
+          title: 'Encuentra tu próxima propiedad en Panamá',
+          subtitle: 'Oportunidades y descuentos exclusivos en propiedades seleccionadas.',
+          body: 'Ya sea que busques vivienda, segunda residencia o inversión, podemos conectarte con profesionales inmobiliarios que conocen el mercado local.',
+          bullets: [],
+          cta: 'EXPLORAR OPORTUNIDADES',
+          fine: 'Los descuentos y condiciones son establecidos por cada propiedad o vendedor. Sujeto a disponibilidad.',
+        },
+      ],
+      form: {
+        title: '🏡 Cuéntanos qué propiedad estás buscando',
+        sub: 'Completa este formulario y te conectaremos con un profesional inmobiliario que pueda mostrarte opciones según tus necesidades.',
+        q1: '1. ¿Qué estás buscando?',
+        q1o: ['Comprar una propiedad','Alquilar una propiedad','Invertir en una propiedad','Todavía no estoy seguro'],
+        q2: '2. ¿Qué tipo de propiedad te interesa?',
+        q2o: ['Casa','Apartamento','Terreno','Propiedad comercial','Proyecto nuevo','Otro'],
+        q3: '3. ¿En qué zona estás interesado?',
+        q3o: ['Ciudad de Panamá','Boquete','Coronado / Riviera Pacífica','Bocas del Toro','David / Chiriquí','Otra zona','No estoy seguro'],
+        q4: '4. ¿Cuál es tu presupuesto aproximado?',
+        q4o: ['Menos de $100,000','$100,000 – $250,000','$250,000 – $500,000','$500,000 – $1,000,000','Más de $1,000,000','Todavía no lo sé'],
+        q5: '5. ¿Cuándo te gustaría comprar o alquilar?',
+        q5o: ['Ahora','En los próximos 3 meses','3–6 meses','6–12 meses','Solo estoy explorando'],
+        lname: '6. Tu nombre', lnameP: 'Nombre completo',
+        lwa: '7. WhatsApp',
+        lemail: '8. Email',
+        submit: 'ENVIAR MI SOLICITUD',
+        fine: 'Beyond Panama Relocation actúa como conector entre clientes y profesionales inmobiliarios. Las propiedades, precios y servicios son proporcionados directamente por los profesionales correspondientes.',
+        sTitle: '¡Listo!',
+        sBody: 'Recibimos tu solicitud. Revisaremos lo que estás buscando y te conectaremos con un profesional inmobiliario que pueda ayudarte.',
+        eMsg: 'Hubo un problema. Por favor inténtalo de nuevo o escríbenos por WhatsApp.',
+        sending: 'Enviando…',
+      },
+    },
+
+    en: {
+      visaTag: '🏛️ Panama Residency',
+      propTag: '🏡 Panama Properties',
+      visa: [
+        {
+          title: 'Thinking about Panama residency?',
+          subtitle: 'Save up to 25% when you get started now.',
+          body: 'Beyond Panama Relocation connects you with specialized professionals who can guide you through your residency process based on your situation and goals.',
+          bullets: ['Save up to 25%', 'Connect with the right professional', 'Understand your residency options', 'A simple way to take the first step'],
+          cta: 'GET STARTED NOW',
+          fine: 'Promotion subject to availability and applicable conditions. Professional services are provided directly by the corresponding professionals.',
+        },
+        {
+          title: 'Ready to make Panama your home?',
+          subtitle: 'Save up to 25% if you start today.',
+          body: 'Whether you\'re ready to move or just exploring your options, we connect you with immigration specialists who can help navigate your residency journey.',
+          bullets: ['Connect with the right professional', 'Explore your residency options', 'Start the process with expert guidance'],
+          cta: 'GET STARTED',
+          fine: 'Promotion subject to availability and applicable conditions. Professional services are provided directly by the corresponding professionals.',
+        },
+        {
+          title: 'Thinking about moving to Panama?',
+          subtitle: 'This could be the right moment to begin.',
+          body: 'Discover your residency options and connect with a specialist for guidance tailored to your case. Save up to 25% when you start now.',
+          bullets: [],
+          cta: 'EXPLORE MY OPTIONS',
+          fine: 'Professional services are provided directly by the corresponding professionals. Subject to applicable conditions.',
+        },
+      ],
+      property: [
+        {
+          title: 'Looking for property in Panama?',
+          subtitle: 'Find options that match what you\'re looking for.',
+          body: 'Whether you want to buy, rent, or just explore prices and options, we connect you with real estate professionals who can help based on your area, budget, and needs.',
+          bullets: [],
+          cta: 'FIND A PROPERTY',
+          fine: 'Properties and real estate services are offered directly by the corresponding professionals. Subject to availability.',
+        },
+        {
+          title: 'Looking for property in Panama?',
+          subtitle: 'Save up to 10% on selected properties.',
+          body: 'Thinking about buying, renting, or investing in Panama real estate? We connect you with professionals and properties that match what you\'re looking for.',
+          bullets: ['Purchase or investment', 'Different areas of Panama', 'Options within your budget', 'Discounts on selected properties'],
+          cta: 'EXPLORE OPPORTUNITIES',
+          fine: 'Discounts subject to availability, property, and conditions set by the seller.',
+        },
+        {
+          title: 'Find your next property in Panama',
+          subtitle: 'Access exclusive opportunities and discounts on selected properties.',
+          body: 'Whether you\'re looking for a home, a second residence, or an investment, we connect you with real estate professionals who know the local market.',
+          bullets: [],
+          cta: 'EXPLORE OPPORTUNITIES',
+          fine: 'Discounts and conditions are set by each property or seller. Subject to availability.',
+        },
+      ],
+      form: {
+        title: '🏡 Tell us what property you\'re looking for',
+        sub: 'Complete this form and we\'ll connect you with a real estate professional who can show you options based on your needs.',
+        q1: '1. What are you looking for?',
+        q1o: ['Buy a property','Rent a property','Invest in a property','Not sure yet'],
+        q2: '2. What type of property interests you?',
+        q2o: ['House','Apartment','Land','Commercial property','New development','Other'],
+        q3: '3. Which area of Panama interests you?',
+        q3o: ['Panama City','Boquete','Coronado / Pacific Riviera','Bocas del Toro','David / Chiriquí','Another area','Not sure'],
+        q4: '4. What is your approximate budget?',
+        q4o: ['Under $100,000','$100,000 – $250,000','$250,000 – $500,000','$500,000 – $1,000,000','Over $1,000,000','Not sure yet'],
+        q5: '5. When do you plan to buy or rent?',
+        q5o: ['Now','Within 3 months','3–6 months','6–12 months','Just exploring'],
+        lname: '6. Your name', lnameP: 'Full name',
+        lwa: '7. WhatsApp',
+        lemail: '8. Email',
+        submit: 'SEND MY REQUEST',
+        fine: 'Beyond Panama Relocation acts as a connector between clients and real estate professionals. Properties, prices, discounts and services are provided directly by the corresponding professionals.',
+        sTitle: 'All done!',
+        sBody: 'We received your request. We\'ll review what you\'re looking for and connect you with a real estate professional who can help you find the right options.',
+        eMsg: 'There was a problem. Please try again or contact us via WhatsApp.',
+        sending: 'Sending…',
+      },
+    },
+
+    fr: {
+      visaTag: '🏛️ Résidence au Panama',
+      propTag: '🏡 Propriétés au Panama',
+      visa: [
+        {
+          title: 'Vous pensez à la résidence au Panama ?',
+          subtitle: 'Économisez jusqu\'à 25 % en commençant maintenant.',
+          body: 'Beyond Panama Relocation vous met en contact avec des professionnels spécialisés qui peuvent vous guider dans votre processus de résidence selon votre situation et vos objectifs.',
+          bullets: ['Économisez jusqu\'à 25 %', 'Contactez le bon professionnel', 'Découvrez vos options de résidence', 'Une façon simple de faire le premier pas'],
+          cta: 'COMMENCER MAINTENANT',
+          fine: 'Promotion soumise à disponibilité et conditions applicables. Les services professionnels sont fournis directement par les professionnels correspondants.',
+        },
+        {
+          title: 'Prêt à faire du Panama votre chez-vous ?',
+          subtitle: 'Économisez jusqu\'à 25 % si vous commencez aujourd\'hui.',
+          body: 'Que vous soyez prêt à déménager ou que vous explorez simplement vos options, nous vous connectons avec des spécialistes qui peuvent vous aider dans votre parcours de résidence.',
+          bullets: ['Contactez le bon professionnel', 'Explorez vos options de résidence', 'Commencez avec un accompagnement expert'],
+          cta: 'COMMENCER',
+          fine: 'Promotion soumise à disponibilité et conditions applicables. Les services professionnels sont fournis directement par les professionnels correspondants.',
+        },
+        {
+          title: 'Vous pensez à déménager au Panama ?',
+          subtitle: 'C\'est peut-être le bon moment pour commencer.',
+          body: 'Découvrez vos options de résidence et connectez-vous avec un spécialiste. Économisez jusqu\'à 25 % en commençant maintenant.',
+          bullets: [],
+          cta: 'EXPLORER MES OPTIONS',
+          fine: 'Les services professionnels sont fournis directement par les professionnels correspondants. Sous réserve des conditions applicables.',
+        },
+      ],
+      property: [
+        {
+          title: 'Vous cherchez une propriété au Panama ?',
+          subtitle: 'Trouvez des options correspondant à ce que vous recherchez.',
+          body: 'Que vous vouliez acheter, louer ou simplement connaître les prix, nous vous connectons avec des professionnels de l\'immobilier selon votre zone, budget et besoins.',
+          bullets: [],
+          cta: 'TROUVER UNE PROPRIÉTÉ',
+          fine: 'Les propriétés et services immobiliers sont offerts directement par les professionnels correspondants. Sous réserve de disponibilité.',
+        },
+        {
+          title: 'Vous cherchez une propriété au Panama ?',
+          subtitle: 'Économisez jusqu\'à 10 % sur des propriétés sélectionnées.',
+          body: 'Vous pensez acheter, louer ou investir ? Nous vous connectons avec des professionnels et des propriétés qui correspondent à ce que vous recherchez.',
+          bullets: ['Achat ou investissement', 'Différentes zones du Panama', 'Options selon votre budget', 'Réductions sur des propriétés sélectionnées'],
+          cta: 'EXPLORER LES OPPORTUNITÉS',
+          fine: 'Réductions soumises à disponibilité, propriété et conditions établies par le vendeur.',
+        },
+        {
+          title: 'Trouvez votre prochaine propriété au Panama',
+          subtitle: 'Accédez à des opportunités et remises exclusives sur des propriétés sélectionnées.',
+          body: 'Que vous cherchiez une résidence principale, secondaire ou un investissement, nous vous connectons avec des professionnels qui connaissent le marché local.',
+          bullets: [],
+          cta: 'EXPLORER LES OPPORTUNITÉS',
+          fine: 'Les remises et conditions sont fixées par chaque propriété ou vendeur. Sous réserve de disponibilité.',
+        },
+      ],
+      form: {
+        title: '🏡 Parlez-nous de la propriété que vous recherchez',
+        sub: 'Remplissez ce formulaire et nous vous mettrons en contact avec un professionnel de l\'immobilier qui pourra vous montrer des options selon vos besoins.',
+        q1: '1. Que recherchez-vous ?',
+        q1o: ['Acheter une propriété','Louer une propriété','Investir dans une propriété','Je ne suis pas encore sûr'],
+        q2: '2. Quel type de propriété vous intéresse ?',
+        q2o: ['Maison','Appartement','Terrain','Propriété commerciale','Nouveau projet','Autre'],
+        q3: '3. Quelle zone du Panama vous intéresse ?',
+        q3o: ['Ville de Panama','Boquete','Coronado / Riviera Pacifique','Bocas del Toro','David / Chiriquí','Une autre zone','Je ne suis pas sûr'],
+        q4: '4. Quel est votre budget approximatif ?',
+        q4o: ['Moins de 100 000 $','100 000 – 250 000 $','250 000 – 500 000 $','500 000 – 1 000 000 $','Plus de 1 000 000 $','Je ne sais pas encore'],
+        q5: '5. Quand souhaitez-vous acheter ou louer ?',
+        q5o: ['Maintenant','Dans les 3 prochains mois','3–6 mois','6–12 mois','Je explore simplement'],
+        lname: '6. Votre nom', lnameP: 'Nom complet',
+        lwa: '7. WhatsApp',
+        lemail: '8. Email',
+        submit: 'ENVOYER MA DEMANDE',
+        fine: 'Beyond Panama Relocation agit comme intermédiaire entre les clients et les professionnels de l\'immobilier. Les propriétés, prix et services sont fournis directement par les professionnels correspondants.',
+        sTitle: 'C\'est fait !',
+        sBody: 'Nous avons reçu votre demande. Nous examinerons ce que vous recherchez et vous mettrons en contact avec un professionnel de l\'immobilier qui pourra vous aider.',
+        eMsg: 'Un problème est survenu. Veuillez réessayer ou nous contacter via WhatsApp.',
+        sending: 'Envoi en cours…',
+      },
+    },
+  };
+
+  /* ═══════════════════════════════════════════════════════════════
+     HELPERS
+  ═══════════════════════════════════════════════════════════════ */
+  const t = content[lang] || content['es'];
+  const waMsg = encodeURIComponent('Quiero el descuento de visa de residencia, ¿cuál es la mejor visa para aplicar para mí?');
+  const waLink = 'https://wa.me/50760844256?text=' + waMsg;
+
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function getLS(k) { try { return localStorage.getItem(k); } catch(e) { return null; } }
+  function setLS(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+  function setText(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
+
+  function fillBullets(ulId, items, variant) {
+    const ul = document.getElementById(ulId);
+    if (!ul) return;
+    ul.innerHTML = '';
+    ul.style.display = items.length ? 'flex' : 'none';
+    items.forEach(b => {
+      const li = document.createElement('li');
+      li.className = 'bpr-bullet';
+      const dot = document.createElement('span');
+      dot.className = 'bpr-bullet-dot';
+      dot.textContent = '✓';
+      const txt = document.createTextNode(b);
+      li.appendChild(dot); li.appendChild(txt);
+      ul.appendChild(li);
+    });
+  }
+
+  function showPopup(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('bpr-hiding');
+    el.classList.add('bpr-visible');
+  }
+  function hidePopup(id, cb) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('bpr-hiding');
+    el.classList.remove('bpr-visible');
+    setTimeout(() => { el.classList.remove('bpr-hiding', 'bpr-visible'); el.style.display = 'none'; if (cb) cb(); }, 300);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     FILL POPUP TEXT
+  ═══════════════════════════════════════════════════════════════ */
+  function loadVisaVariant() {
+    const v = rand(t.visa);
+    setText('bpr-v-tag', t.visaTag);
+    setText('bpr-v-title', v.title);
+    setText('bpr-v-subtitle', v.subtitle);
+    setText('bpr-v-body', v.body);
+    setText('bpr-v-fine', v.fine);
+    fillBullets('bpr-v-bullets', v.bullets, 'visa');
+    const cta = document.getElementById('bpr-v-cta');
+    if (cta) { cta.textContent = v.cta; cta.href = waLink; }
+  }
+
+  function loadPropVariant() {
+    const v = rand(t.property);
+    setText('bpr-p-tag', t.propTag);
+    setText('bpr-p-title', v.title);
+    setText('bpr-p-subtitle', v.subtitle);
+    setText('bpr-p-body', v.body);
+    setText('bpr-p-fine', v.fine);
+    fillBullets('bpr-p-bullets', v.bullets, 'prop');
+    const cta = document.getElementById('bpr-p-cta');
+    if (cta) cta.textContent = v.cta;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     FILL FORM
+  ═══════════════════════════════════════════════════════════════ */
+  function buildFormOptions(containerId, name, options, isCheck) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    options.forEach(opt => {
+      const lbl = document.createElement('label');
+      lbl.className = 'bpr-option';
+      const inp = document.createElement('input');
+      inp.type = isCheck ? 'checkbox' : 'radio';
+      inp.name = name;
+      inp.value = opt;
+      const span = document.createTextNode(opt);
+      lbl.appendChild(inp); lbl.appendChild(span);
+      container.appendChild(lbl);
+    });
+  }
+
+  function initForm() {
+    const f = t.form;
+    setText('bprf-title', f.title);
+    setText('bprf-sub', f.sub);
+    setText('bprf-q1', f.q1); buildFormOptions('bprf-q1-opts', 'objetivo', f.q1o, false);
+    setText('bprf-q2', f.q2); buildFormOptions('bprf-q2-opts', 'tipo', f.q2o, true);
+    setText('bprf-q3', f.q3); buildFormOptions('bprf-q3-opts', 'zona', f.q3o, false);
+    setText('bprf-q4', f.q4); buildFormOptions('bprf-q4-opts', 'presupuesto', f.q4o, false);
+    setText('bprf-q5', f.q5); buildFormOptions('bprf-q5-opts', 'plazo', f.q5o, false);
+    setText('bprf-l-name', f.lname);
+    const nameInput = document.getElementById('bprf-name');
+    if (nameInput) nameInput.placeholder = f.lnameP;
+    setText('bprf-l-wa', f.lwa);
+    setText('bprf-l-email', f.lemail);
+    setText('bprf-submit-btn', f.submit);
+    setText('bprf-fine', f.fine);
+    setText('bprf-s-title', f.sTitle);
+    setText('bprf-s-body', f.sBody);
+    setText('bprf-e-msg', f.eMsg);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     SCHEDULING LOGIC
+  ═══════════════════════════════════════════════════════════════ */
+  const SK_LAST_TYPE = 'bpr-last-type';
+  const SK_LAST_TIME = 'bpr-last-time';
+  const THREE_MIN = 3 * 60 * 1000;
+  const now = Date.now();
+
+  const lastType = getLS(SK_LAST_TYPE);
+  const lastTime = parseInt(getLS(SK_LAST_TIME) || '0', 10);
+
+  let firstDelay, firstFn, secondFn;
+
+  function showVisa() { loadVisaVariant(); showPopup('bpr-popup-visa'); setLS(SK_LAST_TYPE, 'visa'); setLS(SK_LAST_TIME, Date.now().toString()); }
+  function showProp() { loadPropVariant(); showPopup('bpr-popup-prop'); setLS(SK_LAST_TYPE, 'prop'); setLS(SK_LAST_TIME, Date.now().toString()); }
+
+  if (!lastType) {
+    firstDelay = 5000;
+    if (Math.random() < 0.5) { firstFn = showVisa; secondFn = showProp; }
+    else                      { firstFn = showProp; secondFn = showVisa; }
+  } else {
+    const elapsed = now - lastTime;
+    const remaining = Math.max(3000, THREE_MIN - elapsed);
+    firstDelay = remaining;
+    firstFn = lastType === 'visa' ? showProp : showVisa;
+    secondFn = lastType === 'visa' ? showVisa : showProp;
+  }
+
+  setTimeout(firstFn, firstDelay);
+  setTimeout(secondFn, firstDelay + THREE_MIN);
+
+  /* ═══════════════════════════════════════════════════════════════
+     EVENTS — close buttons
+  ═══════════════════════════════════════════════════════════════ */
+  const visaClose = document.getElementById('bpr-visa-close');
+  if (visaClose) visaClose.addEventListener('click', () => hidePopup('bpr-popup-visa'));
+
+  const propClose = document.getElementById('bpr-prop-close');
+  if (propClose) propClose.addEventListener('click', () => hidePopup('bpr-popup-prop'));
+
+  /* ── Property CTA → open form ── */
+  const propCta = document.getElementById('bpr-p-cta');
+  if (propCta) {
+    propCta.addEventListener('click', () => {
+      hidePopup('bpr-popup-prop', () => {
+        const overlay = document.getElementById('bpr-form-overlay');
+        if (overlay) { overlay.classList.add('bpr-visible'); document.body.style.overflow = 'hidden'; }
+      });
+    });
+  }
+
+  /* ── Form close ── */
+  function closeForm() {
+    const overlay = document.getElementById('bpr-form-overlay');
+    if (overlay) { overlay.classList.remove('bpr-visible'); }
+    document.body.style.overflow = '';
+  }
+  const formClose = document.getElementById('bpr-form-close');
+  if (formClose) formClose.addEventListener('click', closeForm);
+  const overlay = document.getElementById('bpr-form-overlay');
+  if (overlay) overlay.addEventListener('click', e => { if (e.target === overlay) closeForm(); });
+
+  /* ── Form submit ── */
+  const form = document.getElementById('bpr-prop-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('bprf-submit-btn');
+      if (btn) { btn.disabled = true; btn.textContent = t.form.sending; }
+
+      const fd = new FormData(this);
+      const message = [
+        'Consulta de propiedad / Property inquiry',
+        'Objetivo: ' + (fd.get('objetivo') || '-'),
+        'Tipo: ' + (fd.getAll('tipo').join(', ') || '-'),
+        'Zona: ' + (fd.get('zona') || '-'),
+        'Presupuesto: ' + (fd.get('presupuesto') || '-'),
+        'Plazo: ' + (fd.get('plazo') || '-'),
+      ].join('\n');
+
+      const payload = new FormData();
+      payload.append('name', fd.get('name') || '');
+      payload.append('email', fd.get('email') || '');
+      payload.append('whatsapp', fd.get('whatsapp') || '');
+      payload.append('message', message);
+      payload.append('source', 'property-popup');
+
+      try {
+        const res = await fetch('/api/property-inquiry.php', { method: 'POST', body: payload });
+        if (res.ok) {
+          this.style.display = 'none';
+          const s = document.getElementById('bpr-success');
+          if (s) s.style.display = 'block';
+        } else throw new Error();
+      } catch {
+        const errEl = document.getElementById('bpr-error');
+        if (errEl) errEl.style.display = 'block';
+        if (btn) { btn.disabled = false; btn.textContent = t.form.submit; }
+      }
+    });
+  }
+
+  /* ── Init ── */
+  initForm();
+
+  /* ═══════════════════════════════════════════════════════════════
+     SPLIT POPUP — newsletter / lead capture
+  ═══════════════════════════════════════════════════════════════ */
+  const splitCopy = {
+    es: {
+      eyebrow: '📩 Registro exclusivo',
+      pct: '25%',
+      de: 'DE',
+      word1: 'DESCUENTO',
+      word2: 'INMEDIATO',
+      caption: 'Al comenzar tu proceso de residencia en Panamá con uno de nuestros profesionales especializados.',
+      namePh: 'Tu nombre',
+      emailPh: 'Tu email',
+      consent: 'Me gustaría recibir información sobre reubicación a Panamá. Política de privacidad aplicable.',
+      submit: 'QUIERO MI DESCUENTO',
+      sending: 'Enviando…',
+      sTitle: '¡Listo!',
+      sBody: 'Te hemos enviado la información a tu correo. ¡Nos pondremos en contacto contigo pronto!',
+      badge: '📍 Panamá · Beyond Panama Relocation',
+    },
+    en: {
+      eyebrow: '📩 Exclusive access',
+      pct: '25%',
+      de: 'OFF',
+      word1: 'INSTANT',
+      word2: 'DISCOUNT',
+      caption: 'When you start your Panama residency process with one of our specialized professionals.',
+      namePh: 'Your name',
+      emailPh: 'Your email',
+      consent: 'I\'d like to receive information about relocating to Panama. Privacy policy applies.',
+      submit: 'CLAIM MY DISCOUNT',
+      sending: 'Sending…',
+      sTitle: 'You\'re in!',
+      sBody: 'We\'ve sent information to your email. We\'ll be in touch with you soon!',
+      badge: '📍 Panama · Beyond Panama Relocation',
+    },
+    fr: {
+      eyebrow: '📩 Accès exclusif',
+      pct: '25%',
+      de: 'DE',
+      word1: 'RÉDUCTION',
+      word2: 'IMMÉDIATE',
+      caption: 'En commençant votre processus de résidence au Panama avec l\'un de nos professionnels spécialisés.',
+      namePh: 'Votre prénom',
+      emailPh: 'Votre email',
+      consent: 'Je souhaite recevoir des informations sur la relocation au Panama. Politique de confidentialité applicable.',
+      submit: 'OBTENIR MA RÉDUCTION',
+      sending: 'Envoi…',
+      sTitle: 'C\'est fait !',
+      sBody: 'Nous vous avons envoyé les informations par email. Nous vous contacterons bientôt !',
+      badge: '📍 Panama · Beyond Panama Relocation',
+    },
+  };
+
+  const sc = splitCopy[lang] || splitCopy['es'];
+
+  function setId(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
+  function setAttr(id, attr, val) { const el = document.getElementById(id); if (el) el[attr] = val; }
+
+  // Fill text
+  setId('bpr-split-eyebrow', sc.eyebrow);
+  setId('bpr-split-pct', sc.pct);
+  setId('bpr-split-de', sc.de);
+  setId('bpr-split-word1', sc.word1);
+  setId('bpr-split-word2', sc.word2);
+  setId('bpr-split-caption', sc.caption);
+  setAttr('bpr-sn', 'placeholder', sc.namePh);
+  setAttr('bpr-se', 'placeholder', sc.emailPh);
+  setId('bpr-split-consent-txt', sc.consent);
+  setId('bpr-split-submit', sc.submit);
+  setId('bpr-ss-title', sc.sTitle);
+  setId('bpr-ss-body', sc.sBody);
+  setId('bpr-split-photo-badge', sc.badge);
+
+  // Open / close
+  const splitWrap = document.getElementById('bpr-split-wrap');
+  function openSplit() { if (splitWrap) { splitWrap.classList.add('bpr-split-open'); document.body.style.overflow = 'hidden'; } }
+  function closeSplit() {
+    if (splitWrap) { splitWrap.classList.remove('bpr-split-open'); document.body.style.overflow = ''; }
+    try { localStorage.setItem('bpr-split-seen', Date.now().toString()); } catch(e) {}
+  }
+
+  // Close button
+  const splitCloseBtn = document.getElementById('bpr-split-close');
+  if (splitCloseBtn) splitCloseBtn.addEventListener('click', closeSplit);
+  if (splitWrap) splitWrap.addEventListener('click', e => { if (e.target === splitWrap) closeSplit(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSplit(); });
+
+  // Show logic: only if not seen in the last 14 days and not already subscribed
+  function shouldShowSplit() {
+    try {
+      if (localStorage.getItem('bpr-nl-done')) return false;
+      const seen = parseInt(localStorage.getItem('bpr-split-seen') || '0', 10);
+      const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
+      if (seen && Date.now() - seen < FOURTEEN_DAYS) return false;
+    } catch(e) {}
+    return true;
+  }
+
+  // Delay: show after 18s (after the toast popups have appeared)
+  if (shouldShowSplit()) {
+    setTimeout(openSplit, 18000);
+  }
+
+  // Form submit → subscribe to newsletter
+  const splitForm = document.getElementById('bpr-split-form');
+  if (splitForm) {
+    splitForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const consent = document.getElementById('bpr-sc');
+      if (consent && !consent.checked) { consent.reportValidity(); return; }
+
+      const nameVal  = (document.getElementById('bpr-sn')?.value || '').trim();
+      const emailVal = (document.getElementById('bpr-se')?.value || '').trim();
+      if (!nameVal || !emailVal) return;
+
+      const btn = document.getElementById('bpr-split-submit');
+      if (btn) { btn.disabled = true; btn.textContent = sc.sending; }
+
+      try {
+        await fetch('/api/property-inquiry.php?t=nl', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailVal }),
+        });
+        // Always show success regardless of response
+        try { localStorage.setItem('bpr-nl-done', '1'); } catch(e) {}
+        this.style.display = 'none';
+        const suc = document.getElementById('bpr-split-success');
+        if (suc) suc.style.display = 'block';
+        document.getElementById('bpr-split-caption').style.display = 'none';
+        setTimeout(closeSplit, 3500);
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = sc.submit; }
+      }
+    });
+  }
+})();
+</script>

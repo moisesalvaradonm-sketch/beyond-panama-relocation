@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Beyond Panama Lead Engine · Admin</title>
+<link rel="icon" href="/favicon.ico" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar" hidden>
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <strong>Beyond Panama</strong>
+        <small>Lead Engine</small>
+      </div>
+    </div>
+    <nav>
+      <a data-route="dashboard">Dashboard</a>
+      <a data-route="contacts">Contacts</a>
+      <a data-route="campaigns">Campaigns</a>
+      <a data-route="templates">Templates</a>
+      <a data-route="automations">Automations</a>
+      <a data-route="content">Content Library</a>
+      <a data-route="ai">AI Content Engine</a>
+      <a data-route="knowledge">Knowledge Base</a>
+      <a data-route="settings">Settings</a>
+    </nav>
+    <div class="footer">
+      <button id="logout" class="ghost">Sign out</button>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div id="login" class="login-wrap">
+      <form id="loginForm" class="card">
+        <h1>Beyond Panama Lead Engine</h1>
+        <p class="muted">Sign in to continue.</p>
+        <label>Email
+          <input type="email" name="email" required autocomplete="username" />
+        </label>
+        <label>Password
+          <input type="password" name="password" required autocomplete="current-password" />
+        </label>
+        <button type="submit" class="primary">Sign in</button>
+        <p id="loginError" class="err" hidden></p>
+      </form>
+    </div>
+
+    <div id="view" hidden></div>
+  </main>
+</div>
+
+<template id="tpl-dashboard">
+  <section class="page">
+    <header><h1>Dashboard</h1></header>
+    <div class="kpi-grid" id="kpis"></div>
+    <div class="cols">
+      <div class="card"><h2>By interest</h2><ul id="byInterest" class="stat-list"></ul></div>
+      <div class="card"><h2>By segment</h2><ul id="bySegment" class="stat-list"></ul></div>
+      <div class="card"><h2>By quiz result</h2><ul id="byQuiz" class="stat-list"></ul></div>
+      <div class="card"><h2>By source</h2><ul id="bySource" class="stat-list"></ul></div>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-contacts">
+  <section class="page">
+    <header>
+      <h1>Contacts</h1>
+      <div class="filters">
+        <input id="q" placeholder="Search email or name" />
+        <select id="fStatus"><option value="">Any status</option><option>cold</option><option>engaged</option><option>hot</option><option>very_hot</option></select>
+        <select id="fIntent"><option value="">Any intent</option><option>none</option><option>low</option><option>medium</option><option>high</option><option>ready</option></select>
+        <select id="fSegment"><option value="">Any segment</option></select>
+      </div>
+    </header>
+    <table class="tbl" id="contactsTable">
+      <thead><tr>
+        <th>Email</th><th>Name</th><th>Interest</th><th>Timeline</th><th>Score</th><th>Status</th><th>Intent</th><th>Consent</th><th>Last activity</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="pager" id="pager"></div>
+  </section>
+</template>
+
+<template id="tpl-contact">
+  <section class="page">
+    <header><button class="ghost" data-back>← Back</button><h1 id="cTitle">Contact</h1></header>
+    <div class="cols">
+      <div class="card">
+        <h2>Profile</h2>
+        <div id="cProfile"></div>
+      </div>
+      <div class="card">
+        <h2>Interests · Locations · Segments</h2>
+        <div id="cTags"></div>
+        <h2>Latest quiz</h2>
+        <div id="cQuiz"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Activity timeline</h2>
+      <ul id="cTimeline" class="timeline"></ul>
+    </div>
+    <div class="card">
+      <h2>AI-generated email preview</h2>
+      <label>Goal
+        <select id="aiGoal">
+          <option value="nurture">Nurture</option>
+          <option value="reactivation">Reactivation</option>
+          <option value="consultation">Push to consultation</option>
+          <option value="answer">Answer their concerns</option>
+        </select>
+      </label>
+      <button id="aiGen" class="primary">Generate with Claude</button>
+      <div id="aiResult" class="ai-out"></div>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-campaigns">
+  <section class="page">
+    <header><h1>Campaigns</h1><button id="newCampaign" class="primary">New campaign</button></header>
+    <table class="tbl" id="camTable">
+      <thead><tr><th>Name</th><th>Template</th><th>Segment</th><th>Status</th><th>Sent</th><th>Opens</th><th>Clicks</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <dialog id="campaignDlg" class="dlg">
+      <form method="dialog">
+        <h2>New campaign</h2>
+        <label>Name<input name="name" required></label>
+        <label>Template<select name="template_id" required></select></label>
+        <label>Segment<select name="segment_id"><option value="">All subscribers</option></select></label>
+        <label>Language<select name="language"><option>en</option><option>es</option><option>fr</option></select></label>
+        <label>Schedule (UTC) <input type="datetime-local" name="scheduled_at"></label>
+        <div class="row"><button type="button" data-close class="ghost">Cancel</button><button class="primary" type="submit">Create</button></div>
+      </form>
+    </dialog>
+  </section>
+</template>
+
+<template id="tpl-templates">
+  <section class="page">
+    <header><h1>Email templates</h1><button id="newTpl" class="primary">New template</button></header>
+    <table class="tbl" id="tplTable">
+      <thead><tr><th>Slug</th><th>Name</th><th>Lang</th><th>Status</th><th>AI</th><th>Updated</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <dialog id="tplDlg" class="dlg wide">
+      <form method="dialog" id="tplForm">
+        <h2 id="tplTitle">Template</h2>
+        <input type="hidden" name="id" />
+        <div class="row2">
+          <label>Slug<input name="slug" required></label>
+          <label>Name<input name="name" required></label>
+        </div>
+        <div class="row2">
+          <label>Language<select name="language"><option>en</option><option>es</option><option>fr</option></select></label>
+          <label>Status<select name="status"><option>draft</option><option>approved</option><option>archived</option></select></label>
+        </div>
+        <label>Subject<input name="subject" required></label>
+        <label>Preheader<input name="preheader"></label>
+        <label>Body HTML (supports {{first_name}} {{recommended_location}} {{consultation_url}} {{whatsapp_url}} {{unsubscribe_url}})
+          <textarea name="body_html" rows="14" required></textarea>
+        </label>
+        <div class="row"><button type="button" data-close class="ghost">Cancel</button><button id="tplPreview" type="button">Preview</button><button class="primary" type="submit">Save</button></div>
+        <div id="tplPreviewOut"></div>
+      </form>
+    </dialog>
+  </section>
+</template>
+
+<template id="tpl-automations">
+  <section class="page">
+    <header><h1>Automations</h1></header>
+    <div id="autoList"></div>
+  </section>
+</template>
+
+<template id="tpl-content">
+  <section class="page">
+    <header><h1>Content Library</h1></header>
+    <div class="filters"><select id="cFilter"><option value="">All statuses</option><option>draft</option><option>review</option><option>published</option><option>archived</option></select></div>
+    <table class="tbl" id="contentTable">
+      <thead><tr><th>Title</th><th>Category</th><th>Lang</th><th>Status</th><th>AI</th><th>Updated</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</template>
+
+<template id="tpl-ai">
+  <section class="page">
+    <header><h1>AI Content Engine</h1></header>
+    <div class="card">
+      <h2>Health check</h2>
+      <button id="aiTest" class="primary">Ping Claude</button>
+      <pre id="aiTestOut"></pre>
+    </div>
+    <div class="card">
+      <h2>Generate a blog article</h2>
+      <label>Topic<input id="artTopic" placeholder="e.g. Cost of living in Boquete for retirees"/></label>
+      <label>Language<select id="artLang"><option>en</option><option>es</option><option>fr</option></select></label>
+      <button id="artGen" class="primary">Generate</button>
+      <div id="artOut"></div>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-knowledge">
+  <section class="page">
+    <header><h1>Knowledge Base</h1><button id="newKn" class="primary">Add entry</button></header>
+    <p class="muted">Facts the AI is allowed to cite. Anything not here will not be invented.</p>
+    <table class="tbl" id="knTable">
+      <thead><tr><th>Topic</th><th>Key</th><th>Value</th><th>Confidence</th><th>Verified</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <dialog id="knDlg" class="dlg">
+      <form method="dialog" id="knForm">
+        <h2>Knowledge entry</h2>
+        <div class="row2">
+          <label>Topic<input name="topic" required></label>
+          <label>Key<input name="key_name" required></label>
+        </div>
+        <label>Value<textarea name="value_text" rows="4" required></textarea></label>
+        <div class="row2">
+          <label>Source<input name="source"></label>
+          <label>Verified<input type="date" name="verified_at"></label>
+        </div>
+        <div class="row2">
+          <label>Confidence<select name="confidence"><option>medium</option><option>low</option><option>high</option></select></label>
+          <label>Language<select name="language"><option>any</option><option>en</option><option>es</option><option>fr</option></select></label>
+        </div>
+        <div class="row"><button type="button" data-close class="ghost">Cancel</button><button class="primary" type="submit">Save</button></div>
+      </form>
+    </dialog>
+  </section>
+</template>
+
+<template id="tpl-settings">
+  <section class="page">
+    <header><h1>Settings</h1></header>
+    <form id="setForm" class="card">
+      <div id="setFields"></div>
+      <button class="primary">Save</button>
+    </form>
+    <form id="ruleForm" class="card">
+      <h2>Lead-score rules</h2>
+      <div id="ruleFields"></div>
+      <button class="primary">Save rules</button>
+    </form>
+  </section>
+</template>
+
+<div id="toast" hidden></div>
+<script src="./app.js" type="module"></script>
+</body>
+</html>

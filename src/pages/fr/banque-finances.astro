@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+{/*
+  [VERIFICAR] Contenido llevado desde /en/banking/ (solo datos ya publicados en el sitio). Confirmar antes de ampliar:
+    - "130+ bancos internacionales" y "0 % de impuesto a ingresos del exterior" (redacción fiscal; revisar con asesor).
+    - Plazo de apertura "2–4 semanas", mínimos "$5,000–$10,000+" sin residencia, y lista de documentos.
+    - Banistmo: la versión EN lo describe como "afiliado a HSBC"; al parecer ya no es cierto, por eso aquí se omite. Confirmar propietario actual y corregir EN.
+    - Nombres/estado actual de los bancos, Wise/Revolut/Schwab/PayPal (condiciones y comisiones).
+    - Cripto: "sin legislación formal a 2025" (revisar vigencia) · FBAR "más de $10,000" (cifra y obligaciones EE.UU.).
+    - Afirmación de estabilidad económica y "disputa minera 2024".
+*/}
+<Layout title="Banque au Panama — Ouvrir un compte, fiscalité et économie dollarisée" description="Le système bancaire du Panama pour les expatriés : plus de 130 banques internationales, économie dollarisée, 0 % d'impôt sur les revenus de l'étranger et ouverture de compte pas à pas." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Banque et Finances au Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama est l'un des plus grands centres bancaires du monde, avec plus de 130 institutions internationales et une économie entièrement dollarisée. Pas de taux de change à surveiller, pas de banque centrale qui imprime de la monnaie et aucun impôt sur les revenus gagnés hors du Panama.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Réponse rapide</p>
+      <p class="text-slate text-sm leading-relaxed">
+        Le Panama utilise le dollar américain. Les revenus de l'étranger — pension, télétravail, placements — <strong>ne sont pas imposés</strong>. Pour ouvrir un compte bancaire, il faut votre visa de résidence (cédula), une lettre de référence bancaire et un justificatif de revenus. La démarche prend <strong>2 à 4 semaines</strong>. Sans résidence, c'est nettement plus difficile. Wise ou Revolut servent de relais pendant le traitement de votre visa.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">130+</p>
+        <p class="text-slate-mid text-xs">Banques internationales présentes au Panama</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">0%</p>
+        <p class="text-slate-mid text-xs">Impôt sur les revenus gagnés hors du Panama</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">1:1</p>
+        <p class="text-slate-mid text-xs">Balboa = Dollar américain · aucune conversion</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Monnaie : l'économie dollarisée</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">La monnaie officielle du Panama est le <strong class="text-slate">Balboa (B/.)</strong>, fixé à parité 1:1 avec le dollar américain — lui-même ayant cours légal dans tout le pays. En pratique, vous payez toujours en USD. Aucun taux de change à surveiller et aucun risque de conversion pour ceux qui gagnent en dollars.</p>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏦</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Pas de banque centrale</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Le Panama n'a pas de banque centrale et ne peut pas imprimer de monnaie. La masse monétaire dépend du marché : le pays doit gagner des devises par ses exportations de biens et de services. Cette contrainte structurelle a historiquement produit plus de stabilité macroéconomique que dans la plupart des économies latino-américaines.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">💵</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">L'USD a cours légal — en pratique partout</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Les billets en dollars circulent avec les pièces panaméennes (Balboas). Tous les distributeurs délivrent des USD et tous les prix sont en USD. Aucune conversion à aucun moment. Pas de frais aux distributeurs acceptant votre carte internationale (votre banque d'origine peut toutefois facturer des frais de transaction à l'étranger).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Le système fiscal territorial</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">Le Panama n'impose que les revenus <em>générés au Panama</em>. Les revenus générés à l'étranger ne sont pas imposés — où que vous viviez et quelle que soit la durée de votre résidence. Cela s'applique à :</p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-4">
+        {[
+          ["Pension / retraite étrangère", "Non imposé au Panama"],
+          ["Télétravail (client à l'étranger)", "Non imposé au Panama"],
+          ["Activité en ligne (clients étrangers)", "Non imposé au Panama"],
+          ["Placements / dividendes étrangers", "Non imposé au Panama"],
+          ["Revenus locatifs d'un bien à l'étranger", "Non imposé au Panama"],
+          ["Revenus gagnés au Panama", "Soumis à l'impôt panaméen"],
+          ["Revenus locatifs d'un bien au Panama", "Soumis à l'impôt panaméen"],
+          ["Revenus d'une entreprise panaméenne", "Soumis à l'impôt panaméen"],
+        ].map(([source, treatment]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{source}</span>
+            <span class={`font-semibold text-xs whitespace-nowrap ${treatment.startsWith('Non ') ? 'text-jade' : 'text-coral'}`}>{treatment}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid">Le système territorial du Panama est favorable aux retraités, aux télétravailleurs et aux entrepreneurs en ligne. Important : vous pouvez conserver des obligations fiscales dans votre pays d'origine (notamment les citoyens américains au titre de FATCA/FBAR). Consultez toujours un avocat fiscaliste connaissant les deux juridictions.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Ouvrir un compte bancaire</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">Ouvrir un compte personnel au Panama est simple une fois la résidence obtenue. Sans visa, c'est nettement plus difficile : les banques appliquent des contrôles stricts de conformité (AML/KYC) et exigent des liens économiques démontrables avec le pays.</p>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Documents généralement demandés</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Cédula (carte de résident)</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Délivrée après approbation de votre visa. C'est le document clé.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Copie du passeport</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Copie couleur de toutes les pages.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Justificatif de revenus</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Lettres de pension, contrats de travail ou relevés bancaires de votre pays montrant des dépôts réguliers. 3 à 6 derniers mois.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Lettre de référence bancaire</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Lettre de votre banque actuelle (à l'étranger) indiquant le type de compte, la situation et l'ancienneté de la relation. Les banques panaméennes la demandent.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Justificatif de domicile au Panama</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Facture de services, bail ou lettre notariée de votre propriétaire.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Déclaration d'origine des fonds</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Courte déclaration signée expliquant l'origine de votre argent. Standard de conformité.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Banques adaptées aux expatriés</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Banco General</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Première banque panaméenne. Bonne banque en ligne, bon support en anglais et large réseau de distributeurs.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Banistmo</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Interface familière pour les clients internationaux. Pratique pour les virements vers l'étranger.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Global Bank</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Réputée plus accessible aux nouveaux résidents. Ouverture de compte plus rapide dans certains cas.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">BAC Panama</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Banque régionale avec une bonne application mobile. Appréciée des expatriés à Boquete et Coronado.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Citibank Panama</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Pour les clients ayant déjà une relation avec Citibank à l'étranger — simplifie l'ouverture.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-medium text-slate text-sm mb-1">Délai : 2 à 4 semaines</p>
+          <p class="text-slate-mid text-xs leading-relaxed">L'ouverture d'un compte prend 2 à 4 semaines en raison du contrôle interne de conformité (AML/KYC). Présentez-vous en personne à la banque — cela ne peut pas se faire entièrement en ligne pour un nouveau compte. Certaines banques exigent plusieurs visites. Apportez les originaux et des copies certifiées de tous les documents.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-medium text-slate text-sm mb-1">Sans résidence : plus difficile, mais pas impossible</p>
+          <p class="text-slate-mid text-xs leading-relaxed">La plupart des banques exigent des liens économiques solides (propriété, activité en cours), un avocat local et des dépôts minimaux plus élevés (5 000–10 000 $ et plus). C'est faisable mais lent. Si votre visa est en cours, il vaut généralement mieux attendre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Alternatives de banque numérique</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">Pendant que votre visa de résidence et votre compte bancaire sont en cours de traitement, ces outils numériques fonctionnent au Panama et sont utilisés par la plupart des expatriés dès le premier jour :</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Wise (ex-TransferWise)</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Compte USD, EUR et multidevise. La carte de débit fonctionne aux distributeurs du Panama. Bons taux de change pour les virements entre pays. Pas de frais sur les transactions en USD au Panama.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Revolut</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Cartes de débit virtuelles et physiques. Utile en multidevise. Certaines fonctions sont limitées selon votre pays d'origine. Acceptée dans la plupart des établissements de Panama City.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Charles Schwab (comptes américains)</p>
+            <p class="text-slate-mid text-xs leading-relaxed">La carte de débit de courtage Schwab rembourse les frais de distributeur internationaux dans le monde entier, y compris au Panama. Idéal pour les retraités qui conservent un compte américain.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">PayPal</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Largement accepté en ligne au Panama pour les services et les locations. Les transferts en USD fonctionnent normalement. Ne remplace pas un compte bancaire mais utile pendant la transition.</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Cryptomonnaies</h2>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white">
+        <p class="text-slate-mid text-sm leading-relaxed">Le Panama n'a pas de réglementation formelle sur les cryptomonnaies mais pratiquement aucune restriction pour un usage personnel. Les opérations en crypto ne sont pas spécifiquement imposées dans le système territorial si elles proviennent de plateformes ou de clients étrangers. En 2025, le Panama n'avait pas adopté de législation formelle sur les cryptos : l'environnement réglementaire est permissif mais juridiquement indéfini. Consultez un avocat fiscaliste local pour planifier des avoirs en crypto, notamment à des fins migratoires.</p>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Questions fréquentes</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Le Panama impose-t-il ma Social Security ou ma pension américaine ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Non. Dans le système fiscal territorial du Panama, les pensions étrangères — y compris la Social Security américaine — ne sont pas imposées au Panama. Vous pouvez néanmoins avoir des obligations envers l'IRS (consultez un fiscaliste américain, notamment pour le FBAR sur les comptes étrangers de plus de 10 000 $), mais le Panama n'impose pas les revenus gagnés hors de ses frontières.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Puis-je ouvrir un compte bancaire au Panama sans résidence ?</dt>
+          <dd class="text-slate-mid leading-relaxed">C'est possible mais nettement plus difficile. Le système bancaire panaméen a des exigences strictes de conformité (AML/KYC). Sans visa de résidence, la plupart des banques demandent un dépôt minimum élevé, un avocat local et une documentation économique détaillée. Avec la cédula, la démarche est simple. En attendant, utilisez Wise ou Revolut comme relais.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Dois-je déclarer mon compte bancaire panaméen à l'IRS ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Les citoyens et personnes américaines doivent déclarer les comptes financiers étrangers dépassant 10 000 $ à un moment de l'année via le FBAR (FinCEN Form 114). Un compte bancaire panaméen est concerné. Cela est distinct de l'impôt américain sur le revenu et s'applique même si aucun impôt n'est dû. Consultez un fiscaliste américain connaissant les obligations des expatriés.</dd>
+        </div>
+        <div class="">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">L'économie du Panama est-elle stable ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Le Panama a l'une des économies les plus stables d'Amérique latine. Le système monétaire dollarisé (pas de banque centrale, pas de création monétaire), les revenus du Canal et le centre bancaire international créent une stabilité structurelle. La croissance du PIB a constamment dépassé celle de ses pairs régionaux depuis vingt ans. Le conflit sur la concession minière de 2024 a provoqué des troubles temporaires, mais les fondamentaux économiques sont restés intacts.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Prêt à passer à l'étape suivante ?</p>
+      <p class="text-slate-mid text-sm mb-5">Trouvez votre voie de résidence en 2 minutes — sans inscription, sans pression.</p>
+      <a href="/fr/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir les options de visa →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="fr" categories={['proceso', 'visas']} />
+</Layout>

@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+import RealEstateForm from '../../components/ui/RealEstateForm.astro';
+import RealEstateHero from '../../components/ui/RealEstateHero.astro';
+---
+
+<Layout
+  title="Options Immobilières au Panama"
+  description="Trouvez des propriétés au Panama pour acheter, investir ou louer. Nous vous mettons en relation avec des agents immobiliers agréés selon vos objectifs, budget et région de préférence — gratuit et sans engagement."
+  lang="fr"
+>
+
+  <RealEstateHero lang="fr" />
+
+  <!-- Intro + value prop -->
+  <section class="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="font-serif text-3xl text-slate mb-5 leading-snug">
+          Nous vous connectons avec le bon professionnel de l'immobilier
+        </h2>
+        <p class="text-slate-mid leading-relaxed mb-6">
+          Que vous cherchiez à acheter une maison, investir dans l'immobilier, louer un bien ou simplement explorer vos options, nous travaillons avec des agents et courtiers immobiliers agréés au Panama pour vous mettre en relation avec des propriétés adaptées à vos besoins.
+        </p>
+        <p class="text-slate-mid leading-relaxed">
+          Dites-nous ce que vous cherchez et nous vous mettrons en relation avec le bon professionnel de l'immobilier et les options pertinentes — sans frais et sans aucun engagement.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="rounded-xl bg-white border border-jade/10 p-5 flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-jade/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-jade" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-slate">Acheter ou investir</p>
+            <p class="text-xs text-slate-mid mt-0.5">Panama City jusqu'aux zones côtières — appartements, maisons, terrains et locaux commerciaux</p>
+          </div>
+        </div>
+        <div class="rounded-xl bg-white border border-jade/10 p-5 flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-jade/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-jade" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-slate">Biens avec potentiel de résidence</p>
+            <p class="text-xs text-slate-mid mt-0.5">Certains investissements sont éligibles aux programmes de résidence au Panama</p>
+          </div>
+        </div>
+        <div class="rounded-xl bg-white border border-jade/10 p-5 flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-jade/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 text-jade" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-slate">Aucune commission pour les acheteurs</p>
+            <p class="text-xs text-slate-mid mt-0.5">Notre service de mise en relation est entièrement gratuit pour les chercheurs de biens</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form section -->
+  <section class="bg-cream border-t border-jade/8">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-20">
+      <div class="mb-10 text-center">
+        <span class="text-jade text-xs font-semibold uppercase tracking-widest">Recherche immobilière</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-slate mt-3 mb-3">Dites-Nous Ce Que Vous Cherchez</h2>
+        <p class="text-slate-mid text-sm md:text-base max-w-lg mx-auto">
+          5 étapes · gratuit · sans engagement
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-jade/10 shadow-sm p-6 md:p-10">
+        <RealEstateForm lang="fr" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas covered -->
+  <section class="max-w-5xl mx-auto px-6 md:px-8 py-16">
+    <h2 class="font-serif text-2xl text-slate mb-8">Zones couvertes</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {[
+        { name: 'Panama City', desc: 'Capitale, hub financier, large gamme de prix' },
+        { name: 'Coronado', desc: 'Côte Pacifique, populaire auprès des retraités et expatriés' },
+        { name: 'Boquete', desc: 'Ville de montagne, climat frais, communauté expat établie' },
+        { name: 'Bocas del Toro', desc: 'Archipel caribéen, art de vivre décontracté' },
+        { name: 'Pedasí & Côte Pacifique', desc: 'Villages de pêcheurs, surf, potentiel d\'investissement' },
+        { name: 'Autres régions', desc: 'Dites-nous ce que vous avez en tête' },
+      ].map(area => (
+        <div class="rounded-xl bg-white border border-jade/10 p-5">
+          <p class="font-semibold text-slate text-sm mb-1">{area.name}</p>
+          <p class="text-xs text-slate-mid">{area.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <RelatedGuides lang="fr" categories={['proceso', 'zonas']} />
+</Layout>

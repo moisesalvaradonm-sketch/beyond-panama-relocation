@@ -1,0 +1,202 @@
+---
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const slides = [
+  {
+    src: '/img/areas/panama-city-luis.jpg',
+    label: { es: 'Ciudad de Panamá', en: 'Panama City', fr: 'Panama City' },
+  },
+  {
+    src: '/img/areas/panama-city-ricardo.jpg',
+    label: { es: 'Ciudad de Panamá', en: 'Panama City', fr: 'Panama City' },
+  },
+  {
+    src: '/img/areas/panama-city-sol.jpg',
+    label: { es: 'Ciudad de Panamá', en: 'Panama City', fr: 'Panama City' },
+  },
+  {
+    src: '/img/areas/casco-aerial.webp',
+    label: { es: 'Casco Antiguo, Panamá', en: 'Casco Antiguo, Panama', fr: 'Casco Antiguo, Panama' },
+  },
+  {
+    src: '/img/areas/boquete-sign.webp',
+    label: { es: 'Boquete, Chiriquí', en: 'Boquete, Chiriquí', fr: 'Boquete, Chiriquí' },
+  },
+  {
+    src: '/img/areas/playa-venao-1.jpg',
+    label: { es: 'Playa Venao, Pacífico', en: 'Playa Venao, Pacific', fr: 'Playa Venao, Pacifique' },
+  },
+  {
+    src: '/img/areas/playa-venao-2.webp',
+    label: { es: 'Playa Venao, Pacífico', en: 'Playa Venao, Pacific', fr: 'Playa Venao, Pacifique' },
+  },
+  {
+    src: '/img/areas/playa-venao-3.jpg',
+    label: { es: 'Playa Venao, Pacífico', en: 'Playa Venao, Pacific', fr: 'Playa Venao, Pacifique' },
+  },
+  {
+    src: '/img/blog/coronado-beach.webp',
+    label: { es: 'Coronado, Costa del Pacífico', en: 'Coronado, Pacific Coast', fr: 'Coronado, Côte Pacifique' },
+  },
+  {
+    src: '/img/blog/san-blas-lifestyle.webp',
+    label: { es: 'Bocas del Toro', en: 'Bocas del Toro', fr: 'Bocas del Toro' },
+  },
+];
+
+const heading = {
+  es: 'Encuentra Tu Propiedad Ideal en Panamá',
+  en: 'Find Your Ideal Property in Panama',
+  fr: 'Trouvez Votre Bien Idéal au Panama',
+};
+const sub = {
+  es: 'Ciudad, playa, montaña — te conectamos con la propiedad y el profesional correcto.',
+  en: 'City, beach, mountain — we connect you with the right property and professional.',
+  fr: 'Ville, plage, montagne — nous vous connectons avec le bien et le professionnel idéal.',
+};
+const tag = {
+  es: 'Bienes Raíces en Panamá',
+  en: 'Real Estate in Panama',
+  fr: 'Immobilier au Panama',
+};
+const pills = {
+  es: ['Comprar · Invertir · Alquilar', 'Gratis · Sin compromiso', 'Agentes con licencia'],
+  en: ['Buy · Invest · Rent', 'Free · No obligation', 'Licensed agents'],
+  fr: ['Acheter · Investir · Louer', 'Gratuit · Sans engagement', 'Agents agréés'],
+};
+const back = {
+  es: '← Inicio',
+  en: '← Home',
+  fr: '← Accueil',
+};
+const backHref = { es: '/es/', en: '/en/', fr: '/fr/' };
+---
+
+<section class="re-hero relative text-white overflow-hidden min-h-[65vh] flex items-end">
+
+  <!-- Slides -->
+  {slides.map((slide, i) => (
+    <img
+      src={slide.src}
+      alt={slide.label[lang]}
+      class={`re-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+      fetchpriority={i === 0 ? 'high' : 'low'}
+      loading={i === 0 ? 'eager' : 'lazy'}
+      data-index={i}
+    />
+  ))}
+
+  <!-- Gradients -->
+  <div class="absolute inset-0 bg-gradient-to-r from-slate/90 via-slate/60 to-slate/20 z-10"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-slate/85 via-slate/20 to-transparent z-10"></div>
+
+  <!-- Content -->
+  <div class="relative z-20 max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 w-full">
+
+    <a href={backHref[lang]} class="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-sm mb-8 transition-colors">
+      {back[lang]}
+    </a>
+
+    <span class="block text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4">{tag[lang]}</span>
+
+    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-5 max-w-3xl">
+      {heading[lang]}
+    </h1>
+
+    <p class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-8">
+      {sub[lang]}
+    </p>
+
+    <!-- Pills -->
+    <div class="flex flex-wrap gap-3 mb-8">
+      {pills[lang].map(pill => (
+        <span class="flex items-center gap-1.5 text-sm text-white/60">
+          <span class="w-1.5 h-1.5 rounded-full bg-jade flex-shrink-0"></span>
+          {pill}
+        </span>
+      ))}
+    </div>
+
+    <!-- Bottom bar: location label + dots -->
+    <div class="flex items-center justify-between border-t border-white/10 pt-5">
+      <!-- Current location label -->
+      <span id="re-slide-label" class="text-xs text-white/40 tracking-wide transition-opacity duration-500">
+        {slides[0].label[lang]}
+      </span>
+
+      <!-- Dot indicators -->
+      <div class="flex items-center gap-2">
+        {slides.map((_, i) => (
+          <button
+            class="re-dot w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 focus:outline-none"
+            data-index={i}
+            aria-label={`Slide ${i + 1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script define:vars={{ slides, lang }}>
+  const imgs   = document.querySelectorAll('.re-slide');
+  const dots   = document.querySelectorAll('.re-dot');
+  const label  = document.getElementById('re-slide-label');
+  let current  = 0;
+  let timer;
+
+  function goTo(idx) {
+    imgs[current].classList.replace('opacity-100', 'opacity-0');
+    dots[current].classList.remove('bg-white/80', 'w-3');
+    dots[current].classList.add('bg-white/30', 'w-1.5');
+
+    current = idx;
+
+    imgs[current].classList.replace('opacity-0', 'opacity-100');
+    dots[current].classList.remove('bg-white/30', 'w-1.5');
+    dots[current].classList.add('bg-white/80', 'w-3');
+
+    if (label) {
+      label.style.opacity = '0';
+      setTimeout(() => {
+        label.textContent = slides[current].label[lang];
+        label.style.opacity = '1';
+      }, 400);
+    }
+  }
+
+  function next() {
+    goTo((current + 1) % imgs.length);
+  }
+
+  function startTimer() {
+    timer = setInterval(next, 3000);
+  }
+
+  // Init first dot
+  dots[0]?.classList.replace('bg-white/30', 'bg-white/80');
+  dots[0]?.classList.replace('w-1.5', 'w-3');
+
+  // Dot clicks
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(timer);
+      goTo(i);
+      startTimer();
+    });
+  });
+
+  // Pause on hover
+  const hero = document.querySelector('.re-hero');
+  hero?.addEventListener('mouseenter', () => clearInterval(timer));
+  hero?.addEventListener('mouseleave', startTimer);
+
+  startTimer();
+</script>

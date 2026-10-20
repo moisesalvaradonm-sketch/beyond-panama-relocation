@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Panama Pensionado Benefits & Senior Discounts" description="Complete list of legally mandated discounts and benefits for Pensionado visa holders and retirement-age residents in Panama." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Pensionado Benefits & Senior Discounts in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama has one of the most generous senior-benefit systems in the world. All discounts are mandated by Panamanian law — businesses are legally required to apply them.
+      </p>
+    </div>
+
+    <!-- Who qualifies -->
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-jade bg-jade/5">
+      <p class="font-semibold text-slate mb-2">Who qualifies for these benefits?</p>
+      <ul class="text-slate-mid text-sm space-y-1">
+        <li class="flex gap-2 items-start"><span class="text-jade mt-0.5">✓</span> Holders of Panama's <strong>Pensionado visa</strong></li>
+        <li class="flex gap-2 items-start"><span class="text-jade mt-0.5">✓</span> Any resident who has reached retirement age with a valid residency visa: <strong>women 55+, men 60+</strong></li>
+      </ul>
+    </div>
+
+    <!-- Full benefits table -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Complete Discount Catalog</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3">
+          <p class="font-semibold text-white text-sm">Legally Mandated Discounts — Panama Law</p>
+        </div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["🎬", "Entertainment", "Cinema, concerts, sports events, cultural events", "50%"],
+            ["🚌", "Public transport", "Bus, boat, train", "30%"],
+            ["✈️", "Airfare", "Any destination, any airline operating in Panama", "25%"],
+            ["🏨", "Hotels (Mon–Thu)", "Any hotel or lodging establishment", "50%"],
+            ["🏨", "Hotels (Fri–Sun)", "Any hotel or lodging establishment", "30%"],
+            ["🍽️", "Restaurants", "Full-service restaurants", "25%"],
+            ["🍔", "Fast food", "Fast-food chains and counters", "15%"],
+            ["🏥", "Hospital bills (uninsured)", "On uninsured medical bills", "15%"],
+            ["💊", "Prescription medication", "At pharmacies", "20%"],
+            ["👨‍⚕️", "Medical consultations", "Specialist and general consultations", "20%"],
+            ["🦷", "Dentistry & eye exams", "Dental clinics and optometrists", "15%"],
+            ["💡", "Utilities", "Water, electricity, telephone", "25%"],
+            ["🚗", "New car import", "Duty-free import every 2 years", "Exempt"],
+            ["📦", "Household goods import", "One-time duty-free import", "Up to $10,000"],
+            ["🏠", "Mortgage interest", "Discount on mortgage interest rate", "Discount"],
+          ].map(([emoji, category, detail, discount]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-xl w-8 shrink-0">{emoji}</span>
+              <div class="flex-1 min-w-0">
+                <p class="font-medium text-slate">{category}</p>
+                <p class="text-slate-mid text-xs truncate">{detail}</p>
+              </div>
+              <span class="font-bold text-jade whitespace-nowrap text-base">{discount}</span>
+            </div>
+          ))}
+        </div>
+        <div class="px-5 py-3 bg-fog border-t border-jade/10">
+          <p class="text-xs text-slate-mid">All discounts are mandated by Panamanian law. Establishments are legally required to apply them upon presentation of your cédula (residency card) or valid ID showing age qualification.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real savings calculation -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Real Monthly Savings</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        These discounts compound on top of Panama's already low prices. Here's what a retired couple's monthly savings might look like:
+      </p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Restaurant dining (4x/month × $30)", "Without", "With 25% off", "$30 saved"],
+            ["Movie tickets (2×/month × $8)", "Without", "With 50% off", "$8 saved"],
+            ["Medical consultations (2×/month × $18)", "Without", "With 20% off", "$7.20 saved"],
+            ["Medications ($30/month)", "Without", "With 20% off", "$6 saved"],
+            ["Utilities ($50/month)", "Without", "With 25% off", "$12.50 saved"],
+            ["Airfare (2 trips/year / 12)", "Without", "With 25% off", "$25+ saved/mo avg"],
+          ].map(([item, col1, col2, saved]) => (
+            <div class="flex items-center px-5 py-3 gap-3 text-sm">
+              <span class="text-slate-mid flex-1 text-xs">{item}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{saved}</span>
+            </div>
+          ))}
+          <div class="flex items-center px-5 py-4 bg-jade/5 gap-3">
+            <span class="font-semibold text-slate flex-1">Estimated monthly savings</span>
+            <span class="font-serif text-2xl font-bold text-jade">$85–$150+</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-3">Savings increase significantly with larger medical expenses, more frequent travel, and higher utility use. Many expats report savings of $200–$400/month when they optimize around these discounts.</p>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="mb-12 p-6 rounded-2xl bg-jade/5 border border-jade/15">
+      <blockquote class="font-serif text-lg text-slate mb-3 italic">
+        "The territorial system radically changes the financial equation. My US pension isn't taxed here, and on top of that I get 25% off restaurants and 20% off medical visits. The real purchasing power is impressive."
+      </blockquote>
+      <p class="text-slate-mid text-sm">— North American retiree, Pensionado visa holder, Chitré (since 2024)</p>
+    </div>
+
+    <!-- How to use them -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">How to Use Your Discounts</h2>
+      <ol class="space-y-3 text-slate-mid text-sm">
+        {[
+          "Present your cédula (Panamanian residency card) or valid passport showing your age when requesting the discount.",
+          "If a business refuses, you are legally entitled to request it — the discount is mandated by Panamanian law, not optional.",
+          "Some discounts (like airlines) may require booking through specific channels or presenting documentation at check-in.",
+          "For medication discounts, simply show your card at the pharmacy when purchasing.",
+          "For car import exemptions, coordinate with a customs broker — the process involves submitting documentation to the Tax Authority (DGI).",
+        ].map((step, i) => (
+          <li class="flex gap-4 items-start">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-jade/10 text-jade font-semibold text-xs flex items-center justify-center mt-0.5">{i+1}</span>
+            <span>{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <!-- Link to visa page -->
+    <div class="mb-12 p-5 rounded-xl border border-jade/15 bg-white">
+      <p class="font-medium text-slate mb-2">Want to know if you qualify for the Pensionado visa?</p>
+      <p class="text-slate-mid text-sm mb-4">The main requirement is a lifetime pension of $1,000/month. See the full requirements, process, and FAQ.</p>
+      <a href="/en/visas/pensionado/" class="inline-flex px-5 py-2.5 rounded-sm bg-jade text-white text-sm font-medium hover:bg-jade-dark transition-colors">Pensionado visa guide →</a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Are these discounts guaranteed by law?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes. All discounts listed are mandated by Panamanian law (primarily Law 6 of 1987 and subsequent reforms). Businesses cannot legally refuse to apply them. If a business refuses, you can report the violation to consumer protection authorities.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Do the discounts apply at all businesses?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes — the law applies to all businesses operating in Panama in the applicable categories (restaurants, cinemas, pharmacies, hotels, etc.), both national chains and independent businesses. International airlines operating routes to/from Panama must also apply the airfare discount.</dd>
+        </div>
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Can I import a car duty-free?</dt>
+          <dd class="text-slate-mid leading-relaxed">Yes — Pensionado visa holders are entitled to import one new personal vehicle duty-free every two years. The process involves customs documentation and coordination with a local customs broker. The duty exemption can represent savings of 15–30% of the vehicle's value.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Ready to retire in Panama?</p>
+      <p class="text-slate-mid text-sm mb-5">The quiz helps you find the right visa and area in 2 minutes.</p>
+      <a href="/en/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Start the quiz →</a>
+    </div>
+  </section>
+</Layout>

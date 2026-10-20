@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 import CostCalculator from '../../components/ui/CostCalculator';
 
 const faqSchema = {
@@ -11,7 +12,7 @@ const faqSchema = {
       name: '¿Cuánto necesita una pareja para vivir en Boquete, Panamá?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Según gastos documentados de 2025–2026, una pareja que vive en Boquete puede manejarse con aproximadamente $1,620/mes. Esto incluye una casa amoblada de 2 habitaciones ($750), supermercado y alimentación ($300), electricidad ($25 — el clima fresco de montaña de Boquete elimina el uso de A/C), seguro médico para dos personas ($175), copagos médicos y dentales ($10), medicamentos ($10), servicios de streaming ($10), internet y TV por cable ($60), ropa y calzado ($30), entretenimiento y salidas ($50), viajes ($100), ayuda doméstica ($50) y seguro y mantenimiento de vehículo ($50). Este es un presupuesto real documentado, no una estimación promocional.",
+        text: "Según gastos documentados de 2025–2026, una pareja que vive en Boquete puede manejarse con aproximadamente $1,620/mes. Esto incluye una casa amoblada de 2 habitaciones ($750), supermercado y alimentación ($300), electricidad ($50 — el clima fresco de montaña de Boquete elimina el uso de A/C), seguro médico para dos personas ($175), copagos médicos y dentales ($20), medicamentos ($10), servicios de streaming ($20), internet y TV por cable ($60), ropa y calzado ($30), entretenimiento y salidas ($60), viajes ($50), ayuda doméstica ($40) y seguro y mantenimiento de vehículo ($65). Este es un presupuesto real documentado, no una estimación promocional.",
       },
     },
     {
@@ -47,6 +48,18 @@ const faqSchema = {
       },
     },
   ],
+};
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Calculadora de Costo de Vida en Panamá',
+  url: 'https://beyondpanamarelocation.com/es/costo-de-vida/',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  description: 'Calcula el costo real de vivir en Panamá por zona y estilo de vida. Herramienta interactiva gratuita, sin registro.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: 'es-PA',
 };
 ---
 
@@ -91,17 +104,17 @@ const faqSchema = {
         {[
           ["Alquiler (casa amoblada 2 habitaciones)", "$750"],
           ["Supermercado y alimentación", "$300"],
-          ["Electricidad (clima fresco, sin A/C)", "$25"],
+          ["Electricidad (clima fresco, sin A/C)", "$50"],
           ["Seguro médico (2 personas)", "$175"],
-          ["Copagos médicos y dentales", "$10"],
+          ["Copagos médicos y dentales", "$20"],
           ["Medicamentos", "$10"],
-          ["Servicios de streaming", "$10"],
+          ["Servicios de streaming", "$20"],
           ["Internet + TV por cable", "$60"],
           ["Ropa y calzado", "$30"],
-          ["Entretenimiento y salidas a comer", "$50"],
-          ["Viajes nacionales e internacionales", "$100"],
-          ["Jardinero y ayuda doméstica", "$50"],
-          ["Seguro y mantenimiento de vehículo", "$50"],
+          ["Entretenimiento y salidas a comer", "$60"],
+          ["Viajes nacionales e internacionales", "$50"],
+          ["Jardinero y ayuda doméstica", "$40"],
+          ["Seguro y mantenimiento de vehículo", "$65"],
         ].map(([label, amount]) => (
           <div class="flex justify-between items-center px-5 py-3 text-sm">
             <span class="text-slate-mid">{label}</span>
@@ -114,6 +127,42 @@ const faqSchema = {
         </div>
       </div>
       <p class="text-xs text-slate-mid px-5 py-3 bg-fog border-t border-jade/10">Nota: La electricidad se multiplica 4–5× en zonas costeras cálidas por el uso de A/C. Los costos en Ciudad de Panamá o Coronado serán considerablemente más altos.</p>
+    </div>
+
+    <div class="mb-10 overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <caption class="text-left font-serif text-lg text-slate mb-3">Costo de vida mensual estimado en Panamá (2026)</caption>
+        <thead>
+          <tr class="bg-jade/10 text-left">
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Zona</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Presupuesto básico</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Presupuesto cómodo</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/10">
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Ciudad de Panamá (San Francisco, Miraflores)</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1.800/mes</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$3.200/mes</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Boquete</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1.200/mes</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2.200/mes</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Coronado</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1.400/mes</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2.500/mes</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Bocas del Toro</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$1.100/mes</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">$2.000/mes</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-xs text-slate-mid mt-2">Básico = apartamento modesto, mercado local, sin coche. Cómodo = apto 2 hab., importados, coche o taxis frecuentes.</p>
     </div>
 
     <CostCalculator lang="es" client:load />
@@ -221,7 +270,7 @@ const faqSchema = {
     <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">¿Quieres saber qué zona encaja con tu presupuesto?</p>
       <p class="text-slate-mid text-sm mb-5">Tu ruta te orienta en 2 minutos.</p>
-      <a href="/es/quiz" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/es/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Encontrar tu ruta →
       </a>
     </div>
@@ -236,11 +285,11 @@ const faqSchema = {
           <dd class="text-slate-mid leading-relaxed">
             Según gastos documentados de 2025–2026, una pareja que vive en Boquete puede manejarse con
             aproximadamente $1,620/mes. Esto incluye una casa amoblada de 2 habitaciones ($750),
-            supermercado y alimentación ($300), electricidad ($25 — el clima fresco de montaña de Boquete
+            supermercado y alimentación ($300), electricidad ($50 — el clima fresco de montaña de Boquete
             elimina el uso de A/C), seguro médico para dos personas ($175), copagos médicos y dentales
-            ($10), medicamentos ($10), streaming ($10), internet y TV por cable ($60), ropa y calzado
-            ($30), entretenimiento y salidas ($50), viajes ($100), ayuda doméstica ($50) y seguro y
-            mantenimiento de vehículo ($50). Este es un presupuesto real documentado, no una estimación
+            ($20), medicamentos ($10), streaming ($20), internet y TV por cable ($60), ropa y calzado
+            ($30), entretenimiento y salidas ($60), viajes ($50), ayuda doméstica ($40) y seguro y
+            mantenimiento de vehículo ($65). Este es un presupuesto real documentado, no una estimación
             promocional.
           </dd>
         </div>
@@ -297,4 +346,6 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+  <RelatedGuides lang="es" categories={['costo-de-vida', 'lifestyle']} />
 </Layout>

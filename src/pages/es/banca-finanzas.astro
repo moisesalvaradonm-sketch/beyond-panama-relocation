@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+{/*
+  [VERIFICAR] Contenido llevado desde /en/banking/ (solo datos ya publicados en el sitio). Confirmar antes de ampliar:
+    - "130+ bancos internacionales" y "0 % de impuesto a ingresos del exterior" (redacción fiscal; revisar con asesor).
+    - Plazo de apertura "2–4 semanas", mínimos "$5,000–$10,000+" sin residencia, y lista de documentos.
+    - Banistmo: la versión EN lo describe como "afiliado a HSBC"; al parecer ya no es cierto, por eso aquí se omite. Confirmar propietario actual y corregir EN.
+    - Nombres/estado actual de los bancos, Wise/Revolut/Schwab/PayPal (condiciones y comisiones).
+    - Cripto: "sin legislación formal a 2025" (revisar vigencia) · FBAR "más de $10,000" (cifra y obligaciones EE.UU.).
+    - Afirmación de estabilidad económica y "disputa minera 2024".
+*/}
+<Layout title="Banca y Finanzas en Panamá — Cómo abrir una cuenta, impuestos y economía dolarizada" description="El sistema bancario de Panamá para expats: más de 130 bancos internacionales, economía dolarizada, 0% de impuesto a ingresos del exterior y cómo abrir una cuenta paso a paso." lang="es">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/es/" class="text-jade text-sm hover:underline">← Inicio</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Banca y Finanzas en Panamá</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panamá es uno de los centros bancarios más grandes del mundo, con más de 130 instituciones internacionales y una economía totalmente dolarizada. No hay tipo de cambio que monitorear, no hay banco central que imprima dinero y no se paga impuesto por ingresos generados fuera de Panamá.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Respuesta rápida</p>
+      <p class="text-slate text-sm leading-relaxed">
+        Panamá usa el dólar estadounidense. Los ingresos del exterior — pensión, trabajo remoto, inversiones — <strong>no tributan</strong>. Para abrir una cuenta bancaria necesitas tu visa de residencia (cédula), una carta de referencia bancaria y comprobante de ingresos. El proceso toma <strong>2–4 semanas</strong>. Sin residencia es bastante más difícil. Wise o Revolut sirven de puente mientras se procesa tu visa.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">130+</p>
+        <p class="text-slate-mid text-xs">Bancos internacionales operando en Panamá</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">0%</p>
+        <p class="text-slate-mid text-xs">Impuesto a ingresos generados fuera de Panamá</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">1:1</p>
+        <p class="text-slate-mid text-xs">Balboa = Dólar estadounidense · sin conversión</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Moneda: La Economía Dolarizada</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">La moneda oficial de Panamá es el <strong class="text-slate">Balboa (B/.)</strong>, fijo 1:1 con el dólar estadounidense — que a su vez es de curso legal en todo el país. En la práctica siempre operas en USD. No hay tipo de cambio que monitorear ni riesgo de conversión para quienes ganan en dólares.</p>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏦</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Sin Banco Central</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Panamá no tiene banco central y no puede imprimir dinero. La oferta monetaria depende del mercado: el país debe obtener divisas mediante exportaciones de bienes y servicios. Esta restricción estructural ha producido históricamente mayor estabilidad macroeconómica que la de la mayoría de las economías latinoamericanas.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">💵</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">USD como moneda de curso legal — en la práctica, en todas partes</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Los billetes de dólar circulan junto a las monedas panameñas (Balboas). Todos los cajeros dispensan USD y todos los precios están en USD. Sin conversión de moneda en ningún momento. Sin comisiones en cajeros que aceptan tu tarjeta internacional (aunque tu banco de origen puede cobrar comisión por transacción en el exterior).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Sistema de Renta Territorial</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">Panamá grava únicamente los ingresos <em>generados dentro de Panamá</em>. Los ingresos generados en el exterior no tributan — sin importar dónde vivas ni cuánto tiempo seas residente. Esto aplica a:</p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-4">
+        {[
+          ["Pensión / jubilación extranjera", "No tributa en Panamá"],
+          ["Trabajo remoto (cliente en el exterior)", "No tributa en Panamá"],
+          ["Negocio online (clientes extranjeros)", "No tributa en Panamá"],
+          ["Inversiones / dividendos extranjeros", "No tributa en Panamá"],
+          ["Renta de propiedades en el extranjero", "No tributa en Panamá"],
+          ["Ingresos generados en Panamá", "Sujeto a impuestos panameños"],
+          ["Renta de propiedades en Panamá", "Sujeto a impuestos panameños"],
+          ["Ingresos de negocios panameños", "Sujeto a impuestos panameños"],
+        ].map(([source, treatment]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{source}</span>
+            <span class={`font-semibold text-xs whitespace-nowrap ${treatment.startsWith('No ') ? 'text-jade' : 'text-coral'}`}>{treatment}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid">El sistema territorial de Panamá favorece a jubilados, trabajadores remotos y emprendedores online. Importante: aún puedes tener obligaciones fiscales en tu país de origen (especialmente ciudadanos de EE.UU. bajo FATCA/FBAR). Consulta siempre con un abogado fiscal que conozca ambas jurisdicciones.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Abrir una Cuenta Bancaria</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">Abrir una cuenta personal en Panamá es sencillo una vez que tienes residencia. Sin visa el proceso es bastante más difícil: los bancos aplican controles estrictos de cumplimiento (AML/KYC) y exigen vínculos económicos demostrables con el país.</p>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Documentos que suelen pedir</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Cédula (carnet de residencia)</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Se emite cuando tu visa es aprobada. Es el documento clave.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Copia del pasaporte</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Copia a color de todas las páginas.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Comprobante de ingresos</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Cartas de pensión, contratos de trabajo o estados de cuenta de tu país con depósitos regulares. Últimos 3–6 meses.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Carta de referencia bancaria</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Carta de tu banco actual (en el exterior) indicando tipo de cuenta, historial y años de relación. Los bancos en Panamá la solicitan.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Comprobante de domicilio en Panamá</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Recibo de servicios, contrato de alquiler o carta notariada de tu arrendador.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Declaración de origen de fondos</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Declaración firmada y breve sobre el origen de tu dinero. Estándar de cumplimiento.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="font-semibold text-slate text-sm mb-3">Bancos que funcionan bien para expats</h3>
+        <div class="rounded-2xl border border-jade/15 overflow-hidden">
+          <div class="bg-white divide-y divide-jade/8">
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Banco General</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">El mayor banco panameño. Buena banca en línea, buen soporte en inglés y amplia red de cajeros.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Banistmo</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Interfaz familiar para clientes internacionales. Bueno para transferencias al exterior.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Global Bank</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Conocido por ser más accesible para nuevos residentes. Apertura de cuenta más rápida en algunos casos.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">BAC Panamá</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Banco regional con buena app móvil. Popular entre expats en Boquete y Coronado.</p>
+              </div>
+              <div class="px-5 py-4">
+                <p class="font-medium text-slate text-sm">Citibank Panamá</p>
+                <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">Para clientes con relación previa con Citibank en el exterior — simplifica la apertura.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-medium text-slate text-sm mb-1">Plazo: 2–4 semanas</p>
+          <p class="text-slate-mid text-xs leading-relaxed">La apertura de cuenta tarda de 2 a 4 semanas por la revisión interna de cumplimiento (AML/KYC). Hay que ir al banco en persona — no se puede hacer completamente en línea para cuentas nuevas. Algunos bancos piden varias visitas. Lleva originales y copias certificadas de todos los documentos.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <p class="font-medium text-slate text-sm mb-1">Sin residencia: más difícil, pero no imposible</p>
+          <p class="text-slate-mid text-xs leading-relaxed">La mayoría de los bancos exige vínculos económicos fuertes (propiedad, negocio activo), un abogado local y depósitos mínimos más altos ($5,000–$10,000+). Es viable pero lento. Si ya estás tramitando tu visa, normalmente conviene esperar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Alternativas de Banca Digital</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">Mientras esperas tu visa de residencia y la apertura de la cuenta, estas herramientas digitales funcionan en Panamá y la mayoría de los expats las usa desde el primer día:</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Wise (antes TransferWise)</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Cuenta en USD, EUR y multimoneda. La tarjeta de débito funciona en cajeros de Panamá. Buenos tipos de cambio para transferencias entre países. Sin comisión por transacciones en USD en Panamá.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Revolut</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Tarjetas de débito virtuales y físicas. Útil para multimoneda. Algunas funciones están limitadas según tu país de origen. Aceptada en la mayoría de los establecimientos de Ciudad de Panamá.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">Charles Schwab (cuentas de EE.UU.)</p>
+            <p class="text-slate-mid text-xs leading-relaxed">La tarjeta de débito de corretaje de Schwab reembolsa las comisiones de cajeros internacionales en todo el mundo, incluido Panamá. Ideal para jubilados que mantienen una cuenta en EE.UU.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm mb-2">PayPal</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Ampliamente aceptado en línea en Panamá para servicios y alquileres. Las transferencias en USD funcionan con normalidad. No sustituye una cuenta bancaria, pero ayuda en la transición.</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Criptomonedas</h2>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white">
+        <p class="text-slate-mid text-sm leading-relaxed">Panamá no tiene regulación formal sobre criptomonedas, pero prácticamente no hay restricciones para el uso personal. Las operaciones con criptomonedas no tributan específicamente bajo el sistema territorial si provienen de casas de cambio o clientes extranjeros. A 2025 Panamá no ha aprobado legislación formal sobre cripto: el entorno regulatorio es permisivo pero legalmente indefinido. Consulta a un abogado fiscal local para planificar activos cripto, especialmente con fines migratorios.</p>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Preguntas Frecuentes</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Panamá grava mi Seguro Social o pensión de EE.UU.?</dt>
+          <dd class="text-slate-mid leading-relaxed">No. Bajo el sistema de renta territorial de Panamá, las pensiones extranjeras — incluido el Seguro Social de EE.UU. — no tributan en Panamá. Puede que sigas teniendo obligaciones con el IRS (consulta a un abogado fiscal de EE.UU., sobre todo por el FBAR para cuentas extranjeras de más de $10,000), pero Panamá no grava ingresos generados fuera de sus fronteras.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Puedo abrir una cuenta bancaria en Panamá sin residencia?</dt>
+          <dd class="text-slate-mid leading-relaxed">Es posible pero bastante más difícil. El sistema bancario panameño tiene requisitos estrictos de cumplimiento (AML/KYC). Sin visa de residencia, la mayoría de los bancos pide un depósito mínimo alto, un abogado local y amplia documentación económica. Con cédula el proceso es sencillo. Mientras tanto, usa Wise o Revolut como puente.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Debo reportar mi cuenta bancaria panameña al IRS?</dt>
+          <dd class="text-slate-mid leading-relaxed">Los ciudadanos y personas de EE.UU. deben reportar cuentas financieras extranjeras que superen $10,000 en cualquier momento del año mediante el FBAR (FinCEN Form 114). Una cuenta en Panamá califica. Es independiente del impuesto sobre la renta de EE.UU. y aplica aunque no se deba impuesto. Consulta a un abogado fiscal de EE.UU. con experiencia en expatriados.</dd>
+        </div>
+        <div class="">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Es estable la economía de Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">Panamá tiene una de las economías más estables de América Latina. El sistema monetario dolarizado (sin banco central ni emisión de dinero), los ingresos del Canal y el centro bancario internacional aportan estabilidad estructural. El crecimiento del PIB ha superado de forma constante al de sus pares regionales en las últimas dos décadas. La disputa por la concesión minera de 2024 causó inestabilidad temporal, pero los fundamentos económicos se mantuvieron.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">¿Listo para dar el siguiente paso?</p>
+      <p class="text-slate-mid text-sm mb-5">Encuentra tu ruta de residencia en 2 minutos — sin registro, sin presión.</p>
+      <a href="/es/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Ver opciones de visa →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="es" categories={['proceso', 'visas']} />
+</Layout>

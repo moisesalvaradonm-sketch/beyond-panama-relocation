@@ -1,8 +1,73 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 import CostCalculator from '../../components/ui/CostCalculator';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+  {
+    "@type": "Question",
+    "name": "Combien faut-il à un couple pour vivre à Boquete, au Panama ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "D'après des dépenses documentées de 2025–2026, un couple vivant à Boquete peut s'en sortir avec environ 1 620 $/mois. Cela couvre une maison meublée de 2 chambres (750 $), les courses (300 $), l'électricité (50 $ — le climat frais de montagne de Boquete évite la climatisation), l'assurance santé pour deux personnes (175 $), les quotes-parts médicales (20 $), les médicaments (10 $), le streaming (20 $), l'internet et la télévision par câble (60 $), les vêtements (30 $), les repas au restaurant et les loisirs (60 $), les voyages (50 $), l'aide ménagère (40 $) ainsi que l'assurance et l'entretien de la voiture (65 $). C'est un budget réel documenté, pas une estimation promotionnelle."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Le Panama est-il moins cher que les États-Unis ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Le Panama est généralement 30 à 50 % moins cher qu'un mode de vie équivalent aux États-Unis. Le pays utilise le dollar américain comme monnaie officielle, ce qui supprime le risque de change. Le logement, les soins médicaux et les dépenses courantes coûtent nettement moins que dans des villes américaines comparables, tandis que les produits importés — notamment les marques américaines des supermarchés — peuvent coûter autant ou plus qu'au pays d'origine."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Combien coûte une assurance santé au Panama ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Un plan d'assurance santé local panaméen revient à environ 117 $/mois à 66 ans. Les plans de santé internationaux démarrent autour de 85 $/mois à 50 ans. Pour les soins courants, une consultation dans une clinique privée coûte moins de 20 $ de sa poche — de sorte que beaucoup d'expatriés règlent les petites dépenses sans déposer de demande de remboursement. Le secteur médical privé du Panama est considéré comme de bonne qualité par rapport à son coût."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Combien coûte un loyer à Panama City ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Le loyer à Panama City varie énormément selon le quartier. L'écart entre un quartier économique comme Calidonia et un quartier haut de gamme comme Punta Pacífica peut dépasser 2 000 $/mois pour un appartement comparable. Renseignez-vous toujours sur le quartier précis plutôt que de vous fier aux moyennes de la ville. Hors de Panama City, une maison meublée de 2 chambres à Boquete se loue environ 750 $/mois selon les données de marché 2025–2026."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Quels sont les coûts de la première année d'installation au Panama ?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Au-delà des dépenses mensuelles, la première année exige généralement des coûts uniques : une caution de loyer de 800 à 4 000 $ (1 à 2 mois de loyer), des frais de visa et de résidence de 1 500 à 5 000 $ (frais gouvernementaux plus avocat), l'ameublement et l'installation de 2 000 à 8 000 $, des voyages d'exploration de 1 000 à 3 000 $ et la mise en place de l'assurance santé de 200 à 800 $. Une réserve prudente de 5 000 à 10 000 $ au-dessus de votre budget mensuel est un bon point de départ."
+    }
+  }
+],
+};
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Calculatrice du Coût de la Vie au Panama',
+  url: 'https://beyondpanamarelocation.com/fr/cout-de-la-vie/',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  description: 'Calculez le vrai coût de vivre au Panama selon la zone et le style de vie. Outil interactif gratuit, sans inscription.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  inLanguage: 'fr-FR',
+};
 ---
 
+{/*
+  [VERIFICAR] Contenu repris de /en/cost-of-living/ (uniquement des données déjà publiées sur le site). À confirmer avant toute extension :
+  tous les montants en dollars (budget Boquete 1 620 $, loyers, caution 800–4 000 $, frais de visa 1 500–5 000 $, ameublement, voyages d'exploration,
+  assurance santé 117 $/85 $), l'affirmation « 30–50 % moins cher que les États-Unis », la comparaison avec le Costa Rica et l'écart de loyer Calidonia/Punta Pacífica.
+*/}
 <Layout title="Calculatrice du Coût de la Vie au Panama" description="Calculez le vrai coût de vivre au Panama selon la zone et votre style de vie. Outil interactif, sans inscription." lang="fr">
   <section class="max-w-3xl mx-auto px-4 py-16">
     <div class="mb-10">
@@ -49,17 +114,137 @@ import CostCalculator from '../../components/ui/CostCalculator';
     </div>
 
     <h2 class="font-serif text-2xl text-slate mb-6">Calculatrice interactive</h2>
-    <CostCalculator client:load lang="en" />
+
+    <div class="mb-10 overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <caption class="text-left font-serif text-lg text-slate mb-3">Coût de vie mensuel estimé au Panama (2026)</caption>
+        <thead>
+          <tr class="bg-jade/10 text-left">
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Zone</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Budget de base</th>
+            <th class="px-4 py-2 font-semibold text-slate border border-jade/15">Budget confortable</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-jade/10">
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Panama City (San Francisco, Miraflores)</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 800 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">3 200 $/mois</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Boquete</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 200 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 200 $/mois</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Coronado</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 400 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 500 $/mois</td>
+          </tr>
+          <tr class="bg-fog/50">
+            <td class="px-4 py-3 text-slate-mid border border-jade/15">Bocas del Toro</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">1 100 $/mois</td>
+            <td class="px-4 py-3 text-slate border border-jade/15">2 000 $/mois</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-xs text-slate-mid mt-2">De base = appartement modeste, marché local, sans voiture. Confortable = appt 2 ch., produits importés, voiture ou taxis fréquents.</p>
+    </div>
+
+    <CostCalculator client:load lang="fr" />
+
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-6">Notes sur les fourchettes</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xl">🏠</span><strong class="text-slate text-sm">Loyer</strong></div>
+          <p class="text-slate-mid text-sm leading-relaxed">Varie énormément selon le quartier. À Panama City, l'écart entre Calidonia et Punta Pacífica peut dépasser 2 000 $/mois pour un appartement similaire. Renseignez-vous sur le barrio précis, pas seulement sur la ville. Voir les guides : <a href="/fr/zones/ville-de-panama/" class="text-jade hover:underline">Panama City</a>, <a href="/fr/zones/boquete/" class="text-jade hover:underline">Boquete</a> et <a href="/fr/zones/coronado/" class="text-jade hover:underline">Coronado</a>.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xl">⚡</span><strong class="text-slate text-sm">Services</strong></div>
+          <p class="text-slate-mid text-sm leading-relaxed">L'électricité dans un appartement climatisé revient à 150–300 $/mois — il fait chaud au Panama. L'eau est bon marché. La fibre est répandue en ville ; la qualité baisse dans les zones balnéaires et de montagne.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xl">🏥</span><strong class="text-slate text-sm">Santé et assurance</strong></div>
+          <p class="text-slate-mid text-sm leading-relaxed">Le Panama offre des soins privés de qualité à une fraction du coût américain. Un plan local revient à ~117 $/mois à 66 ans ; les plans internationaux démarrent vers 85 $/mois à 50 ans. Une consultation en clinique privée coûte moins de 20 $ de sa poche. Voir les <a href="/fr/sante-assurances/" class="text-jade hover:underline">coûts de santé complets et les hôpitaux</a>.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xl">🛒</span><strong class="text-slate text-sm">Alimentation et courses</strong></div>
+          <p class="text-slate-mid text-sm leading-relaxed">Les supermarchés comme Rey et El Machetazo proposent des produits locaux et importés. Manger local est très abordable ; les produits importés des États-Unis coûtent autant ou plus que chez vous. Un repas au restaurant va de 5 $ dans une fondita locale à 40 $ et plus dans un restaurant du Casco Viejo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Coûts supplémentaires de la première année</h2>
+      <p class="text-slate-mid text-sm mb-5 leading-relaxed">La première année coûte toujours plus. Prévoyez ces dépenses ponctuelles ou d'installation en plus de votre estimation mensuelle :</p>
+      <div class="space-y-3">
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div><p class="font-medium text-slate">Caution de loyer</p><p class="text-slate-mid text-xs mt-0.5">Généralement 1 à 2 mois de loyer, payés d'avance</p></div>
+          <span class="text-slate-mid whitespace-nowrap">800 – 4 000 $</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div><p class="font-medium text-slate">Frais de résidence / visa</p><p class="text-slate-mid text-xs mt-0.5">Frais gouvernementaux + avocat — variables selon le visa. <a href="/fr/visas/comparaison/" class="text-jade hover:underline">Comparer tous les visas</a>.</p></div>
+          <span class="text-slate-mid whitespace-nowrap">1 500 – 5 000 $</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div><p class="font-medium text-slate">Ameublement et installation</p><p class="text-slate-mid text-xs mt-0.5">Si vous arrivez sans affaires ou avec des frais d'expédition</p></div>
+          <span class="text-slate-mid whitespace-nowrap">2 000 – 8 000 $</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div><p class="font-medium text-slate">Voyages d'exploration</p><p class="text-slate-mid text-xs mt-0.5">Visites de repérage avant de signer un bail</p></div>
+          <span class="text-slate-mid whitespace-nowrap">1 000 – 3 000 $</span>
+        </div>
+        <div class="h-px bg-jade/10"></div>
+        <div class="flex items-start justify-between gap-4 text-sm">
+          <div><p class="font-medium text-slate">Mise en place de l'assurance santé</p><p class="text-slate-mid text-xs mt-0.5">Première prime + examen médical si requis</p></div>
+          <span class="text-slate-mid whitespace-nowrap">200 – 800 $</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-mid mt-5">Une réserve prudente de <strong>5 000 à 10 000 $</strong> au-dessus de votre budget mensuel est un bon point de départ.</p>
+    </div>
 
     <div class="mt-12 p-6 rounded-2xl bg-jade/5 border border-jade/15 text-center">
       <p class="font-serif text-xl text-slate mb-2">Quelle zone vous convient le mieux ?</p>
       <p class="text-slate-mid text-sm mb-5 max-w-md mx-auto">
         Faites le quiz de 2 minutes pour obtenir une recommandation personnalisée selon votre situation et votre budget.
       </p>
-      <a href="/fr/quiz" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+      <a href="/fr/quiz/" class="px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
         Trouver ma route →
       </a>
     </div>
 
+    <div class="mt-16">
+      <h2 class="font-serif text-2xl text-slate mb-8">Questions fréquentes</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Combien faut-il à un couple pour vivre à Boquete, au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">D'après des dépenses documentées de 2025–2026, un couple vivant à Boquete peut s'en sortir avec environ 1 620 $/mois. Cela couvre une maison meublée de 2 chambres (750 $), les courses (300 $), l'électricité (50 $ — le climat frais de montagne de Boquete évite la climatisation), l'assurance santé pour deux personnes (175 $), les quotes-parts médicales (20 $), les médicaments (10 $), le streaming (20 $), l'internet et la télévision par câble (60 $), les vêtements (30 $), les repas au restaurant et les loisirs (60 $), les voyages (50 $), l'aide ménagère (40 $) ainsi que l'assurance et l'entretien de la voiture (65 $). C'est un budget réel documenté, pas une estimation promotionnelle.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Le Panama est-il moins cher que les États-Unis ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Le Panama est généralement 30 à 50 % moins cher qu'un mode de vie équivalent aux États-Unis. Le pays utilise le dollar américain comme monnaie officielle, ce qui supprime le risque de change. Le logement, les soins médicaux et les dépenses courantes coûtent nettement moins que dans des villes américaines comparables, tandis que les produits importés — notamment les marques américaines des supermarchés — peuvent coûter autant ou plus qu'au pays d'origine.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Combien coûte une assurance santé au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Un plan d'assurance santé local panaméen revient à environ 117 $/mois à 66 ans. Les plans de santé internationaux démarrent autour de 85 $/mois à 50 ans. Pour les soins courants, une consultation dans une clinique privée coûte moins de 20 $ de sa poche — de sorte que beaucoup d'expatriés règlent les petites dépenses sans déposer de demande de remboursement. Le secteur médical privé du Panama est considéré comme de bonne qualité par rapport à son coût.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Combien coûte un loyer à Panama City ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Le loyer à Panama City varie énormément selon le quartier. L'écart entre un quartier économique comme Calidonia et un quartier haut de gamme comme Punta Pacífica peut dépasser 2 000 $/mois pour un appartement comparable. Renseignez-vous toujours sur le quartier précis plutôt que de vous fier aux moyennes de la ville. Hors de Panama City, une maison meublée de 2 chambres à Boquete se loue environ 750 $/mois selon les données de marché 2025–2026.</dd>
+        </div>
+        <div class="">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Quels sont les coûts de la première année d'installation au Panama ?</dt>
+          <dd class="text-slate-mid leading-relaxed">Au-delà des dépenses mensuelles, la première année exige généralement des coûts uniques : une caution de loyer de 800 à 4 000 $ (1 à 2 mois de loyer), des frais de visa et de résidence de 1 500 à 5 000 $ (frais gouvernementaux plus avocat), l'ameublement et l'installation de 2 000 à 8 000 $, des voyages d'exploration de 1 000 à 3 000 $ et la mise en place de l'assurance santé de 200 à 800 $. Une réserve prudente de 5 000 à 10 000 $ au-dessus de votre budget mensuel est un bon point de départ.</dd>
+        </div>
+      </dl>
+    </div>
+
   </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+  <RelatedGuides lang="fr" categories={['costo-de-vida', 'lifestyle']} />
 </Layout>

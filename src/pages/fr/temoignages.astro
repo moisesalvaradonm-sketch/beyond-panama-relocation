@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Témoignages d'Expatriés au Panama" description="Histoires réelles d'expatriés installés au Panama : ce qu'ils ont vécu, appris et ce qu'ils vous conseillent." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Témoignages d'Expatriés</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Des histoires vraies de personnes qui ont fait le saut. Ce qu'elles ont vécu, ce qui les a surprises — et ce qu'elles auraient voulu savoir avant de partir.
+      </p>
+    </div>
+
+    <div class="space-y-6 mb-12">
+      {[
+        {
+          name:"Marie & Jean-Pierre",
+          origin:"Lyon, France",
+          dest:"Boquete",
+          years:"3 ans",
+          quote:"Nous avions peur que la barrière linguistique soit un problème. En réalité, la communauté expat à Boquete est tellement grande et accueillante que nous avons trouvé tous les professionnels dont nous avions besoin — médecins, dentistes, avocats — qui parlent anglais et souvent français. Le coût de la vie nous a permis de retraiter dix ans plus tôt que prévu.",
+          highlight:"Coût de vie réduit de 45%"
+        },
+        {
+          name:"Sophie R.",
+          origin:"Paris, France",
+          dest:"Panama City",
+          years:"2 ans",
+          quote:"Je travaille à distance pour une entreprise française. Avec le visa Nomade Digital, tout s'est fait simplement. L'internet est rapide, le fuseau horaire EST est idéal pour mes réunions européennes le matin, et j'ai découvert une ville incroyablement cosmopolite avec une scène gastronomique que je n'avais pas du tout anticipée.",
+          highlight:"Visa Nomade Digital en 6 semaines"
+        },
+        {
+          name:"Robert M.",
+          origin:"Montréal, Canada",
+          dest:"Coronado",
+          years:"5 ans",
+          quote:"Mon plus grand regret ? Ne pas être venu plus tôt. J'ai obtenu mon visa Pensionado en moins de trois mois. Les avantages sont réels — je paie 25% de moins au restaurant, et mon assurance santé au Panama couvre tout pour moins de 200$ par mois. La plage à 5 minutes de chez moi, c'est encore mieux.",
+          highlight:"Visa Pensionado — 3 mois"
+        },
+        {
+          name:"Isabelle & Marc",
+          origin:"Bordeaux, France",
+          dest:"El Valle de Antón",
+          years:"1 an",
+          quote:"Nous cherchions un endroit frais et vert, loin de la chaleur tropicale intense. El Valle, dans le cratère d'un volcan endormi, est parfait : 22°C de moyenne, marchés locaux colorés, une source chaude à 15 minutes. C'est à deux heures de Panama City si on a besoin de la grande ville.",
+          highlight:"22°C toute l'année"
+        },
+      ].map(({name, origin, dest, years, quote, highlight}) => (
+        <div class="p-6 rounded-2xl border border-jade/15 bg-white">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+            <div>
+              <p class="font-semibold text-slate">{name}</p>
+              <p class="text-slate-mid text-xs">{origin} → {dest} · {years} au Panama</p>
+            </div>
+            <span class="bg-jade/10 text-jade text-xs font-semibold px-3 py-1 rounded-full">{highlight}</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed italic">"{quote}"</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Ce qui surprend le plus les nouveaux arrivants</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          ["🏙️","Infrastructure de Panama City","Une capitale ultra-moderne avec gratte-ciels, centres commerciaux haut de gamme et gastronomie internationale — personne ne s'y attend."],
+          ["💊","Qualité médicale","Des hôpitaux accrédités JCI, des médecins formés aux États-Unis ou en Europe, pour un tiers du prix occidental."],
+          ["🛒","Produits importés","Costco, PriceSmart, produits européens dans certains supermarchés — on trouve presque tout ce qu'on cherche."],
+          ["🌤️","La diversité climatique","Du tropique humide à la montagne fraîche, tout en une heure de route. On peut littéralement choisir son climat."],
+          ["👋","La communauté expat","Active, organisée, et incroyablement accueillante. Les clubs, groupes Facebook et meetups facilitent énormément l'intégration."],
+          ["🔒","La sécurité","Les zones résidentielles expats sont généralement très sûres. Beaucoup de résidences gardées et copropriétés sécurisées disponibles."],
+          ["📱","L'accès numérique","Banques en ligne, services gouvernementaux, Amazon — tout fonctionne. Starlink a résolu les problèmes des zones rurales."],
+          ["🌎","La position géographique","Deux à trois heures de la plupart des grandes villes américaines. Parfait pour garder un pied de chaque côté."],
+        ].map(([emoji, title, detail]) => (
+          <div class="p-4 rounded-xl border border-jade/15 bg-white">
+            <span class="text-xl block mb-2">{emoji}</span>
+            <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-xl text-slate mb-4">Ce qu'ils auraient voulu savoir avant</h2>
+      <ul class="space-y-3">
+        {[
+          "Ouvrir un compte bancaire prend du temps — commencez tôt et préparez votre documentation à l'avance.",
+          "Apprenez quelques mots d'espagnol. Ce n'est pas obligatoire, mais vous l'apprécierez au quotidien.",
+          "Louez d'abord pendant plusieurs mois avant d'acheter — les quartiers ont des personnalités très différentes.",
+          "Trouvez un bon avocat local dès le début. Ils valent leur coût et évitent beaucoup d'erreurs.",
+          "La saison des pluies (mai–nov.) est verte et luxuriante, pas une prison. Planifiez vos sorties le matin.",
+        ].map(item => (
+          <li class="flex items-start gap-3 text-sm text-slate-mid">
+            <span class="text-jade font-bold flex-shrink-0 mt-0.5">→</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Prêt à écrire votre propre histoire ?</p>
+      <p class="text-slate-mid text-sm mb-5">Commencez par explorer les prochaines étapes concrètes.</p>
+      <a href="/fr/prochaines-etapes/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir les prochaines étapes →</a>
+    </div>
+  </section>
+</Layout>

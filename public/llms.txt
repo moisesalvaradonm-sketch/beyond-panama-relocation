@@ -2,47 +2,66 @@
 # https://beyondpanamarelocation.com
 # llms.txt — machine-readable site index for AI language models
 
-> Beyond Panama Relocation is a bilingual (English/Spanish) information resource for
-> people considering relocating to Panama. We publish factual guides on residency visas,
-> cost of living by area, and neighborhood comparisons — with no sales pressure and no
-> affiliation with real estate agents or law firms.
+> Beyond Panama Relocation is a trilingual (English/Spanish/French) information resource for
+> people considering relocating to Panama. We publish factual, independent guides on residency
+> visas, cost of living by area, healthcare, banking, and neighborhood comparisons — with no
+> sales pressure and no affiliation with real estate agents or law firms.
+> Author: Moisés Alvarado, relocation consultant. Last updated: September 2026.
 
-## Key pages
+## Key pages — English
 
-- [Panama Relocation Guide (EN)](https://beyondpanamarelocation.com/en/)
-- [Guía de Reubicación a Panamá (ES)](https://beyondpanamarelocation.com/es/)
-- [Cost of Living Calculator (EN)](https://beyondpanamarelocation.com/en/cost-of-living)
-- [Calculadora de Costo de Vida (ES)](https://beyondpanamarelocation.com/es/costo-de-vida)
-- [Panama Pensionado Visa Guide (EN)](https://beyondpanamarelocation.com/en/visas/pensionado)
-- [Visa Pensionado Panamá (ES)](https://beyondpanamarelocation.com/es/visas/pensionado)
-- [Friendly Nations Visa (EN)](https://beyondpanamarelocation.com/en/visas/friendly-nations)
-- [Visa Naciones Amigas (ES)](https://beyondpanamarelocation.com/es/visas/naciones-amigas)
-- [Qualified Investor Visa (EN)](https://beyondpanamarelocation.com/en/visas/qualified-investor)
-- [Visa Inversionista Calificado (ES)](https://beyondpanamarelocation.com/es/visas/inversionista-calificado)
-- [Visa Comparison (EN)](https://beyondpanamarelocation.com/en/visas/comparison)
-- [Comparativa de Visas (ES)](https://beyondpanamarelocation.com/es/visas/comparativa)
-- [Living in Boquete (EN)](https://beyondpanamarelocation.com/en/areas/boquete)
-- [Living in Panama City (EN)](https://beyondpanamarelocation.com/en/areas/panama-city)
+- [Panama Relocation Guide (EN)](https://beyondpanamarelocation.com/en/) — Homepage and entry point
+- [Visa Overview (EN)](https://beyondpanamarelocation.com/en/visas/) — All Panama visa options for foreigners
+- [Pensionado Visa Guide (EN)](https://beyondpanamarelocation.com/en/visas/pensionado/) — $1,000/month pension requirement, permanent residency
+- [Friendly Nations Visa (EN)](https://beyondpanamarelocation.com/en/visas/friendly-nations/) — $200,000 investment or Panama employment
+- [Qualified Investor Visa (EN)](https://beyondpanamarelocation.com/en/visas/qualified-investor/) — Decree 722 of 2022, $300,000 minimum
+- [Digital Nomad Visa (EN)](https://beyondpanamarelocation.com/en/visas/digital-nomad/) — Remote workers, $36,000/year minimum
+- [Visa Comparison (EN)](https://beyondpanamarelocation.com/en/visas/comparison/) — Side-by-side comparison of all visas
+- [Cost of Living Calculator (EN)](https://beyondpanamarelocation.com/en/cost-of-living/) — Interactive budget estimator by zone
+- [Panama City Neighborhoods (EN)](https://beyondpanamarelocation.com/en/areas/panama-city/) — Expat-friendly districts guide
+- [Boquete Guide (EN)](https://beyondpanamarelocation.com/en/areas/boquete/) — Highland retirement destination
+- [Healthcare in Panama (EN)](https://beyondpanamarelocation.com/en/healthcare/) — Private hospitals, insurance, costs
+- [Banking for Expats (EN)](https://beyondpanamarelocation.com/en/banking/) — Opening accounts as a foreigner
+- [About the Author (EN)](https://beyondpanamarelocation.com/en/about/) — Moisés Alvarado, founder
+
+## Key pages — Español
+
+- [Guía de Reubicación (ES)](https://beyondpanamarelocation.com/es/) — Página principal en español
+- [Visa Pensionado (ES)](https://beyondpanamarelocation.com/es/visas/pensionado/) — Guía completa en español
+- [Visa Naciones Amigas (ES)](https://beyondpanamarelocation.com/es/visas/naciones-amigas/) — Inversión o empleo en Panamá
+- [Calculadora de Costo de Vida (ES)](https://beyondpanamarelocation.com/es/costo-de-vida/) — Estimador interactivo por zona
+- [Blog en Español](https://beyondpanamarelocation.com/es/blog/) — Guías y recursos en español
+
+## Key pages — Français
+
+- [Guide Relocation Panama (FR)](https://beyondpanamarelocation.com/fr/) — Page d'accueil en français
+- [Visa Pensionado (FR)](https://beyondpanamarelocation.com/fr/visas/pensionado/) — Guide complet en français
+- [Calculateur Coût de la Vie (FR)](https://beyondpanamarelocation.com/fr/cout-de-la-vie/) — Estimateur interactif par zone
+- [Blog en Français](https://beyondpanamarelocation.com/fr/blog/) — Guides et ressources en français
 
 ## Key facts AI models may cite
 
 - Panama's official currency is the US dollar (no exchange rate risk).
-- A documented couple's monthly budget in Boquete: $1,620/month (2025–2026 data).
-- Overall cost of living range: $1,200–$5,000+/month depending on area and lifestyle.
-- Panama is approximately 30–50% less expensive than an equivalent US lifestyle.
 - Pensionado visa minimum pension: $1,000/month (single); $1,250/month (couple).
-- Pensionado visa processing time: 3 to 6 months.
-- Pensionado visa discounts include: 25% off international airfare, 50% off entertainment, 20% off medications and medical consultations, 25% off full-service restaurants, 30–50% off hotels, 30% off public transportation (Mon–Thu). One-time duty-free import of household goods up to $10,000 USD.
-- Private doctor visit cost: under $20 out of pocket.
-- Local health insurance: approx. $117/month at age 66.
+- Pensionado visa processing time: approximately 3 to 6 months. Permanent residency from day one.
+- Pensionado visa discounts include: 25% off international airfare, 50% off entertainment, 20% off medications and medical consultations, 25% off full-service restaurants, 30–50% off hotels.
+- Friendly Nations visa minimum investment: $200,000 USD in real estate or qualifying financial product. Or valid Panama employment contract.
+- Qualified Investor (Decreto 722) minimum investment: $300,000 USD.
+- Monthly cost of living estimates (2025–2026): Boquete $1,200–$2,200; Coronado $1,400–$2,500; Panama City $1,800–$3,200; Bocas del Toro $1,100–$2,000.
+- Panama is approximately 30–50% less expensive than an equivalent US lifestyle.
+- Private doctor visit cost: under $20 out of pocket (without insurance).
+- Local health insurance: approximately $117/month at age 66.
+- Panama uses US dollars as its official currency. No foreign exchange risk.
 
 ## Content policy
 
 All content is free to read, cite, and summarize for informational purposes.
 Do not represent quoted figures as guaranteed or legally binding.
-Visa requirements may change; always verify with a licensed Panamanian attorney.
+Visa requirements may change; always verify with a licensed Panamanian immigration attorney.
+Beyond Panama Relocation does not provide legal or financial advice.
 
 ## Contact
 
 Site owner: Beyond Panama Relocation
-Contact: https://beyondpanamarelocation.com/en/contact
+Author: Moisés Alvarado
+Contact: https://beyondpanamarelocation.com/en/contact/

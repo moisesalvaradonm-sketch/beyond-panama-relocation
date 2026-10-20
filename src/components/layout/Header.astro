@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getLocalizedPath, type Lang } from '../../i18n/ui';
+import { useTranslations, getLocalizedPath, translatePath, type Lang } from '../../i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -20,12 +20,15 @@ function isActive(href: string): boolean {
 
 const costPath = lang === 'es' ? '/costo-de-vida' : lang === 'fr' ? '/cout-de-la-vie' : '/cost-of-living';
 const zonaPath = lang === 'es' ? '/zonas' : lang === 'fr' ? '/zones' : '/areas';
+const rePath   = lang === 'es' ? '/bienes-raices' : lang === 'fr' ? '/immobilier' : '/real-estate';
 
 const navLinks = [
-  { href: getLocalizedPath(zonaPath, lang),  label: t('nav.zonas') },
-  { href: getLocalizedPath('/visas', lang),  label: t('nav.visas') },
-  { href: getLocalizedPath(costPath, lang),  label: t('nav.costo') },
-  { href: getLocalizedPath('/blog', lang),   label: t('nav.blog') },
+  { href: getLocalizedPath(zonaPath, lang),      label: t('nav.zonas') },
+  { href: getLocalizedPath('/visas', lang),      label: t('nav.visas') },
+  { href: getLocalizedPath(costPath, lang),      label: t('nav.costo') },
+  { href: getLocalizedPath(rePath, lang),        label: t('nav.realestate') },
+  { href: getLocalizedPath('/blog', lang),       label: t('nav.blog') },
+  { href: getLocalizedPath('/insights', lang),   label: t('nav.insights') },
 ];
 
 // Language options for the switcher
@@ -81,7 +84,7 @@ const langOptions = [
       <div class="hidden md:flex items-center gap-1.5">
         {langOptions.map(l => (
           <a
-            href={`/${l.code}${currentPath}`}
+            href={`/${l.code}${translatePath(currentPath, lang, l.code)}`}
             class="text-xs font-medium text-slate-mid hover:text-jade transition-colors uppercase tracking-wide px-1.5 py-0.5 rounded hover:bg-jade/5"
             aria-label={`Switch to ${l.full}`}
           >
@@ -163,7 +166,7 @@ const langOptions = [
       <div class="flex items-center gap-1">
         {langOptions.map(l => (
           <a
-            href={`/${l.code}${currentPath}`}
+            href={`/${l.code}${translatePath(currentPath, lang, l.code)}`}
             class="text-sm font-medium text-slate-mid hover:text-jade transition-colors uppercase tracking-wide px-2 py-1 rounded-lg hover:bg-jade/5"
           >
             {l.flag} {l.full}

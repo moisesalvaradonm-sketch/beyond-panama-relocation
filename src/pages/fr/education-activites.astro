@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Éducation et Activités au Panama" description="Écoles internationales, activités de plein air, attractions culturelles et vie communautaire pour les expatriés au Panama." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Éducation et Activités</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama offre une bonne offre éducative internationale et une vie active enviable : du Canal au plongée dans des réserves mondiales, en passant par une communauté expatriée consolidée.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Éducation Internationale</h2>
+      <div class="space-y-3 mb-6">
+        {[
+          ["Qualité éducative","Les écoles internationales au Panama se mesurent aux standards mondiaux. Beaucoup proposent le baccalauréat IB et des programmes entièrement en anglais."],
+          ["Coût de scolarité","Entre 200$ et 1 000$ par mois selon l'école et le niveau. Bien plus accessible qu'aux États-Unis ou en Europe."],
+          ["Calendrier scolaire","Certaines écoles suivent le calendrier nord-américain (sept.–juin) ; d'autres le calendrier local (janv.–déc.). Vérifiez avant l'inscription."],
+          ["Diversité","Communautés étudiantes du monde entier — idéal pour les familles expatriées souhaitant une intégration multiculturelle."],
+          ["Enseignement à domicile","Le homeschooling est légal au Panama. Il existe des groupes de soutien actifs, notamment à Boquete et dans les zones à forte communauté expat."],
+        ].map(([label, detail]) => (
+          <div class="flex items-start gap-4 p-4 rounded-xl border border-jade/15 bg-white">
+            <p class="font-semibold text-slate text-sm w-40 flex-shrink-0">{label}</p>
+            <p class="text-slate-mid text-sm leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Activités Populaires</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {[
+          {emoji:"🚢",title:"Canal de Panama",detail:"Visitez le Biomuseo ou les centres de visiteurs de Miraflores et Agua Clara. L'une des merveilles de l'ingénierie moderne."},
+          {emoji:"🦅",title:"Observation des oiseaux",detail:"Le Panama compte plus de 900 espèces d'oiseaux — plus que toute l'Amérique du Nord. Pipeline Road et Boquete sont les meilleurs spots."},
+          {emoji:"🐋",title:"Observation des baleines",detail:"Juillet–octobre dans le Pacifique. Les baleines à bosse traversent les eaux panaméennes lors d'une des migrations les plus spectaculaires."},
+          {emoji:"🤿",title:"Plongée et snorkeling",detail:"L'Île Coiba (UNESCO) et l'archipel de Bocas del Toro offrent certaines des meilleures expériences de plongée de la région."},
+          {emoji:"🏄",title:"Surf",detail:"Playa Venao et Santa Catalina sont reconnues internationalement. Saison principale de mai à novembre dans le Pacifique."},
+          {emoji:"🏓",title:"Pickleball",detail:"Le pickleball a explosé au Panama — on peut jouer dans pratiquement toutes les zones avec communauté expat. Cours et ligues disponibles."},
+          {emoji:"🌿",title:"Biomuseo",detail:"Conçu par Frank Gehry, il explique la formation de l'isthme de Panama et son impact sur la biodiversité mondiale. Incontournable."},
+          {emoji:"🏘️",title:"Tourisme Emberá",detail:"Excursions d'une journée depuis Panama City sur la rivière Chagres. Culture Emberá, artisanat, nature et gastronomie authentique."},
+          {emoji:"🌲",title:"Randonnée et canopy",detail:"Boquete et Volcán ont les meilleures randonnées de montagne. Le Parc La Amistad, frontalier du Costa Rica, est Patrimoine de l'UNESCO."},
+          {emoji:"☕",title:"Culture du café",detail:"Le café de Boquete, notamment les Geisha de fermes comme Hacienda La Esmeralda, est reconnu comme l'un des meilleurs au monde."},
+        ].map(({emoji, title, detail}) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <span class="text-2xl block mb-2">{emoji}</span>
+            <p class="font-semibold text-slate text-sm mb-1">{title}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Quelle région vous appelle le plus ?</p>
+      <p class="text-slate-mid text-sm mb-5">Comparez le climat, les activités et les coûts de chaque région.</p>
+      <a href="/fr/zones/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Explorer les régions →</a>
+    </div>
+  </section>
+</Layout>

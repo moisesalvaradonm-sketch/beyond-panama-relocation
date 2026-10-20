@@ -104,4 +104,4 @@ It has become home.
 
 ---
 
-*Ready to explore your options? Start with our [Pensionado Visa guide](/en/blog/pensionado-visa-guide) or [take the quiz](/en/quiz) to find out which path fits your situation best.*
+*Ready to explore your options? Start with our [Pensionado Visa guide](/en/blog/pensionado-visa-guide/) or [take the quiz](/en/quiz/) to find out which path fits your situation best.*

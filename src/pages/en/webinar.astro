@@ -1,0 +1,274 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WebinarRegistrationForm from '../../components/ui/WebinarRegistrationForm';
+
+/* ─────────────────────────────────────────────────────────────────────────
+   WEBINAR SETTINGS — edit this block, everything on the page follows.
+   ───────────────────────────────────────────────────────────────────────── */
+const WEBINAR = {
+  title: 'Moving to Panama: What to Know Before You Decide',
+  // ISO date with offset, e.g. '2026-11-12T19:00:00-05:00'. Leave null until
+  // the date is confirmed — the page then says the date will be emailed.
+  startsAt: null as string | null,
+  durationMinutes: 60,
+  timeZone: 'America/Panama',
+  platform: 'Zoom',
+  host: 'Moisés Alvarado',
+};
+
+const siteUrl = 'https://beyondpanamarelocation.com';
+const pageUrl = `${siteUrl}/en/webinar/`;
+
+const start = WEBINAR.startsAt ? new Date(WEBINAR.startsAt) : null;
+const dateLabel = start
+  ? new Intl.DateTimeFormat('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: WEBINAR.timeZone,
+    }).format(start)
+  : null;
+const timeLabel = start
+  ? new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric', minute: '2-digit', timeZoneName: 'short', timeZone: WEBINAR.timeZone,
+    }).format(start)
+  : null;
+const whenLabel = start ? `${dateLabel} · ${timeLabel} (Panama time)` : undefined;
+
+const eventSchema = start
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: WEBINAR.title,
+      startDate: start.toISOString(),
+      endDate: new Date(start.getTime() + WEBINAR.durationMinutes * 60000).toISOString(),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: { '@type': 'VirtualLocation', url: pageUrl },
+      organizer: { '@type': 'Organization', name: 'Beyond Panama Relocation', url: siteUrl },
+      performer: { '@type': 'Person', name: WEBINAR.host },
+      isAccessibleForFree: true,
+      inLanguage: 'en',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: pageUrl, availability: 'https://schema.org/InStock' },
+    }
+  : null;
+
+const learn = [
+  {
+    t: 'Which residency path fits your situation',
+    d: 'The main visa routes compared side by side, so you can see what each one asks for and who it suits.',
+  },
+  {
+    t: 'What daily life costs in different areas',
+    d: 'Panama City, the Pacific coast, the highlands and the islands, with realistic monthly ranges and the trade-offs behind them.',
+  },
+  {
+    t: 'Renting first, buying later',
+    d: 'How people usually approach housing in their first year, and the mistakes worth avoiding.',
+  },
+  {
+    t: 'The practical steps, in order',
+    d: 'Documents, banking, healthcare and timing. What happens before you arrive and what can wait.',
+  },
+];
+
+const forWhom = [
+  'You are seriously considering Panama and want a clear overview before spending money.',
+  'You have read a lot of conflicting advice and want one calm, organized explanation.',
+  'You are earlier in the process and would rather learn first than talk to a salesperson.',
+];
+
+const faqs = [
+  {
+    q: 'Is the webinar free?',
+    a: 'Yes. Registering is free and we do not ask for payment details.',
+  },
+  {
+    q: 'Will there be a recording?',
+    a: 'Yes. Everyone who registers receives the recording by email, so you can watch even if you cannot attend live.',
+  },
+  {
+    q: 'Can I ask questions?',
+    a: 'Yes. You can send a question when you register, and there is time for questions at the end.',
+  },
+  {
+    q: 'Are you selling visas or properties?',
+    a: 'No. Beyond Panama Relocation is an information service. The webinar is educational and is not legal, tax or investment advice.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout
+  title={WEBINAR.title}
+  description="A free, plain-language webinar on relocating to Panama: residency options, cost of living by area, housing and the practical steps. Register to get the link and the recording."
+  lang="en"
+  canonicalUrl={pageUrl}
+  minimal
+>
+  {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Minimal top bar: logo only, no site navigation to leak attention -->
+  <header class="border-b border-jade/10 bg-white">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/en/" aria-label="Beyond Panama Relocation home">
+        <img src="/img/logo-horizontal.webp" alt="Beyond Panama Relocation" class="h-9 w-auto" width="188" height="36" />
+      </a>
+      <a href="#register" class="hidden sm:inline-flex px-5 py-2 rounded-full bg-jade text-white text-sm font-medium hover:bg-jade-dark transition-colors">
+        Register
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero + registration -->
+  <section class="bg-fog">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-start">
+      <div>
+        <span class="eyebrow">Free live webinar</span>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.1] text-slate mb-5">
+          {WEBINAR.title}
+        </h1>
+        <p class="text-slate-mid text-lg max-w-xl mb-8">
+          A clear, unhurried walkthrough of what relocating to Panama actually involves: residency options, what life costs in different areas, housing, and the steps in the right order.
+        </p>
+
+        <ul class="grid sm:grid-cols-3 gap-3 mb-8" aria-label="Webinar details">
+          <li class="rounded-xl bg-white border border-jade/10 p-4">
+            <p class="text-[0.6875rem] uppercase tracking-[0.15em] font-medium text-gold mb-1">When</p>
+            <p class="text-slate text-sm font-medium">
+              {start ? dateLabel : 'Date to be announced'}
+            </p>
+            <p class="text-slate-mid text-xs mt-0.5">{start ? timeLabel : "We'll email it when you register"}</p>
+          </li>
+          <li class="rounded-xl bg-white border border-jade/10 p-4">
+            <p class="text-[0.6875rem] uppercase tracking-[0.15em] font-medium text-gold mb-1">Length</p>
+            <p class="text-slate text-sm font-medium">About {WEBINAR.durationMinutes} minutes</p>
+            <p class="text-slate-mid text-xs mt-0.5">Including Q&amp;A</p>
+          </li>
+          <li class="rounded-xl bg-white border border-jade/10 p-4">
+            <p class="text-[0.6875rem] uppercase tracking-[0.15em] font-medium text-gold mb-1">Where</p>
+            <p class="text-slate text-sm font-medium">Online, via {WEBINAR.platform}</p>
+            <p class="text-slate-mid text-xs mt-0.5">Recording included</p>
+          </li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/moises-alvarado.jpg"
+            alt={WEBINAR.host}
+            width="56" height="56"
+            class="w-14 h-14 rounded-full object-cover border border-jade/15"
+          />
+          <div>
+            <p class="text-slate text-sm font-medium">Hosted by {WEBINAR.host}</p>
+            <p class="text-slate-mid text-xs">Founder, Beyond Panama Relocation</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration card -->
+      <div id="register" class="lg:sticky lg:top-6 scroll-mt-6">
+        <div class="rounded-2xl bg-white border border-jade/15 shadow-sm p-6 md:p-7">
+          <h2 class="font-serif text-2xl text-slate mb-1">Reserve your place</h2>
+          <p class="text-slate-mid text-sm mb-5">
+            Leave your details and we'll send the joining link and a reminder.
+          </p>
+          <WebinarRegistrationForm client:load whenLabel={whenLabel} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you'll learn -->
+  <section class="bg-white border-y border-jade/10">
+    <div class="max-w-6xl mx-auto px-4 py-14 md:py-20">
+      <span class="eyebrow">What we'll cover</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-slate mb-10 max-w-2xl">
+        Four things most people wish they had understood sooner
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {learn.map((item, i) => (
+          <div class="rounded-2xl bg-fog border border-jade/10 p-6 flex gap-4">
+            <span class="font-serif text-3xl text-jade leading-none">{i + 1}</span>
+            <div>
+              <h3 class="font-serif text-xl text-slate mb-1.5">{item.t}</h3>
+              <p class="text-slate-mid text-sm leading-relaxed">{item.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="bg-fog">
+    <div class="max-w-4xl mx-auto px-4 py-14 md:py-20">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-slate mb-8">This webinar is a good fit if…</h2>
+      <ul class="space-y-4">
+        {forWhom.map(line => (
+          <li class="flex gap-3 items-start">
+            <svg class="w-5 h-5 text-jade mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-slate text-base">{line}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-slate-mid text-sm mt-8">
+        Nothing is being sold on this call. If you decide Panama is not for you, that is a perfectly good outcome.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white border-y border-jade/10">
+    <div class="max-w-3xl mx-auto px-4 py-14 md:py-20">
+      <span class="eyebrow">Questions</span>
+      <h2 class="font-serif text-3xl text-slate mb-8">Before you register</h2>
+      <div class="divide-y divide-jade/10 border-y border-jade/10">
+        {faqs.map(f => (
+          <details class="group py-4">
+            <summary class="flex justify-between items-center gap-4 cursor-pointer list-none text-slate font-medium">
+              {f.q}
+              <span class="text-jade text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="text-slate-mid text-sm leading-relaxed mt-3 pr-8">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="bg-fog">
+    <div class="max-w-3xl mx-auto px-4 py-14 text-center">
+      <h2 class="font-serif text-3xl text-slate mb-3">Ready to see the whole picture?</h2>
+      <p class="text-slate-mid mb-6">Register once and we'll handle the reminders.</p>
+      <a href="#register" class="inline-flex px-8 py-3.5 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">
+        Save my seat
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-white border-t border-jade/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-xs text-slate-mid space-y-2">
+      <p>
+        Beyond Panama Relocation is an information service. Webinar content is educational and is not legal, tax, immigration or investment advice.
+      </p>
+      <p>
+        <a href="/en/privacy/" class="underline hover:text-jade">Privacy</a> ·
+        <a href="/en/terms/" class="underline hover:text-jade">Terms</a> ·
+        <a href="mailto:contact@beyondpanamarelocation.com" class="underline hover:text-jade">contact@beyondpanamarelocation.com</a>
+      </p>
+      <p>© {new Date().getFullYear()} Beyond Panama Relocation</p>
+    </div>
+  </footer>
+</Layout>

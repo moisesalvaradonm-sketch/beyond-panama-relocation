@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Working in Panama as a Foreigner" description="Rules for working in Panama as an expat: legal restrictions, digital nomad options, remote work taxes, and which visas allow employment." lang="en">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Working in Panama as a Foreigner</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama is one of the world's top jurisdictions for digital nomads and online entrepreneurs — but working for Panamanian employers comes with important restrictions. Here's what you need to know.
+      </p>
+    </div>
+
+    <!-- Digital nomad callout -->
+    <div class="mb-10 p-5 rounded-xl border-l-4 border-jade bg-jade/5">
+      <p class="font-semibold text-slate mb-1">The key advantage: Territorial Tax System</p>
+      <p class="text-slate-mid text-sm leading-relaxed">
+        Under Panama's territorial tax system, income from remote work or online businesses with clients <strong>outside Panama is not taxed in Panama</strong>. This makes Panama one of the world's most favorable jurisdictions for digital professionals and online entrepreneurs.
+      </p>
+    </div>
+
+    <!-- Visa work permissions -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">What Your Visa Allows</h2>
+      <div class="space-y-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Pensionado Visa</p>
+            <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-coral/10 text-coral">No local work</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">The Pensionado visa <strong>prohibits working in Panama</strong>. You cannot sell products or services on Panamanian soil under this visa. Remote work for foreign employers or clients is fine — income earned abroad is not taxed and not restricted.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Friendly Nations Visa</p>
+            <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-jade/10 text-jade">Work permitted</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Includes a work permit. More flexible for formal employment at Panamanian companies. Also leads to citizenship eligibility after 5 years. The recommended visa for those who want to work locally.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Digital Nomad Visa</p>
+            <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-jade/10 text-jade">Remote work only</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Designed for remote workers with foreign income. Allows legal residence while working for foreign employers or clients. Income earned abroad is not taxed. Does not permit local employment or selling services to Panamanian clients.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Qualified Investor Visa</p>
+            <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-jade/10 text-jade">Work permitted</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Allows living, working, and studying in Panama. Designed for investors making a qualifying investment. Work permit is included with permanent residency.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employment restrictions -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Key Employment Restrictions</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Foreign-worker quota", "Without special authorization, companies may have only 10% foreign employees on their payroll."],
+            ["Protected professions", "Law, medicine, accounting, engineering, and others are largely reserved for Panamanian nationals or require local validation."],
+            ["Minimum wage", "~$2.40/hour for unskilled labor. Specialized skills command significantly higher salaries."],
+            ["Working without permits", "Working without the appropriate visa or permit can jeopardize both your income and your residency status."],
+          ].map(([rule, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{rule}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Remote work / online business -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Remote Work & Online Businesses</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        Panama is particularly attractive for digital professionals because the territorial tax system applies clearly to remote income:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">💻</div>
+          <p class="font-semibold text-slate text-sm mb-2">Remote Employee</p>
+          <p class="text-slate-mid text-xs leading-relaxed">If your employer is a foreign company and you work remotely, your income is not taxed in Panama. You remain taxable in your home country depending on your citizenship (US citizens are taxed globally; most others are not).</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">🌐</div>
+          <p class="font-semibold text-slate text-sm mb-2">Online Business Owner</p>
+          <p class="text-slate-mid text-xs leading-relaxed">If your business earns income from foreign clients, Panama imposes no income tax on those earnings. One of the world's most favorable jurisdictions for e-commerce, SaaS, consulting, and service businesses with an international client base.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">📊</div>
+          <p class="font-semibold text-slate text-sm mb-2">Freelancer / Contractor</p>
+          <p class="text-slate-mid text-xs leading-relaxed">Freelancers with foreign clients benefit from the same zero-tax treatment on foreign-sourced income. Setting up a Panamanian company (S.A. or SRL) is common for asset protection and banking purposes.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="text-2xl mb-2">⚠️</div>
+          <p class="font-semibold text-slate text-sm mb-2">Important Note</p>
+          <p class="text-slate-mid text-xs leading-relaxed">US citizens and Green Card holders must still file US taxes on worldwide income regardless of where they live. The Foreign Earned Income Exclusion (FEIE) and Foreign Tax Credit may apply. Consult a US expat tax specialist.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Starting a business -->
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-4">Starting a Business in Panama</h2>
+      <p class="text-slate-mid leading-relaxed mb-4">
+        Foreigners can own 100% of a Panamanian company. The most common structures are:
+      </p>
+      <div class="space-y-3">
+        {[
+          ["Sociedad Anónima (S.A.)", "The equivalent of a corporation. Flexible, common for holding assets and operating businesses. Shareholders can be anonymous."],
+          ["Sociedad de Responsabilidad Limitada (SRL)", "Similar to an LLC. More transparent ownership structure. Less common than S.A. but gaining popularity."],
+          ["Sole proprietor (empresa individual)", "Simplest structure but personal liability exposure. Less common among expats."],
+        ].map(([type, desc]) => (
+          <div class="p-5 rounded-xl border border-jade/15 bg-white">
+            <p class="font-medium text-slate text-sm mb-1">{type}</p>
+            <p class="text-slate-mid text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Want to work remotely from Panama?</p>
+      <p class="text-slate-mid text-sm mb-5">See the Digital Nomad visa — designed exactly for this situation.</p>
+      <a href="/en/visas/digital-nomad/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Digital Nomad visa →</a>
+    </div>
+  </section>
+</Layout>

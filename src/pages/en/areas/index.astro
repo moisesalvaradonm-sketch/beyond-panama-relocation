@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import RelatedGuides from '../../../components/ui/RelatedGuides.astro';
 
 const areas = [
   {
@@ -9,7 +10,7 @@ const areas = [
     rent: '$800 – $3,000+ / mo',
     profile: 'Professionals · Investors · Nomads',
     desc: "The only place in Panama where you can have everything — jobs, international flights, world-class hospitals, and an urban lifestyle. Also the most expensive.",
-    href: '/en/areas/panama-city',
+    href: '/en/areas/panama-city/',
     photo: 'https://images.unsplash.com/photo-1598041543955-0d88c390f3b5?w=800&auto=format&fit=crop&q=80',
     color: 'bg-jade/8',
   },
@@ -20,7 +21,7 @@ const areas = [
     rent: '$500 – $1,500 / mo',
     profile: 'Retirees · Nature lovers · Remote workers',
     desc: "Perpetual spring, stunning highland nature, and one of Panama's lowest costs of living. The top choice for North American retirees for good reason.",
-    href: '/en/areas/boquete',
+    href: '/en/areas/boquete/',
     photo: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&auto=format&fit=crop&q=80',
     color: 'bg-gold/8',
   },
@@ -31,7 +32,7 @@ const areas = [
     rent: '$600 – $2,000 / mo',
     profile: 'Beach seekers · Second-home buyers',
     desc: "Pacific dark-sand beach with all the essentials — and none of the excess. Supermarkets, golf, ocean-front condos an hour from the city.",
-    href: '/en/areas/coronado',
+    href: '/en/areas/coronado/',
     photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80',
     color: 'bg-coral/8',
   },
@@ -42,7 +43,7 @@ const areas = [
     rent: '$400 – $1,200 / mo',
     profile: 'Adventurers · Artists · Off-grid seekers',
     desc: "A Caribbean archipelago like no other. The lowest cost of living of all areas. Bohemian, alternative community. Not for everyone — for those who fit, it's hard to leave.",
-    href: '/en/areas/bocas-del-toro',
+    href: '/en/areas/bocas-del-toro/',
     photo: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&auto=format&fit=crop&q=80',
     color: 'bg-jade/8',
   },
@@ -53,7 +54,7 @@ const areas = [
     rent: '$400 – $1,000 / mo',
     profile: 'Surfers · Nature seekers · Authentic life',
     desc: "A fishing village with uncrowded Pacific beaches, whale watching from July to October, and a pace of life that resembles Panama of 30 years ago.",
-    href: '/en/areas/pedasi',
+    href: '/en/areas/pedasi/',
     photo: 'https://images.unsplash.com/photo-1583440025212-16269892d7ac?w=800&auto=format&fit=crop&q=80',
     color: 'bg-gold/8',
   },
@@ -64,9 +65,64 @@ const areas = [
     rent: '$450 – $1,400 / mo',
     profile: 'Families · Weekend residents',
     desc: "The Pacific beaches closest to Panama City. Under an hour from the capital, with more affordable prices than Coronado and a growing expat community.",
-    href: '/en/areas/san-carlos',
+    href: '/en/areas/san-carlos/',
     photo: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&auto=format&fit=crop&q=80',
     color: 'bg-coral/8',
+  },
+  {
+    title: 'David, Chiriquí',
+    tag: 'City · Full services · Budget-friendly',
+    climate: '28–34 °C',
+    rent: 'From $500 / mo',
+    profile: 'Families · Active retirees · Budget-conscious',
+    desc: "Panama's second city — full hospital infrastructure, PriceSmart, regional airport, and 30–50% lower prices than Boquete. The practical hub of western Panama.",
+    href: '/en/areas/david/',
+    photo: 'https://images.unsplash.com/photo-1598041543955-0d88c390f3b5?w=800&auto=format&fit=crop&q=80',
+    color: 'bg-jade/8',
+  },
+  {
+    title: 'El Valle de Antón',
+    tag: 'Volcano crater · Cool climate · Weekend retreat',
+    climate: '22–26 °C',
+    rent: '$1,200+ / mo',
+    profile: 'Nature lovers · Weekend residents · Retirees',
+    desc: "Built inside an extinct volcano crater, just 2 hours from Panama City. Hot springs, orchids, birds, and a permanently pleasant 22–26°C climate.",
+    href: '/en/areas/el-valle/',
+    photo: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&auto=format&fit=crop&q=80',
+    color: 'bg-gold/8',
+  },
+  {
+    title: 'Chitré, Azuero',
+    tag: 'Culture · Authentic Panama · Affordable',
+    climate: '27–33 °C',
+    rent: '$600 – $900 / mo',
+    profile: 'Authentic-seekers · Culture lovers · Retirees',
+    desc: "Panama's cultural capital since 1558. World-famous Carnival, modern hospital, affordable golf, and genuine local life without the expat price markup.",
+    href: '/en/areas/chitre/',
+    photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80',
+    color: 'bg-coral/8',
+  },
+  {
+    title: 'Volcán, Chiriquí',
+    tag: 'Highland · Budget Boquete · Spring climate',
+    climate: '16–22 °C',
+    rent: '~$500 / mo',
+    profile: 'Budget-conscious retirees · Nature seekers',
+    desc: "The highlands' best-kept secret: Boquete-like climate and scenery at 30–50% lower prices. 24/7 hospital and world-class hiking in La Amistad (UNESCO).",
+    href: '/en/areas/volcan/',
+    photo: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&auto=format&fit=crop&q=80',
+    color: 'bg-jade/8',
+  },
+  {
+    title: 'Santiago, Veraguas',
+    tag: 'Geographic center · No expat markup · Authentic',
+    climate: '26–32 °C',
+    rent: '~$400 / mo',
+    profile: 'Digital nomads · Budget expats · Value seekers',
+    desc: "Panama's geographic center. The most affordable city with full urban services — and gateway to Coiba Island Marine Park (UNESCO World Heritage).",
+    href: '/en/areas/santiago/',
+    photo: 'https://images.unsplash.com/photo-1598041543955-0d88c390f3b5?w=800&auto=format&fit=crop&q=80',
+    color: 'bg-gold/8',
   },
 ];
 ---
@@ -211,13 +267,13 @@ const areas = [
       </div>
       <div class="flex flex-col sm:flex-row gap-3 md:flex-col md:items-end">
         <a
-          href="/en/quiz"
+          href="/en/quiz/"
           class="inline-flex items-center justify-center px-7 py-3.5 bg-jade text-white font-semibold text-sm rounded-sm hover:bg-jade-dark transition-colors"
         >
           Take the quiz →
         </a>
         <a
-          href="/en/cost-of-living"
+          href="/en/cost-of-living/"
           class="inline-flex items-center justify-center px-7 py-3.5 border border-jade/30 text-jade font-medium text-sm rounded-sm hover:bg-jade/5 transition-colors"
         >
           Cost calculator →
@@ -226,4 +282,5 @@ const areas = [
     </div>
   </section>
 
+  <RelatedGuides lang="en" categories={['zonas']} />
 </Layout>
