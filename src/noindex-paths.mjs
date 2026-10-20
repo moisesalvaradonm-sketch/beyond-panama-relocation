@@ -11,7 +11,6 @@ export const NOINDEX_PATHS = new Set([
   '/en/webinar/',
   '/es/propiedades/',
   // Insights hub: only one article per language so far
-  '/en/insights/', '/es/insights/', '/fr/insights/',
   // Thin ES page (357 words) until expanded
   '/es/transporte/',
   // FR pages under ~500 words: translated stubs, not yet worth indexing
