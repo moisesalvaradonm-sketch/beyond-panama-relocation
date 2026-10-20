@@ -5,7 +5,7 @@ pubDate: 2026-10-20
 lang: es
 category: zonas
 readTime: 9
-draft: true
+draft: false
 image: /img/blog/panama-city-02.webp
 imageAlt: "Skyline de Ciudad de Panama con la F&F Tower, comparado con Costa Rica como destino para extranjeros"
 ---
