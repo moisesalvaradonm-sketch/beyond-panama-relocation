@@ -16,7 +16,7 @@ export const NOINDEX_PATHS = new Set([
   '/es/transporte/',
   // FR pages under ~500 words: translated stubs, not yet worth indexing
   '/fr/avantages-pensionado/', '/fr/communications/',
-  '/fr/cout-de-la-vie/', '/fr/education-activites/', '/fr/geographie-climat/',
+  '/fr/education-activites/', '/fr/geographie-climat/',
   '/fr/nouveautes-2025/', '/fr/prochaines-etapes/',
   '/fr/transport/', '/fr/travailler-panama/',
   '/fr/zones/bocas-del-toro/', '/fr/zones/boquete/', '/fr/zones/chitre/',
