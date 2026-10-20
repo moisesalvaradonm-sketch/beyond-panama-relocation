@@ -2,6 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 ---
+{/*
+  [VERIFICAR] Esta página ES y la EN (/en/healthcare/) publican cifras distintas para los mismos conceptos. Se mantienen las cifras
+  propias de cada idioma hasta que confirmes cuáles son las vigentes:
+    - Médico de familia: ES "$10–25" · EN "bajo $20"
+    - Especialista: ES "$60–150" · EN "$40–$90"
+    - Emergencia con cirugía: ES "$1,500–$8,000+" (hospital privado) · EN "$119.80 (caso documentado)"
+    - Descuento en medicamentos Pensionado: ES 20 % · EN 10 % (la página de visa Pensionado dice 20 %)
+    - Hospital de Boquete: ES "apertura pendiente" · EN "2025–2026" · FR "2025"
+  Origen EN de los demás datos: "observación directa de mercado, T3 2025". Mujeres 55+/hombres 60+ y Ley 6 de 1987: solo aparecen en EN.
+*/}
 <Layout title="Salud y Seguros Médicos en Panamá" description="Guía completa de salud en Panamá: hospitales de referencia, costos reales, opciones de seguro y comparativa con EE.UU." lang="es">
   <section class="max-w-3xl mx-auto px-4 py-16">
     <div class="mb-10">
@@ -36,8 +46,9 @@ import RelatedGuides from '../../components/ui/RelatedGuides.astro';
         <div class="bg-white divide-y divide-jade/8">
           {[
             ["Pacífica Salud (Ciudad de Panamá)", "Único hospital en toda Latinoamérica afiliado a Johns Hopkins International."],
-            ["Hospital Paitilla (Ciudad de Panamá)", "Afiliado a Cleveland Clinic. Alta especialización médica."],
-            ["Hospital Santa Fe (Ciudad de Panamá)", "Planes de salud disponibles sin restricción de edad."],
+            ["Hospital Paitilla (Ciudad de Panamá)", "Afiliado a Cleveland Clinic. Uno de los centros de diagnóstico y cirugía más completos del país."],
+            ["Centro Médico Paitilla", "Clínicas ambulatorias, laboratorios y especialidades junto al Hospital Paitilla. Citas rápidas."],
+            ["Hospital Santa Fe (Ciudad de Panamá)", "Seguro de salud sin restricción de edad — importante para personas mayores rechazadas en otras aseguradoras."],
             ["Hospital Chiriquí (David)", "Referencia para todo el occidente. Emergencias 24/7."],
             ["Hospital Bocas del Toro", "Nuevo hospital 24/7 en Isla Colón."],
             ["Hospital Público de Volcán", "Emergencias 24/7 para Volcán y Cerro Punta."],
@@ -81,9 +92,9 @@ import RelatedGuides from '../../components/ui/RelatedGuides.astro';
         {[
           ["Plan Local Panameño", "~$117/mes (66 años)", "Cubre 80% de costos, 100% hospitalización, sin deducible."],
           ["Plan Internacional", "~$85/mes (50 años)", "Sin deducible en Panamá; $1,000 en el exterior."],
-          ["Hospital Santa Fe", "Variable", "Planes completos sin límite de edad."],
+          ["Hospital Santa Fe", "Variable", "Planes completos sin límite de edad — la opción principal para expats de 70+ que otras aseguradoras rechazan por edad o condiciones preexistentes."],
           ["Medicare Advantage (EE.UU.)", "Tu plan actual", "⚠️ Medicare estándar NO cubre atención fuera de EE.UU. Solo ciertos planes Medicare Advantage ofrecen cobertura de emergencia limitada en el exterior — verifica con tu plan antes de viajar."],
-          ["Autoasegurarse", "$0 prima", "Opción preferida por muchos expats dado el bajo costo de bolsillo."],
+          ["Autoasegurarse", "$0 prima", "Opción real elegida por muchos expats dado el bajo costo de bolsillo. Algunos mantienen un fondo médico propio en lugar de pagar primas mensuales."],
         ].map(([type, cost, detail]) => (
           <div class="p-5 rounded-xl border border-jade/15 bg-white">
             <div class="flex items-start justify-between gap-4 mb-2">
@@ -98,12 +109,15 @@ import RelatedGuides from '../../components/ui/RelatedGuides.astro';
 
     <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
       <h2 class="font-serif text-xl text-slate mb-4">Descuentos Pensionado en Salud</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">Los titulares de la visa Pensionado — y los residentes en edad de jubilación (mujeres 55+, hombres 60+) — reciben descuentos establecidos por ley en servicios médicos en todo Panamá:</p>
       <div class="grid sm:grid-cols-2 gap-3">
         {[
           ["Facturas hospitalarias (sin seguro)", "15% de descuento"],
           ["Consultas médicas", "20% de descuento"],
           ["Medicamentos recetados", "20% de descuento"],
           ["Odontología y oftalmología", "15% de descuento"],
+          ["Cirugías", "20% de descuento"],
+          ["Laboratorio y rayos X", "15% de descuento"],
         ].map(([label, discount]) => (
           <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
             <span class="text-slate-mid">{label}</span>
@@ -111,6 +125,42 @@ import RelatedGuides from '../../components/ui/RelatedGuides.astro';
           </div>
         ))}
       </div>
+      <p class="text-xs text-slate-mid mt-4">Descuentos establecidos por la legislación panameña (Ley 6 de 1987 y reformas posteriores); los establecimientos están obligados a aplicarlos. Consulta la <a href="/es/beneficios-pensionado/" class="text-jade hover:underline">lista completa de beneficios Pensionado</a>.</p>
+    </div>
+
+    <div class="mb-12 space-y-5 text-slate-mid leading-relaxed">
+      <h2 class="font-serif text-2xl text-slate">Qué Esperar de la Atención Médica en Panamá</h2>
+      <p>Los principales hospitales privados de Ciudad de Panamá — Pacífica Salud (Johns Hopkins) y Hospital Paitilla (Cleveland Clinic) — tienen una calidad comparable a la de hospitales de Estados Unidos. Muchos médicos se formaron en EE.UU. o Europa y hablan inglés.</p>
+      <p>Fuera de la capital la atención es sólida en centros regionales como David (Hospital Chiriquí) y Chitré, pero las especialidades y los casos complejos suelen derivarse a Ciudad de Panamá. En Boquete y Volcán hay atención básica local; las emergencias se trasladan a David (aprox. 45 minutos). Hay transporte de emergencia disponible.</p>
+      <p>Una diferencia notable con EE.UU.: es práctica habitual que los médicos den a sus pacientes su número de celular personal para consultas de seguimiento.</p>
+      <p>Los medicamentos cuestan aproximadamente un tercio del precio en EE.UU. y la mayoría se vende sin receta en las farmacias, incluidos muchos que sí la requieren en EE.UU.</p>
+      <p>Idioma: en los hospitales privados de Ciudad de Panamá es común encontrar médicos y enfermeras que hablan inglés. Fuera de la capital el español es el idioma por defecto; un poco de español médico básico o una app de traducción ayudan mucho.</p>
+    </div>
+
+    <div class="mt-12 mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Preguntas Frecuentes</h2>
+      <dl class="space-y-8">
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Es buena la calidad de la atención médica en Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">Sí, especialmente en Ciudad de Panamá, donde los principales hospitales privados están afiliados a Johns Hopkins International (Pacífica Salud) y Cleveland Clinic (Hospital Paitilla). Fuera de la capital la calidad es buena en centros regionales como David y Chitré, pero las especialidades suelen derivarse a la capital.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Necesito seguro médico para vivir en Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">No hay obligación legal de tener seguro médico como residente extranjero. Muchos expats se autoaseguran porque el costo de bolsillo es bajo. Aun así, un seguro da tranquilidad para procedimientos mayores y puede cubrir atención en el exterior. Los planes locales parten de alrededor de $117/mes a los 66 años.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Medicare de EE.UU. cubre la atención en Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">Medicare estándar (Partes A y B) no cubre atención rutinaria ni no urgente fuera de EE.UU. Algunos planes Medicare Advantage incluyen cobertura de emergencia con facturación directa en hospitales seleccionados; revisa la sección de cobertura internacional de tu plan. Para cobertura completa dentro de Panamá se recomienda un plan local o internacional complementario.</dd>
+        </div>
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Cuánto cuestan los medicamentos en Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">Aproximadamente un tercio del precio en EE.UU. La mayoría de los medicamentos comunes se venden sin receta, y los genéricos están ampliamente disponibles. Los titulares de la visa Pensionado tienen además descuentos de ley (ver sección de descuentos).</dd>
+        </div>
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">¿Qué pasa si necesito atención fuera de Ciudad de Panamá?</dt>
+          <dd class="text-slate-mid leading-relaxed">Los hospitales regionales cubren la atención de rutina y las emergencias. El Hospital Chiriquí en David es la referencia para las tierras altas del occidente (Boquete, Volcán, Cerro Punta). Para casos complejos o de especialistas, los pacientes suelen trasladarse a Ciudad de Panamá. Hay servicios privados de ambulancia y traslado en helicóptero para casos graves.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
