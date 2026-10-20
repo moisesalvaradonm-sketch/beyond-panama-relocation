@@ -1,5 +1,6 @@
 ---
 import VisaPage from '../../../components/ui/VisaPage.astro';
+import WhatsAppCTA from '../../../components/ui/WhatsAppCTA.astro';
 ---
 
 <VisaPage
@@ -12,7 +13,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
   mainReq="Être ressortissant d'un des 50 pays éligibles + lien économique avec le Panama"
   processingTime="3 à 6 mois (démarche initiale) · puis résidence provisoire de 2 ans"
   renewalNote="Résidence permanente · sans renouvellement · chemin vers la cédula panaméenne"
-  intro="Le visa Nations Amies (Visa de Naciones Amigas) permet aux ressortissants de 50 pays entretenantt des relations diplomatiques et économiques fortes avec le Panama d'obtenir la résidence permanente via trois voies : l'immobilier, le dépôt bancaire à terme ou un contrat de travail avec une entreprise panaméenne."
+  intro="Le visa Nations Amies (Visa de Naciones Amigas) permet aux ressortissants de 50 pays entretenantt des relations diplomatiques et économiques fortes avec le Panama d'obtenir la résidence permanente via trois voies : l'immobilier, le dépôt bancaire à terme ou l'emploi au Panama (contrat avec une entreprise panaméenne ou activité via une société que vous créez vous-même)."
   requirements={[
     "Être ressortissant d'un des 50 pays éligibles (voir liste complète en FAQ)",
     "Preuve de lien économique avec le Panama selon la voie choisie (voir ci-dessous)",
@@ -29,7 +30,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     "Autorisation de travail incluse pour les titulaires via la voie emploi ou entreprise",
     "Chemin vers la naturalisation panaméenne après 5 ans de résidence",
     "Possibilité d'utiliser un passeport d'un pays éligible (double nationalité)",
-    "Possibilité d'inclure le/la conjoint(e) et les enfants à charge",
+    "Possibilité d'inclure le/la conjoint(e) et les enfants mineurs (uniquement)",
     "Le Panama n'impose pas sur les revenus de source étrangère",
     "Démarche initiale de 3 à 6 mois, suivie d'une résidence provisoire de 2 ans",
   ]}
@@ -46,7 +47,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     },
     {
       q: "Quelles sont les 3 voies d'accès au visa Nations Amies ?",
-      a: "Voie 1 — Immobilier : acheter un bien immobilier au Panama d'une valeur minimale de 200 000 USD. Voie 2 — Dépôt à terme : déposer 200 000 USD minimum dans une banque panaméenne agréée pour une durée de 3 ans. Voie 3 — Emploi : obtenir un contrat de travail à temps plein avec une entreprise constituée au Panama.",
+      a: "Voie 1 — Immobilier : acheter un bien immobilier au Panama d'une valeur minimale de 200 000 USD. Voie 2 — Dépôt à terme : déposer 200 000 USD minimum dans une banque panaméenne agréée pour une durée de 3 ans. Voie 3 — Emploi : obtenir un contrat de travail avec une entreprise constituée au Panama, ou vous employer via une société que vous créez vous-même.",
     },
     {
       q: "Quel est le délai de traitement du visa Nations Amies ?",
@@ -61,4 +62,10 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
       a: "Oui. Après 5 ans de résidence permanente effective au Panama, les titulaires du visa Nations Amies peuvent déposer une demande de naturalisation panaméenne. Le Panama accepte la double nationalité avec la plupart des pays.",
     },
   ]}
-/>
+>
+  <WhatsAppCTA
+    lang="fr"
+    message={{ en: "Hi! I'd like more information about the Friendly Nations visa for Panama.", es: "¡Hola! Quiero más información sobre la visa de Naciones Amigas de Panamá.", fr: "Bonjour ! Je souhaite plus d'informations sur le visa Nations Amies du Panama." }}
+    label={{ en: "Get more info on WhatsApp", es: "Pedir más información por WhatsApp", fr: "Plus d'infos sur WhatsApp" }}
+  />
+</VisaPage>

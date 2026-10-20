@@ -1,5 +1,6 @@
 ---
 import VisaPage from '../../../components/ui/VisaPage.astro';
+import WhatsAppCTA from '../../../components/ui/WhatsAppCTA.astro';
 ---
 <VisaPage
   lang="es"
@@ -17,7 +18,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     Una vez permanente, permite aplicar a la ciudadanía panameña tras 5 años."
   requirements={[
     "Ser nacional de uno de los 50 países elegibles (EE.UU., Canadá, Reino Unido, Alemania, Francia, España, Australia, Argentina, Colombia, México, entre otros)",
-    "Establecer uno de estos cuatro vínculos calificados — elige cualquiera: (1) Contrato de trabajo con empresa panameña · (2) Ser dueño o accionista de una empresa panameña · (3) Inversión en bienes raíces de $200,000+ en Panamá · (4) Depósito bancario a plazo fijo de $200,000+ por 3 años",
+    "Establecer uno de estos tres vínculos calificados — elige cualquiera: (1) Inversión en bienes raíces de $200,000+ en Panamá · (2) Depósito a plazo fijo de $200,000+ en un banco panameño por 3 años · (3) Empleo en Panamá: contrato de trabajo con una empresa panameña, o autocontratarte mediante una empresa creada por ti mismo",
     "Pasaporte válido con al menos 6 meses de vigencia",
     "Certificado de antecedentes penales apostillado del país de origen",
     "Examen médico en Panamá",
@@ -35,10 +36,10 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
   ]}
   notFor={[
     "No eres nacional de ninguno de los 50 países elegibles — en ese caso, revisa Inversionista Calificado o Reforestación",
-    "No puedes establecer ninguno de los cuatro vínculos calificados (empleo, empresa, $200k en bienes raíces, o $200k en depósito)",
+    "No puedes establecer ninguno de los tres vínculos calificados ($200k en bienes raíces, $200k en depósito en banco panameño, o empleo/autoempleo con empresa propia en Panamá)",
     "Quieres una residencia permanente desde el primer día — esta categoría comienza con un período provisional de 2 años",
   ]}
-  quickAnswer="La Visa de Naciones Amigas de Panamá está disponible para nacionales de 50 países. Necesitas un solo vínculo económico calificado: comprar bienes raíces en Panamá por $200,000+, colocar un depósito a plazo fijo de $200,000+ por 3 años, o establecer un vínculo de empleo o de empresa con Panamá. Obtienes una residencia provisional de 2 años y luego conviertes a residencia permanente. La ciudadanía panameña es posible tras 5 años de residencia permanente."
+  quickAnswer="La Visa de Naciones Amigas de Panamá está disponible para nacionales de 50 países. Necesitas un solo vínculo económico calificado: comprar bienes raíces en Panamá por $200,000+, colocar un depósito a plazo fijo de $200,000+ por 3 años, o tener empleo en Panamá (contrato con una empresa panameña o autocontratación mediante una empresa creada por ti). Obtienes una residencia provisional de 2 años y luego conviertes a residencia permanente. La ciudadanía panameña es posible tras 5 años de residencia permanente."
   faqs={[
     {
       q: "¿Qué 50 países son elegibles para la Visa de Naciones Amigas?",
@@ -46,7 +47,7 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     },
     {
       q: "¿Cuáles son los vínculos económicos calificados?",
-      a: "Debes establecer solo uno, el que mejor encaje contigo: (1) Bienes raíces: comprar una propiedad en Panamá por al menos $200,000 USD, a título personal o mediante una estructura societaria de la que seas beneficiario final. (2) Depósito a plazo fijo: $200,000 USD por un mínimo de 3 años en un banco con Licencia General en Panamá. (3) Empleo en Panamá: contrato de trabajo formal con una empresa panameña y el permiso de trabajo correspondiente. No necesitas combinarlos."
+      a: "Debes establecer solo uno, el que mejor encaje contigo: (1) Bienes raíces: comprar una propiedad en Panamá por al menos $200,000 USD, a título personal o mediante una estructura societaria de la que seas beneficiario final. (2) Depósito a plazo fijo: $200,000 USD por un mínimo de 3 años en un banco con Licencia General en Panamá. (3) Empleo en Panamá: contrato de trabajo formal con una empresa panameña y el permiso de trabajo correspondiente, o autocontratarte mediante una empresa creada por ti mismo. No necesitas combinarlos."
     },
     {
       q: "¿Cuánto tarda el trámite?",
@@ -62,15 +63,20 @@ import VisaPage from '../../../components/ui/VisaPage.astro';
     },
     {
       q: "¿Puedo incluir a mi familia?",
-      a: "Sí. El cónyuge y los hijos menores pueden incluirse como dependientes en la misma solicitud (con una tarifa adicional por cada uno). Según la versión en inglés de esta guía, también pueden calificar los padres del solicitante principal y los hijos estudiantes de 18 a 25 años que dependan económicamente de él."
+      a: "Sí. El cónyuge y los hijos menores pueden incluirse como dependientes en la misma solicitud (con una tarifa adicional por cada uno). Solo se incluyen cónyuge e hijos menores."
     }
   ]}
 >
+  <WhatsAppCTA
+    lang="es"
+    message={{ en: "Hi! I'd like more information about the Friendly Nations visa for Panama.", es: "¡Hola! Quiero más información sobre la visa de Naciones Amigas de Panamá.", fr: "Bonjour ! Je souhaite plus d'informations sur le visa Nations Amies du Panama." }}
+    label={{ en: "Get more info on WhatsApp", es: "Pedir más información por WhatsApp", fr: "Plus d'infos sur WhatsApp" }}
+  />
   {/* [VERIFICAR] Discrepancias EN vs ES que deben resolverse antes de unificar:
-      1) Vías calificadas: EN lista 3 (inmueble, depósito, empleo); ES listaba también "ser dueño/accionista de empresa panameña".
+      1) Vías: RESUELTO por el autor (20-oct-2026): 3 vías (inmueble $200k, depósito $200k en banco panameño, empleo o autocontratación con empresa propia).
       2) Plazos: RESUELTO por el autor (20-oct-2026): 3–6 meses de trámite inicial y luego provisional de 2 años. EN/FR/ES alineados; ya no se publica "hasta permanente" en meses/años.
-      3) Dependientes: EN incluye padres y estudiantes 18–25; ES solo cónyuge e hijos menores.
-      4) Lista de 50 países, umbral $200,000, depósito mínimo 3 años, seguro médico obligatorio, "no se grava ingreso extranjero" y "único visado con permiso de trabajo integrado". */}
+      3) Dependientes: RESUELTO por el autor (20-oct-2026): solo cónyuge e hijos menores.
+      4) Aún sin confirmar: lista de 50 países, umbral $200,000, depósito mínimo 3 años, seguro médico obligatorio, "no se grava ingreso extranjero" y "único visado con permiso de trabajo integrado". */}
   <div class="mt-6 p-5 rounded-2xl bg-fog border border-jade/15">
     <p class="text-xs font-semibold text-slate-mid uppercase tracking-widest mb-3">Guías relacionadas</p>
     <div class="space-y-2">
