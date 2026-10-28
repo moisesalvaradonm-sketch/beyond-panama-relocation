@@ -6,6 +6,8 @@ lang: en
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/panama-city-01.webp
+imageAlt: "Panama City financial district — internet and remote work infrastructure for expats"
 ---
 
 A Zoom call dropped mid-sentence during a board meeting is the moment most new remote workers in Panama learn that "fiber available" and "fiber reliable" are two different claims. The internet here is good enough to run a business on — plenty of people do — but the infrastructure has gaps that don't show up in a speed test, and they matter more than the advertised Mbps number ever will.

@@ -174,17 +174,22 @@ const pathSegments: Record<string, Record<Lang, string>> = {
 // Blog slug cross-language map. A post with no entry for a language has NO translation
 // there (hreflang must not point to the blog index in that case).
 const blogPairs: Array<Partial<Record<Lang, string>>> = [
-  { en: 'pensionado-visa-guide',           es: 'visa-pensionado-guia' },
-  { en: 'friendly-nations-visa-guide',     es: 'visa-naciones-amigas-guia' },
-  { en: 'banking-in-panama-guide',         es: 'banca-panama-extranjeros' },
-  { en: 'real-cost-of-living-panama',      es: 'costo-real-vivir-panama' },
-  { en: 'boquete-vs-coronado',             es: 'boquete-vs-coronado' },
-  { en: 'panama-city-neighborhoods-guide', es: 'guia-barrios-ciudad-panama' },
-  { en: 'qualified-investor-decree-2026',  es: 'inversionista-calificado-decreto-2026', fr: 'investisseur-qualifie-decret-2026' },
-  { en: 'panama-territorial-tax-guide',    es: 'ventajas-fiscales-panama-expatriados' },
-  { en: 'healthcare-in-panama-for-expats', es: 'salud-panama-extranjeros' },
-  { en: 'renting-apartment-panama-guide',  es: 'alquilar-apartamento-panama-extranjero' },
-  { en: 'why-panama-attracts-retirees',    es: 'por-que-panama-atrae-jubilados', fr: 'pourquoi-panama-attire-retraites' },
+  { en: 'pensionado-visa-guide',           es: 'visa-pensionado-guia',                         fr: 'visa-pensionado-guide' },
+  { en: 'friendly-nations-visa-guide',     es: 'visa-naciones-amigas-guia',                     fr: 'visa-nations-amies-guide' },
+  { en: 'banking-in-panama-guide',         es: 'banca-panama-extranjeros',                      fr: 'banque-panama-etrangers' },
+  { en: 'real-cost-of-living-panama',      es: 'costo-real-vivir-panama',                       fr: 'cout-reel-vie-panama' },
+  { en: 'boquete-vs-coronado',             es: 'boquete-vs-coronado',                           fr: 'boquete-vs-coronado' },
+  { en: 'panama-city-neighborhoods-guide', es: 'guia-barrios-ciudad-panama',                    fr: 'guide-quartiers-panama' },
+  { en: 'qualified-investor-decree-2026',  es: 'inversionista-calificado-decreto-2026',         fr: 'investisseur-qualifie-decret-2026' },
+  { en: 'panama-territorial-tax-guide',    es: 'ventajas-fiscales-panama-expatriados',          fr: 'impots-panama-expatries' },
+  { en: 'healthcare-in-panama-for-expats', es: 'salud-panama-extranjeros',                      fr: 'sante-panama-expatries' },
+  { en: 'renting-apartment-panama-guide',  es: 'alquilar-apartamento-panama-extranjero',        fr: 'louer-appartement-panama' },
+  { en: 'why-panama-attracts-retirees',    es: 'por-que-panama-atrae-jubilados',                fr: 'pourquoi-panama-attire-retraites' },
+  { en: 'internet-and-remote-work-in-panama', es: 'internet-trabajo-remoto-panama',             fr: 'internet-travail-distance-panama' },
+  { en: 'driving-in-panama-expat-guide',   es: 'manejar-en-panama-guia-extranjeros',            fr: 'conduire-panama-guide-expatries' },
+  { en: 'panama-vs-costa-rica-expats',     es: 'panama-vs-costa-rica-expatriados',              fr: 'panama-vs-costa-rica-expatries' },
+  { en: 'moving-to-panama-relocation-checklist', es: 'mudarse-panama-lista-verificacion-expatriados', fr: 'checklist-demenagement-panama' },
+  { en: 'panama-driver-license-foreigners', es: 'licencia-conducir-panama-extranjeros',         fr: 'permis-conduire-panama-etrangers' },
 ];
 const insightPairs: Array<Partial<Record<Lang, string>>> = [
   { en: 'us-documents-before-moving-to-panama', es: 'documentos-eeuu-antes-de-mudarte-panama' },

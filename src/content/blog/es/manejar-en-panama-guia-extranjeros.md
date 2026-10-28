@@ -6,6 +6,8 @@ lang: es
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/panama-city-02.webp
+imageAlt: "Autopista moderna en Ciudad de Panamá — guía de manejo para extranjeros"
 ---
 
 Una licencia extranjera en Panama vale por 90 dias desde tu entrada al pais, no 90 dias por viaje, y no se renueva saliendo y volviendo a entrar como aseguran algunos foros viejos. Migracion ha endurecido el control de estos "viajes relampago", y en los retenes ya es comun que comparen el sello de entrada en tu pasaporte con la fecha de tu licencia. Si te equivocas en esto, estas manejando sin licencia vigente, y eso anula tu seguro si tienes un accidente.

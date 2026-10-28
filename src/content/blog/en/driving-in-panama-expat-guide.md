@@ -6,6 +6,8 @@ lang: en
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/panama-city-02.webp
+imageAlt: "Modern highway in Panama City — driving guide for expats"
 ---
 
 A foreign tourist license in Panama is valid for 90 days from entry — not 90 days per trip, and not renewable by leaving and re-entering the country the way some old forums claim. Immigration officials have cracked down on "visa runs" used to extend a foreign license's validity, and police checkpoints now routinely check entry stamps against the date on your license. Get this wrong and you're driving unlicensed, which voids your insurance in a crash.

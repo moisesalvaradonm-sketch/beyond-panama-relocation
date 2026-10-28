@@ -6,6 +6,8 @@ lang: es
 category: lifestyle
 readTime: 8
 draft: false
+image: /img/blog/panama-city-01.webp
+imageAlt: "Distrito financiero de Ciudad de Panamá — internet y trabajo remoto para expatriados"
 ---
 
 Una llamada de Zoom que se cae a mitad de una reunion importante es el momento en que muchos recien llegados descubren que "hay fibra disponible" y "la fibra es confiable" son dos cosas distintas. El internet en Panama es suficientemente bueno para trabajar y sostener un negocio -- mucha gente lo hace -- pero la infraestructura tiene huecos que no aparecen en un test de velocidad, y esos huecos importan mas que el numero de Mbps en el contrato.
