@@ -6,7 +6,7 @@ category: lifestyle
 readTime: 9
 lang: en
 draft: false
-image: /img/blog/panama-city-skyline.webp
+image: /img/blog/panama-driver-license-foreigners.webp
 imageAlt: "Panama City skyline"
 ---
 

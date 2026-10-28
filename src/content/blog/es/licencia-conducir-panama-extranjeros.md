@@ -6,8 +6,8 @@ category: lifestyle
 readTime: 9
 lang: es
 draft: false
-image: /img/blog/panama-city-skyline.webp
-imageAlt: "Panama City skyline"
+image: /img/blog/licencia-conducir-panama-extranjeros.webp
+imageAlt: "Extranjero obteniendo la licencia de conducir en una oficina gubernamental panameña"
 ---
 
 The file write was blocked pending your permission. Here's the full blog post — you can approve the write or I can paste it anywhere else:
