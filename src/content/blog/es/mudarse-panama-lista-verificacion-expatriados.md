@@ -6,8 +6,8 @@ category: lifestyle
 readTime: 10
 lang: es
 draft: false
-image: /img/blog/panama-city-skyline.webp
-imageAlt: "Skyline de Ciudad de Panamá visto desde la bahía"
+image: /img/blog/mudarse-panama-lista-verificacion-expatriados.webp
+imageAlt: "Lista de verificación de mudanza con maleta y vista al skyline de Ciudad de Panamá"
 ---
 
 Mudarse a otro país es un caos organizado en el mejor de los casos. Panamá no es la excepción, pero es más manejable que la mayoría porque la infraestructura es sólida, el dólar simplifica las finanzas y el sector de reubicación está lo suficientemente maduro como para que no tengas que descubrir todo por tu cuenta.

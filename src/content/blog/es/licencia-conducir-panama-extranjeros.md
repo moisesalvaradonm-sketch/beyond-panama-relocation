@@ -6,7 +6,7 @@ category: lifestyle
 readTime: 9
 lang: es
 draft: false
-image: /img/blog/licencia-conducir-panama-extranjeros.webp
+image: /img/blog/panama-city-skyline.webp
 imageAlt: "Extranjero obteniendo la licencia de conducir en una oficina gubernamental panameña"
 ---
 

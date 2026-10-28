@@ -6,8 +6,8 @@ category: lifestyle
 readTime: 10
 lang: en
 draft: false
-image: /img/blog/panama-city-skyline.webp
-imageAlt: "Panama City skyline seen from the bay"
+image: /img/blog/moving-to-panama-relocation-checklist.webp
+imageAlt: "Relocation checklist with suitcase and Panama City skyline view"
 ---
 
 Moving to a new country is organized chaos at best. Panama is no exception — but it's more manageable than most because the infrastructure is solid, the dollar makes finances simple, and the relocation industry is mature enough that you're not figuring everything out from scratch.
