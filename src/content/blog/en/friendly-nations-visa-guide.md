@@ -1,107 +1,189 @@
 ---
-title: "Panama Friendly Nations Visa: who qualifies and what it actually requires"
-description: "A practical breakdown of the Friendly Nations Visa — which countries are included, what economic ties Panama requires, and what to expect from the application process."
-pubDate: 2026-09-12
+title: "Panama Friendly Nations Visa 2026: What Changed for Residency?"
+description: "Ecuador joins the list, the old $5,000 shortcut is gone, and two programs now have different investment thresholds. Here's what actually changed and what applicants need to know."
+pubDate: 2026-10-29
+updatedDate: 2026-10-29
 category: visas
 readTime: 8
 lang: en
 draft: false
 image: /img/blog/blog-friendly-full.webp
-imageAlt: "Friendly Nations Visa Panama — permanent residency for qualifying nationalities"
+imageAlt: "Panama Friendly Nations Visa 2026 — residency requirements and qualifying countries"
 ---
 
-The **Panama Friendly Nations Visa** is the fastest route to permanent residency for citizens of roughly 50 countries — but it's also one of the most misunderstood. The name suggests it's easy. The reality is that Panama requires proof of genuine economic ties to the country, and that requirement is taken seriously.
+Panama remains an attractive destination for Americans, Canadians, Europeans, retirees, and international investors seeking a second home or long-term residence abroad. However, obtaining legal residency is not as simple as entering the country as a tourist or opening a bank account.
 
-This guide explains exactly who qualifies, what those economic ties need to look like, and how the process works on the ground.
+If you are researching the **Panama Friendly Nations Visa in 2026**, there are important immigration updates, eligibility requirements, and investment distinctions you should understand before making a decision.
 
-## Which countries are eligible?
+One of the most significant developments in 2026 is the addition of Ecuador to Panama's Friendly Nations program. Meanwhile, separate reforms to the Qualified Investor residency program have changed how real estate investments are evaluated.
 
-Panama maintains a list of "friendly nations" — countries deemed to have strong diplomatic, commercial, or professional ties with Panama. The list currently includes most OECD countries plus several Latin American, Asian, and Caribbean nations.
+These are two different immigration programs, and confusing them can lead to costly decisions.
 
-Countries on the list include: United States, Canada, United Kingdom, Germany, France, Spain, Italy, the Netherlands, Australia, Japan, South Korea, Argentina, Brazil, Chile, Colombia, Mexico, and dozens more. The full official list is published by Panama's Ministry of Foreign Affairs and can change by executive decree.
+## What Is the Panama Friendly Nations Visa?
 
-A few things worth knowing:
+The Friendly Nations Visa is a residency program established for citizens of designated countries that maintain friendly, economic, professional, and investment relations with Panama.
 
-- The list is not static. Countries have been added and removed over the years.
-- Some countries that might seem like obvious inclusions are not on the list. If you are a citizen of a country not covered, you would need to look at other visa categories — Pensionado, Reforestation, or Self-Employed visas, depending on your situation.
-- Dual citizens can choose which passport to use for the application. This matters if one of your nationalities is on the list and the other is not.
+The program was originally introduced under Executive Decree No. 416 of 2012 and subsequently amended.
 
-## What the "economic ties" requirement actually means
+It allows qualifying foreign nationals to establish legal residence in Panama by demonstrating an eligible economic or employment connection to the country.
 
-This is where the Friendly Nations Visa is frequently misunderstood. The visa does not have a minimum income requirement — but it does require you to demonstrate a real economic connection to Panama. Panama's immigration authority is looking for evidence that you are not simply obtaining residency as a paper exercise.
+Unlike the earlier version of the program, applicants generally begin with a **two-year provisional residence permit** before applying for permanent residency.
 
-There are three ways to satisfy the economic ties requirement:
+## What Changed in 2026?
 
-### Option 1: Employment contract with a Panamanian company
+### 1. Ecuador officially joined the Friendly Nations list
 
-You must have a labor contract with a legally registered Panamanian company, with the approval of Panama's Ministry of Labor (MITRADEL). This means the company actually needs to sponsor you for a work permit alongside the residency application. This option works well for people transferred by multinational employers with operations in Panama, or those hired locally by a Panamanian employer.
+On August 31, 2026, Panama issued Executive Decree No. 16, adding Ecuador to the list of eligible Friendly Nations countries. The change took effect on September 1, 2026.
 
-### Option 2: Ownership of a Panamanian legal entity
+As a result, qualifying Ecuadorian citizens can now apply through the same general program as other eligible nationalities.
 
-You can satisfy the requirement by owning or being a legal representative of a Panamanian corporation (usually an S.A. — *Sociedad Anónima*) or LLC that is actively doing business. "Actively doing business" is the operative phrase: a dormant shell company registered for asset holding does not satisfy this requirement. The company needs commercial activity, and immigration officers can ask for evidence.
+### 2. The two-year provisional residency requirement remains
 
-### Option 3: Ownership of real estate in Panama
+The 2026 amendment did not eliminate the provisional residency stage introduced in 2021.
 
-Purchasing property in Panama — with a registered title or a right-of-possession title — satisfies the economic ties requirement. The property must be registered in your name in Panama's Public Registry. There is no minimum purchase price in the regulations, but properties with a registered value well below market rate have drawn scrutiny. A legitimate residential purchase works.
+Applicants must generally obtain provisional residency for two years before applying for permanent residency. Permanent residence is not automatically granted simply because the two-year period has passed — the applicant must complete the applicable procedure and continue to satisfy the requirements.
 
-**Important:** Before 2021, the Friendly Nations Visa existed in a simpler form with no documented economic ties requirement — it was essentially a nationality-based residency path. In 2021 it was briefly suspended amid concerns about abuse, then reinstated with stricter requirements. Older information about this visa may not reflect current rules.
+### 3. The old $5,000 bank deposit shortcut is gone
 
-## What the process looks like
+Some older immigration websites still suggest that opening a Panamanian company or depositing approximately $5,000 in a local bank account is sufficient to qualify for the Friendly Nations program.
 
-### Documents you will need
+That information reflects older rules. Under the current framework, applicants generally need to demonstrate an eligible employment relationship, real estate investment, or fixed-term bank deposit. Opening a bank account alone does not qualify.
 
-The standard document package for a Friendly Nations Visa application includes:
+## Which Countries Qualify in 2026?
 
-- Valid passport (minimum 6 months of validity remaining)
-- Criminal background check from your home country, apostilled
-- Economic ties documentation (employment contract, corporate documents, or property title — whichever applies)
-- Health certificate from a Panamanian doctor
-- Passport-size photos
-- Proof of payment of application fees
+Following the inclusion of Ecuador, the program covers 51 designated countries and territories.
 
-All documents issued outside Panama must be **apostilled** in the country of origin. Documents not in Spanish must be accompanied by a **certified translation** completed in Panama by a translator recognized by the Ministry of Foreign Affairs.
+**North, Central and South America:** Argentina, Brazil, Canada, Chile, Costa Rica, Ecuador, Mexico, Paraguay, Peru, United States, Uruguay.
 
-### Processing time
+**Europe:** Andorra, Austria, Belgium, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Monaco, Montenegro, Netherlands, Norway, Poland, Portugal, San Marino, Serbia, Slovakia, Spain, Sweden, Switzerland, United Kingdom.
 
-Once submitted, the application typically takes **3 to 6 months** to process. That timeline starts when the full, complete package is physically submitted to Panama's National Immigration Service (Servicio Nacional de Migración). Incomplete submissions reset the clock.
+**Asia, Oceania and Africa:** Australia, Hong Kong SAR, Israel, Japan, New Zealand, Singapore, South Africa, South Korea.
 
-During the review period, you will receive a **temporary residence card** (carnet provisional) that confirms you are in process. This card can be renewed while the application is pending.
+**Important:** Italian citizens may have access to a separate residency pathway under the Panama–Italy bilateral agreement. Italian nationality should not automatically be treated as eligibility under the Friendly Nations list.
 
-### What happens at approval
+Nationality is only the first eligibility requirement. Applicants must also demonstrate an acceptable economic or professional connection to Panama.
 
-Unlike many other Panama residency categories, the Friendly Nations Visa **grants permanent residence directly**. There is no initial temporary period that converts to permanent after two or three years. Approval means permanent residence from day one.
+## Current Requirements: Three Qualifying Pathways
 
-## No minimum stay requirement
+### Option 1: Residency Through Employment
 
-Once you have permanent residence through the Friendly Nations Visa, Panama does not require a minimum number of days per year in the country to keep your status. This differs from some other residency programs globally. However, if you eventually pursue Panamanian citizenship, the rules are different.
+Applicants may qualify through an eligible employment relationship with a Panamanian company.
 
-## Path to citizenship
+Supporting documentation typically includes an employment contract or employer certification, corporate registration documents, the company's operating license, evidence of the employment relationship, and applicable work permit documentation.
 
-Panamanian citizenship through naturalization requires **5 years of continuous residence**. "Continuous" allows for reasonable international travel, but naturalization applicants need to demonstrate genuine ties and presence during that five-year period. The citizenship application is a separate, more demanding process.
+Foreign nationals must comply with Panama's labor regulations and any restrictions on professions reserved for Panamanian citizens.
 
-The Friendly Nations Visa gives you permanent residence — which starts that five-year clock — but citizenship is not automatic at the five-year mark.
+### Option 2: Residency Through Real Estate Investment
 
-## Friendly Nations vs. Pensionado Visa: key differences
+Eligible applicants may qualify by demonstrating a real estate investment of at least **US$200,000**, subject to the applicable ownership and financing requirements. The property must satisfy the immigration program's documentary requirements.
 
-| Factor | Friendly Nations | Pensionado |
+Before purchasing a property specifically for residency purposes, verify that the transaction structure qualifies under the current rules.
+
+### Option 3: Residency Through a Fixed-Term Bank Deposit
+
+Another pathway involves placing at least **US$200,000** in a qualifying fixed-term deposit at a Panamanian bank, subject to the required term and other regulatory conditions.
+
+Bank account approval is separate from immigration approval. Panamanian banks generally perform compliance reviews including verification of identity, financial background, and source of funds.
+
+## Friendly Nations Visa vs. Qualified Investor Visa: Key Differences
+
+This is one of the most important distinctions for applicants considering residency through investment.
+
+In September 2026, Panama introduced Executive Decree No. 17, updating the **Qualified Investor** residency program with different minimum investment amounts depending on the type of investment.
+
+| Investment category | Minimum |
+|---|---:|
+| Friendly Nations — qualifying real estate | US$200,000 |
+| Friendly Nations — qualifying fixed-term deposit | US$200,000 |
+| Qualified Investor — qualifying first-sale property | US$300,000 |
+| Qualified Investor — secondary-market property | US$500,000 |
+| Qualified Investor — eligible securities | US$500,000 |
+| Qualified Investor — qualifying state-bank deposit | US$500,000 |
+| Qualified Investor — qualifying private-bank deposit | US$750,000 |
+
+**The September 2026 Qualified Investor reform is not an increase in the Friendly Nations Visa's real estate threshold.** They are two separate programs with different eligibility conditions, procedures, and residency outcomes.
+
+For investors purchasing real estate, whether a property qualifies as a first sale or a secondary-market transaction may significantly affect the Qualified Investor investment requirement.
+
+## How the Process Works
+
+**Step 1 — Eligibility assessment:** Confirm that your nationality is eligible and determine which qualifying pathway fits your circumstances.
+
+**Step 2 — Document preparation:** Collect your passport, criminal background certificate, civil records where applicable, and supporting financial or employment documents. Foreign-issued documents may require an apostille or consular legalization.
+
+**Step 3 — Application submission:** The immigration application is prepared and filed before Panama's National Immigration Service through the appropriate legal process.
+
+**Step 4 — Provisional residency:** Following approval, the applicant obtains provisional residency under the two-year framework.
+
+**Step 5 — Permanent residency application:** After completing the provisional period, the applicant may request permanent residency, subject to continuing eligibility and immigration approval.
+
+Processing times vary depending on the completeness of the application, the specific pathway, and government review.
+
+## What Does It Cost?
+
+Total cost depends on: government immigration fees, legal and professional fees, document apostilles and translations, medical certificates, number of applicants and dependents, and employment or investment structure.
+
+The required investment amount (where applicable) is separate from the administrative and professional cost of preparing a residency application. For an accurate quotation, request an individualized assessment based on your nationality and chosen pathway.
+
+## Friendly Nations vs. Pensionado Visa
+
+The [Pensionado Visa](/en/blog/pensionado-visa-guide/) is another popular residency option, particularly for retirees receiving a qualifying lifetime pension.
+
+| Feature | Friendly Nations | Pensionado |
 |---|---|---|
-| Income requirement | None | $1,000/month lifetime pension |
-| Economic ties requirement | Yes (employment, business, or property) | No |
-| Who it suits | Working-age adults, investors, property buyers | Retired individuals with pension income |
-| Residency type granted | Permanent, directly | Permanent, directly |
-| Pensioner discounts | No | Yes (25% restaurants, 15% healthcare, etc.) |
-| Citizens of any country | No (list of ~50 countries applies) | Yes |
-| Approximate processing time | 3–6 months | 3–6 months |
+| Nationality | 51 designated countries | Any nationality |
+| Main qualification | Employment or investment | Qualifying lifetime pension |
+| Income requirement | Depends on pathway | Generally US$1,000/month |
+| Residency structure | Two-year provisional → permanent | Separate Pensionado procedure |
+| Best for | Eligible workers, investors, families | Retirees with qualifying pensions |
 
-If you have a qualifying pension, the Pensionado Visa is simpler because it has no economic ties requirement. If you do not have a pension but you are a citizen of a Friendly Nation and can show economic ties, the Friendly Nations Visa is the more practical route.
+A Canadian retiree receiving a lifetime pension of US$2,000 per month may find the Pensionado route more appropriate than making a substantial investment solely to qualify for residency. An applicant who does not receive a qualifying pension may prefer the Friendly Nations program.
 
-## Why working with a Panama immigration attorney matters
+## Do Friendly Nations Residents Need a Work Permit?
 
-Panama's immigration regulations change more frequently than official documentation reflects. Attorneys working in this space see what Immigration is actually accepting — including cases where the written rule and the practice at the counter differ. A document package accepted twelve months ago may now need something additional.
+Yes, when the applicant intends to perform work requiring authorization under Panamanian labor law.
 
-Beyond that: errors in an apostilled document, a translation that does not meet current format requirements, or corporate documents missing a required registration detail can cause the entire application to be returned. Starting over means losing months, not days.
+Immigration residency and employment authorization are separate legal matters. The Ministry of Labor (MITRADEL) administers work permit procedures. A residency card does not automatically authorize every type of employment or professional activity.
 
-Attorney fees for Friendly Nations Visa applications in Panama typically run $1,500 to $3,500 USD depending on the firm and case complexity, separate from government fees and document preparation costs.
+## Does Panama Tax Foreign Income?
+
+Panama generally follows a territorial income tax system, under which the source and nature of income determine its Panamanian tax treatment. However, becoming a resident does not automatically eliminate tax obligations in another country.
+
+U.S. citizens, for example, generally remain subject to U.S. tax filing requirements even while residing abroad. Applicants with international businesses, foreign investments, or rental income should seek qualified cross-border tax advice before restructuring their finances.
+
+## Frequently Asked Questions
+
+**Is the Friendly Nations Visa still available in 2026?**  
+Yes. The program remains available for eligible nationalities that satisfy the current economic or employment requirements.
+
+**What was the biggest change in 2026?**  
+Ecuador was added to the list of eligible countries through Executive Decree No. 16 of August 31, 2026.
+
+**Can U.S. citizens apply?**  
+Yes. U.S. citizens are included in the eligible nationality list but must still satisfy the program's additional requirements.
+
+**Can Ecuadorian citizens apply?**  
+Yes. Ecuador became eligible effective September 1, 2026.
+
+**Can Indian or Colombian citizens apply?**  
+India and Colombia are not included in the designated Friendly Nations list. Other residency categories may be available depending on the applicant's circumstances.
+
+**Does buying a $200,000 property guarantee residency?**  
+No. The investment must qualify under the applicable immigration rules, and the applicant must satisfy all other requirements.
+
+**Is the Qualified Investor Visa the same as the Friendly Nations Visa?**  
+No. They are separate programs with different eligibility criteria, investment thresholds, and immigration procedures.
+
+**Can I obtain permanent residency immediately?**  
+The Friendly Nations program generally requires an initial two-year provisional residency period. Applicants seeking a direct permanent residence investment route may wish to evaluate the separate [Qualified Investor program](/en/blog/qualified-investor-decree-2026/).
 
 ---
-*This guide is for informational purposes only. Immigration requirements and procedures in Panama can change by decree without advance public notice. Always consult with a licensed immigration attorney in Panama before beginning any residency application.*
+
+### Official Sources
+
+- [Executive Decree No. 16 of August 31, 2026 — Panama Official Gazette](https://www.gacetaoficial.gob.pa/documento/104968)
+- [Executive Decree No. 17 of September 8, 2026 — Panama Official Gazette](https://www.gacetaoficial.gob.pa/documento/105241)
+- [National Immigration Service of Panama](https://www.migracion.gob.pa/)
+- [Ministry of Commerce and Industries — Qualified Investor Program](https://mici.gob.pa/2026/09/21/atraccion-de-inversion-e-impulso-al-empleo-panama-amplia-el-alcance-del-programa-inversionista-calificado/)
+
+*This article provides general immigration information as of October 29, 2026. Requirements, investment structures, fees, and processing procedures may change. Individual applications should be reviewed under the applicable law before filing.*

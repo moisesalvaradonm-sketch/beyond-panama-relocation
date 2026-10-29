@@ -1,112 +1,189 @@
 ---
-title: "Visa de Naciones Amigas de Panamá: quién califica y qué requiere realmente"
-description: "Guía práctica sobre la Visa de Naciones Amigas: qué países están incluidos, qué vínculos económicos exige Panamá, y qué esperar del proceso de solicitud."
-pubDate: 2026-09-12
+title: "Visa de Naciones Amigas Panamá 2026: ¿Qué cambió para la residencia?"
+description: "Ecuador se suma a la lista, el depósito de $5,000 ya no aplica y ahora existen dos programas con montos de inversión distintos. Esto es lo que realmente cambió."
+pubDate: 2026-10-29
+updatedDate: 2026-10-29
 category: visas
 readTime: 8
 lang: es
 draft: false
 image: /img/blog/blog-friendly-full.webp
-imageAlt: "Visa de Naciones Amigas Panamá — residencia permanente para nacionalidades calificadas"
+imageAlt: "Visa de Naciones Amigas Panamá 2026 — requisitos de residencia y países elegibles"
 ---
 
-La **Visa de Naciones Amigas de Panamá** es la vía más rápida hacia la residencia permanente para ciudadanos de aproximadamente 50 países — pero también es una de las más malentendidas. El nombre sugiere que es sencilla. La realidad es que Panamá exige demostrar vínculos económicos genuinos con el país, y ese requisito se aplica con seriedad.
+Panamá sigue siendo un destino atractivo para estadounidenses, canadienses, europeos, jubilados e inversionistas internacionales que buscan una segunda residencia o establecerse en el exterior a largo plazo. Sin embargo, obtener residencia legal no es tan sencillo como entrar al país como turista o abrir una cuenta bancaria.
 
-Esta guía explica exactamente quién califica, cómo deben verse esos vínculos económicos, y cómo funciona el proceso en la práctica.
+Si estás investigando la **Visa de Naciones Amigas de Panamá en 2026**, hay actualizaciones migratorias importantes, requisitos de elegibilidad y diferencias entre programas de inversión que debes entender antes de tomar una decisión.
 
-## ¿Qué países son elegibles?
+Uno de los cambios más significativos de 2026 es la incorporación de Ecuador al programa de Naciones Amigas de Panamá. Al mismo tiempo, reformas separadas al programa de residencia para Inversionistas Calificados han modificado la forma en que se evalúan las inversiones inmobiliarias.
 
-Panamá mantiene una lista de "naciones amigas" — países considerados como aquellos con fuertes vínculos diplomáticos, comerciales o profesionales con Panamá. La lista incluye actualmente a la mayoría de los países de la OCDE, más varias naciones de América Latina, Asia y el Caribe.
+Son dos programas migratorios distintos, y confundirlos puede llevar a decisiones costosas.
 
-Entre los países de la lista se encuentran: Estados Unidos, Canadá, Reino Unido, Alemania, Francia, España, Italia, los Países Bajos, Australia, Japón, Corea del Sur, Argentina, Brasil, Chile, Colombia, México, y muchos más. La lista oficial completa es publicada por el Ministerio de Relaciones Exteriores de Panamá y puede cambiar por decreto ejecutivo.
+## ¿Qué es la Visa de Naciones Amigas de Panamá?
 
-Algunos puntos importantes:
+La Visa de Naciones Amigas es un programa de residencia creado para ciudadanos de países designados que mantienen relaciones amistosas, económicas, profesionales y de inversión con Panamá.
 
-- La lista no es fija. A lo largo de los años se han agregado y eliminado países.
-- Algunos países que parecerían obvios no están en la lista. Si eres ciudadano de un país no incluido, deberás explorar otras categorías de visa — Pensionado, Reforestación, o Visa de Trabajador por Cuenta Propia, según tu situación.
-- Los ciudadanos con doble nacionalidad pueden elegir qué pasaporte usar para la solicitud. Esto importa si una de tus nacionalidades está en la lista y la otra no.
+El programa fue establecido originalmente mediante el Decreto Ejecutivo No. 416 de 2012 y posteriormente modificado.
 
-## Lo que "vínculos económicos" significa en la práctica
+Permite a los extranjeros calificados establecer residencia legal en Panamá demostrando un vínculo económico o laboral elegible con el país.
 
-Aquí es donde la Visa de Naciones Amigas se malinterpreta con más frecuencia. La visa no tiene un requisito de ingreso mínimo — pero sí exige demostrar una conexión económica real con Panamá. La autoridad migratoria panameña busca evidencia de que no estás obteniendo la residencia como un trámite puramente formal.
+A diferencia de la versión anterior del programa, los solicitantes generalmente inician con un **permiso de residencia provisional de dos años** antes de solicitar la residencia permanente.
 
-Hay tres formas de cumplir el requisito de vínculos económicos:
+## ¿Qué cambió en 2026?
 
-### Opción 1: Contrato de trabajo con una empresa panameña
+### 1. Ecuador se incorporó oficialmente a la lista de Naciones Amigas
 
-Debes tener un contrato laboral con una empresa panameña legalmente registrada, con la aprobación del Ministerio de Trabajo y Desarrollo Laboral (MITRADEL). Esto significa que la empresa debe sponsorearte para un permiso de trabajo junto con la solicitud de residencia. Esta opción funciona bien para personas trasladadas por empleadores multinacionales con operaciones en Panamá, o para quienes son contratados localmente.
+El 31 de agosto de 2026, Panamá emitió el Decreto Ejecutivo No. 16, que agrega a Ecuador a la lista de países elegibles del programa. El cambio entró en vigor el 1 de septiembre de 2026.
 
-### Opción 2: Propiedad de una entidad legal panameña
+Como resultado, los ciudadanos ecuatorianos que cumplan los requisitos pueden solicitar ahora a través del mismo programa general que otras nacionalidades elegibles.
 
-Puedes cumplir el requisito siendo propietario o representante legal de una corporación panameña (generalmente una S.A. — Sociedad Anónima) o LLC que esté haciendo negocios activamente. La frase clave es "activamente en operación": una empresa inactiva registrada solo para tenencia de activos no cumple el requisito. La empresa debe tener actividad comercial, y los oficiales de migración pueden solicitar evidencia.
+### 2. El requisito de residencia provisional de dos años se mantiene
 
-### Opción 3: Propiedad de un inmueble en Panamá
+La enmienda de 2026 no eliminó la etapa de residencia provisional introducida en 2021.
 
-Comprar un inmueble en Panamá — con título registrado o derecho de posesión — satisface el requisito de vínculos económicos. El inmueble debe estar inscrito a tu nombre en el Registro Público de Panamá. No existe un precio mínimo de compra en el reglamento, pero propiedades con valor registral muy por debajo del valor de mercado han generado cuestionamientos. Una compra residencial legítima funciona.
+Los solicitantes generalmente deben obtener una residencia provisional por dos años antes de solicitar la residencia permanente. La residencia permanente no se otorga automáticamente por el simple hecho de haber transcurrido el período de dos años: el solicitante debe completar el procedimiento aplicable y continuar cumpliendo los requisitos.
 
-**Importante:** Antes de 2021, la Visa de Naciones Amigas existía en una forma más simple que no requería vínculos económicos documentados — era esencialmente una vía de residencia basada en la nacionalidad. En 2021 fue suspendida brevemente por preocupaciones de abuso, luego reinstaurada con requisitos más estrictos. La información antigua sobre esta visa puede no reflejar las reglas actuales.
+### 3. El antiguo depósito bancario de $5,000 ya no aplica
 
-## Cómo es el proceso
+Algunos sitios de inmigración más antiguos aún sugieren que abrir una empresa panameña o depositar aproximadamente $5,000 en un banco local es suficiente para calificar al programa de Naciones Amigas.
 
-### Documentos necesarios
+Esa información refleja reglas anteriores. Bajo el marco actual, los solicitantes generalmente deben demostrar una relación laboral elegible, una inversión inmobiliaria o un depósito bancario a plazo fijo. Abrir una cuenta bancaria por sí solo no califica.
 
-El paquete estándar de documentos para una solicitud de Visa de Naciones Amigas incluye:
+## ¿Qué países califican en 2026?
 
-- Pasaporte vigente (mínimo 6 meses de validez restante)
-- Certificado de antecedentes penales del país de origen, apostillado
-- Documentación de vínculos económicos (contrato de trabajo, documentos corporativos, o título de propiedad — el que aplique)
-- Certificado de salud de un médico panameño
-- Fotos tamaño pasaporte
-- Comprobante de pago de tasas de solicitud
+Con la inclusión de Ecuador, el programa abarca 51 países y territorios designados.
 
-Todos los documentos expedidos fuera de Panamá deben estar **apostillados** en el país de origen. Los documentos que no estén en español deben ir acompañados de una **traducción certificada** realizada en Panamá por un traductor reconocido por el Ministerio de Relaciones Exteriores.
+**América del Norte, Central y del Sur:** Argentina, Brasil, Canadá, Chile, Costa Rica, Ecuador, México, Paraguay, Perú, Estados Unidos, Uruguay.
 
-### Tiempo de procesamiento
+**Europa:** Andorra, Austria, Bélgica, Croacia, Chipre, República Checa, Dinamarca, Estonia, Finlandia, Francia, Alemania, Grecia, Hungría, Irlanda, Letonia, Liechtenstein, Lituania, Luxemburgo, Malta, Mónaco, Montenegro, Países Bajos, Noruega, Polonia, Portugal, San Marino, Serbia, Eslovaquia, España, Suecia, Suiza, Reino Unido.
 
-Una vez presentada la solicitud, el proceso sigue estas etapas:
+**Asia, Oceanía y África:** Australia, Hong Kong RAE, Israel, Japón, Nueva Zelanda, Singapur, Sudáfrica, Corea del Sur.
 
-1. **Carnet inicial (7 días):** Tras presentar el expediente en Migración, recibes en aproximadamente 7 días un carnet de residente temporal inicial que acredita que tu solicitud está en trámite.
-2. **Resolución provisional (3–5 meses):** Migración revisa el expediente y emite una resolución de residencia provisional. Este período puede extenderse si la documentación está incompleta.
-3. **Residencia provisional (2 años):** Con la resolución aprobada, entras en un período de residencia provisional de aproximadamente 2 años durante el cual debes mantener los vínculos económicos que sustentaron tu solicitud.
-4. **Residencia permanente:** Al concluir el período provisional sin incidencias, puedes solicitar la conversión a residencia permanente.
+**Importante:** Los ciudadanos italianos pueden tener acceso a una vía de residencia separada bajo el acuerdo bilateral entre Panamá e Italia. La nacionalidad italiana no debe tratarse automáticamente como elegibilidad bajo la lista de Naciones Amigas.
 
-Las presentaciones incompletas reinician el reloj, por lo que es importante presentar el expediente completo desde el primer intento.
+La nacionalidad es solo el primer requisito de elegibilidad. Los solicitantes también deben demostrar un vínculo económico o profesional aceptable con Panamá.
 
-### Qué ocurre al ser aprobado
+## Requisitos actuales: tres vías de calificación
 
-La Visa de Naciones Amigas conduce a residencia permanente, pero **no la otorga de inmediato**. El proceso incluye un período provisional de aproximadamente 2 años antes de acceder a la residencia permanente. Es importante entender esta distinción al planificar tu mudanza.
+### Opción 1: Residencia mediante empleo
 
-## Sin requisito de permanencia mínima
+Los solicitantes pueden calificar a través de una relación laboral elegible con una empresa panameña.
 
-Durante el período provisional y una vez convertida en permanente, Panamá no exige un número mínimo de días por año en el país para mantener tu estatus migratorio. Esto la diferencia de algunos otros programas de residencia a nivel mundial. Sin embargo, si con el tiempo buscas la ciudadanía panameña, las reglas son distintas y sí requieren presencia continua demostrable.
+La documentación de respaldo generalmente incluye un contrato de trabajo o certificación del empleador, documentos de constitución de la empresa, licencia de operación de la empresa, evidencia de la relación laboral y documentación del permiso de trabajo aplicable.
 
-## Camino a la ciudadanía
+Los extranjeros deben cumplir con las regulaciones laborales de Panamá y cualquier restricción sobre profesiones reservadas para ciudadanos panameños.
 
-La ciudadanía panameña por naturalización requiere **5 años de residencia continua**. "Continua" permite viajes internacionales razonables, pero los solicitantes de naturalización deben demostrar vínculos y presencia genuinos durante ese período de cinco años. La solicitud de ciudadanía es un proceso separado y más exigente.
+### Opción 2: Residencia mediante inversión inmobiliaria
 
-La Visa de Naciones Amigas te lleva a la residencia permanente (tras el período provisional de ~2 años), y es desde la permanente que comienza el conteo de los cinco años para naturalización. La ciudadanía no es automática — requiere un proceso separado y más exigente.
+Los solicitantes elegibles pueden calificar demostrando una inversión inmobiliaria de al menos **US$200,000**, sujeta a los requisitos aplicables de titularidad y financiamiento. El inmueble debe cumplir con los requisitos documentales del programa migratorio.
 
-## Naciones Amigas vs. Visa Pensionado: diferencias clave
+Antes de adquirir una propiedad específicamente para fines de residencia, verifica que la estructura de la transacción califica bajo las reglas vigentes.
 
-| Factor | Naciones Amigas | Pensionado |
+### Opción 3: Residencia mediante depósito bancario a plazo fijo
+
+Otra vía consiste en colocar al menos **US$200,000** en un depósito a plazo fijo calificado en un banco panameño, sujeto al plazo requerido y otras condiciones regulatorias.
+
+La aprobación bancaria es independiente de la aprobación migratoria. Los bancos panameños generalmente realizan revisiones de cumplimiento que incluyen verificación de identidad, antecedentes financieros y origen de los fondos.
+
+## Visa de Naciones Amigas vs. Visa de Inversionista Calificado: diferencias clave
+
+Esta es una de las distinciones más importantes para los solicitantes que consideran residencia mediante inversión.
+
+En septiembre de 2026, Panamá introdujo el Decreto Ejecutivo No. 17, que actualiza el programa de residencia para **Inversionistas Calificados** con diferentes montos mínimos de inversión según el tipo de inversión.
+
+| Categoría de inversión | Mínimo |
+|---|---:|
+| Naciones Amigas — inmueble calificado | US$200,000 |
+| Naciones Amigas — depósito a plazo fijo calificado | US$200,000 |
+| Inversionista Calificado — propiedad de primera venta calificada | US$300,000 |
+| Inversionista Calificado — propiedad en mercado secundario | US$500,000 |
+| Inversionista Calificado — valores elegibles | US$500,000 |
+| Inversionista Calificado — depósito en banco estatal calificado | US$500,000 |
+| Inversionista Calificado — depósito en banco privado calificado | US$750,000 |
+
+**La reforma de septiembre de 2026 al programa de Inversionista Calificado no es un aumento del umbral inmobiliario de la Visa de Naciones Amigas.** Son dos programas separados con diferentes condiciones de elegibilidad, procedimientos y resultados de residencia.
+
+Para inversionistas que adquieren bienes raíces, si una propiedad califica como primera venta o como transacción en mercado secundario puede afectar significativamente el requisito de inversión para el programa de Inversionista Calificado.
+
+## Cómo funciona el proceso
+
+**Paso 1 — Evaluación de elegibilidad:** Confirma que tu nacionalidad es elegible y determina qué vía de calificación se adapta a tu situación.
+
+**Paso 2 — Preparación de documentos:** Reúne tu pasaporte, certificado de antecedentes penales, registros civiles donde corresponda y documentos financieros o laborales de respaldo. Los documentos emitidos en el extranjero pueden requerir apostilla o legalización consular.
+
+**Paso 3 — Presentación de la solicitud:** La solicitud migratoria se prepara y presenta ante el Servicio Nacional de Migración de Panamá a través del proceso legal correspondiente.
+
+**Paso 4 — Residencia provisional:** Tras la aprobación, el solicitante obtiene la residencia provisional bajo el esquema de dos años.
+
+**Paso 5 — Solicitud de residencia permanente:** Una vez completado el período provisional, el solicitante puede solicitar la residencia permanente, sujeto a elegibilidad continua y aprobación migratoria.
+
+Los tiempos de procesamiento varían según la completitud de la solicitud, la vía específica y la revisión gubernamental.
+
+## ¿Cuánto cuesta?
+
+El costo total depende de: tasas migratorias gubernamentales, honorarios legales y profesionales, apostillas y traducciones de documentos, certificados médicos, número de solicitantes y dependientes, y estructura de empleo o inversión.
+
+El monto de inversión requerido (donde aplica) es independiente del costo administrativo y profesional de preparar una solicitud de residencia. Para una cotización precisa, solicita una evaluación individualizada según tu nacionalidad y la vía elegida.
+
+## Naciones Amigas vs. Visa de Pensionado
+
+La [Visa de Pensionado](/es/blog/visa-pensionado-guia/) es otra opción popular de residencia, especialmente para jubilados con una pensión vitalicia calificada.
+
+| Característica | Naciones Amigas | Pensionado |
 |---|---|---|
-| Requisito de ingreso | Ninguno | $1,000/mes de pensión vitalicia |
-| Requisito de vínculos económicos | Sí (empleo, empresa o propiedad) | No |
-| Para quién aplica | Adultos en edad laboral, inversores, compradores de propiedad | Jubilados con ingresos de pensión |
-| Tipo de residencia otorgada | Provisional (~2 años) → Permanente | Permanente, desde el inicio |
-| Descuentos de pensionado | No | Sí (25% restaurantes, 15% salud, etc.) |
-| Ciudadanos de cualquier país | No (aplica lista de ~50 países) | Sí |
-| Tiempo aproximado de trámite | 3–6 meses | 3–6 meses |
+| Nacionalidad | 51 países designados | Cualquier nacionalidad |
+| Calificación principal | Empleo o inversión | Pensión vitalicia calificada |
+| Requisito de ingresos | Depende de la vía | Generalmente US$1,000/mes |
+| Estructura de residencia | Provisional dos años → permanente | Procedimiento separado de Pensionado |
+| Ideal para | Trabajadores elegibles, inversionistas, familias | Jubilados con pensiones calificadas |
 
-Si tienes una pensión calificada, la Visa Pensionado es más sencilla porque no tiene requisito de vínculos económicos. Si no tienes pensión pero eres ciudadano de una Nación Amiga y puedes demostrar vínculos económicos, la Visa de Naciones Amigas es la vía más práctica.
+Un jubilado canadiense que recibe una pensión vitalicia de US$2,000 mensuales puede encontrar la vía del Pensionado más adecuada que realizar una inversión sustancial únicamente para calificar a la residencia. Un solicitante que no recibe una pensión calificada puede preferir el programa de Naciones Amigas.
 
-## Por qué importa trabajar con un abogado de inmigración en Panamá
+## ¿Los residentes de Naciones Amigas necesitan permiso de trabajo?
 
-Las regulaciones migratorias de Panamá cambian con más frecuencia de lo que la documentación oficial refleja. Los abogados que trabajan en esta área ven qué acepta Migración en la práctica — incluyendo casos donde la norma escrita y lo que se exige en ventanilla difieren. Un paquete de documentos aceptado hace doce meses puede necesitar algo adicional ahora.
+Sí, cuando el solicitante tiene la intención de realizar trabajo que requiere autorización bajo la legislación laboral panameña.
 
-Más allá de eso: errores en un documento apostillado, una traducción que no cumple los requisitos de formato actuales, o documentos corporativos a los que les falta un detalle de registro requerido, pueden hacer que toda la solicitud sea devuelta. Empezar de nuevo significa perder meses, no días.
+La residencia migratoria y la autorización de empleo son asuntos legales separados. El Ministerio de Trabajo y Desarrollo Laboral (MITRADEL) administra los procedimientos de permiso de trabajo. El carnet de residencia no autoriza automáticamente todo tipo de empleo o actividad profesional.
 
-Los honorarios de abogados de inmigración para solicitudes de Visa de Naciones Amigas en Panamá suelen estar entre $1,500 y $3,500 USD, según el despacho y la complejidad del caso, separados de las tasas gubernamentales y los costos de preparación de documentos.
+## ¿Panamá grava los ingresos del exterior?
+
+Panamá generalmente sigue un sistema de impuesto sobre la renta territorial, bajo el cual la fuente y naturaleza de los ingresos determinan su tratamiento fiscal en Panamá. Sin embargo, convertirse en residente no elimina automáticamente las obligaciones tributarias en otro país.
+
+Los ciudadanos estadounidenses, por ejemplo, generalmente siguen sujetos a los requisitos de declaración de impuestos de EE. UU. incluso residiendo en el exterior. Los solicitantes con negocios internacionales, inversiones extranjeras o ingresos por arrendamiento deben buscar asesoría fiscal transfronteriza calificada antes de reestructurar sus finanzas.
+
+## Preguntas frecuentes
+
+**¿La Visa de Naciones Amigas sigue disponible en 2026?**  
+Sí. El programa sigue disponible para las nacionalidades elegibles que cumplan los requisitos económicos o laborales vigentes.
+
+**¿Cuál fue el mayor cambio en 2026?**  
+Ecuador fue agregado a la lista de países elegibles mediante el Decreto Ejecutivo No. 16 del 31 de agosto de 2026.
+
+**¿Los ciudadanos estadounidenses pueden aplicar?**  
+Sí. Los ciudadanos estadounidenses están incluidos en la lista de nacionalidades elegibles, pero deben igualmente cumplir los requisitos adicionales del programa.
+
+**¿Los ciudadanos ecuatorianos pueden aplicar?**  
+Sí. Ecuador se volvió elegible a partir del 1 de septiembre de 2026.
+
+**¿Los ciudadanos colombianos o indios pueden aplicar?**  
+Colombia e India no están incluidos en la lista designada de Naciones Amigas. Otras categorías de residencia pueden estar disponibles según las circunstancias del solicitante.
+
+**¿Comprar una propiedad de $200,000 garantiza la residencia?**  
+No. La inversión debe calificar bajo las reglas migratorias aplicables, y el solicitante debe cumplir todos los demás requisitos.
+
+**¿La Visa de Inversionista Calificado es lo mismo que la Visa de Naciones Amigas?**  
+No. Son programas separados con diferentes criterios de elegibilidad, umbrales de inversión y procedimientos migratorios.
+
+**¿Puedo obtener la residencia permanente de inmediato?**  
+El programa de Naciones Amigas generalmente requiere un período inicial de residencia provisional de dos años. Los solicitantes que buscan una vía directa de residencia permanente mediante inversión pueden evaluar el [programa de Inversionista Calificado](/es/blog/decreto-inversionista-calificado-2026/) por separado.
 
 ---
-*Esta guía es de carácter informativo. Los requisitos legales y los procedimientos migratorios en Panamá pueden cambiar por decreto sin previo aviso público. Consulta siempre con un abogado de inmigración habilitado en Panamá antes de iniciar cualquier trámite de residencia.*
+
+### Fuentes oficiales
+
+- [Decreto Ejecutivo No. 16 del 31 de agosto de 2026 — Gaceta Oficial de Panamá](https://www.gacetaoficial.gob.pa/documento/104968)
+- [Decreto Ejecutivo No. 17 del 8 de septiembre de 2026 — Gaceta Oficial de Panamá](https://www.gacetaoficial.gob.pa/documento/105241)
+- [Servicio Nacional de Migración de Panamá](https://www.migracion.gob.pa/)
+- [Ministerio de Comercio e Industrias — Programa Inversionista Calificado](https://mici.gob.pa/2026/09/21/atraccion-de-inversion-e-impulso-al-empleo-panama-amplia-el-alcance-del-programa-inversionista-calificado/)
+
+*Este artículo proporciona información migratoria general al 29 de octubre de 2026. Los requisitos, estructuras de inversión, tarifas y procedimientos de tramitación pueden cambiar. Las solicitudes individuales deben revisarse bajo la legislación aplicable antes de presentarse.*
