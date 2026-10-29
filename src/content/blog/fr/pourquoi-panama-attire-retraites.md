@@ -5,7 +5,7 @@ pubDate: 2026-07-22
 category: lifestyle
 readTime: 7
 lang: fr
-image: /img/blog/panama-city-skyline.webp
+image: /img/blog/panama-retirement-fr.webp
 imageAlt: "Skyline de Panama City — l'une des destinations de retraite les plus dynamiques au monde"
 author: "Moisés Alvarado N."
 ---

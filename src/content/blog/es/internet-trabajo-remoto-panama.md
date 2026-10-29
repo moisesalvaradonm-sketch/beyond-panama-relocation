@@ -6,7 +6,7 @@ lang: es
 category: lifestyle
 readTime: 8
 draft: false
-image: /img/blog/panama-city-01.webp
+image: /img/blog/panama-remote-work-es.webp
 imageAlt: "Distrito financiero de Ciudad de Panamá — internet y trabajo remoto para expatriados"
 ---
 

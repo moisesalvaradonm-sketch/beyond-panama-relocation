@@ -6,7 +6,7 @@ category: zonas
 readTime: 9
 lang: fr
 draft: false
-image: /img/blog/panama-city-02.webp
+image: /img/blog/panama-costa-rica-fr.webp
 imageAlt: "Skyline de Panama City avec la Tour F&F — comparaison Panama vs Costa Rica pour les expatriés"
 ---
 

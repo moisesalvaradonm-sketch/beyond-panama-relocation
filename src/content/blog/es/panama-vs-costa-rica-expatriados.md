@@ -6,7 +6,7 @@ lang: es
 category: zonas
 readTime: 9
 draft: false
-image: /img/blog/panama-city-02.webp
+image: /img/blog/panama-costa-rica-es.webp
 imageAlt: "Skyline de Ciudad de Panama con la F&F Tower, comparado con Costa Rica como destino para extranjeros"
 ---
 

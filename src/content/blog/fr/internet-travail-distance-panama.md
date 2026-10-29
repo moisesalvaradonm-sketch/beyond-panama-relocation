@@ -6,7 +6,7 @@ lang: fr
 category: lifestyle
 readTime: 8
 draft: false
-image: /img/blog/panama-city-01.webp
+image: /img/blog/panama-remote-work-fr.webp
 imageAlt: "Vue de Panama City depuis un appartement — télétravail dans la capitale panaméenne"
 ---
 

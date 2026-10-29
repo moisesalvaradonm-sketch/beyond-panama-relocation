@@ -5,7 +5,7 @@ pubDate: 2026-07-22
 category: lifestyle
 readTime: 7
 lang: es
-image: /img/blog/panama-city-skyline.webp
+image: /img/blog/panama-retirement-es.webp
 imageAlt: "Skyline de Ciudad de Panamá — uno de los destinos de retiro más dinámicos del mundo"
 author: "Moisés Alvarado N."
 ---

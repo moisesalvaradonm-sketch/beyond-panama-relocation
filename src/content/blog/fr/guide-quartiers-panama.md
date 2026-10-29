@@ -6,7 +6,7 @@ category: zonas
 readTime: 7
 lang: fr
 draft: false
-image: /img/blog/panama-city-skyline.webp
+image: /img/blog/panama-neighborhoods-fr.webp
 imageAlt: "Skyline de Panama City avec la Tour F&F"
 ---
 

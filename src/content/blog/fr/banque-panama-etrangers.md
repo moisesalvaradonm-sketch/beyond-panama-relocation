@@ -6,7 +6,7 @@ category: proceso
 readTime: 9
 lang: fr
 draft: false
-image: /img/blog/panama-city-01.webp
+image: /img/blog/banking-panama-fr.webp
 imageAlt: "Quartier financier de Panama City — hub bancaire pour l'Amérique centrale"
 ---
 
