@@ -6,7 +6,7 @@ lang: en
 category: lifestyle
 readTime: 8
 draft: false
-image: /img/blog/panama-city-01.webp
+image: /img/blog/panama-remote-work-en.webp
 imageAlt: "Panama City financial district — internet and remote work infrastructure for expats"
 ---
 

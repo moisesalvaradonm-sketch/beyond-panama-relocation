@@ -1,6 +1,6 @@
 ---
-title: "Internet y trabajo remoto en Panama: velocidades reales, costos y donde falla"
-description: "Velocidades de fibra, respaldo de energia, costos de coworking y los apagones que nadie menciona: como es realmente la infraestructura remota en Panama."
+title: "Internet y trabajo remoto en Panamá: velocidades reales, costos y dónde falla"
+description: "Velocidades de fibra, respaldo de energía, costos de coworking y los apagones que nadie menciona: cómo es realmente la infraestructura remota en Panamá."
 pubDate: 2026-10-26
 lang: es
 category: lifestyle

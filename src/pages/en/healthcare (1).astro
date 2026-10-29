@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout
+  title="Healthcare & Health Insurance in Panama — Real Costs and Options"
+  description="Real costs and insurance options for expats in Panama: top hospitals, what a doctor visit actually costs, local vs. international plans, and Pensionado discounts. Verified 2025 data."
+  lang="en"
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/en/" class="text-jade text-sm hover:underline">← Home</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Healthcare & Health Insurance in Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Panama offers internationally accredited medical care at a fraction of US costs. Many doctors in Panama City trained at top US institutions and speak English. Here's what you need to know before you move.
+      </p>
+    </div>
+
+    <div class="mb-10 p-5 rounded-2xl bg-jade/5 border border-jade/20">
+      <p class="text-xs font-semibold text-jade uppercase tracking-widest mb-2">Quick Answer</p>
+      <p class="text-slate text-sm leading-relaxed">
+        A private doctor visit in Panama costs <strong>under $20</strong>. A local health insurance plan for a 66-year-old runs about <strong>$117/month</strong> with no deductible. A documented emergency with surgery came out to <strong>$119.80 total</strong>. Panama City's top hospitals are affiliated with Johns Hopkins International and the Cleveland Clinic. Many expats self-insure because out-of-pocket costs are that low.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">$20</p>
+        <p class="text-slate-mid text-xs leading-snug">Private doctor visit, no insurance</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">$117</p>
+        <p class="text-slate-mid text-xs leading-snug">Monthly health plan (age 66)</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">$119</p>
+        <p class="text-slate-mid text-xs leading-snug">Full emergency with surgery (documented case)</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Top Hospitals in Panama</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-jade px-5 py-3">
+          <p class="font-semibold text-white text-sm">Reference Hospitals — 2025</p>
+        </div>
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Pacífica Salud (Panama City)", "The only Johns Hopkins International-affiliated hospital in Latin America. High specialization, English-speaking staff."],
+            ["Hospital Paitilla (Panama City)", "Affiliated with the Cleveland Clinic. One of the country's most complete diagnostic and surgical centers."],
+            ["Hospital Santa Fe (Panama City)", "Health insurance with no age restriction — important for older applicants declined elsewhere."],
+            ["Centro Médico Paitilla", "Outpatient clinics, labs and specialties adjacent to Hospital Paitilla. Fast appointments."],
+            ["Hospital Chiriquí (David)", "Reference hospital for the entire western region including Boquete and Volcán. Full 24/7 emergency."],
+            ["Hospital Bocas del Toro", "New 24/7 hospital on Isla Colón serving the Bocas archipelago."],
+            ["Chitré Public Hospital", "Most modern and largest hospital on the Azuero Peninsula."],
+            ["Boquete (new)", "Public hospital under construction in Boquete; opening expected 2025–2026."],
+          ].map(([name, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{name}</p>
+              <p class="text-slate-mid text-xs mt-0.5">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Real Cost of Medical Care</h2>
+      <p class="text-slate-mid mb-6 leading-relaxed">
+        Panama's medical costs are dramatically lower than in the US — not marginally. A full emergency with surgery that would cost $5,000–$15,000+ in the US came out to $119.80 in a documented case in Panama (ER + on-call surgeon + IV + tests + medications, no insurance used). The table below compares actual market prices as of 2025.
+      </p>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["General consultation (private clinic)", "Under $20", "$150–$400 uninsured"],
+            ["Specialist consultation (private)", "$40–$90", "$250–$600"],
+            ["Public hospital consultation", "$2", "No comparable"],
+            ["Full emergency (with surgery)", "$119.80 (documented)", "$5,000–$15,000+"],
+            ["Monthly health insurance (age 66)", "$117/mo", "$800–$1,200/mo"],
+            ["Dental cleaning", "$25–$50", "$100–$200"],
+            ["Prescription medications", "~⅓ of US price", "Full US price"],
+            ["Doctor's personal cell for follow-up", "Standard practice", "Rare"],
+          ].map(([service, panama, us]) => (
+            <div class="flex items-center px-5 py-3 gap-4 text-sm">
+              <span class="text-slate-mid flex-1">{service}</span>
+              <span class="font-semibold text-jade whitespace-nowrap">{panama}</span>
+              <span class="text-slate-mid/60 text-xs whitespace-nowrap hidden sm:block">{us}</span>
+            </div>
+          ))}
+        </div>
+        <div class="px-5 py-3 bg-fog border-t border-jade/10">
+          <p class="text-xs text-slate-mid">Pensionado visa holders get an additional 10–20% discount on top of these already-low prices. Source: direct market observation, Q3 2025.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Health Insurance Options</h2>
+      <div class="space-y-4">
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Local Panamanian Plan</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">~$117/mo (age 66)</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">80% of costs covered, 100% hospitalization, no deductible. Covers care at Panamanian hospitals and clinics. The most affordable option for long-term residents. Premiums rise with age.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">International Plan</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">~$85/mo (age 50)</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">No deductible inside Panama; $1,000 deductible for care abroad. Good for expats who travel frequently or may need treatment in the US. Coverage rises with age but so does the premium.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Hospital Santa Fe Plans</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">No age limit</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Full plans with no age restriction — the main option for expats 70+ who are declined by standard insurers due to age or pre-existing conditions.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Medicare Advantage (US residents)</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">Your current plan</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">Some Medicare Advantage plans include emergency coverage with direct billing at select Panama hospitals — no prepayment, no reimbursement claims. Standard Medicare Part A/B does not cover routine care abroad. Verify your specific plan.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-jade/15 bg-white">
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <p class="font-medium text-slate">Self-insure (no premium)</p>
+            <span class="text-jade font-semibold text-sm whitespace-nowrap">$0/mo</span>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed">A real option chosen by many expats given how low out-of-pocket costs are. A full emergency with surgery cost $119.80 in a documented case. Some expats keep a dedicated medical reserve fund of $5,000–$10,000 instead of paying monthly premiums.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Pensionado Discounts on Healthcare</h2>
+      <p class="text-slate-mid text-sm mb-4 leading-relaxed">
+        Holders of Panama's Pensionado visa — and any resident of retirement age (women 55+, men 60+) — receive legally mandated discounts on medical services across Panama:
+      </p>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {[
+          ["Hospital bills (uninsured)", "15% off"],
+          ["Medical consultations", "20% off"],
+          ["Prescription medication", "10% off"],
+          ["Dentistry & eye exams", "15% off"],
+          ["Surgeries", "20% off"],
+          ["Lab tests & X-rays", "15% off"],
+        ].map(([label, discount]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{label}</span>
+            <span class="font-semibold text-jade">{discount}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid mt-4">All discounts are mandated by Panamanian law (Law 6 of 1987 and subsequent reforms). Establishments are legally required to apply them. See the <a href="/en/pensionado-benefits/" class="text-jade hover:underline">full Pensionado benefits list</a>.</p>
+    </div>
+
+    <div class="mb-12 space-y-5 text-slate-mid leading-relaxed">
+      <h2 class="font-serif text-2xl text-slate">What to Expect from Panama's Healthcare</h2>
+      <p>
+        Panama City's top private hospitals — Pacífica Salud (Johns Hopkins) and Hospital Paitilla (Cleveland Clinic) — are on par with US hospital quality. Many physicians trained in the US or Europe and speak English. Equipment and facilities at these hospitals have surprised even US medical professionals who visited.
+      </p>
+      <p>
+        Outside the capital, care is solid in regional centers like David (Hospital Chiriquí) and Chitré, but specialty care and complex cases are typically referred to Panama City. In Boquete and Volcán, basic care is available locally; emergency cases go to David (roughly 45 minutes). Emergency transport is available.
+      </p>
+      <p>
+        One notable difference from the US: it is standard practice in Panama for doctors to give patients their personal cell phone number for follow-up questions. This level of direct access is uncommon in US healthcare systems.
+      </p>
+      <p>
+        Medications are approximately one-third the US price and most are available over the counter at pharmacies — including many drugs that require a prescription in the US. Pensionado visa holders receive an additional 10% discount on prescriptions.
+      </p>
+      <p>
+        Language: in Panama City's private hospitals, English-speaking doctors and nurses are common. Outside the capital, Spanish is the default. Basic medical Spanish or a translation app goes a long way.
+      </p>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl bg-jade/5 border border-jade/15">
+      <blockquote class="font-serif text-lg text-slate mb-3 italic">
+        "The level of medical care surprised me. My sister, a nurse in California, traveled here alarmed; once she saw the equipment and the care, she said it was more modern than the hospital where she works."
+      </blockquote>
+      <p class="text-slate-mid text-sm">— Expat resident, emergency experience in Boquete region</p>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-serif text-2xl text-slate mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Is healthcare in Panama good quality?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Yes — particularly in Panama City, where the top private hospitals are affiliated with Johns Hopkins International (Pacífica Salud) and the Cleveland Clinic (Hospital Paitilla). Many physicians trained in the US and speak English. Outside the capital, quality is good in regional centers like David and Chitré, but specialty care is typically referred to Panama City.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Do I need health insurance to live in Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            There is no legal requirement to hold health insurance as an expat resident. Many expats self-insure because out-of-pocket costs are so low — a private doctor visit costs under $20 and a full emergency with surgery was documented at $119.80. That said, health insurance provides peace of mind for major procedures and can cover care abroad. Local plans start around $117/month at age 66.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">Does US Medicare cover care in Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Standard Medicare Part A and Part B do not cover routine or non-emergency care outside the US. Some Medicare Advantage plans include emergency coverage with direct billing at select Panamanian hospitals — check your specific plan's international coverage section. For comprehensive coverage inside Panama, a local or international supplemental plan is recommended.
+          </dd>
+        </div>
+
+        <div class="border-b border-jade/10 pb-8">
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">How much do medications cost in Panama?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Medications in Panama cost approximately one-third of their US price. Most common medications are available over the counter at pharmacies — no prescription required for many drugs that need one in the US. Pensionado visa holders receive an additional 10% discount on prescriptions. Generic equivalents are widely available and clearly labeled.
+          </dd>
+        </div>
+
+        <div>
+          <dt class="font-serif text-lg font-semibold text-slate mb-2">What happens if I need care outside Panama City?</dt>
+          <dd class="text-slate-mid leading-relaxed">
+            Regional hospitals cover routine care and emergencies. Hospital Chiriquí in David is the main reference for the western highlands (Boquete, Volcán, Cerro Punta). For complex cases or specialist care, patients are typically transferred to Panama City. Private ambulance services and helicopter transfer are available for serious cases.
+          </dd>
+        </div>
+
+      </dl>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Ready to plan your move to Panama?</p>
+      <p class="text-slate-mid text-sm mb-5">The quiz takes 2 minutes and gives you a personalized starting point — no pressure, no registration.</p>
+      <a href="/en/quiz/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Find your route →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="en" categories={['lifestyle']} />
+</Layout>

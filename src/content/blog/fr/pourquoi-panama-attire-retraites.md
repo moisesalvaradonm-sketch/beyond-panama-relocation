@@ -8,6 +8,7 @@ lang: fr
 image: /img/blog/panama-retirement-fr.webp
 imageAlt: "Skyline de Panama City — l'une des destinations de retraite les plus dynamiques au monde"
 author: "Moisés Alvarado N."
+draft: false
 ---
 
 Prendre sa retraite aujourd'hui ne se résume plus à trouver un bel endroit avec un bon climat.

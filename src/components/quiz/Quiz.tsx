@@ -926,6 +926,10 @@ export default function Quiz({ lang = 'es' }: { lang?: Lang }) {
       }
     } catch { /* fail silently */ }
 
+    // GA4 conversion (no-op unless the visitor accepted analytics cookies)
+    (window as any).gtag?.('event', 'generate_lead', { event_category: 'quiz', language: lang });
+    (window as any).gtag?.('event', 'quiz_complete', { language: lang });
+
     setSubmitted(true);
   }
 

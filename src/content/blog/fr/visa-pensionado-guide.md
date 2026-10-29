@@ -6,7 +6,8 @@ category: visas
 readTime: 9
 lang: fr
 image: /img/blog/panama-passport.webp
-imageAlt: "Passeport panaméen — citoyenneté en environ 5 ans"
+imageAlt: "Passeport panaméen et carte de résidence — Visa Pensionado résidence permanente"
+draft: false
 ---
 
 Le **Visa Pensionado du Panama** est, de loin, la résidence de retraite la plus recherchée en Amérique latine. Ce n'est pas un hasard : les exigences sont raisonnables, les avantages sont réels, et le processus — bien que bureaucratique — est prévisible.

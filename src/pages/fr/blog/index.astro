@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const posts = allPosts.filter(p => p.data.lang === 'en' || p.data.lang === 'es');
+const posts = allPosts.filter(p => p.data.lang === 'fr');
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
 const imagePositions: Record<string, string> = {
@@ -17,6 +17,10 @@ const imagePositions: Record<string, string> = {
   'blog-friendly-full.webp': 'right 12%',
   'blog-renting-panama-full.webp': 'center 30%',
   'blog-alquiler-panama-full.webp': 'center 30%',
+  'panama-driver-license-foreigners.webp': 'center 35%',
+  'moving-to-panama-relocation-checklist.webp': 'center 40%',
+  'healthcare-in-panama-for-expats.webp': 'center 30%',
+  'panama-territorial-tax-guide.webp': 'center 30%',
 };
 function imgPos(src?: string) {
   const f = src?.split('/').pop() ?? '';
@@ -50,8 +54,8 @@ function imgPos(src?: string) {
     {posts.length > 0 ? (
       <div class="grid md:grid-cols-2 gap-6 mb-12">
         {posts.map(post => {
-          const lang = post.data.lang ?? 'en';
-          const slug = post.id.replace(/^(es|en)\//, '');
+          const lang = post.data.lang ?? 'fr';
+          const slug = post.id.replace(/^(es|en|fr)\//, '');
           const href = `/${lang}/blog/${slug}/`;
           return (
             <a

@@ -1,6 +1,6 @@
 ---
-title: "Salud en Panama para extranjeros: hospitales, seguros y costos reales"
-description: "Un desglose de los hospitales publicos y privados de Panama, cuanto cuesta realmente un seguro de salud para extranjeros y precios reales de procedimientos."
+title: "Salud en Panamá para extranjeros: hospitales, seguros y costos reales"
+description: "Un desglose de los hospitales públicos y privados de Panamá, cuánto cuesta realmente un seguro de salud para extranjeros y precios reales de procedimientos."
 pubDate: 2026-10-05
 lang: es
 category: lifestyle

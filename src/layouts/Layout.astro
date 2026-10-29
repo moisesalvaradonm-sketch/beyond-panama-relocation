@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import WhatsAppFloat from '../components/ui/WhatsAppFloat.astro';
 import PromoPopups from '../components/ui/PromoPopups.astro';
+import CookieConsent from '../components/ui/CookieConsent.astro';
 import { getLangFromUrl, translatePathStrict, type Lang } from '../i18n/ui';
 import { getRouteSet, isNoindexPath } from '../seo';
 
@@ -240,14 +241,6 @@ const isHome = contentSegments.length === 0;
       <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     )}
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-682B073RCZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-682B073RCZ');
-    </script>
   </head>
   <body>
     {!minimal && <Header lang={currentLang} />}
@@ -257,6 +250,8 @@ const isHome = contentSegments.length === 0;
     {!minimal && <Footer lang={currentLang} />}
     {!minimal && <WhatsAppFloat lang={currentLang} />}
     {!minimal && <PromoPopups />}
+    {/* Consent-gated GA4 + Microsoft Clarity: load only after the visitor accepts */}
+    <CookieConsent lang={currentLang} />
 
     {/* Beyond Panama Lead Engine — behavior tracker (page views, WhatsApp clicks,
         consultation clicks, guide downloads). Adds no visible UI. */}

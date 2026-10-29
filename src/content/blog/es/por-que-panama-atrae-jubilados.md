@@ -8,6 +8,7 @@ lang: es
 image: /img/blog/panama-retirement-es.webp
 imageAlt: "Skyline de Ciudad de Panamá — uno de los destinos de retiro más dinámicos del mundo"
 author: "Moisés Alvarado N."
+draft: false
 ---
 
 Jubilarse hoy ya no se trata simplemente de encontrar un lugar bonito con buen clima.

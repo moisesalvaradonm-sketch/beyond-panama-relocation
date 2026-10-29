@@ -6,7 +6,7 @@ category: proceso
 readTime: 9
 lang: en
 draft: false
-image: /img/blog/panama-city-01.webp
+image: /img/blog/banking-panama-en.webp
 imageAlt: "Panama City financial district — banking hub for Central America"
 ---
 

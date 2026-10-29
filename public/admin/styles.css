@@ -146,3 +146,5 @@ textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-siz
   #sidebar.open { transform: translateX(0); }
   .page { padding: 16px; }
 }
+
+[hidden] { display: none !important; }

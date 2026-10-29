@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
-use BPR\{Response, Auth, DB, Mailer, Personalize, Utils};
+use BPR\{Response, Auth, DB, Campaign, Utils};
 
 bpr_cors();
 Auth::require(['admin','editor']);
@@ -23,59 +23,56 @@ if ($m === 'POST') {
     $action = $in['action'] ?? 'create';
 
     if ($action === 'create') {
+        $rec = in_array($in['recurrence'] ?? 'none', ['weekly', 'monthly'], true) ? $in['recurrence'] : 'none';
+        $day = (int)($in['recur_day'] ?? 1);
+        $time = preg_match('/^\d{1,2}:\d{2}$/', (string)($in['recur_time'] ?? '')) ? $in['recur_time'] : '09:00';
+        if ($rec !== 'none') {
+            $scheduled = Campaign::nextRun($rec, $day, $time);
+            $status = 'scheduled';
+        } else {
+            $scheduled = $in['scheduled_at'] ?? null;
+            $status = $scheduled ? 'scheduled' : 'draft';
+        }
         $id = DB::insert(
-            'INSERT INTO bpr_campaigns (name, template_id, segment_id, language, status, scheduled_at)
-             VALUES (?,?,?,?,?,?)',
+            'INSERT INTO bpr_campaigns (name, template_id, segment_id, language, recurrence, recur_day, recur_time, status, scheduled_at)
+             VALUES (?,?,?,?,?,?,?,?,?)',
             [
                 Utils::s($in['name'] ?? 'Untitled campaign', 190),
                 (int)$in['template_id'],
                 !empty($in['segment_id']) ? (int)$in['segment_id'] : null,
                 $in['language'] ?? 'en',
-                $in['scheduled_at'] ? 'scheduled' : 'draft',
-                $in['scheduled_at'] ?? null,
+                $rec,
+                $rec !== 'none' ? $day : null,
+                $rec !== 'none' ? $time : null,
+                $status,
+                $scheduled,
             ]
         );
-        Response::ok(['id' => $id]);
+        Response::ok(['id' => $id, 'next_run' => $scheduled]);
     }
 
     if ($action === 'send') {
         $id = (int)($in['id'] ?? 0);
         $c = DB::row('SELECT * FROM bpr_campaigns WHERE id = ?', [$id]);
         if (!$c) Response::error('Campaign not found', 404);
-        $t = DB::row('SELECT * FROM bpr_email_templates WHERE id = ?', [$c['template_id']]);
-        if (!$t) Response::error('Template missing', 400);
-
-        // Build recipient set
-        if ($c['segment_id']) {
-            $recipients = DB::rows(
-                'SELECT c.* FROM bpr_contacts c
-                   JOIN bpr_contact_segments cs ON cs.contact_id = c.id
-                  WHERE cs.segment_id = ? AND c.marketing_consent = 1 AND c.unsubscribed_at IS NULL',
-                [$c['segment_id']]
-            );
-        } else {
-            $recipients = DB::rows(
-                'SELECT * FROM bpr_contacts WHERE marketing_consent = 1 AND unsubscribed_at IS NULL'
-            );
-        }
-
-        DB::exec('UPDATE bpr_campaigns SET status = "sending" WHERE id = ?', [$id]);
-        $queued = 0;
-        foreach ($recipients as $rc) {
-            $subject = Personalize::render($t['subject'], $rc);
-            $html    = Personalize::render($t['body_html'], $rc);
-            $text    = $t['body_text'] ? Personalize::render($t['body_text'], $rc) : null;
-            $qid = Mailer::queueRaw((int)$rc['id'], $subject, $html, $text, $id);
-            if ($qid) $queued++;
-        }
-        DB::exec('UPDATE bpr_campaigns SET status = "sent", sent_at = ?, total_sent = ? WHERE id = ?',
-            [Utils::nowUtc(), $queued, $id]);
+        if (!DB::row('SELECT id FROM bpr_email_templates WHERE id = ?', [$c['template_id']])) Response::error('Template missing', 400);
+        // Recurring campaigns keep their schedule; one-off ones are marked sent.
+        $queued = Campaign::dispatch($c, false);
         Response::ok(['queued' => $queued]);
     }
 
     if ($action === 'cancel') {
         DB::exec('UPDATE bpr_campaigns SET status = "cancelled" WHERE id = ? AND status IN ("draft","scheduled")', [(int)$in['id']]);
         Response::ok();
+    }
+
+    // Resume a paused (cancelled) recurring campaign from its next occurrence.
+    if ($action === 'resume') {
+        $c = DB::row('SELECT * FROM bpr_campaigns WHERE id = ? AND status = "cancelled" AND recurrence <> "none"', [(int)($in['id'] ?? 0)]);
+        if (!$c) Response::error('Not a paused recurring campaign', 400);
+        $next = Campaign::nextRun($c['recurrence'], (int)$c['recur_day'], (string)$c['recur_time']);
+        DB::exec('UPDATE bpr_campaigns SET status = "scheduled", scheduled_at = ? WHERE id = ?', [$next, $c['id']]);
+        Response::ok(['next_run' => $next]);
     }
 
     Response::error('Unknown action', 400);

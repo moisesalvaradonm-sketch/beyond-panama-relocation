@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedGuides from '../../components/ui/RelatedGuides.astro';
+---
+<Layout title="Banque et Finances au Panama" description="Système bancaire du Panama, fiscalité territoriale, ouverture d'un compte bancaire et ce que signifie l'économie dollarisée pour les expatriés." lang="fr">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="mb-10">
+      <a href="/fr/" class="text-jade text-sm hover:underline">← Accueil</a>
+      <h1 class="font-serif text-4xl text-slate mt-4 mb-3">Banque et Finances au Panama</h1>
+      <p class="text-slate-mid text-lg max-w-2xl leading-relaxed">
+        Le Panama est l'un des plus grands centres bancaires du monde, avec plus de 130 institutions internationales et une économie dollarisée sans risque de change.
+      </p>
+    </div>
+
+    <div class="mb-10 grid sm:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">130+</p>
+        <p class="text-slate-mid text-xs">Banques internationales</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">0%</p>
+        <p class="text-slate-mid text-xs">Impôt sur revenus étrangers</p>
+      </div>
+      <div class="p-5 rounded-xl border border-jade/15 bg-white text-center">
+        <p class="font-serif text-3xl font-bold text-jade mb-1">1:1</p>
+        <p class="text-slate-mid text-xs">Balboa = Dollar américain</p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">La Monnaie : Économie Dollarisée</h2>
+      <p class="text-slate-mid mb-5 leading-relaxed">La monnaie officielle est le <strong class="text-slate">Balboa (B/.)</strong>, fixe 1:1 avec le dollar américain — qui a lui-même cours légal dans tout le pays. Pas de taux de change à surveiller ni de risque de conversion pour ceux qui gagnent en dollars.</p>
+      <div class="space-y-3">
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">🏦</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">Sans Banque Centrale</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Le Panama n'a pas de banque centrale et ne peut pas imprimer de monnaie. L'offre monétaire est entièrement de marché — ce qui produit une plus grande stabilité macroéconomique historique.</p>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl border border-jade/15 bg-white flex gap-4 items-start">
+          <span class="text-2xl">💵</span>
+          <div>
+            <p class="font-medium text-slate text-sm mb-1">USD comme Monnaie Légale</p>
+            <p class="text-slate-mid text-xs leading-relaxed">Les billets de dollar circulent avec les pièces panaméennes (Balboas). Les distributeurs dispensent des USD. Tous les prix sont en USD. Aucune conversion de monnaie nécessaire.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12 p-6 rounded-2xl border border-gold/30 bg-gold/5">
+      <h2 class="font-serif text-2xl text-slate mb-4">Système Fiscal Territorial</h2>
+      <p class="text-slate-mid text-sm leading-relaxed mb-4">Le Panama ne taxe que les revenus <em>générés au Panama</em>. Les revenus générés à l'étranger ne sont pas imposés — peu importe où vous vivez :</p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-4">
+        {[
+          ["Retraite / pension étrangère", "Non imposé au Panama"],
+          ["Télétravail (client à l'étranger)", "Non imposé au Panama"],
+          ["Business en ligne (clients étrangers)", "Non imposé au Panama"],
+          ["Investissements / dividendes étrangers", "Non imposé au Panama"],
+          ["Revenus générés au Panama", "Soumis à l'impôt panaméen"],
+          ["Loyers de propriétés au Panama", "Soumis à l'impôt panaméen"],
+        ].map(([source, treatment]) => (
+          <div class="flex justify-between items-center bg-white rounded-lg px-4 py-3 text-sm border border-gold/20">
+            <span class="text-slate-mid">{source}</span>
+            <span class={`font-semibold text-xs whitespace-nowrap ${treatment.includes('Non') ? 'text-jade' : 'text-coral'}`}>{treatment}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-slate-mid">Consultez toujours un avocat fiscal local pour votre situation spécifique.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="font-serif text-2xl text-slate mb-5">Ouvrir un Compte Bancaire</h2>
+      <div class="rounded-2xl border border-jade/15 overflow-hidden">
+        <div class="bg-white divide-y divide-jade/8">
+          {[
+            ["Avec visa de résidence", "Relativement simple. Visitez la banque avec votre cédula (carte de résidence) et documents requis."],
+            ["Sans visa", "Plus complexe. Les banques exigent des liens économiques solides et une documentation de conformité supplémentaire."],
+            ["Délai", "L'ouverture prend généralement 2–4 semaines pour la vérification conformité (AML/KYC)."],
+            ["Recommandation", "Choisissez une banque avec services en ligne disponibles en anglais et espagnol."],
+          ].map(([label, detail]) => (
+            <div class="px-5 py-4">
+              <p class="font-medium text-slate text-sm">{label}</p>
+              <p class="text-slate-mid text-xs mt-0.5 leading-relaxed">{detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-jade/5 border border-jade/15 text-center">
+      <p class="font-serif text-xl text-slate mb-2">Prêt à passer à l'étape suivante ?</p>
+      <p class="text-slate-mid text-sm mb-5">Trouvez votre voie de résidence en 2 minutes.</p>
+      <a href="/fr/visas/" class="inline-flex px-6 py-3 rounded-full bg-jade text-white font-medium text-sm hover:bg-jade-dark transition-colors">Voir les options de visa →</a>
+    </div>
+  </section>
+  <RelatedGuides lang="fr" categories={['proceso', 'visas']} />
+</Layout>

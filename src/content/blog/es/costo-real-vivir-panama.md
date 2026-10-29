@@ -7,6 +7,7 @@ readTime: 10
 lang: es
 image: /img/blog/boquete-01.webp
 imageAlt: "Boquete, Chiriquí — uno de los pueblos más populares entre expats en Panamá"
+draft: false
 ---
 
 Si has buscado "costo de vida en Panamá" antes de llegar aquí, probablemente encontraste dos tipos de resultados: blogs optimistas con titulares de "$800 al mes es suficiente" y foros de expats con quejas de que todo es más caro de lo que esperaban.

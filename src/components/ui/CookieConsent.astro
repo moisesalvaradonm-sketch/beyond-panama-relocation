@@ -1,0 +1,122 @@
+---
+interface Props {
+  lang?: 'es' | 'en' | 'fr';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const GA_ID = 'G-682B073RCZ';
+const CLARITY_ID = 'z0r2ijdcng';
+
+const t = {
+  es: {
+    text: 'Usamos Google Analytics y Microsoft Clarity para entender cómo se usa el sitio y mejorarlo. Solo se activan si aceptas.',
+    accept: 'Aceptar',
+    reject: 'Rechazar',
+    more: 'Más información',
+    path: '/es/privacidad/',
+  },
+  fr: {
+    text: "Nous utilisons Google Analytics et Microsoft Clarity pour comprendre l'usage du site et l'améliorer. Ils ne s'activent que si vous acceptez.",
+    accept: 'Accepter',
+    reject: 'Refuser',
+    more: 'En savoir plus',
+    path: '/fr/confidentialite/',
+  },
+  en: {
+    text: 'We use Google Analytics and Microsoft Clarity to understand how the site is used and improve it. They only run if you accept.',
+    accept: 'Accept',
+    reject: 'Decline',
+    more: 'Learn more',
+    path: '/en/privacy/',
+  },
+}[lang];
+---
+
+<div
+  id="cookie-consent"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookies"
+  hidden
+  class="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-md z-[60] rounded-xl bg-white border border-slate/15 shadow-xl p-4 text-sm text-slate"
+>
+  <p class="mb-3">
+    {t.text}
+    <a href={t.path} class="underline">{t.more}</a>
+  </p>
+  <div class="flex gap-2 justify-end">
+    <button type="button" data-consent="denied" class="px-4 py-2 rounded-lg border border-slate/20 hover:bg-slate/5">
+      {t.reject}
+    </button>
+    <button type="button" data-consent="granted" class="px-4 py-2 rounded-lg bg-slate text-white hover:opacity-90">
+      {t.accept}
+    </button>
+  </div>
+</div>
+
+<script is:inline define:vars={{ GA_ID, CLARITY_ID }}>
+  (function () {
+    var KEY = 'bpr_consent';
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    // Consent Mode v2: everything denied until the visitor decides.
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+    });
+
+    function load() {
+      if (window.__bprAnalyticsLoaded) return;
+      window.__bprAnalyticsLoaded = true;
+
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', CLARITY_ID);
+    }
+
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+    if (stored === 'granted') {
+      load();
+    } else if (stored !== 'denied') {
+      document.addEventListener('DOMContentLoaded', function () {
+        var box = document.getElementById('cookie-consent');
+        if (!box) return;
+        box.hidden = false;
+        box.addEventListener('click', function (e) {
+          var btn = e.target.closest && e.target.closest('[data-consent]');
+          if (!btn) return;
+          var choice = btn.getAttribute('data-consent');
+          try { localStorage.setItem(KEY, choice); } catch (err) {}
+          box.hidden = true;
+          if (choice === 'granted') load();
+        });
+      });
+    }
+
+    // Reopen the banner from anywhere: <a href="#" data-cookie-settings>
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest && e.target.closest('[data-cookie-settings]');
+      if (!el) return;
+      e.preventDefault();
+      try { localStorage.removeItem(KEY); } catch (err) {}
+      var box = document.getElementById('cookie-consent');
+      if (box) box.hidden = false;
+    });
+  })();
+</script>

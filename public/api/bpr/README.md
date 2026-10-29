@@ -98,8 +98,13 @@ In hPanel → Cron Jobs → Add. Use the "Custom" schedule.
 | -------- | ------------------------------------------------------------------------------------------- |
 | `*/5 * * * *`  | `curl -s "https://beyondpanamarelocation.com/api/bpr/cron/email_queue.php?token=YOUR_CRON_TOKEN"` |
 | `*/5 * * * *`  | `curl -s "https://beyondpanamarelocation.com/api/bpr/cron/automations.php?token=YOUR_CRON_TOKEN"`  |
+| `*/10 * * * *` | `curl -s "https://beyondpanamarelocation.com/api/bpr/cron/campaigns.php?token=YOUR_CRON_TOKEN"` (sends scheduled + weekly/monthly newsletters) |
 | `0 3 * * *`    | `curl -s "https://beyondpanamarelocation.com/api/bpr/cron/reactivation.php?token=YOUR_CRON_TOKEN"` |
 | `0 9 * * 1`    | `curl -s "https://beyondpanamarelocation.com/api/bpr/cron/ai_content.php?token=YOUR_CRON_TOKEN"`   |
+
+### 2.5b Upgrading an existing install (recurring newsletters)
+Open once: `https://beyondpanamarelocation.com/api/bpr/migrate.php?token=YOUR_CRON_TOKEN`
+(adds `recurrence`, `recur_day`, `recur_time` to `bpr_campaigns`; safe to repeat).
 
 ### 2.6 Sanity test
 ```

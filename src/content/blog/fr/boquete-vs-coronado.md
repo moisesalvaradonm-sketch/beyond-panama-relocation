@@ -7,6 +7,7 @@ readTime: 7
 lang: fr
 image: /img/blog/panama-areas.webp
 imageAlt: "Panama City, Boquete, Coronado et Bocas del Toro — les quatre principales destinations d'expatriés"
+draft: false
 ---
 
 Boquete et Coronado apparaissent dans presque tous les guides sur les lieux de vie au Panama. Ils sont présentés comme interchangeables — deux options populaires pour les expatriés qui cherchent une vie meilleure. En réalité, ce sont des environnements fondamentalement différents, et celui qui vous convient dépend de ce que vous voulez réellement de votre vie quotidienne.

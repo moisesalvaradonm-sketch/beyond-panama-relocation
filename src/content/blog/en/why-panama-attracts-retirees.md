@@ -5,9 +5,10 @@ pubDate: 2026-07-22
 category: lifestyle
 readTime: 7
 lang: en
-image: /img/blog/panama-city-skyline.webp
+image: /img/blog/panama-retirement-en.webp
 imageAlt: "Panama City skyline — one of the world's most dynamic retirement destinations"
 author: "Moisés Alvarado N."
+draft: false
 ---
 
 Retirement today is no longer just about finding a beautiful place with good weather.

@@ -7,6 +7,7 @@ readTime: 10
 lang: fr
 image: /img/blog/boquete-01.webp
 imageAlt: "Boquete, Chiriquí — l'une des villes d'expatriés les plus populaires du Panama"
+draft: false
 ---
 
 Si vous avez cherché « coût de la vie au Panama » avant d'arriver ici, vous avez probablement trouvé deux types de résultats : des blogs optimistes avec des titres comme « 800 $ par mois, c'est largement suffisant » et des forums d'expatriés pleins de plaintes sur le fait que tout coûte plus cher que prévu.

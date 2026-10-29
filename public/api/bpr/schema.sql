@@ -193,8 +193,11 @@ CREATE TABLE IF NOT EXISTS bpr_campaigns (
   template_id    INT UNSIGNED NOT NULL,
   segment_id     INT UNSIGNED NULL,           -- if NULL: everyone with consent
   language       ENUM('en','es','fr') NOT NULL DEFAULT 'en',
+  recurrence     ENUM('none','weekly','monthly') NOT NULL DEFAULT 'none',
+  recur_day      TINYINT UNSIGNED NULL,       -- weekly: 1=Mon..7=Sun, monthly: 1..28
+  recur_time     TIME NULL,                   -- Panama time (America/Panama)
   status         ENUM('draft','scheduled','sending','sent','cancelled') NOT NULL DEFAULT 'draft',
-  scheduled_at   DATETIME NULL,
+  scheduled_at   DATETIME NULL,               -- UTC; for recurring = next run
   sent_at        DATETIME NULL,
   total_sent     INT NOT NULL DEFAULT 0,
   total_opens    INT NOT NULL DEFAULT 0,

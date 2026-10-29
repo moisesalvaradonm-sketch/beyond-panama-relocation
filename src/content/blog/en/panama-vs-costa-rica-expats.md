@@ -6,7 +6,7 @@ category: zonas
 readTime: 9
 lang: en
 draft: false
-image: /img/blog/panama-city-02.webp
+image: /img/blog/panama-costa-rica-en.webp
 imageAlt: "Panama City skyline with the F&F Tower, compared against Costa Rica as an expat destination"
 ---
 

@@ -190,11 +190,17 @@ async function campaigns() {
       <td>${esc(c.name)}</td>
       <td>${esc(c.template_name || '—')}</td>
       <td>${esc(c.segment_slug || 'All')}</td>
+      <td>${c.recurrence && c.recurrence !== 'none' ? humanize(c.recurrence) : 'One-time'}</td>
       <td><span class="tag">${humanize(c.status)}</span></td>
+      <td>${c.status === 'scheduled' && c.scheduled_at ? esc(new Date(c.scheduled_at.replace(' ', 'T') + 'Z').toLocaleString('en-US', { timeZone: 'America/Panama' })) : '—'}</td>
       <td>${c.total_sent}</td><td>${c.total_opens}</td><td>${c.total_clicks}</td>
-      <td>${c.status === 'draft' || c.status === 'scheduled' ? `<button class="primary" data-send="${c.id}">Send now</button>` : ''}</td>
+      <td>
+        ${c.status === 'draft' || c.status === 'scheduled' ? `<button class="primary" data-send="${c.id}">Send now</button>` : ''}
+        ${c.status === 'scheduled' ? `<button class="ghost" data-act="cancel" data-id="${c.id}">Pause</button>` : ''}
+        ${c.status === 'cancelled' && c.recurrence !== 'none' ? `<button class="ghost" data-act="resume" data-id="${c.id}">Resume</button>` : ''}
+      </td>
     </tr>`).join('');
-  el('camTable').querySelector('tbody').innerHTML = rows || '<tr><td colspan="8" class="muted">No campaigns yet.</td></tr>';
+  el('camTable').querySelector('tbody').innerHTML = rows || '<tr><td colspan="10" class="muted">No campaigns yet.</td></tr>';
   el('camTable').querySelectorAll('[data-send]').forEach(b => b.addEventListener('click', async () => {
     if (!confirm('Send this campaign now?')) return;
     b.disabled = true;
@@ -202,8 +208,16 @@ async function campaigns() {
     catch (e) { toast(e.message, 'err'); }
   }));
 
+  el('camTable').querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', async () => {
+    try { await api('/admin/campaigns.php', { method:'POST', body: JSON.stringify({ action: b.dataset.act, id: +b.dataset.id }) }); campaigns(); }
+    catch (e) { toast(e.message, 'err'); }
+  }));
+
   // New campaign dialog
   const dlg = el('campaignDlg');
+  const recSel = dlg.querySelector('[name=recurrence]');
+  const syncRec = () => dlg.querySelectorAll('[data-rec]').forEach(d => { d.hidden = d.dataset.rec !== recSel.value; });
+  recSel.addEventListener('change', syncRec); syncRec();
   el('newCampaign').addEventListener('click', () => {
     const tSel = dlg.querySelector('[name=template_id]');
     tSel.innerHTML = r.templates.map(t => `<option value="${t.id}">${esc(t.name)} (${t.language})</option>`).join('');
@@ -222,6 +236,9 @@ async function campaigns() {
         segment_id: fd.get('segment_id') || null,
         language: fd.get('language'),
         scheduled_at: fd.get('scheduled_at') || null,
+        recurrence: fd.get('recurrence'),
+        recur_day: +(fd.get('recurrence') === 'weekly' ? fd.get('weekday') : fd.get('monthday')),
+        recur_time: fd.get('recurrence') === 'weekly' ? fd.get('time_w') : fd.get('time_m'),
       })});
       dlg.close(); toast('Campaign created'); campaigns();
     } catch (e) { toast(e.message, 'err'); }

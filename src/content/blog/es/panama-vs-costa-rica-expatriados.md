@@ -1,13 +1,13 @@
 ---
-title: "Panama vs. Costa Rica: ¿cual tiene mas sentido para un extranjero?"
-description: "Ambos paises aparecen en todas las listas de 'mejor lugar para jubilarse'. Esta es una comparacion honesta de visas, costo de vida, compra de propiedad y impuestos — los factores que realmente deciden cual te conviene."
+title: "Panamá vs. Costa Rica: ¿cuál tiene más sentido para un extranjero?"
+description: "Ambos países aparecen en todas las listas de 'mejor lugar para jubilarse'. Esta es una comparación honesta de visas, costo de vida, compra de propiedad e impuestos — los factores que realmente deciden cuál te conviene."
 pubDate: 2026-10-20
 lang: es
 category: zonas
 readTime: 9
 draft: false
 image: /img/blog/panama-costa-rica-es.webp
-imageAlt: "Skyline de Ciudad de Panama con la F&F Tower, comparado con Costa Rica como destino para extranjeros"
+imageAlt: "Skyline de Ciudad de Panamá con la F&F Tower, comparado con Costa Rica como destino para extranjeros"
 ---
 
 Panama y Costa Rica se mencionan siempre juntos — misma region, mismo marketing de "paraiso tropical", mismo publico de jubilados en YouTube. Pero funcionan con monedas distintas, sistemas legales distintos para comprar tierra, y estructuras de visa distintas. Si estas decidiendo entre los dos, los factores que terminan pesando casi nunca son los que aparecen en el folleto turistico.

@@ -127,7 +127,7 @@
   <section class="page">
     <header><h1>Campaigns</h1><button id="newCampaign" class="primary">New campaign</button></header>
     <table class="tbl" id="camTable">
-      <thead><tr><th>Name</th><th>Template</th><th>Segment</th><th>Status</th><th>Sent</th><th>Opens</th><th>Clicks</th><th></th></tr></thead>
+      <thead><tr><th>Name</th><th>Template</th><th>Segment</th><th>Frequency</th><th>Status</th><th>Next run (Panama)</th><th>Sent</th><th>Opens</th><th>Clicks</th><th></th></tr></thead>
       <tbody></tbody>
     </table>
     <dialog id="campaignDlg" class="dlg">
@@ -137,7 +137,22 @@
         <label>Template<select name="template_id" required></select></label>
         <label>Segment<select name="segment_id"><option value="">All subscribers</option></select></label>
         <label>Language<select name="language"><option>en</option><option>es</option><option>fr</option></select></label>
-        <label>Schedule (UTC) <input type="datetime-local" name="scheduled_at"></label>
+        <label>Frequency
+          <select name="recurrence">
+            <option value="none">One-time</option>
+            <option value="weekly">Weekly newsletter</option>
+            <option value="monthly">Monthly newsletter</option>
+          </select>
+        </label>
+        <div data-rec="none"><label>Schedule (UTC) <input type="datetime-local" name="scheduled_at"></label></div>
+        <div class="row2" data-rec="weekly" hidden>
+          <label>Day<select name="weekday"><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="7">Sunday</option></select></label>
+          <label>Time (Panama)<input type="time" name="time_w" value="09:00"></label>
+        </div>
+        <div class="row2" data-rec="monthly" hidden>
+          <label>Day of month (1-28)<input type="number" name="monthday" min="1" max="28" value="1"></label>
+          <label>Time (Panama)<input type="time" name="time_m" value="09:00"></label>
+        </div>
         <div class="row"><button type="button" data-close class="ghost">Cancel</button><button class="primary" type="submit">Create</button></div>
       </form>
     </dialog>

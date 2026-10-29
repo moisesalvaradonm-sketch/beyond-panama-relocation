@@ -27,7 +27,16 @@
     var d = new Date(Date.now() + days*864e5);
     document.cookie = name + '=' + encodeURIComponent(val) + ';path=/;expires=' + d.toUTCString() + ';SameSite=Lax';
   }
+  // Mirror key events to GA4 (gtag exists once consent is given; otherwise a no-op queue)
+  var GA_EVENTS = { whatsapp_click: 'whatsapp_click', consultation_request: 'consultation_request', guide_download: 'guide_download', quiz_complete: 'quiz_complete', webinar_registration: 'webinar_registration', lead: 'generate_lead' };
+  function ga(payload) {
+    try {
+      var name = GA_EVENTS[payload.event];
+      if (name && typeof window.gtag === 'function') window.gtag('event', name, payload.meta || {});
+    } catch (e) {}
+  }
   function post(payload) {
+    ga(payload);
     try {
       payload.contact_id = payload.contact_id || (+get(COOKIE) || null);
       payload.url = location.href;

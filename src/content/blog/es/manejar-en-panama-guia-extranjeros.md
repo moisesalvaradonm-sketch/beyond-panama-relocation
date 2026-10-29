@@ -1,6 +1,6 @@
 ---
-title: "Manejar en Panama siendo extranjero: licencia, normas de transito y compra de auto"
-description: "Guia practica sobre conducir en Panama como extranjero: cuando necesitas licencia panameña, como funciona realmente el control de transito y cuanto cuesta comprar un carro."
+title: "Manejar en Panamá siendo extranjero: licencia, normas de tránsito y compra de auto"
+description: "Guía práctica sobre conducir en Panamá como extranjero: cuándo necesitas licencia panameña, cómo funciona realmente el control de tránsito y cuánto cuesta comprar un carro."
 pubDate: 2026-10-19
 lang: es
 category: lifestyle
