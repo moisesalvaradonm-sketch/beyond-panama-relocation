@@ -7,7 +7,7 @@ category: visas
 readTime: 8
 lang: en
 draft: false
-image: /img/blog/blog-friendly-full.webp
+image: /img/blog/friendly-nations-2026.webp
 imageAlt: "Panama Friendly Nations Visa 2026 — residency requirements and qualifying countries"
 ---
 

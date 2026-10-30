@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: en
 draft: false
-image: /img/blog/blog-investor-full.webp
+image: /img/blog/qualified-investor-2026.webp
 imageAlt: "Panama Qualified Investor residency update 2026"
 ---
 

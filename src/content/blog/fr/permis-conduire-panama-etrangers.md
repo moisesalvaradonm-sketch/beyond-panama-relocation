@@ -6,7 +6,7 @@ category: lifestyle
 readTime: 9
 lang: fr
 draft: false
-image: /img/blog/panama-driver-license-foreigners.webp
+image: /img/blog/licencia-conducir-panama-extranjeros.webp
 imageAlt: "Permis de conduire panaméen pour étrangers avec autoroute de Panama City en arrière-plan"
 ---
 

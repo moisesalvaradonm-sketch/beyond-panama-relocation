@@ -6,7 +6,7 @@ category: lifestyle
 readTime: 10
 lang: fr
 draft: false
-image: /img/blog/moving-to-panama-relocation-checklist.webp
+image: /img/blog/mudarse-panama-lista-verificacion-expatriados.webp
 imageAlt: "Check-list de déménagement avec valise et vue sur le skyline de Panama City"
 ---
 

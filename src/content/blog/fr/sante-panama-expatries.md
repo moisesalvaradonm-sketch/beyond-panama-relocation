@@ -6,7 +6,7 @@ lang: fr
 category: lifestyle
 readTime: 8
 draft: false
-image: /img/blog/healthcare-in-panama-for-expats.webp
+image: /img/blog/salud-panama-extranjeros.webp
 imageAlt: "Patient expatrié consultant un médecin dans un hôpital moderne de Panama City avec vue sur le skyline"
 ---
 

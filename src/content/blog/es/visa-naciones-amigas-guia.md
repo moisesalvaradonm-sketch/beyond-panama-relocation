@@ -7,7 +7,7 @@ category: visas
 readTime: 8
 lang: es
 draft: false
-image: /img/blog/blog-friendly-full.webp
+image: /img/blog/friendly-nations-2026.webp
 imageAlt: "Visa de Naciones Amigas Panamá 2026 — requisitos de residencia y países elegibles"
 ---
 

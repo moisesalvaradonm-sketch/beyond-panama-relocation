@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: es
 draft: false
-image: /img/blog/blog-inversionista-full.webp
+image: /img/blog/inversionista-calificado-2026.webp
 imageAlt: "Actualización del régimen de Inversionista Calificado en Panamá 2026"
 ---
 

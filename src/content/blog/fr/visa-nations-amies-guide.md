@@ -7,7 +7,7 @@ category: visas
 readTime: 8
 lang: fr
 draft: false
-image: /img/blog/blog-friendly-full.webp
+image: /img/blog/friendly-nations-2026.webp
 imageAlt: "Visa Nations Amies Panama 2026 — conditions de résidence et pays éligibles"
 ---
 

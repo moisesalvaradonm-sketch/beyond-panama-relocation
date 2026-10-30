@@ -6,7 +6,7 @@ category: visas
 readTime: 9
 lang: fr
 draft: false
-image: /img/blog/panama-territorial-tax-guide.webp
+image: /img/blog/ventajas-fiscales-panama-expatriados.webp
 imageAlt: "Documents financiers et lunettes sur un bureau avec vue sur le skyline de Panama City"
 ---
 

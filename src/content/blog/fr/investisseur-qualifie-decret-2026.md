@@ -6,7 +6,7 @@ category: visas
 readTime: 8
 lang: fr
 draft: false
-image: /img/blog/blog-investisseur-full.webp
+image: /img/blog/investisseur-qualifie-2026.webp
 imageAlt: "Mise à jour du régime d'Investisseur Qualifié au Panama 2026"
 ---
 
